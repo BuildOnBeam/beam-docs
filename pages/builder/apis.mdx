@@ -1,4 +1,45 @@
-# APIs Overview
+# APIs
+
+## Beam Subnet-EVM API
+
+The Subnet-EVM APIs mirror the [Coreth](https://github.com/ava-labs/coreth) APIs with one exception - Avalanche Specific APIs, identifiable by the '`avax.`' prefix. In addition, Subnet-EVM supports standard Ethereum APIs, increasing its applicability. For in-depth information about Coreth APIs, please refer [here](https://docs.avax.network/apis/avalanchego/apis/c-chain).
+
+Moreover, Subnet-EVM introduces unique APIs not present in Coreth:
+
+- `eth_feeConfig`: Subnet-EVM comes with an API request for getting fee config at a specific block. You can use this API to check your activated fee config. ([Details](https://docs.avax.network/apis/avalanchego/apis/subnet-evm#eth_feeconfig))
+
+- `eth_getChainConfig`: eth_getChainConfig returns the Chain Config of the blockchain. This API is enabled by default with internal-blockchain namespace. ([Details](https://docs.avax.network/apis/avalanchego/apis/subnet-evm#eth_getchainconfig))
+
+
+- `eth_getActivePrecompilesAt`: eth_getActivePrecompilesAt returns activated precompiles at a specific timestamp. If no timestamp is provided it returns the latest block timestamp. This API is enabled by default with internal-blockchain namespace. ([Details](https://docs.avax.network/apis/avalanchego/apis/subnet-evm#eth_getactiveprecompilesat))
+
+
+### JSON-RPC Endpoint
+
+To interact with the Beam EVM via the JSON-RPC endpoint:
+
+```bash /blockchainID/
+/ext/bc/blockchainID/rpc
+```
+
+Where `blockchainID` is the ID of the blockchain running the EVM. Find the correct blockchain ID here for [Mainnet](https://subnets.avax.network/subnets) or [Testnet](https://subnets-test.avax.network/subnets). 
+
+### Example Call
+
+```bash /y97omoP2cSyEVfdSztQHXD9EnfnVP9YKjZwAxhUfGbLAPYT9t/
+curl -X POST --data '{
+"jsonrpc": "2.0",
+"method": "eth_feeConfig",
+"params": [
+"latest"
+],
+"id": 1
+}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/y97omoP2cSyEVfdSztQHXD9EnfnVP9YKjZwAxhUfGbLAPYT9t/rpc
+```
+
+This calls the function `eth_feeConfig` for the Beam Testnet (Blockchain ID `y97omoP2cSyEVfdSztQHXD9EnfnVP9YKjZwAxhUfGbLAPYT9t`).
+
+## APIs Overview
 
 Welcome to Beam's API overview. Find a variety of APIs each designed for a different purpose.
 

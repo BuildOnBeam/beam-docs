@@ -20,6 +20,10 @@ const config: DocsThemeConfig = {
   useNextSeoProps: () => ({
     titleTemplate: "%s | Beam",
   }),
+  primaryHue: { dark: 33, light: 33 },
+  feedback: {
+    content: null
+  },
 };
 
 export default config;
