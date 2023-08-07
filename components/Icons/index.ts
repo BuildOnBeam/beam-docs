@@ -1,3 +1,3 @@
 export { default as RowsIcon } from './rows.svg'
 export { default as CardsIcon } from './cards.svg'
-export * from './BeamIcon';
+export * from './beam-icon';

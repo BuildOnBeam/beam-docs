@@ -1,0 +1,14 @@
+{
+  "index": "🏠 Introduction",
+  "get-started": "🚀 Get Started",
+  "nodes": "⚙️ Node",
+  "builder": "🔨 Build on Beam",
+  "beam-ecosystem": "🌐 Beam Ecosystem",
+  "resources": "📚 Resources",
+  "contact": {
+    "title": "Contact ↗",
+    "type": "page",
+    "href": "https://twitter.com/BuildOnBeam",
+    "newWindow": true
+  }
+}
