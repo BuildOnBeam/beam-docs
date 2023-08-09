@@ -1,0 +1,26 @@
+name: CI Build validation & test
+
+on:
+  pull_request:
+    branches:
+      - develop
+      - main
+
+jobs:
+  cache-and-install:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📥 dependency installation
+        uses: ./.github/actions/pnpm-install
+      
+      # Runs the build script for each workspace
+      - name: Build
+        run: pnpm build
