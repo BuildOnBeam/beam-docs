@@ -1,0 +1,38 @@
+{
+  "index": "Introduction",
+  "--- Guides": {
+    "type": "separator",
+    "title": "Guides"
+  },
+  "your-game": {
+    "title": "Your game"
+  },
+  "creating-player": {
+    "title": "Creating a player"
+  },
+  "creating-account": {
+    "title": "Creating an account"
+  },
+  "--- References": {
+    "type": "separator",
+    "title": "References"
+  },
+  "sdk": {
+    "title": "SDKs"
+  },
+  "environments": "",
+  "full-api-reference": "",
+  "--- More": {
+    "type": "separator",
+    "title": "More"
+  },
+  "beam-chain": {
+    "title": "About beam",
+    "href": "/chain"
+  },
+  "about-merit-circle": {
+    "title": "About Merit Circle ↗",
+    "href": "https://meritcircle.io/",
+    "newWindow": true
+  }
+}
