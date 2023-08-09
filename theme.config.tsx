@@ -1,6 +1,6 @@
 import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
-import { BeamIcon } from "./components/Icons";
+import { BeamIcon } from "./components/beam-icons";
 
 const config: DocsThemeConfig = {
   logo: BeamIcon,
