@@ -3,23 +3,21 @@ import { DocsThemeConfig } from "nextra-theme-docs";
 import { BeamIcon } from "./components/Icons";
 
 const config: DocsThemeConfig = {
-  logo: <BeamIcon />,
+  logo: BeamIcon,
   project: {
-    link: "https://github.com/Merit-Circle/beam-docs",
+    link: "https://docs.onbeam.com/",
   },
-  chat: {
-    link: "https://discord.com",
-  },
-  docsRepositoryBase: "https://github.com/Merit-Circle/beam-docs/tree/main",
+  docsRepositoryBase: "https://github.com/Merit-Circle/beam-docs",
+  useNextSeoProps: () => ({
+    titleTemplate: "%s | Beam",
+  }),
   footer: {
     text: "© 2023 Merit Circle",
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,
   },
-  useNextSeoProps: () => ({
-    titleTemplate: "%s | Beam",
-  }),
+
   primaryHue: { dark: 33, light: 33 },
   feedback: {
     content: null
