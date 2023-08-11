@@ -5,10 +5,17 @@
   "builder": "🔨 Build on Beam",
   "beam-ecosystem": "🌐 Beam Ecosystem",
   "resources": "📚 Resources",
-  "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://twitter.com/BuildOnBeam",
+  "--- More": {
+    "type": "separator",
+    "title": "More"
+  },
+  "beam-chain": {
+    "title": "About Beam API/SDK",
+    "href": "/service"
+  },
+  "about-merit-circle": {
+    "title": "About Merit Circle ↗",
+    "href": "https://meritcircle.io/",
     "newWindow": true
   }
 }

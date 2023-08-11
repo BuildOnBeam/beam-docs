@@ -7,7 +7,7 @@ const config: DocsThemeConfig = {
   project: {
     link: "https://docs.onbeam.com/",
   },
-  docsRepositoryBase: "https://github.com/Merit-Circle/beam-docs",
+  docsRepositoryBase: "https://github.com/Merit-Circle/beam-docs/tree/main",
   useNextSeoProps: () => ({
     titleTemplate: "%s | Beam",
   }),
