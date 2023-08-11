@@ -20,7 +20,11 @@ const config: DocsThemeConfig = {
 
   primaryHue: { dark: 33, light: 33 },
   feedback: {
-    content: null
+    content: null,
+  },
+  darkMode: false,
+  nextThemes: {
+    defaultTheme: "dark",
   },
 };
 
