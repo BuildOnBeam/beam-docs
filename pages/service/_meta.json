@@ -7,11 +7,14 @@
   "your-game": {
     "title": "Your game"
   },
-  "creating-player": {
-    "title": "Creating a player"
+  "profiles": {
+    "title": "Profiles"
   },
-  "creating-account": {
-    "title": "Creating an account"
+  "users": {
+    "title": "Users"
+  },
+  "assets": {
+    "title": "Assets"
   },
   "--- References": {
     "type": "separator",
@@ -27,8 +30,9 @@
     "title": "More"
   },
   "beam-chain": {
-    "title": "About beam",
-    "href": "/chain"
+    "title": "About beam ↗",
+    "href": "https://www.onbeam.com/",
+    "newWindow": true
   },
   "about-merit-circle": {
     "title": "About Merit Circle ↗",

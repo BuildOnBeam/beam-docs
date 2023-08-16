@@ -1,0 +1,15 @@
+# Assets
+
+An important aspect of Profiles are Assets. Note that being able to manage assets for your game and your players starts with a game registration in Beam that has the correct asset contracts registered within it.
+
+You can sanity check your registered contracts by running the following request:
+
+````md filename="Game information"
+GET https://api.testnet.onbeam.com/api/v1/game
+````
+
+If the asset contracts for your game are present, that means that the contracts should should be registered within Beam. If they are, the assets on the contracts will be indexed through the Beam marketplace, this means you can simply get a list of all assets within your contract (and owner/listing information from Beam marketplace) by calling the following enpdoint.
+
+````md filename="Game assets"
+GET https://api.testnet.onbeam.com/api/v1/assets/{contractAddress}
+````

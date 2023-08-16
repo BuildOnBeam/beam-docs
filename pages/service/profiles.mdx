@@ -1,0 +1,37 @@
+# Profiles
+Within Beam, you as the game developer will be working with Profiles. A profile is an entity within Beam, which represents an umbrella of wallets for different blockchains. When you create a profile, we will automatically create a wallet for the profile on Beam chain. Note that the wallet on Beam won't show up on the blockchain up until you fire a first transaction. 
+
+Currently, we only support compatibility with Beam chain - but in the future, you will be able to create wallets for different blockchains within the same profile.
+
+
+## How to use Profiles
+
+How you implement profiles, is a strategic decisions you will have to make as a game developer. To give some meaning to that statement, here's a couple of things you will be able to do:
+
+* If you want to support cross-play, and assets should be accessible for user on every platform, you are responsible for ensuring you interact with the Beam service using the same Profile ID on both platforms
+* If your game is build around the concept of trading, you might want to create a Profile per in-game character. This would allow your users to - in the future - give away/trade or sell their Profiles through Beam
+
+
+## How do I create a profile
+
+You create a profile by using the 'CreateProfile' method. The only thing we require you to send us, is an ID. You decide what this ID is.
+A couple of examples what this ID could contain:
+
+* An e-mailaddress
+* A hashed string representings the in-game ID you use on the application 
+* An account ID by your SSO provider
+
+It's up to you! But consider this carefully: in case of an application emergency, you will want to be able to restore which player in your game owns which profiles.
+
+
+## Users and Profiles (Releasing fall 2023)
+Users in Beam are the players of your game: you create Profiles, and you can allow the User to manage their profiles through the Beam companion app (releasing fall 2023)
+
+Since your player might be playing your game anonymously - and even you don't know what person is behind the player - we are giving you the tools too allow the player connecting with your game in a privacy friendly way through Connection Requests
+
+You can create a Profile Connection Request by using the `CreateConnectionRequest` method. It requires you to pass a Profile ID, and returns you a challenge. Based on the platform you are using, you will need to take an extra step:
+
+* If your game is running on a console, PC or within a browser - we recommend you to encode the challenge in a QR code
+* If your game is running on iOS or Android, you could pass the challenge down a deeplink
+
+The user will scan the QR code with the companion app, which is how we create a relationship between the Companion user and the Profile you've registered. By providing a `callbackUrl` when creating a Connection Request, you'll also be receiving the User ID through a POST request on the provided callback (webhook)
