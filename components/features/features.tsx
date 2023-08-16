@@ -11,14 +11,14 @@ export function Feature({ label }) {
 }
 
 const FEATURES_LIST = [
-  { label: "lorem ipsum a" },
-  { label: "lorem ipsum b" },
-  { label: "lorem ipsum c" },
-  { label: "lorem ipsum d" },
-  { label: "lorem ipsum e" },
-  { label: "lorem ipsum f" },
-  { label: "lorem ipsum g" },
-  { label: "lorem ipsum h" }
+  // { label: "lorem ipsum a" },
+  // { label: "lorem ipsum b" },
+  // { label: "lorem ipsum c" },
+  // { label: "lorem ipsum d" },
+  // { label: "lorem ipsum e" },
+  // { label: "lorem ipsum f" },
+  // { label: "lorem ipsum g" },
+  // { label: "lorem ipsum h" }
 ];
 
 export function Features() {
