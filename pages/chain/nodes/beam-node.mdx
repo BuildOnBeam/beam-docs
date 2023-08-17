@@ -3,7 +3,10 @@ import { Steps } from 'nextra-theme-docs'
 
 # Beam Node
 
-**tbd: All settings are for testnet, need to update with mainnet release**
+<Callout type="warning" emoji="⚠️">
+  All settings are for the Beam testnet. An update for the Beam mainnet will follow later.
+</Callout>
+
 
 To run your own Beam Node, no matter if you plan to run a validator node or a non-validating node, you have to install AvalancheGo. The easiest method is using the installer which you can find [here](https://docs.avax.network/nodes/build/set-up-node-with-installer).
 
@@ -100,3 +103,12 @@ Beam Testnet example logfile location:
 `~/.avalanchego/logs/y97omoP2cSyEVfdSztQHXD9EnfnVP9YKjZwAxhUfGbLAPYT9t.log{:bash}`
 
 To better understand how your Node and Subnet are working, you can set up a tool called Prometheus+Grafana. This tool helps you monitor their performance and comes with easy-to-read charts for regular operations and specific Subnet data. There's a [step-by-step guide](https://docs.avax.network/nodes/maintain/setting-up-node-monitoring) available to help you get it all set up.
+
+
+## Next Steps
+
+Now that you've launched your Beam node, what should you do next?
+
+Your Beam node will perform consensus on its own, but it is not yet a validator on the network. This means that the rest of the network will not query your node when sampling the network during consensus. If you want to add your node as a validator, follow the instructions on [how to join the network as a validator](/chain/nodes/validator).
+
+Take a look at the [AVAX Maintenance](https://docs.avax.network/nodes#maintain) section to understand how to maintain your node.
