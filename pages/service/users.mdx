@@ -1,0 +1,22 @@
+# Users
+
+Users within Beam, are the players of your game who are also using the Beam companion app. We want you not to worry about Users. As a game developer, you will be creating profiles.
+
+## How will a user obtain a profile?
+
+Users in Beam are the players of your game: you create Profiles, and you can allow the User to manage their profiles through the Beam companion app (releasing fall 2023)
+
+Since your player might be playing your game anonymously - and even you don't know what person is behind the player - we are giving you the tools too allow the player connecting with your game in a privacy friendly way through Connection Requests
+
+### Connection request
+
+```typescript
+const profile = await beam.profiles.createConnectionRequest('profileID');
+```
+
+You can create a Profile Connection Request by using the `CreateConnectionRequest` method. It requires you to pass a Profile ID, and returns you a challenge. Based on the platform you are using, you will need to take an extra step:
+
+* If your game is running on a console, PC or within a browser - we recommend you to encode the challenge in a QR code
+* If your game is running on iOS or Android, you could pass the challenge down a deeplink
+
+The user will scan the QR code with the companion app, which is how we create a relationship between the Companion user and the Profile you've registered. By providing a `callbackUrl` when creating a Connection Request, you'll also be receiving the User ID through a POST request on the provided callback (webhook)

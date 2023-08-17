@@ -1,0 +1,52 @@
+# Game
+
+Your game registration within Beam consists of information that is managed by Beam, and information manageable by you. When we register your API key, we'll also be in touch about the assets you want to register in your game. We can either provide contract templates for generic in-game currencies, but are also happy to help you with bridging over assets from one chain to another - be in touch!
+
+The registered contracts and policies allow you to interact with profiles and assets in Beam. As of writing, we don't allow you to add more asset contracts to your game in Beam manually, as there are a couple of manual steps involved with ensuring the contract is not just added to your game, but also deployed correctly and indexed from the blockchain. To make this a bit more tangible:
+
+* You are able to manage fields like the name of your game, a description and a cover image (used within the Beam companion app)
+* We will register / add your asset contracts and policies for your game based on your speciic needs
+
+
+## Retrieving your game
+
+```typescript
+import { Beam } from '@onbeam/node';
+ 
+const beam = new Beam('x-api-key');
+
+const game = await beam.game.getGame()
+
+// {
+//   "id": "string",
+//   "name": "string",
+//   "contracts": [
+//     {
+//       "type": "ERC20",
+//      ...
+//     }
+//   ],
+//   "policies": [
+//     {
+//       "id": "string",
+//       ...
+//     }
+//   ]
+// }
+```
+
+## Updating your game
+
+Some of the fields for your game's registration in Beam will be used in the upcoming Beam companion app. You can update through the `updateGame` method that's available on any of our [SDK's](/service/sdk) or by directly communicating with our [RESTful API](/service/full-api-reference)
+
+```typescript
+import { Beam } from '@onbeam/node';
+ 
+const beam = new Beam('x-api-key');
+
+await beam.game.updateGame({
+    name: 'New name',
+    description: 'Lorem ipsum dolor...',
+    coverImageUrl: 'ipfs://..'
+})
+```

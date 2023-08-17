@@ -1,0 +1,42 @@
+{
+  "index": "Introduction",
+  "--- Guides": {
+    "type": "separator",
+    "title": "Guides"
+  },
+  "your-game": {
+    "title": "Your game"
+  },
+  "profiles": {
+    "title": "Profiles"
+  },
+  "users": {
+    "title": "Users"
+  },
+  "assets": {
+    "title": "Assets"
+  },
+  "--- References": {
+    "type": "separator",
+    "title": "References"
+  },
+  "sdk": {
+    "title": "SDKs"
+  },
+  "environments": "",
+  "full-api-reference": "",
+  "--- More": {
+    "type": "separator",
+    "title": "More"
+  },
+  "beam-chain": {
+    "title": "About beam ↗",
+    "href": "https://www.onbeam.com/",
+    "newWindow": true
+  },
+  "about-merit-circle": {
+    "title": "About Merit Circle ↗",
+    "href": "https://meritcircle.io/",
+    "newWindow": true
+  }
+}

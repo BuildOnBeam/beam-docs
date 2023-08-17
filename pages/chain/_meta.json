@@ -1,0 +1,21 @@
+{
+  "index": "🏠 Introduction",
+  "get-started": "🚀 Get Started",
+  "nodes": "⚙️ Node",
+  "builder": "🔨 Build on Beam",
+  "beam-ecosystem": "🌐 Beam Ecosystem",
+  "resources": "📚 Resources",
+  "--- More": {
+    "type": "separator",
+    "title": "More"
+  },
+  "beam-chain": {
+    "title": "About Beam API/SDK",
+    "href": "/service"
+  },
+  "about-merit-circle": {
+    "title": "About Merit Circle ↗",
+    "href": "https://meritcircle.io/",
+    "newWindow": true
+  }
+}
