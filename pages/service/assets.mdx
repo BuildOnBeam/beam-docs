@@ -1,15 +1,26 @@
 # Assets
 
-An important aspect of Profiles are Assets. Note that being able to manage assets for your game and your players starts with a game registration in Beam that has the correct asset contracts registered within it.
+An important aspect of Profiles are Assets. Profiles are custodial, and authorized through your API key you are able to transfer / trade and manage assets of the profiles of your users - for as long as the users are custodial. In late 2023, we're aiming to release a feature for users to take self-custody of their accounts, but you'll be in control of implementing the feature to allow them to take custody. This means that once you are integrating the [User connection](/service/users) functionality of Beam, you should consider that the user could become a self-custodial user at any moment.
 
-You can sanity check your registered contracts by running the following request:
 
-````md filename="Game information"
-GET https://api.testnet.onbeam.com/api/v1/game
-````
+### Managing assets between profiles
+Profiles are custodial, and through your API key you are able to transfer / trade and manage assets of the profiles of your users - for as long as the users are custodial.
 
-If the asset contracts for your game are present, that means that the contracts should be registered within Beam. If they are, the assets on the contracts will be indexed through the Beam marketplace, this means you can simply get a list of all assets within your contract (and owner/listing information from Beam marketplace) by calling the following endpoint.
+```typescript
+import { Beam } from '@onbeam/node';
+ 
+const beam = new Beam('x-api-key');
+ 
+const transfer = await beam.assets.transfer({
+  sender: 'ProfileID-A',
+  receiver: 'ProfileID-B',
+  assetAddress: '0x0',
+  tokenId: 23
+})
+```
 
-````md filename="Game assets"
-GET https://api.testnet.onbeam.com/api/v1/assets/{contractAddress}
-````
+## Who owns the assets in the profiles?
+
+Profiles are **custodial**. This means that the creator of the profile - you - will be able to manage the profile, and transfer assets in and out of the profile authorized by your API key.
+
+We allow the [user](/service/users) that links up to the profile, to also manage these assets through the upcoming Beam companion app. This means that assets that you provide to the profile, could be there at one moment, but could be sold to another player of your game in the next moment.
