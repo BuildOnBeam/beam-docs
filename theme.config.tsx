@@ -9,7 +9,8 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: "https://github.com/Merit-Circle/beam-docs/tree/main",
   useNextSeoProps: () => ({
-    titleTemplate: "%s | Beam",
+    titleTemplate: "%s | Beam documentation",
+    description: 'Beam is a sovereign network focused on gaming brought to you by the Merit Circle DAO.'
   }),
   footer: {
     text: "© 2023 Merit Circle",
