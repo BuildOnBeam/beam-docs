@@ -12,7 +12,11 @@ How you implement profiles, is a strategic decisions you will have to make as a 
 * If your game is build around the concept of trading, you might want to create a Profile per in-game character. This would allow your users to - in the future - give away/trade or sell their Profiles through Beam
 
 
-## How do I create a profile
+## How do I create a profile?
+
+```typescript
+const profile = await beam.profiles.createProfile('profileID');
+```
 
 You create a profile by using the 'CreateProfile' method. The only thing we require you to send us, is an ID. You decide what this ID is.
 A couple of examples what this ID could contain:
@@ -24,10 +28,48 @@ A couple of examples what this ID could contain:
 It's up to you! But consider this carefully: in case of an application emergency, you will want to be able to restore which player in your game owns which profiles.
 
 
+## What does a profile contain?
+
+```typescript
+const profile = await beam.profiles.getProfile('profileID');
+
+// {
+//   "id": "string",
+//   "gameId": "string",
+//   "externalId": "string",
+//   "wallets": [
+//     {
+//       "id": "string",
+//       "externalId": "string",
+//       "address": "string",
+//       "chainId": 0,
+//       ...
+//     }
+//   ]
+// }
+```
+
+A profile  contains a very limited set of information:
+
+* the profile ID you provided us - `id`
+* your game's ID - `gameId`
+* the ID we use to manage the profile - `externalId`
+* the wallets
+
+At the moment of writing, the wallets array will only contain a single wallet - the Beam chain wallet. We are considering opening up interoperability in the future, meaning that there would be a wallet per supported chain available in this field.
+
+
 ## Users and Profiles (Releasing fall 2023)
+
 Users in Beam are the players of your game: you create Profiles, and you can allow the User to manage their profiles through the Beam companion app (releasing fall 2023)
 
 Since your player might be playing your game anonymously - and even you don't know what person is behind the player - we are giving you the tools too allow the player connecting with your game in a privacy friendly way through Connection Requests
+
+### Connection request
+
+```typescript
+const profile = await beam.profiles.createConnectionRequest('profileID');
+```
 
 You can create a Profile Connection Request by using the `CreateConnectionRequest` method. It requires you to pass a Profile ID, and returns you a challenge. Based on the platform you are using, you will need to take an extra step:
 
