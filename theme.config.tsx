@@ -5,12 +5,13 @@ import { BeamIcon } from "./components/beam-icons";
 const config: DocsThemeConfig = {
   logo: BeamIcon,
   project: {
-    link: "https://docs.onbeam.com/",
+    link: "https://github.com/Merit-Circle/beam-docs",
   },
   docsRepositoryBase: "https://github.com/Merit-Circle/beam-docs/tree/main",
   useNextSeoProps: () => ({
     titleTemplate: "%s | Beam documentation",
-    description: 'Beam is a sovereign network focused on gaming brought to you by the Merit Circle DAO.'
+    description:
+      "Beam is a sovereign network focused on gaming brought to you by the Merit Circle DAO.",
   }),
   footer: {
     text: "© 2023 Merit Circle",
