@@ -1,0 +1,36 @@
+import { Callout } from 'nextra/components'
+
+# Gas Token
+
+The Merit Circle Token (MC) is the native currency used within the Beam network to pay for transactions. This concerns every single transaction that may occur on the network from simply transferring funds to deploying smart contracts. 
+
+
+<Callout type="warning">
+  The following section will only be active after the developer preview mode is completed, and the network upgrade to PoS has occurred. [Learn more](/chain/nodes/validator#developer-preview-mode)
+</Callout>
+
+The gas paid for each transaction will then be divided in two categories:
+
+**Validator**: Those who are validating and securing the network, and thereby ensuring its safety and performance will receive a reward in MC tokens in return.
+
+**Burn**: Part of the transaction fee used as gas will be burned and therefore permanently find their way out of circulation causing a deflationary effect.
+
+The exact split is still to be determined.
+
+
+## Fee config
+
+```json filename="genesis.json"
+"feeConfig": {
+    "gasLimit": 8000000,
+    "targetBlockRate": 2,
+    "minBaseFee": 10000000000,
+    "targetGas": 50000000,
+    "baseFeeChangeDenominator": 72,
+    "minBlockGasCost": 0,
+    "maxBlockGasCost": 1000000,
+    "blockGasCostStep": 100000
+}
+```
+These parameters collectively regulate the gas token economics within Beam, influencing fees and transaction processing on the network. To learn more details about these settings, view https://docs.avax.network/build/subnet/upgrade/customize-a-subnet#fee-config.
+
