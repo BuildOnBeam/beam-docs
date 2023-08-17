@@ -1,0 +1,9 @@
+{
+  "printWidth": 100,
+  "semi": true,
+  "arrowParens": "avoid",
+  "singleQuote": true,
+  "trailingComma": "all",
+  "bracketSameLine": false,
+  "organizeImportsSkipDestructiveCodeActions": true
+}
