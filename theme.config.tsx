@@ -15,7 +15,7 @@ const config: DocsThemeConfig = {
 
     const ogTitle = 'Hello Beam! | Beam documentation';
     const ogDescription = 'Beam is a sovereign network focused on gaming brought to you by the Merit Circle DAO.';
-    const ogImage = '/beam-icon-builder.png'
+    const ogImage = '/beam-development-docs.png'
 
     return (
       <>
@@ -37,13 +37,13 @@ const config: DocsThemeConfig = {
           sizes="16x16"
           href="/favicon-16x16.png"
         />
-        <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
-        <link rel="manifest" href="/favicon/site.webmanifest" />
-        <link
+        {/* <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" /> */}
+        <link rel="manifest" href="/site.webmanifest" />
+        {/* <link
           rel="mask-icon"
           href="/favicon/safari-pinned-tab.svg"
           color="#000000"
-        />
+        /> */}
         <meta httpEquiv="Content-Language" content="en-US" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="apple-mobile-web-app-title" content="Beam" />
