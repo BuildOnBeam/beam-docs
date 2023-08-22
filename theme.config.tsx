@@ -15,7 +15,7 @@ const config: DocsThemeConfig = {
 
     const ogTitle = 'Hello Beam! | Beam documentation';
     const ogDescription = 'Beam is a sovereign network focused on gaming brought to you by the Merit Circle DAO.';
-    const ogImage = '/beam-development-docs.png'
+    const ogImage = 'https://docs.onbeam.com/beam-development-docs.png'
 
     return (
       <>
