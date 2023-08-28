@@ -1,29 +1,55 @@
 import { Callout } from 'nextra/components'
 import { Steps } from 'nextra-theme-docs'
 
-
 # Bridge
-
 
 ## LayerZero Bridge Guide
 
 <Callout type="warning" emoji="⚠️">
-  LayerZero Bridge process
+  Ensure you understand the risks and technical details of the LayerZero Bridge process before proceeding. It is crucial to double-check all transaction details and addresses.
 </Callout>
+
 <Steps>
  
 ### Access Bridge
- 
-To access the LayerZero Bridge goto TBD.
- 
+
+To access the LayerZero Bridge, navigate to [bridge.onbeam.com](https://bridge.onbeam.com).
+
 ### Connect your Wallet
- 
-To interact with the bridge you have to connect your wallet
- 
+
+1. Once you're on the bridge page, locate and click on the "Connect Wallet" button.
+2. Choose the appropriate wallet type from the list.
+3. Follow the prompts to authorize the bridge to interact with your wallet.
+
+### Choose the Source and Destination
+
+1. Once your wallet is connected, select the asset you wish to bridge from the drop-down list.
+2. Choose the destination network (Beam mainnet or testnet) to which you want to bridge the asset.
+3. Input the amount you wish to send and provide the destination address.
+
+### Confirm and Send
+
+1. Review the transaction details thoroughly.
+2. If everything is correct, click on the "Bridge" button to initiate the transaction.
+3. Wait for the transaction to be confirmed on the source network and then on the Beam network.
+
 </Steps>
 
 ## FAQ
 
 ### What are OFTs?
 
-OFT refer to Omnichain Fungible Tokens. They enable a token to be sent across current (and even future) chains. There is no requirement for liquidity, and there are no fees!
+OFTs refer to Omnichain Fungible Tokens. These tokens are designed to seamlessly traverse various blockchain networks, making them highly versatile. With OFTs, you can send a token across existing chains and even future ones without the need for liquidity or incurring additional fees.
+
+### How do I add my token to the Beam Bridge?
+
+If you're a token owner or developer and want your token to be available for bridging on the Beam network, please reach out by contacting [the Beam team](mailto:hello@onbeam.com).
+
+### Are there any fees associated with the bridge?
+
+While OFTs do not require liquidity or fees, users should be aware of standard network transaction fees which might be applicable depending on the source or destination network.
+
+### Is the Beam Bridge safe?
+
+The LayerZero Bridge is built on top of the robust and secure Layer Zero framework. However, as with all cryptocurrency transactions, users are advised to be cautious, double-check all details, and understand the risks involved.
+
