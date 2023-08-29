@@ -6,11 +6,6 @@ import { Steps } from 'nextra-theme-docs'
 
 # Beam Node
 
-<Callout type="warning" emoji="⚠️">
-  All settings are for the Beam testnet. An update for the Beam mainnet will follow later.
-</Callout>
-
-
 To run your own Beam Node, no matter if you plan to run a validator node or a non-validating node, you have to install AvalancheGo. The easiest method is using the installer which you can find [here](https://docs.avax.network/nodes/build/set-up-node-with-installer).
 
 Once you have a running AvalancheGo installation, you need to add the Beam Subnet-EVM to track the Beam Subnet in your node.
@@ -42,6 +37,10 @@ The long string `kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz` is the CB58 
 
 To start tracking the Beam Subnet update your node config in your favorite editor.
 
+<Callout type="info">
+The installation script creates the node configuration file at `~/.avalanchego/configs/node.json`. If AvalancheGo is built from source, no default file is created; you would need to create it manually if needed.
+</Callout>
+
 ```bash copy
 nano ~/.avalanchego/configs/node.json
 ```
@@ -50,12 +49,26 @@ Add the "`track-subnets`" option to node config.
 ```json
 {
 	<OTHER-CONFIGURATIONS>
-	"track-subnets": "ie1wUBR2bQDPkGCRf2CBVzmP55eSiyJsFYqeGXnTYt2r33aKW"
+	"track-subnets": "eYwmVU67LmSfZb1RwqCMhBYkFyG8ftxn6jAwqzFmxC9STBWLC"
 }
 ```
 If you want to track more than one subnet, you can add them as comma separated list. 
 
-As an alternative to the config file you can pass the blockchain ID as parameter during the node start-up with `--track-subnets ie1wUBR2bQDPkGCRf2CBVzmP55eSiyJsFYqeGXnTYt2r33aKW`. 
+As an alternative to the config file you can pass the subnet ID as parameter during the node start-up with `--track-subnets eYwmVU67LmSfZb1RwqCMhBYkFyG8ftxn6jAwqzFmxC9STBWLC`. 
+
+### Seed the network upgrade file
+
+To get the latest network upgrades we will get the network upgrade file `upgrade.json` and place it into the correct directory. If you haven't used the installer your config directory might be in a different location, the file should be placed in `{chain-config-dir}/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn/upgrade.json` where `2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn` is the `{blockchainID}`.
+
+Create the config directory for Beam and download the `upgrade.json` file from Github:
+
+```bash copy
+mkdir ~/.avalanchego/configs/chains/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn
+```
+```bash copy
+wget https://raw.githubusercontent.com/Merit-Circle/beam-subnet/main/subnets/beam-mainnet/upgrade.json
+```
+
 
 ### Restarting the Node
 
@@ -63,14 +76,14 @@ After you have updated your config, you have to restart your node to start track
 
 **Commands for Node Management:** 
 
+Restart your node:
+```bash copy
+sudo systemctl restart avalanchego
+```
+
 Stop your node: 
 ```bash copy
 sudo systemctl stop avalanchego
-```
-
-Check node status: 
-```bash copy
-sudo systemctl status avalanchego
 ```
 
 Start your node:
@@ -78,6 +91,15 @@ Start your node:
 sudo systemctl start avalanchego
 ```
 
+Check node status: 
+```bash copy
+sudo systemctl status avalanchego
+```
+
+To follow the log use (ctrl-c to stop):
+```bash copy
+sudo journalctl -u avalanchego -f
+```
 </Steps>
 
 
@@ -87,12 +109,12 @@ sudo systemctl start avalanchego
 
 If you want to inspect the process of Subnet syncing, you can use the RPC call `platform.getBlockchainStatus`:
 
-```bash /y97omoP2cSyEVfdSztQHXD9EnfnVP9YKjZwAxhUfGbLAPYT9t/ copy
+```bash /2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn/ copy
 curl -X POST --data '{
 "jsonrpc": "2.0",
 "method": "platform.getBlockchainStatus",
 "params":{
-"blockchainID":"y97omoP2cSyEVfdSztQHXD9EnfnVP9YKjZwAxhUfGbLAPYT9t"
+"blockchainID":"2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn"
 },
 "id": 1
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/P
@@ -103,7 +125,7 @@ For an explanation of the response, check the [API docs](https://docs.avax.netwo
 If you want to understand your Subnet better, take a look at the blockchain log. Normally, you can find this log in `~/.avalanchego/logs/ChainID.log{:bash}`. Just replace "`ChainID`" with the real ID of your blockchain in your Subnet.
 
 Beam Testnet example logfile location: 
-`~/.avalanchego/logs/y97omoP2cSyEVfdSztQHXD9EnfnVP9YKjZwAxhUfGbLAPYT9t.log{:bash}`
+`~/.avalanchego/logs/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn.log{:bash}`
 
 To better understand how your Node and Subnet are working, you can set up a tool called Prometheus+Grafana. This tool helps you monitor their performance and comes with easy-to-read charts for regular operations and specific Subnet data. There's a [step-by-step guide](https://docs.avax.network/nodes/maintain/setting-up-node-monitoring) available to help you get it all set up.
 
@@ -115,3 +137,48 @@ Now that you've launched your Beam node, what should you do next?
 Your Beam node will perform consensus on its own, but it is not yet a validator on the network. This means that the rest of the network will not query your node when sampling the network during consensus. If you want to add your node as a validator, follow the instructions on [how to join the network as a validator](/chain/nodes/validator).
 
 Take a look at the [AVAX Maintenance](https://docs.avax.network/nodes#maintain) section to understand how to maintain your node.
+
+## Commands for Beam Testnet Node
+
+Here are the commands for a Beam Testnet node:
+
+```bash /kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz/
+mkdir subnetevm
+cd subnetevm
+wget https://github.com/ava-labs/subnet-evm/releases/download/v0.5.3/subnet-evm_0.5.3_linux_amd64.tar.gz
+tar -xvzf subnet-evm_0.5.3_linux_amd64.tar.gz
+cp subnet-evm ~/.avalanchego/plugins/kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz
+```
+
+```bash copy
+nano ~/.avalanchego/configs/node.json
+```
+
+```json
+{
+	<OTHER-CONFIGURATIONS>
+	"track-subnets": "yie1wUBR2bQDPkGCRf2CBVzmP55eSiyJsFYqeGXnTYt2r33aKW"
+}
+```
+
+```bash copy
+mkdir ~/.avalanchego/configs/chains/y97omoP2cSyEVfdSztQHXD9EnfnVP9YKjZwAxhUfGbLAPYT9t
+```
+```bash copy
+wget https://raw.githubusercontent.com/Merit-Circle/beam-subnet/main/subnets/beam-testnet/upgrade.json
+```
+
+```bash copy
+sudo systemctl restart avalanchego
+```
+
+```bash /y97omoP2cSyEVfdSztQHXD9EnfnVP9YKjZwAxhUfGbLAPYT9t/ copy
+curl -X POST --data '{
+"jsonrpc": "2.0",
+"method": "platform.getBlockchainStatus",
+"params":{
+"blockchainID":"y97omoP2cSyEVfdSztQHXD9EnfnVP9YKjZwAxhUfGbLAPYT9t"
+},
+"id": 1
+}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/P
+```
