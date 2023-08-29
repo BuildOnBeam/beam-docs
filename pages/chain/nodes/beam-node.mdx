@@ -1,5 +1,5 @@
 ---
-description: 'Guide to setting up a Beam Node on the Beam testnet, detailing installation and monitoring steps for optimum node functionality.'
+description: 'Guide to setting up a Beam Node on the Beam, detailing installation and monitoring steps for optimum node functionality.'
 ---
 import { Callout } from 'nextra/components'
 import { Steps } from 'nextra-theme-docs'
@@ -56,18 +56,21 @@ If you want to track more than one subnet, you can add them as comma separated l
 
 As an alternative to the config file you can pass the subnet ID as parameter during the node start-up with `--track-subnets eYwmVU67LmSfZb1RwqCMhBYkFyG8ftxn6jAwqzFmxC9STBWLC`. 
 
-### Seed the network upgrade file
+### Apply Network Upgrades
 
-To get the latest network upgrades we will get the network upgrade file `upgrade.json` and place it into the correct directory. If you haven't used the installer your config directory might be in a different location, the file should be placed in `{chain-config-dir}/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn/upgrade.json` where `2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn` is the `{blockchainID}`.
+Download the latest `upgrade.json` file and place it in the appropriate directory.
 
-Create the config directory for Beam and download the `upgrade.json` file from Github:
+Create the config directory for Beam and download the `upgrade.json` file from GitHub:
 
 ```bash copy
 mkdir ~/.avalanchego/configs/chains/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn
 ```
+
 ```bash copy
 wget https://raw.githubusercontent.com/Merit-Circle/beam-subnet/main/subnets/beam-mainnet/upgrade.json
 ```
+
+If you haven't used the installer, your config directory may be located elsewhere. In that case, place the file in `{chain-config-dir}/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn/`, where `2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn` is the `{blockchainID}`.
 
 
 ### Restarting the Node
