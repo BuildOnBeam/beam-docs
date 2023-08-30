@@ -1,0 +1,97 @@
+# Match profiles
+
+One of the less obvious use-cases for profiles is using them for escrow purposes, instead of using them for managing player assets..
+
+A common scenario in web3 gaming are X games. Every player can participiate in a PvP-match, but has to put one of their assets on the line - and you don't want players to be able to simply disconnect or moving their assets through the companion app right before they loose a match.
+
+It could make sense to create a profile for these types of PvP matches - requiring everyone who wants to join a match to send one of their assets into said match profile. As the match profile was never [linked to a user](/service/profiles/users-and-profiles), it remains in your custody as the game developer - offering no way for users to further interact with these assets up until the point that you send them back to their player-profile.
+
+
+Let's go through the steps you would need to take in order to properly set this up within by providing an actual scenario. In our scenario, Player A wants to create a 1v1 PvP match where the winner takes all. Player A goes through your game it's UI that allows them to create a match.
+
+The first step you would need to do is to create a match. Please note that since the match is a new profile, it's important to track which player (in our case: player A) initiated the match, and to store the match-profile-ID somehwere with the player-profile-ID.
+
+```typescript
+const match = await beam.profiles.createProfile('match-profile-id');
+
+// {
+//   "id": "string",
+//   "gameId": "string",
+//   "wallets": [
+//     {
+//       "id": "string",
+//       "address": "string",
+//       ...
+//     }
+//   ]
+// }
+```
+
+Now that the match is created, player A needs an opponnent. Whenever matches are public or invite-only: that's up to you. For the scenario, we'll assume that Player A invited a friend to play against him: Player B. They are now both waiting in the lobby where the important next step needs to happen: they both need to put one of their assets on the line.
+
+In order to do that, you want both players to select an asset belonging to one of your on-chain contracts. Whenever the player picks their own assets - or whenever you want Player A to select an asset from player B, and vice versa for player B - that's up to you.
+
+To list the assets per profile, you could use the `getProfileAssets` method.
+
+```typescript
+const playerAssets = await beam.assets.getProfileAssets('player-a-profile-id', {
+  assetAddress: '0x9eeaecbe2884aa7e82f450e3fc174f30fc2a8de3'
+});
+```
+
+Once both player selected their asset they need to be moved to the match profile. Once the transfer is completed, the asset is outside of the players their control. Note that at the moment of writing we don't offer a way to 'listen' to on-chain events, but as per our [roadmap](/service/roadmap), we are aiming to have this ready at the end of 2023.
+
+
+Transfering player A their asset:
+
+```typescript
+const transfer = await beam.assets.transfer({
+  sender: 'player-a-profile-id',
+  receiver: 'match-profile-id',
+  assetAddress: '0x9eeaecbe2884aa7e82f450e3fc174f30fc2a8de3',
+  tokenId: 23
+})
+
+// {
+//   "id": "string",
+//   "transactionhash": '0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f',
+//   "explorerUrl": "https://subnets.avax.network/beam/0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f"
+// }
+```
+
+Idem for player B:
+
+
+```typescript
+const transfer = await beam.assets.transfer({
+  sender: 'player-b-profile-id',
+  receiver: 'match-profile-id',
+  assetAddress: '0x9eeaecbe2884aa7e82f450e3fc174f30fc2a8de3',
+  tokenId: 76
+})
+
+// {
+//   "id": "string",
+//   "transactionhash": '0xf9016b49af4853657344534e0a6532ad2c66ffebc0e5a3a3f766ed8644375532',
+//   "explorerUrl": "https://subnets.avax.network/beam/0xf9016b49af4853657344534e0a6532ad2c66ffebc0e5a3a3f766ed8644375532"
+// }
+```
+
+
+You are able to validate the existence of the asset in the match-profile by simply calling the same method as you already used for the earlier step where the players had to select their assets.
+
+In this case, assuming that you are not re-using match profiles, validating the `count` property would be enough to see if the match is ready to begin, simply by chekcing the existence of two assets.
+
+```typescript
+const matchAssets = await beam.assets.getProfileAssets('match-profile-id', {
+  assetAddress: '0x9eeaecbe2884aa7e82f450e3fc174f30fc2a8de3'
+})
+
+// {
+//   "data": [],
+//   "pagination": {
+//      "count": 2,
+//      ...
+//   }
+// }
+```
