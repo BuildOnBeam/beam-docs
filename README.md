@@ -42,7 +42,7 @@ const profiles =  await beam.profiles.getAllProfiles({
 });
 ```
 
-In this example, we initialize an instance of Beam by passing your API key. We then proceed to create a Profile. A Profile is the Beam entity you'll be mostly interacting with. Each profile automatically gets assigned a wallet on the Beam blockchain.
+In this example, we initialize an instance of Beam by passing your api key. We then proceed to create a Profile. A Profile is the Beam entity you'll be mostly interacting with. Each profile automatically gets assigned a wallet on the Beam blockchain.
 
 ---
 **View full documentation and examples on [docs.onbeam.com](https://docs.onbeam.com).**
@@ -50,7 +50,7 @@ In this example, we initialize an instance of Beam by passing your API key. We t
 
 ### Managing assets
 
-Profiles are custodial, and through your API key you are able to transfer / trade and manage assets of the profiles of your users - for as long as the users are custodial. In late 2023, we're aiming to release a feature for users to take self-custody of their accounts, but you'll be in control of implementing the feature to allow them to take custody.
+Profiles are custodial, and through your api key you are able to transfer / trade and manage assets of the profiles of your users - for as long as the users are custodial. In late 2023, we're aiming to release a feature for users to take self-custody of their accounts, but you'll be in control of implementing the feature to allow them to take custody.
 
 ```typescript
 import { Beam } from '@onbeam/node';
