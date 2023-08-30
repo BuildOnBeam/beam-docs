@@ -29,6 +29,9 @@
     "type": "separator",
     "title": "More"
   },
+  "roadmap": {
+    "title": "Roadmap"
+  },
   "beam-chain": {
     "title": "About beam ↗",
     "href": "https://www.onbeam.com/",
