@@ -1,0 +1,20 @@
+# Creating profiles
+
+Creating a profile is as simple as calling the CreateProfile method. The only thing we require you to send us, is an ID. You decide what this ID is.
+
+```typescript
+const profile = await beam.profiles.createProfile('profile-id');
+```
+
+A couple of examples what this ID could contain:
+
+* A hashed string representings the in-game ID you use on the application 
+* An account ID by your SSO provider
+* An e-mailaddress (not recommended for privacy purposes)
+
+It's up to you! But consider this carefully: in case of an application emergency on your end, you will want to be able to restore which player in your game owns which profile(s), hence our recommendation using an identifier which you already have for each player, preventing from having to store it.
+
+
+## Profiles on chain
+
+Note that the wallets we create do not exist on-chain up until a first transaction happens, so once a profile is created it will not be deployed until the first on-chain activity takes place.
