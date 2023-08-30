@@ -22,7 +22,7 @@ const minter = await beam.profiles.createProfile('minter-profile-id');
 
 Take the wallet address of the profile you just created, and add it to the allowlist of the contract on-chain. This gives you the possibility to use the minting profile through our SDK to mint assets on demand.
 
-After the address is whitelisted, minting an asset is as simple as creating a new transaction on behalf of the minter profile. As the minter-profile is whitelisted, you're (through the api key) are in full control of minting assets. If you would like ot mint an asset to a player their profile, it would be as simple as doing the following:
+After the address is whitelisted, minting an asset is as simple as creating a new transaction on behalf of the minter profile. As the minter-profile is whitelisted, you're (through the api key) are in full control of minting assets. If you would like to mint an asset to a player's profile, it would be as simple as doing the following:
 
 ```typescript
 
