@@ -1,26 +1,20 @@
+---
+title: Assets in Beam
+---
+
+import { Callout } from 'nextra/components'
+
 # Assets
 
-An important aspect of Profiles are Assets. Profiles are custodial, and authorized through your api key you are able to transfer / trade and manage assets of the profiles of your users - for as long as the users are custodial. In late 2023, we're aiming to release a feature for users to take self-custody of their accounts, but you'll be in control of implementing the feature to allow them to take custody. This means that once you are integrating the [User connection](/service/users) functionality of Beam, you should consider that the user could become a self-custodial user at any moment.
+Asset management is a crucial part of the Beam integration within your game. Depending on-chain activities that you want to support your in-game economy, you have the option to manage assets on behalf of the profiles you created,  but also list - buy and make offers on assets through the Beam sdk.
+
+By providing these options through the sdk, you are able to create a frictionless in-game marketplace build on beam without having to worry about creating infrastructure to support it.
 
 
-### Managing assets between profiles
-Profiles are custodial, and through your api key you are able to transfer / trade and manage assets of the profiles of your users - for as long as the users are custodial.
+### Roadmap
 
-```typescript
-import { Beam } from '@onbeam/node';
- 
-const beam = new Beam('x-api-key');
- 
-const transfer = await beam.assets.transfer({
-  sender: 'ProfileID-A',
-  receiver: 'ProfileID-B',
-  assetAddress: '0x0',
-  tokenId: 23
-})
-```
+Throughout the coming months, we'll be releasing additional features that will help you to provide a more complete marketplace experience, with features ranging from programmatic offers, auctions and extensive filtering options to allow you to create a full-fledged in-game marketplace solely by relying on the Beam marketplace.
 
-## Who owns the assets in the profiles?
-
-Profiles are **custodial**. This means that the creator of the profile - you - will be able to manage the profile, and transfer assets in and out of the profile authorized by your api key.
-
-We allow the [user](/service/users) that links up to the profile, to also manage these assets through the upcoming Beam companion app. This means that assets that you provide to the profile, could be there at one moment, but could be sold to another player of your game in the next moment.
+<Callout emoji="🛠️">
+Feel like something is missing, and needs to be prioritized? Check out our [2023 roadmap](/service/roadmap) or let's have a chat through build@onbeam.com
+</Callout>
