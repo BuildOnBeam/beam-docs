@@ -22,8 +22,8 @@ First we have to download the Subnet-EVM binary from [Ava-Labs Github](https://g
 ```bash /kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz/
 mkdir subnetevm
 cd subnetevm
-wget https://github.com/ava-labs/subnet-evm/releases/download/v0.5.3/subnet-evm_0.5.3_linux_amd64.tar.gz
-tar -xvzf subnet-evm_0.5.3_linux_amd64.tar.gz
+wget https://github.com/ava-labs/subnet-evm/releases/download/v0.5.5/subnet-evm_0.5.5_linux_amd64.tar.gz
+tar -xvzf subnet-evm_0.5.5_linux_amd64.tar.gz
 cp subnet-evm ~/.avalanchego/plugins/kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz
 ```
 
@@ -127,7 +127,7 @@ For an explanation of the response, check the [API docs](https://docs.avax.netwo
 
 If you want to understand your Subnet better, take a look at the blockchain log. Normally, you can find this log in `~/.avalanchego/logs/ChainID.log{:bash}`. Just replace "`ChainID`" with the real ID of your blockchain in your Subnet.
 
-Beam Testnet example logfile location: 
+Beam Mainnet example logfile location: 
 `~/.avalanchego/logs/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn.log{:bash}`
 
 To better understand how your Node and Subnet are working, you can set up a tool called Prometheus+Grafana. This tool helps you monitor their performance and comes with easy-to-read charts for regular operations and specific Subnet data. There's a [step-by-step guide](https://docs.avax.network/nodes/maintain/setting-up-node-monitoring) available to help you get it all set up.
@@ -148,8 +148,8 @@ Here are the commands for a Beam Testnet node:
 ```bash /kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz/
 mkdir subnetevm
 cd subnetevm
-wget https://github.com/ava-labs/subnet-evm/releases/download/v0.5.3/subnet-evm_0.5.3_linux_amd64.tar.gz
-tar -xvzf subnet-evm_0.5.3_linux_amd64.tar.gz
+wget https://github.com/ava-labs/subnet-evm/releases/download/v0.5.5/subnet-evm_0.5.5_linux_amd64.tar.gz
+tar -xvzf subnet-evm_0.5.5_linux_amd64.tar.gz
 cp subnet-evm ~/.avalanchego/plugins/kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz
 ```
 
