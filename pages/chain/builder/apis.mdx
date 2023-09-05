@@ -4,6 +4,13 @@ description: 'Explore the intricacies of Beam Subnet-EVM API and get an overview
 
 # APIs
 
+## Beam API
+
+To interact with the Beam network, we offer you a powerful API accessible via HTTP or through dedicated server-side SDKs. Currently, [SDKs are available](/service/sdk) for Node.js (TypeScript) and C# (RestSharp). If you are looking for support in another language, please contact us.
+
+To learn more about the Beam API, please see the dedicated [Beam API docs](/service), which include guides, references, and examples. 
+
+
 ## Beam Subnet-EVM API
 
 The Subnet-EVM APIs mirror the [Coreth](https://github.com/ava-labs/coreth) APIs with one exception - Avalanche Specific APIs, identifiable by the '`avax.`' prefix. In addition, Subnet-EVM supports standard Ethereum APIs, increasing its applicability. For in-depth information about Coreth APIs, please refer [here](https://docs.avax.network/apis/avalanchego/apis/c-chain).
@@ -26,11 +33,11 @@ To interact with the Beam EVM via the JSON-RPC endpoint:
 /ext/bc/blockchainID/rpc
 ```
 
-Where `blockchainID` is the ID of the blockchain running the EVM. Find the correct blockchain ID here for [Mainnet](https://subnets.avax.network/subnets) or [Testnet](https://subnets-test.avax.network/subnets). 
+Where `blockchainID` is the ID of the blockchain running the EVM. Find the correct blockchain ID here for [Mainnet](/chain/builder/network-overview#beam-mainnet) or [Testnet](/chain/builder/network-overview#beam-testnet-fuji). 
 
 ### Example Call
 
-```bash /y97omoP2cSyEVfdSztQHXD9EnfnVP9YKjZwAxhUfGbLAPYT9t/
+```bash /2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn/
 curl -X POST --data '{
 "jsonrpc": "2.0",
 "method": "eth_feeConfig",
@@ -38,10 +45,10 @@ curl -X POST --data '{
 "latest"
 ],
 "id": 1
-}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/y97omoP2cSyEVfdSztQHXD9EnfnVP9YKjZwAxhUfGbLAPYT9t/rpc
+}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn/rpc
 ```
 
-This calls the function `eth_feeConfig` for the Beam Testnet (Blockchain ID `y97omoP2cSyEVfdSztQHXD9EnfnVP9YKjZwAxhUfGbLAPYT9t`).
+This calls the function `eth_feeConfig` for the Beam Mainnet (Blockchain ID `2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn`).
 
 ## APIs Overview
 
