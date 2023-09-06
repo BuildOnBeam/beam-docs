@@ -32,10 +32,12 @@ The next step is allowing the user to obtain the challenge we created within the
 
 The user will scan the QR code with the companion app, which is how we create a relationship between the user in Beam and the player profile you've registered. By providing a `callbackUrl` when creating a Connection request, we'll be able to provide you with an incoming webhook telling you that a profile was linked up to a user.
 
-The incoming webhook doesn't tell you to which user a profile is linked to, but it does confirm to you that a link was made between the app-user and your game's profile. When the incoming webhook arrives, there will be a `Signature` header included in it. The signature can be ignored completely, but allows you to verify whenever the incoming request we send you indeed is coming from Beam. The implementation for handling this signature are platform specific and you are required to use Libsodium. Below you will find an example on how to verify the signature within a Node.js based backend.
+### Verifying the incoming webhook
+
+The incoming webhook doesn't tell you to which user a profile is linked to, but it does confirm to you that a link was made between the app-user and your game's profile. When the incoming webhook arrives, there will be a `Signature` header included in it. The signature can be ignored completely, but allows you to verify whenever the incoming request we send you indeed is coming from Beam. The implementation for handling this signature are platform specific and you are required to use [Libsodium](https://doc.libsodium.org/). Below you will find an example on how to verify the signature within a Node.js based backend.
 
 ```typescript
-import sodium from 'sodium-native';
+import * as sodium from 'sodium-native';
 
 export const verifySignature = (
   incomingRequestBody: Record<string, string>, // The request body of the incoming webhook
