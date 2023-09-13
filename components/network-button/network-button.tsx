@@ -40,7 +40,7 @@ function NetworkButton({ chainId, label }) {
           }],
         });
       } catch (switchError) {
-        if (switchError && switchError.code === 4902) {
+        if (switchError.code === 4902) {
           // add network
           try {
             await ethereum.request({
