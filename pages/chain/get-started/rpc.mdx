@@ -4,16 +4,16 @@ description: 'Learn how to connect to the Beam network, an EVM-compatible chain,
 ---
 import { Callout } from 'nextra/components'
 import { Steps } from 'nextra-theme-docs'
-
+import NetworkButton from '../../../components/network-button/network-button'
 
 # Connecting to Beam
 As an EVM-compatible chain, you can connect to Beam network using any Ethereum wallet.
 
-## Connect to Beam Mainnet with MetaMask
-
 <Callout type="info">
   To access Beam, you need to add the network's network configuration in your desired third-party wallet such as MetaMask. Below we've added the instructions on accessing Beam through MetaMask.
 </Callout>
+
+## Connect to Beam Mainnet with MetaMask
 
 | Beam Mainnet   | Settings |
 | :----- | :---- |
@@ -22,18 +22,20 @@ As an EVM-compatible chain, you can connect to Beam network using any Ethereum w
 | Chain ID | `4337`  |
 | Currency symbol | `MC`  |
 | Block explorer URL| `https://subnets.avax.network/beam`  |
+| One-click setup | <NetworkButton chainId="4337" /> |
+
 
 <Steps>
- 
+
 ### Open MetaMask & Add Network
 
 Launch MetaMask and select the top left option labeled "Ethereum Mainnet". Next, choose "Add Network".
- 
+
 ![MetaMask Beam RPC Add Network](/metamask1.png)
 
- 
+
 ### Add a Network Manually
- 
+
 Click on "Add a Network Manually" in the subsequent window.
 
 
@@ -43,16 +45,14 @@ Click on "Add a Network Manually" in the subsequent window.
 Enter the Beam Mainnet settings as provided above.
 
 ![MetaMask Beam RPC Add Network](/metamask3.png)
- 
+
 </Steps>
 
 <Callout type="info">
 As an alternative, you can easily integrate the Beam Mainnet settings with a single click through [ChainList](https://chainlist.org/chain/4337). Just click "Add to Metamask" to apply the MetaMask settings.
 </Callout>
 
-## Beam Testnet (Fuji) 
-
-
+## Beam Testnet (Fuji)
 
 | Beam Testnet   | Settings |
 | :----- | :---- |
@@ -61,6 +61,7 @@ As an alternative, you can easily integrate the Beam Mainnet settings with a sin
 | Chain ID | `13337`  |
 | Currency symbol | `MC`  |
 | Block explorer URL| `https://subnets-test.avax.network/beam`  |
+| One-click setup | <NetworkButton chainId="13337" /> |
 
 ![MetaMask Settings Beam Testnet RPC](/metamask-beam-testnet.png)
 
