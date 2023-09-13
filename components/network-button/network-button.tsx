@@ -60,7 +60,6 @@ function NetworkButton({ chainId, label }) {
   }
 
   return (
-
     <Button onClick={handleClick}>
         {label || `Add ${NETWORK_PARAMS[chainId]?.chainName} to MetaMask`}
     </Button>
