@@ -12,7 +12,7 @@ Follow these steps for verification:
 
 1. Choose **Beam** for the subnet.
 2. Input the **contract address** of the desired contract for verification.
-3. **Select and upload all your contract files**. 
+3. **Select and upload all your contract files**.
 4. Once every file is uploaded, initiate the verification by clicking **Submit Verification**.
 
 
@@ -22,3 +22,46 @@ Follow these steps for verification:
 
 For verifying a contract on the Beam testnet, refer to the [Verifying Contracts Tool (Testnet)](https://subnets-test.avax.network/tools/verify-contract?chainId=13337).
 
+
+## From the command line
+
+The Beam explorer uses [Sourcify](https://sourcify.dev) for contract verification. There are plugins and integrations for different smart contract development environments available.
+For more information, see the [Sourcify documentation](https://docs.sourcify.dev/docs/how-to-verify) on contract verification.
+
+### Hardhat
+
+If you're using [hardhat-deploy](https://github.com/wighawag/hardhat-deploy) to deploy your contracts, verification with Sourcify is supported natively. Simply run this command from your project directory to verify all deployed contracts:
+
+```bash
+hardhat --network beam sourcify
+```
+
+For any other Hardhat project, you could use the plugin [hardhat-sourcify](https://github.com/xtools-at/hardhat-sourcify) and verify them one by one:
+
+```bash
+hardhat --network beam verify-sourcify --contract "MyFirstContract" --address 0x12345...
+hardhat --network beam verify-sourcify --contract "MySecondContract" --address 0x23456...
+```
+
+For all available options, check out the plugin's [documentation](https://github.com/xtools-at/hardhat-sourcify) or run `hardhat help verify-sourcify`.
+
+### Foundry
+
+[Foundry](https://book.getfoundry.sh/) supports Sourcify out of the box.
+
+- To verify a contract immediately after deploying it, add the `--verify  --verification-provider sourcify` flags to your Foundry deploy command.
+- To verify an existing, already deployed contract, run:
+
+```bash
+forge verify-contract MyFirstContract \
+ 0x12345... \
+  --chain-id 4337 \
+  --verifier sourcify
+```
+
+### Truffle
+
+When deploying contracts with Truffle, you can install [truffle-plugin-verify](https://github.com/rkalis/truffle-plugin-verify) and use it like this:
+```bash
+truffle run verify MyFirstContract MySecondContract --network beam
+```
