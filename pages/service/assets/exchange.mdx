@@ -1,10 +1,10 @@
 ---
-title: Programmatic decentralized token swaps on Beam
+title: Programmatic decentralized token conversion on Beam
 ---
 
-# Swapping tokens
+# Converting tokens
 
-The API allows you to swap and convert any in-game tokens or MC associated with a profile, using Beam's **decentralized exchange** [swap.onbeam.com](https://swap.onbeam.com).
+The API allows you to convert any in-game tokens or MC associated with a profile, using Beam's **decentralized exchange** [swap.onbeam.com](https://swap.onbeam.com).
 Conversion rates are determined via an _Automated Market Maker_ mechanism, and depend on supply and demand of the respective tokens.
 You can learn more about setting up a _liquidity pool_ for your own tokens [here](http://localhost:3000/chain/beam-ecosystem/amm#how-do-i-provide-liquidity), in order to enable trading.
 
@@ -29,13 +29,13 @@ Let's assume we have two tokens _IN_ and _OUT_:
   - then convert it with an **exact _output_ swap** to make sure get exactly 10 OUT
 
 
-## Swapping with an exact input amount
+## Converting with an exact input amount
 
 We assume our player owns 1000 in-game tokens, and wants to convert them on the spot to MC tokens.
-We first need to get a quote and see how much MC we'd get by calling `getOutputAmount`, and passing in our _input_ amount of 1000.
+We first need to get a quote and see how much MC we'd get by calling `getQuoteForOutput`, and passing in our _input_ amount of 1000.
 
 ```typescript
-const quoteOutput = await beam.swap.getOutputAmount(
+const quoteOutput = await beam.exchange.getQuoteForOutput(
   '0x008518e76FAD03f592Bbb7E394C762d5FD54cb97', // input token address
   '0x0000000000000000000000000000000000000000', // output token address, 0x0... refers to native MC (gas token)
   '1000', // input token amount to swap
@@ -51,10 +51,10 @@ const quoteOutput = await beam.swap.getOutputAmount(
 
 In this case we can expect to get 10.1 MC for 1000 of our tokens.
 If the player is happy with the result, we execute the swap by simply passing in the result of the previous
-call to `convertWithExactInput`, which makes sure we spend _exactly_ 1000 in-game tokens, and receive _at least_ 10.1 MC.
+call to `convertInputs`, which makes sure we spend _exactly_ 1000 in-game tokens, and receive _at least_ 10.1 MC.
 
 ```typescript
-const swapTransaction = await beam.swap.convertWithExactInput(
+const swapTransaction = await beam.exchange.convertInput(
   'profile-id',
   quoteOutput,
 );
@@ -67,13 +67,13 @@ const swapTransaction = await beam.swap.convertWithExactInput(
 // }
 ```
 
-## Swapping with an exact output amount
+## Converting with an exact output amount
 
 In this example, the player wants to buy exactly 10 jewel tokens, using some of their in-game tokens.
-To determine the price the player has to pay, we call `getInputAmount` with the desired _output_ amount of 10.
+To determine the price the player has to pay, we call `getQuoteForInput` with the desired _output_ amount of 10.
 
 ```typescript
-const quoteInput = await beam.swap.getInputAmount(
+const quoteInput = await beam.exchange.getQuoteForInput(
   '0x008518e76FAD03f592Bbb7E394C762d5FD54cb97', // input token address
   '0xF65B6f9c94187276C7d91F4F74134751d248bFeA', // output token address, "jewel token"
   '10', // desired output token amount
@@ -87,10 +87,10 @@ const quoteInput = await beam.swap.getInputAmount(
 // }
 ```
 
-Calling `convertWithExactOutput` with the result above makes sure we spend _a maximum_ of 42.1 in-game tokens, and receive _exactly_ 10 jewels.
+Calling `convertOutput` with the result above makes sure we spend _a maximum_ of 42.1 in-game tokens, and receive _exactly_ 10 jewels.
 
 ```typescript
-const swapTransaction = await beam.swap.convertWithExactOutput(
+const swapTransaction = await beam.exchange.convertOutput(
   'profile-id',
   quoteInput,
 );
@@ -102,43 +102,3 @@ const swapTransaction = await beam.swap.convertWithExactOutput(
 //   "explorerUrl": "https://subnets.avax.network/beam/0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f"
 // }
 ```
-
-
-## Wrapping and unwrapping native tokens
-
-The native MC token is used to pay for transaction costs on Beam, but lacks some functionalities of ERC20 tokens (e.g. approving another wallet to spend MC on their behalf).
-If your use case requires it, MC can be "wrapped and unwrapped" from and to _Wrapped Merit Circle (WMC)_ ERC20 tokens on a 1:1 basis,
-following the [WETH9](https://github.com/dapphub/ds-weth/blob/master/src/weth9.sol) standard commonly used throughout EVM blockchains.
-
-Assuming we have a player holding 5 MC in their wallet, and wanting to **wrap** 3 MC to WMC, we'd execute the following call:
-
-```typescript
-const wrapTransaction = await beam.swap.wrapNative('profile-id', {
-    amount: '3',
-});
-
-// {
-//   "status": "success",
-//   "type": "custodial",
-//   "transactionHash": '0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f',
-//   "explorerUrl": "https://subnets.avax.network/beam/0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f"
-// }
-```
-
-The player would now be holding _2 MC_ and _3 WMC_ in their wallet.
-If we'd want to turn 1.5 of our player's WMC tokens back into native MC, we'd have to **unwrap** them like this:
-
-```typescript
-const unwrapTransaction = await beam.swap.unwrapNative('profile-id', {
-    amount: '1.5',
-});
-
-// {
-//   "status": "success",
-//   "type": "custodial",
-//   "transactionHash": '0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f',
-//   "explorerUrl": "https://subnets.avax.network/beam/0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f"
-// }
-```
-
-After this transaction, our player would be holding _3.5 MC_ and _1.5 WMC_.
