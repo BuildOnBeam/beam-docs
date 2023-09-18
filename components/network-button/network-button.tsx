@@ -22,8 +22,8 @@ const NETWORK_PARAMS = {
     },
     rpcUrls: ['https://subnets.avax.network/beam/mainnet/rpc'],
     blockExplorerUrls: ['https://subnets.avax.network/beam'],
-  }
-}
+  },
+};
 
 function NetworkButton({ chainId, label }) {
   async function handleClick() {
@@ -35,9 +35,11 @@ function NetworkButton({ chainId, label }) {
         // switch network
         await ethereum.request({
           method: 'wallet_switchEthereumChain',
-          params: [{
-            chainId: NETWORK_PARAMS[chainId].chainId,
-          }],
+          params: [
+            {
+              chainId: NETWORK_PARAMS[chainId].chainId,
+            },
+          ],
         });
       } catch (switchError) {
         if (switchError.code === 4902) {
@@ -61,7 +63,7 @@ function NetworkButton({ chainId, label }) {
 
   return (
     <Button onClick={handleClick}>
-        {label || `Add ${NETWORK_PARAMS[chainId]?.chainName} to MetaMask`}
+      {label || `Add ${NETWORK_PARAMS[chainId]?.chainName} to MetaMask`}
     </Button>
   );
 }
