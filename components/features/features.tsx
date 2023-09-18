@@ -1,6 +1,5 @@
-import { useId } from "react";
-import styles from "./features.module.css";
-
+import { useId } from 'react';
+import styles from './features.module.css';
 
 export function Feature({ label }) {
   return (
@@ -22,11 +21,13 @@ const FEATURES_LIST = [
 ];
 
 export function Features() {
-  const id = useId<string>()
+  const id = useId<string>();
 
   return (
     <div className="mx-auto max-w-full w-[880px] text-center px-4 mb-10">
-      <p className="text-lg mb-2 text-gray-600 md:!text-2xl">Your gaming blockchain</p>
+      <p className="text-lg mb-2 text-gray-600 md:!text-2xl">
+        Your gaming blockchain
+      </p>
       <div className={styles.features}>
         {FEATURES_LIST.map(({ label }) => (
           <Feature label={label} key={id + label} />
