@@ -13,6 +13,12 @@
   "assets": {
     "title": "Assets"
   },
+  "marketplace": {
+    "title": "Marketplace"
+  },
+  "exchange": {
+    "title": "Exchange"
+  },
   "--- References": {
     "type": "separator",
     "title": "References"
