@@ -1,8 +1,7 @@
 {
-    "managing-profiles": "Managing profiles",
-    "users-and-profiles": "Users and profiles",
-    "match-profiles": "Match profiles",
-    "minting-profiles": "Minting profiles",
-    "treasury-profiles": "Treasury profiles"
-
+  "managing-profiles": "Managing profiles",
+  "users-and-profiles": "Users and profiles",
+  "match-profiles": "Match profiles",
+  "minting-profiles": "Minting profiles",
+  "treasury-profiles": "Treasury profiles"
 }
