@@ -55,3 +55,16 @@ Users should be also aware of standard network transaction fees which might be a
 
 The LayerZero Bridge is built on top of the robust and secure Layer Zero framework. However, as with all cryptocurrency transactions, users are advised to be cautious, double-check all details, and understand the risks involved.
 
+### How to test the Beam Bridge?
+
+There are test token contracts deployed to Goerli and Fuji you can use to test bridging.
+On _Goerli_ testnet, you can obtain USDC and USDT tokens from out test contracts via
+- Etherscan: go to the contract tab, connect your wallet and call the **claim** function to get 100 tokens (every 24h).
+  - [USDC on Etherscan](https://goerli.etherscan.io/token/0x2724A590fe9cC7c66A83204aa11D6ec7Aa8e7C58#writeContract)
+  - [USDT on Etherscan](https://goerli.etherscan.io/token/0x908C7A34a87FD8e207BC4585707E484Ed2c9E8aE#writeContract)
+- Uniswap: swap some GoerliETH to get tokens.
+  - [USDC on Uniswap](https://app.uniswap.org/swap?chain=goerli&inputCurrency=ETH&outputCurrency=0x2724A590fe9cC7c66A83204aa11D6ec7Aa8e7C58)
+  - [USDT on Uniswap](https://app.uniswap.org/swap?chain=goerli&inputCurrency=ETH&outputCurrency=0x908C7A34a87FD8e207BC4585707E484Ed2c9E8aE)
+
+On _Fuji_, you can bridge the native AVAX token, which you can claim from the [official faucet](https://core.app/tools/testnet-faucet).
+After getting the tokens, you can use [bridge.onbeam.com](https://bridge.onbeam.com) as usual to transfer them to Beam Testnet.
