@@ -79,7 +79,7 @@ You are able to validate the existence of the asset in the match-profile by simp
 In this case, assuming that you are not re-using match profiles, validating the `count` property would be enough to see if the match is ready to begin, simply by chekcing the existence of two assets.
 
 ```typescript
-const matchAssets = await beam.assets.getProfileAssets("match-id", {
+const matchAssets = await beam.assets.getProfileAssets("your-match-id", {
   assetAddress: "0x9eeaecbe2884aa7e82f450e3fc174f30fc2a8de3",
 });
 

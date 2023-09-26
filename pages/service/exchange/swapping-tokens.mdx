@@ -8,26 +8,26 @@ The API allows you to convert any in-game tokens or MC associated with a profile
 Conversion rates are determined via an _Automated Market Maker_ mechanism, and depend on supply and demand of the respective tokens.
 You can learn more about setting up a _liquidity pool_ for your own tokens [here](http://localhost:3000/chain/beam-ecosystem/amm#how-do-i-provide-liquidity), in order to enable trading.
 
-
 ## General flow
 
 In general, swapping tokens via the API always follows the same process - fetching the price for the conversion, and then executing the swap.
 This two-step process serves as an important safeguard against overpaying, as exchange prices fluctuate.
 
 To obtain prices, you'd pass in to the API
+
 - the contract addresses of the desired _input_ and _output_ tokens
   - the _zero address_ (`0x0000000000000000000000000000000000000000`) can be used to refer to MC tokens
 - an amount to swap, either a desired _input_ and _output_ token amount
 
 Depending on the "direction" of the conversion, there are two different use cases, which are covered with examples below too.
 Let's assume we have two tokens _IN_ and _OUT_:
+
 - The player wants to swap 100 IN to OUT
   - we first need to get the amount of OUT we can expect to get for 100 IN
   - then convert it with an **exact _input_ swap** to make sure we get the highest amount of OUT for our 100 IN
 - The player wants to buy 10 OUT
   - here we first fetch the required amount of IN to obtain 10 OUT
   - then convert it with an **exact _output_ swap** to make sure get exactly 10 OUT
-
 
 ## Converting with an exact input amount
 
@@ -36,9 +36,9 @@ We first need to get a quote and see how much MC we'd get by calling `getQuoteFo
 
 ```typescript
 const quoteOutput = await beam.exchange.getQuoteForOutput(
-  '0x008518e76FAD03f592Bbb7E394C762d5FD54cb97', // input token address
-  '0x0000000000000000000000000000000000000000', // output token address, 0x0... refers to native MC (gas token)
-  '1000', // input token amount to swap
+  "0x008518e76FAD03f592Bbb7E394C762d5FD54cb97", // input token address
+  "0x0000000000000000000000000000000000000000", // output token address, 0x0... refers to native MC (gas token)
+  "1000" // input token amount to swap
 );
 
 // {
@@ -55,8 +55,8 @@ call to `convertInputs`, which makes sure we spend _exactly_ 1000 in-game tokens
 
 ```typescript
 const swapTransaction = await beam.exchange.convertInput(
-  'profile-id',
-  quoteOutput,
+  "entity-id",
+  quoteOutput
 );
 
 // {
@@ -74,9 +74,9 @@ To determine the price the player has to pay, we call `getQuoteForInput` with th
 
 ```typescript
 const quoteInput = await beam.exchange.getQuoteForInput(
-  '0x008518e76FAD03f592Bbb7E394C762d5FD54cb97', // input token address
-  '0xF65B6f9c94187276C7d91F4F74134751d248bFeA', // output token address, "jewel token"
-  '10', // desired output token amount
+  "0x008518e76FAD03f592Bbb7E394C762d5FD54cb97", // input token address
+  "0xF65B6f9c94187276C7d91F4F74134751d248bFeA", // output token address, "jewel token"
+  "10" // desired output token amount
 );
 
 // {
@@ -91,8 +91,8 @@ Calling `convertOutput` with the result above makes sure we spend _a maximum_ of
 
 ```typescript
 const swapTransaction = await beam.exchange.convertOutput(
-  'profile-id',
-  quoteInput,
+  "entity-id",
+  quoteInput
 );
 
 // {
