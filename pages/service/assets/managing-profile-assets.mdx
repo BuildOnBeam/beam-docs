@@ -10,17 +10,17 @@ Through the API key, you are authorized to manage assets for all the profiles yo
 
 Note that depending on the role of our companion app within your game, [users that linked up to a profile](/service/profiles/users-and-profiles) you created are also able to manage the assets within a profile to their own liking. They can send assets to friends, send them to a self-custodial wallet on Beam or bridge them over to another chain.
 
-### currency transfers (ERC20)
+### Currency transfers (ERC20)
 
-If we registered an ERC20 contract for your game, you are able to manage the ERC20 assets in all the profiles that you created. Sending around these tokens is easy. We simply expect you to know the profile-id of the sender, as well as the profile-id of the receiver.
+If we registered an ERC20 contract for your game, you are able to manage the ERC20 assets in all the profiles that you created. Sending around these tokens is easy. We simply expect you to know the ID of the sender, as well as the ID of the receiver, both of which you should have created a Profile for.
 
 Initiating a token transfer would look something like this. In the example below, we are not considering more complicated features like sponsoring transactions just yet - the transaction will be paid for by you - the game developer.
 
 ```typescript
-const transaction = await beam.assets.transferToken('sender-profile-id', {
-    receiverProfileId: 'receiver-profile-id',
-    assetAddress: 'your-contract-address',
-    amountToTransfer: '10' // 10 means 10 - we don't expect you to consider any other format like gwei
+const transaction = await beam.assets.transferToken("your-sender-id", {
+  receiverEntityId: "your-receiver-id",
+  assetAddress: "your-contract-address",
+  amountToTransfer: "10", // 10 means 10 - we don't expect you to consider any other format like gwei
 });
 
 // {
@@ -31,17 +31,16 @@ const transaction = await beam.assets.transferToken('sender-profile-id', {
 // }
 ```
 
-
-### NFTs transfers (ERC721, ERC1155) 
+### NFTs transfers (ERC721, ERC1155)
 
 Asset transfers work in a similar fashion as ERC20 token transfers, but instead of calling the `transferToken`, you will need to call the `transferAsset` method and pass an `assetId` property for the asset you want to move around.
 
 ```typescript
-const transaction = await beam.assets.transferAsset('sender-profile-id', {
-    receiverProfileId: 'receiver-profile-id',
-    assetAddress: 'your-contract-address',
-    assetId: 73,
-    amountToTransfer: '1' // amountToTransfer is related to 1155, defaults to 1 and doesn't have to be passed for ERC721 contracts.
+const transaction = await beam.assets.transferAsset("your-sender-id", {
+  receiverEntityId: "your-receiver-id",
+  assetAddress: "your-contract-address",
+  assetId: 73,
+  amountToTransfer: "1", // amountToTransfer is related to 1155, defaults to 1 and doesn't have to be passed for ERC721 contracts.
 });
 
 // {
@@ -51,17 +50,15 @@ const transaction = await beam.assets.transferAsset('sender-profile-id', {
 //   "explorerUrl": "https://subnets.avax.network/beam/0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f"
 // }
 ```
-
-
 
 ### Native transfers (Merit Circle)
 
 Lastly - we offer you the possibility to transfer our native token: Merit Circle. Depending on the context of your game, you might want to be able to transfer our native token around between profiles.
 
 ```typescript
-const transaction = await beam.assets.transferAsset('sender-profile-id', {
-    receiverProfileId: 'receiver-profile-id',
-    amountToTransfer: '10' // 10 means 10 - we don't expect you to consider any other format like gwei
+const transaction = await beam.assets.transferAsset("your-sender-id", {
+  receiverEntityId: "your-receiver-id",
+  amountToTransfer: "10", // 10 means 10 - we don't expect you to consider any other format like gwei
 });
 
 // {

@@ -2,8 +2,7 @@
 title: Integrating with Beam marketplace
 ---
 
-import { Callout } from 'nextra/components'
-
+import { Callout } from "nextra/components";
 
 # Marketplace
 
@@ -14,13 +13,12 @@ The marketplace currently only supports buying and selling using [MC tokens](/ch
 Therefore, marketplace listings need to have their asking price denominated in MC, and profiles that want to buy assets need to be funded with MC as well.
 You can [convert tokens](/service/assets/swapping-tokens) from and to MC though via the API, using the [decentralized exchange](/chain/beam-ecosystem/amm) on Beam.
 
-
 ## Listing an asset
 
 The first thing you probably want to do is to list an existing asset in a profile. In order to list an asset you need to pass us some information about the listing.
 
 ```typescript
-const listingTransaction = await beam.assets.listAsset('seller-profile-id', {
+const listingTransaction = await beam.assets.listAsset('your-seller-id', {
     assetId: 73,
     quantity: 1 // You can list multiple 1155 assets from the same token, defaults to 1
     price: '1000', // Listing price in Merit Circle token
@@ -40,17 +38,18 @@ const listingTransaction = await beam.assets.listAsset('seller-profile-id', {
 
 Different intricacies on the different selling types will be provided at a later date. To keep things simple, we advice to start listing with the 'FixedPrice' sell type only.
 
-
 ## Accessing listed items for your game
 
 At the moment, we provide a method that allows you to retrieve all the listed items of a profile. Since we just listed an item, you can now verify whenever the item is actually for sale by calling the `getListedAssetsForProfile` method.
 
-
 ```typescript
-const profileListings = await beam.assets.getListedAssetsForProfile('seller-profile-id', {
-    offset: 0,  // optional, defaults to 0
-    limit: 10 // optional, defaults to 10
-});
+const profileListings = await beam.assets.getListedAssetsForProfile(
+  "your-seller-id",
+  {
+    offset: 0, // optional, defaults to 0
+    limit: 10, // optional, defaults to 10
+  }
+);
 
 // {
 //   "data": [
@@ -86,17 +85,14 @@ const profileListings = await beam.assets.getListedAssetsForProfile('seller-prof
 //     "offset": 0
 //   }
 // }
-
 ```
-
-
 
 ## Buying a listed item
 
 If a user shows interest in a listing for sale by another profile, it's possible to buy the listed asset with a profile by simply calling the `buyListedAsset` method. Note that in order to actually buy the asset, the buyer-profile needs to be funded with enough MC based on the listing price set by the seller profile.
 
 ```typescript
-const profileListings = await beam.assets.buyListedAsset('buyer-profile-id', {
+const profileListings = await beam.assets.buyListedAsset('your-buyer-id', {
     orderId: '' // data[0].signedOrderId from the getListedAssetsForProfile method,
     quantity: 1 // the amount of NFTs to buy, only relevant for ERC-1155 based tokens, defaults to 1
 });
@@ -110,11 +106,11 @@ const profileListings = await beam.assets.buyListedAsset('buyer-profile-id', {
 
 ```
 
-
 ### Roadmap
 
 Throughout the coming months, we'll be releasing additional features that will help you to provide a more complete marketplace experience, with features ranging from programmatic offers, auctions and extensive filtering options to allow you to create a full-fledged in-game marketplace solely by relying on the Beam marketplace.
 
 <Callout emoji="🛠️">
-Feel like something is missing, and needs to be prioritized? Check out our [2023 roadmap](/service/roadmap) or let's have a chat through build@onbeam.com
+  Feel like something is missing, and needs to be prioritized? Check out our
+  [2023 roadmap](/service/roadmap) or let's have a chat through build@onbeam.com
 </Callout>
