@@ -1,4 +1,4 @@
-# Beam Omnichain tokens
+# Beam Omnichain Tokens
 
 [LayerZero](https://layerzero.gitbook.io/docs/) is an omnichain interoperability protocol that connects Beam to other networks.
 It enables everyone to build **Omnichain tokens and NFTs** on Beam that can be transferred cross-chain, and bridge existing assets from other networks.
@@ -18,7 +18,7 @@ There are three different **main types** of contracts serving as starting points
 
 The following extensions are available:
 
-- _Upgradeable contracts_
+- _Upgradeable_ contracts
 - ERC20 only: Additional _fee_ for bridging
 
 Depending on your use case, you'll need to combine these differently. You can find common use cases in the [examples](#examples) section.
@@ -46,8 +46,8 @@ The tables below are meant to help you to find the right contract type to base y
 
 **Others:**
 
-- ExtendedONFT721 & ExtendedONFT721Upgradeable `*` (Enumerable ERC721 with on-chain royalties and batch transfers)
-- MinterONFT721 & MinterONFT721Upgradeable `*` (ExtendedONFT721 with minting capabilities)
+- ExtendedONFT721 & ExtendedONFT721Upgradeable `*` (Enumerable _ONFT721_ with on-chain royalties, updatable metadata uri and batch transfers)
+- MinterONFT721 & MinterONFT721Upgradeable `*` (_ExtendedONFT721_ with minting capabilities)
 - DistributeONFT721
 - ONFT721A
 
@@ -57,6 +57,8 @@ The tables below are meant to help you to find the right contract type to base y
 | :---------------- | :------------------ | :------------ |
 | **Regular**       | ONFT1155            | ProxyONFT1155 |
 | **Upgradeable**   | ONFT1155Upgradeable | (coming soon) |
+
+<br />
 
 ## Examples
 
@@ -88,10 +90,10 @@ import "../token/oft/v2/ProxyOFTV2Upgradeable.sol";
 contract MyUsdcProxyOFT is ProxyOFTWithFeeUpgradeable {}
 
 contract MyUsdcOFT is OFTWithFeeUpgradeable {
-    // custom extensions go here, USDC has 6 decimals
-    function decimals() public view virtual override returns (uint8) {
-        return 6;
-    }
+  // custom extensions go here, USDC has 6 decimals
+  function decimals() public view virtual override returns (uint8) {
+    return 6;
+  }
 }
 ```
 
@@ -171,7 +173,7 @@ import "../token/onft/extension/ProxyONFT721.sol";
 contract MyONFTProxy is ProxyONFT721 {}
 
 contract MyONFT is ExtendedONFT721 {
-    // custom extensions go here
+  // custom extensions go here
 }
 ```
 
@@ -227,6 +229,8 @@ npx hardhat --network fuji approveERC721 --contract MyONFTProxy
 # send NFT #1 from Fuji to Beam Testnet
 npx hardhat --network fuji onftSend --target-network beam-testnet --token-id 1 --contract MyONFTProxy
 ```
+
+<br />
 
 ## Verify contracts
 
