@@ -4,9 +4,8 @@ Another use case for profiles could be minting-profiles. You might have asset co
 
 If your contracts support extending this list of addresses, you could simply create a profile and add the address of the profile to the allowlist once.
 
-
 ```typescript
-const minter = await beam.profiles.createProfile('minter-profile-id');
+const minter = await beam.profiles.createProfile("your-minter-id");
 
 // {
 //   "id": "string",
@@ -25,19 +24,17 @@ Take the wallet address of the profile you just created, and add it to the allow
 After the address is whitelisted, minting an asset is as simple as creating a new transaction on behalf of the minter profile. As the minter-profile is whitelisted, you're (through the api key) are in full control of minting assets. If you would like to mint an asset to a player's profile, it would be as simple as doing the following:
 
 ```typescript
+const player = await beam.profiles.getProfile("your-player-id");
 
-const player = await beam.profiles.getProfile('player-profile-id');
-
-const mint = await beam.transactions.createTransaction('minter-profile-id', {
+const mint = await beam.transactions.createTransaction("your-minter-id", {
   interactions: [
     {
       contract: "0x9eeaecbe2884aa7e82f450e3fc174f30fc2a8de3",
       functionName: "_mint",
-      functionArgs: [player.wallets[0].address, "arg-2", "arg-3", "arg-4"]
-    }
+      functionArgs: [player.wallets[0].address, "arg-2", "arg-3", "arg-4"],
+    },
   ],
 });
-
 
 // {
 //   "status": "success",

@@ -8,16 +8,14 @@ Depending on your needs, we offer various ways to validate the balance of a prof
 
 However, depending on the token types there are a few caveats, as we are using an indexer for the ERC721 / ERC1155 type contracts, causing there to be a small delay between on-chain events and the actual sdk method response.
 
-
-
-### NFTs (ERC721, ERC1155) 
+### NFTs (ERC721, ERC1155)
 
 By running the following method, you will receive all ERC721 and ERC1155 type assets within a profile for all the contracts we registered for your game. As there could be quite a few assets, the response is paginated.
 
 Note that at the moment of writing, we do not expose filtering options yet - but they are expected to drop soon in order for you to filter in different ways to get to meaningful results.
 
 ```typescript
-const profileAssets = await beam.assets.getProfileAssets('profile-id');
+const profileAssets = await beam.assets.getProfileAssets("entity-id");
 
 // {
 //   "data": [
@@ -39,13 +37,12 @@ const profileAssets = await beam.assets.getProfileAssets('profile-id');
 // }
 ```
 
-
 ### Currencies (ERC20 and the native token)
 
 In order to get all ERC20 token balances for a profile, you can run the `getProfileCurrencies` method. The response model for this enpdoint is not paginated, as we don't expect a single game to have more than a few on-chain currencies to support their in-game economy.
 
 ```typescript
-const profileTokens = await beam.assets.getProfileCurrencies('profile-id');
+const profileTokens = await beam.assets.getProfileCurrencies("entity-id");
 
 // {
 //   "data": [
@@ -59,16 +56,14 @@ const profileTokens = await beam.assets.getProfileCurrencies('profile-id');
 //     }
 //   ]
 // }
-
 ```
-
 
 ### Native token
 
 If you are interested in validating the native currency of a profile, for example to validate whenever the profile has enough MC to run a self-paid transaction, you could fetch the native token balance directly by doing the following:
 
 ```typescript
-const profileTokens = await beam.assets.getProfileNativeCurrency('profile-id');
+const profileTokens = await beam.assets.getProfileNativeCurrency("entity-id");
 
 // {
 //   "nativeTokenBalance": {
@@ -80,5 +75,4 @@ const profileTokens = await beam.assets.getProfileNativeCurrency('profile-id');
 //     "balance": "string"
 //   }
 // }
-
 ```
