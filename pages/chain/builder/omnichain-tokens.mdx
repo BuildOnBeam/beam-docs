@@ -1,0 +1,264 @@
+# Beam Omnichain tokens
+
+[LayerZero](https://layerzero.gitbook.io/docs/) is an omnichain interoperability protocol that connects Beam to other networks.
+It enables everyone to build **Omnichain tokens and NFTs** on Beam that can be transferred cross-chain, and bridge existing assets from other networks.
+
+Merit Circle's [LayerZero contracts repository](https://github.com/Merit-Circle/layerzero-contracts) is forked from
+LayerZero Labs' [example contracts](https://github.com/LayerZero-Labs/solidity-examples) and additionally includes all the
+necessary setup to get started with Beam, as well as more improvements like contract verification and better configuration options under the hood.
+
+## Contract types
+
+LayerZero offers ready-made Omnichain contracts for ERC20-, ERC721- and ERC1155-based assets.
+There are three different **main types** of contracts serving as starting points for your contracts:
+
+- _Proxies_ to wrap existing tokens
+- _Regular tokens_ when deploying a new asset
+- ERC20 only: _Native_ for gas tokens
+
+The following extensions are available:
+
+- _Upgradeable contracts_
+- ERC20 only: Additional _fee_ for bridging
+
+Depending on your use case, you'll need to combine these differently. You can find common use cases in the [examples](#examples) section.
+The tables below are meant to help you to find the right contract type to base your Omnichain token on.
+
+<small>
+  <br />
+  This repository contains contracts created by LayerZero which have been [audited](https://github.com/Merit-Circle/layerzero-contracts/tree/main/audit),
+  and contracts built on top of those by Merit Circle. The latter haven't been formally
+  audited yet, and are marked with `*` below.
+</small>
+
+### Omnichain ERC20 tokens
+
+| Ominchain ERC20       | Token                    | Proxy                         | Native                         |
+| :-------------------- | :----------------------- | :---------------------------- | :----------------------------- |
+| **Regular**           | OFTV2                    | ProxyOFTV2                    | NativeOFTV2                    |
+| **Upgradeable**       | OFTV2Upgradeable`*`      | ProxyOFTV2Upgradeable`*`      | NativeOFTV2Upgradeable`*`      |
+| **With Fee**          | OFTWithFee               | ProxyOFTWithFee               | NativeOFTWithFee               |
+| **Upgradeable + Fee** | OFTWithFeeUpgradeable`*` | ProxyOFTWithFeeUpgradeable`*` | NativeOFTWithFeeUpgradeable`*` |
+
+### Omnichain ERC721 NFTs
+
+| Ominchain ERC721 | Token              | Proxy                      |
+| :--------------- | :----------------- | :------------------------- |
+| **Regular**      | ONFT721            | ProxyONFT721               |
+| **Upgradeable**  | ONFT721Upgradeable | ProxyONFT721Upgradeable`*` |
+
+**Others:**
+
+- ExtendedONFT721 & ExtendedONFT721Upgradeable `*` (Enumerable ERC721 with on-chain royalties and batch transfers)
+- MinterONFT721 & MinterONFT721Upgradeable `*` (ExtendedONFT721 with minting capabilities)
+- DistributeONFT721
+- ONFT721A
+
+### Omnichain ERC1155 NFTs
+
+| Ominchain ERC1155 | Token               | Proxy         |
+| :---------------- | :------------------ | :------------ |
+| **Regular**       | ONFT1155            | ProxyONFT1155 |
+| **Upgradeable**   | ONFT1155Upgradeable | (coming soon) |
+
+## Examples
+
+In the following section, we use Merit Circle's [LayerZero contracts repository](https://github.com/Merit-Circle/layerzero-contracts)
+to walk you through different use cases. The examples are tailored towards Beam, but the instructions can be adapted
+for any [network supported by LayerZero](#supported-networks).
+
+To use the repository, you'll have to have NodeJS 16+ installed. Run `yarn` to install dependencies, then create a `.env` file based on
+the provided `.env.example`, and add your mnemonic phrase.
+
+### Bridge an existing ERC20 token from Ethereum to Beam
+
+First, we have to choose which contracts should serve as a base for our use case.
+In our example, we'll bridge **USDC** from Ethereum to Beam using _upgradeable_ contracts, so we'll need
+
+- the _Proxy_ contract on the Ethereum side: `ProxyOFTV2Upgradeable`
+- an _Omnichain ERC20 contract_ on the Beam side: `OFTV2Upgradeable`
+
+Create a new contract file, and drop it into `contracts/contracts-upgradeable/example/MyUSDCBridge.sol`.
+This is necessary to not cause any clashes with already deployed contracts with the same name.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.18;
+
+import "../token/oft/v2/OFTV2Upgradeable.sol";
+import "../token/oft/v2/ProxyOFTV2Upgradeable.sol";
+
+contract MyUsdcProxyOFT is ProxyOFTWithFeeUpgradeable {}
+
+contract MyUsdcOFT is OFTWithFeeUpgradeable {
+    // custom extensions go here, USDC has 6 decimals
+    function decimals() public view virtual override returns (uint8) {
+        return 6;
+    }
+}
+```
+
+Then we update `constants/tokenConfig.js` and add some config.
+`Proxy` contracts require the `address` of the token they're proxying as input, all other types need a `name` and `symbol` for the token.
+
+```javascript
+{
+  ...
+  beam: {
+    MyUsdcOFT: {
+      name: "USD Coin",
+      symbol: "USDC",
+    }
+  },
+  ...
+  ethereum: {
+    MyUsdcProxyOFT: {
+      // USDC address on Ethereum:
+      address: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    }
+  }
+}
+```
+
+Next we'll find the deploy scripts for our _base_ contracts in the `deploy` folder (`ProxyOFTV2Upgradeable.js` and `OFTV2Upgradeable.js`).
+Duplicate and rename the files, and update the `CONTRACT_NAME` constant on the top to match your contracts' names (`MyUsdcProxyOFT` and `MyUsdcOFT`):
+
+```javascript
+const CONTRACT_NAME = "MyUsdcProxyOFT";
+```
+
+That being done, we can start deploying our contracts like this:
+
+```bash
+# deploy upgradeable OFT to Beam
+npx hardhat --network beam deploy --tags MyUsdcOFT
+# deploy upgradeable ProxyOFT to Ethereum
+npx hardhat --network ethereum deploy --tags MyUsdcProxyOFT
+```
+
+The following command executes all necessary default setup for the contracts we've just deployed by running multiple on-chain transactions.
+
+```bash
+# Beam
+npx hardhat --network beam setupOFT --target-network ethereum --local-contract MyUsdcOFT --remote-contract MyUsdcProxyOFT
+# Ethereum
+npx hardhat --network ethereum setupOFT --target-network beam --local-contract MyUsdcProxyOFT --remote-contract MyUsdcOFT
+```
+
+All done, let's test our bridge by transferring 20 USDC from Ethereum to Beam:
+
+```bash
+# grant token allowance to proxy contract
+npx hardhat --network ethereum approveERC20 --contract MyUsdcProxyOFT
+# bridge 20 USDC from Ethereum to Beam
+npx hardhat --network ethereum oftv2Send --target-network beam --qty 20 --local-contract MyUsdcProxyOFT --remote-contract MyUsdcOFT
+```
+
+### Bridge an existing ERC721 NFT from Avalanche Fuji to Beam Testnet
+
+In this section we'll demonstrate how to bridge an ERC721 NFT. To mix things up, we'll use _non-upgradeable_ contracts here.
+We'll start again by selecting our **base contracts**:
+
+- `ProxyONFT721` for Fuji
+- `ExtendedONFT721` for Beam (`ONFT721` with batch-transfers and on-chain royalties)
+
+We'll create a contract file in `contracts/examples/MyNFT.sol` with the following contents:
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.18;
+
+import "../token/onft/extension/ExtendedONFT721.sol";
+import "../token/onft/extension/ProxyONFT721.sol";
+
+contract MyONFTProxy is ProxyONFT721 {}
+
+contract MyONFT is ExtendedONFT721 {
+    // custom extensions go here
+}
+```
+
+...and a configuration in `constants/tokenConfig.js` like this:
+
+```javascript
+{
+  ...
+  'beam-testnet': {
+    MyONFT: {
+      name: "Snakes on a chain",
+      symbol: "SNAKE",
+      baseUri: "https://snake-on-a-chain-euppi.ondigitalocean.app/token/",
+      royaltyBasePoints: 500, // 100 = 1%, defaults to 0
+      minGas: 100000, // defaults to 100000
+    },
+  },
+  ...
+  fuji: {
+    MyONFTProxy: {
+      // Snakes on a chain NFT contract address on Fuji:
+      address: "0x588348d84498d0689B76F89438bE58999a5434EE",
+      minGas: 100000, // defaults to 100000
+    }
+  }
+}
+```
+
+Next we'll duplicate the relevant deploy scripts and update `CONTRACT_NAME` in the scripts to match ours (`MyONFTProxy`, `MyONFT`):
+
+```bash
+cp deploy/ProxyONFT721.js deploy/MyONFTProxy.js
+cp deploy/ExtendedONFT721.js deploy/MyONFT.js
+
+sed -i 's/ProxyONFT721/MyONFTProxy/' deploy/MyONFTProxy.js
+sed -i 's/ExtendedONFT721/MyONFT/' deploy/MyONFT.js
+```
+
+Then we deploy and set up the contracts:
+
+```bash
+# deploy
+npx hardhat --network beam-testnet deploy --tags MyONFT
+npx hardhat --network fuji deploy --tags MyONFTProxy
+
+# setup
+npx hardhat --network beam-testnet setupONFT721 --target-network fuji --local-contract MyONFT --remote-contract MyONFTProxy
+npx hardhat --network fuji setupONFT721 --target-network beam-testnet --local-contract MyONFTProxy --remote-contract MyONFT
+
+# grant NFT allowance to proxy contract
+npx hardhat --network fuji approveERC721 --contract MyONFTProxy
+
+# send NFT #1 from Fuji to Beam Testnet
+npx hardhat --network fuji onftSend --target-network beam-testnet --token-id 1 --contract MyONFTProxy
+```
+
+## Verify contracts
+
+The repository uses [hardhat-deploy](https://github.com/wighawag/hardhat-deploy), which makes it easy to verify deployed contracts on Etherscan & Co. and Sourcify:
+
+```bash
+# verify on Sourcify.dev (incl. Beam Explorer)
+npx hardhat --network beam sourcify
+npx hardhat --network ethereum sourcify
+
+# verify on Etherscan.io
+# set ETHERSCAN_ONLY_API_KEY in your `.env` or add `--api-key "YourEtherscanApiKey"` to command
+npx hardhat --network ethereum etherscan-verify
+
+# verify on Snowtrace.io (Avalanche C-Chain)
+# set SNOWTRACE_API_KEY in your `.env` or add `--api-key "YourSnowtraceApiKey"` to command
+npx hardhat --network avalanche etherscan-verify
+```
+
+## Supported networks
+
+The LayerZero protocol is active on a wide selection of [test](https://layerzero.gitbook.io/docs/technical-reference/testnet/testnet-addresses)- and
+[mainnets](https://layerzero.gitbook.io/docs/technical-reference/mainnet/supported-chain-ids), though not all chains are interconnected by default.
+
+Currently, both Beam test- and mainnet connect to
+
+- Ethereum (Goerli on testnet)
+- Avalanche C-Chain
+- BNB Smart Chain
+- Fantom
+
+If your project requires interconnectivity with another network, [the Beam team](mailto:hello@onbeam.com) is happy to help!
