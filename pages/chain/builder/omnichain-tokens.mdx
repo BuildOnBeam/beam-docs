@@ -24,12 +24,9 @@ The following extensions are available:
 Depending on your use case, you'll need to combine these differently. You can find common use cases in the [examples](#examples) section.
 The tables below are meant to help you to find the right contract type to base your Omnichain token on.
 
-<small>
-  <br />
-  This repository contains contracts created by LayerZero which have been [audited](https://github.com/Merit-Circle/layerzero-contracts/tree/main/audit),
-  and contracts built on top of those by Merit Circle. The latter haven't been formally
-  audited yet, and are marked with `*` below.
-</small>
+> This repository contains contracts created by LayerZero which have been [audited](https://github.com/Merit-Circle/layerzero-contracts/tree/main/audit),
+> and contracts built on top of those by Merit Circle. The latter haven't been formally
+> audited yet, and are marked with `*` below.
 
 ### Omnichain ERC20 tokens
 
