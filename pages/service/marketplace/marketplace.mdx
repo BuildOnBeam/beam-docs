@@ -19,7 +19,7 @@ The first thing you probably want to do is to list an existing asset in a profil
 
 ```typescript
 const listingTransaction = await beam.assets.listAsset('your-seller-id', {
-    assetId: 73,
+    assetId: "73",
     quantity: 1 // You can list multiple 1155 assets from the same token, defaults to 1
     price: '1000', // Listing price in Merit Circle token
     sellType: 'FixedPrice' // AscendingAuction, DescendingAuction or FixedPrice
@@ -65,7 +65,7 @@ const profileListings = await beam.assets.getListedAssetsForProfile(
 //       "startTime": "string",
 //       "endTime": "string",
 //       "quantityListed": 0,
-//       "signedOrderId": "string",
+//       "orderId": "string",
 //       "expiresAt": "string",
 //       "sellerAddress": "string",
 //       "contractId": "string",
@@ -93,7 +93,7 @@ If a user shows interest in a listing for sale by another profile, it's possible
 
 ```typescript
 const profileListings = await beam.assets.buyListedAsset('your-buyer-id', {
-    orderId: '' // data[0].signedOrderId from the getListedAssetsForProfile method,
+    orderId: '' // data[0].orderId from the getListedAssetsForProfile method,
     quantity: 1 // the amount of NFTs to buy, only relevant for ERC-1155 based tokens, defaults to 1
 });
 
