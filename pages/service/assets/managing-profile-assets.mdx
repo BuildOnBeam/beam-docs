@@ -39,7 +39,7 @@ Asset transfers work in a similar fashion as ERC20 token transfers, but instead 
 const transaction = await beam.assets.transferAsset("your-sender-id", {
   receiverEntityId: "your-receiver-id",
   assetAddress: "your-contract-address",
-  assetId: 73,
+  assetId: "73",
   amountToTransfer: "1", // amountToTransfer is related to 1155, defaults to 1 and doesn't have to be passed for ERC721 contracts.
 });
 

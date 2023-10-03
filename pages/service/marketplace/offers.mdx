@@ -1,0 +1,94 @@
+---
+title: Making an offer
+---
+
+# Making an offer
+
+Assets in the Beam marketplace are listed in specific currencies, for specific listing prices. That price might just not be right based on the current market value. In order to do this we allow you to create offers on both listed and unlisted assets in the marketplace.
+
+### Currencies
+
+As mentioned in the [currencies](/service/marketplace/currencies) page for the Marketplace, depending on the chain you're implementing on, you're limited to the available currencies for the chain available in Sphere. Offers are scoped to the same flexibility as the listing and buying process itself: The supported currencies for the chain you use, are the same currencies you can use for creating an offer.
+
+### Making an offer
+
+Based on the available currencies, you can create an offer for items which are listed, but also items which are not. Keep in mind that it's up to the seller (whenever that's a Marketplace user or a profile created through the SDK) to accept the offer.
+
+```typescript
+
+const transaction = await beam.marketplace.createAssetOffer('profile-offerer-id', {
+    marketplaceId: "64df956525e46b4d63ae37e9",
+    quantity: 1 // You can make an offer for multiple 1155 assets from the same token
+    price: '1000', // Listing price
+    currency: 'USDC' // Defaults to Merit Circle. Find all available options through the getCurrencies() method;
+});
+
+// {
+//   "offerId": "651bfbb9b47baf2d2a092c04",
+// }
+
+```
+
+### Canceling offers
+
+If you want to cancel the offer, you can use the following snippet.
+
+```typescript
+
+const transaction = await beam.marketplace.cancelAssetOffer('profile-offerer-id', "651bfbb9b47baf2d2a092c04");
+
+// {
+//   "success": true,
+//   "transactionHash": "0x53df915ed7d86bd9a79a3ac09b7171d48f7b7ba60a8d08f981e67f891d157f7b",
+//   "explorerUrl": "https://subnets-test.avax.network/beam/tx/0x53df915ed7d86bd9a79a3ac09b7171d48f7b7ba60a8d08f981e67f891d157f7b"
+// }
+
+```
+
+### Listing offers
+
+If you want to list all the offers made to an NFT, you are able to do so with the following snippets
+
+```typescript
+
+const transaction = await beam.marketplace.getAssetOffers('asset-marketplace-id');
+const transaction = await beam.marketplace.getProfileOffers('profile-offerer-id');
+const transaction = await beam.marketplace.getProfileAssetOffers('profile-offerer-id', 'asset-marketplace-id');
+
+// {
+//   "data": [
+//     {
+//       "orderId": "651578cd46df7c4288b267cc",
+//       "kind": "SignedSingleOrder",
+//       "currency": "Wmc",
+//       "quantity": 1,
+//       "quantityFilled": 0,
+//       "quantityAvailable": 1,
+//       "offerer": "0x106b7272d041727878Aff54514e81DEEF546C64d",
+//       "tokenAmount": "0x01b4fbd92b5f8000",
+//       "tokenAmountNumber": 0.123,
+//       "startTime": "2023-07-08T12:35:00.000Z",
+//       "endTime": "2023-08-08T12:35:00.000Z"
+//     }
+//   ]
+// }
+
+```
+
+### Accepting an offer
+
+If an item is listed by a profile that is managed by you through the SDK, it's possible to accept an offer through the SDK as well. Keep in mind that not every listing is managed through the SDK: accepting offers to an asset on Sphere only can be done if you manage the profile that listed it in the first place.
+
+```typescript
+
+const transaction = await beam.marketplace.acceptAssetOffer('profile-seller-id', {
+    quantity: 1 // You can accept multiple 1155 assets from the same token
+});
+
+// {
+//   "success": true,
+//   "transactionHash": "0xda0288e8a6f47d2d35de96873990e343b15f11c36a8a1ec095553e5ac6f7ec67",
+//   "explorerUrl": "https://subnets-test.avax.network/beam/tx/0xda0288e8a6f47d2d35de96873990e343b15f11c36a8a1ec095553e5ac6f7ec67"
+// }
+
+```
