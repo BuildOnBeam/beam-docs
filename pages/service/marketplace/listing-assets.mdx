@@ -1,16 +1,14 @@
 ## Listing an asset
 
-The first thing you probably want to do is to list an existing asset in a profile. In order to list an asset you need to pass us some information about the listing.
+In order to list an asset on behalf of a profile you need to pass us some information about the listing.
 
 ```typescript
-const listingTransaction = await beam.assets.listAsset('your-seller-id', {
+const transaction = await beam.marketplace.listAsset('profile-seller-id', {
     assetId: "73",
     quantity: 1 // You can list multiple 1155 assets from the same token, defaults to 1
     price: '1000', // Listing price in Merit Circle token
     sellType: 'FixedPrice' // AscendingAuction, DescendingAuction or FixedPrice
-
-    startTime: '', // auction start time, only needed with the AscendingAuction and DescendingAuction sell types
-    endTime: '', // auction end time, only needed with the AscendingAuction and DescendingAuction sell types
+    currency: 'USDC' // Defaults to Merit Circle. Find all available options through the getCurrencies() method;
 });
 
 // {
@@ -28,8 +26,8 @@ Different intricacies on the different selling types will be provided at a later
 At the moment, we provide a method that allows you to retrieve all the listed items of a profile. Since we just listed an item, you can now verify whenever the item is actually for sale by calling the `getListedAssetsForProfile` method.
 
 ```typescript
-const profileListings = await beam.assets.getListedAssetsForProfile(
-  "your-seller-id",
+const listings = await beam.marketplace.getListedAssetsForProfile(
+  "profile-seller-id",
   {
     offset: 0, // optional, defaults to 0
     limit: 10, // optional, defaults to 10
