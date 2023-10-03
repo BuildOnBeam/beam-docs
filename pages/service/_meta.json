@@ -19,6 +19,9 @@
   "exchange": {
     "title": "Exchange"
   },
+  "companion": {
+    "title": "Companion"
+  },
   "--- References": {
     "type": "separator",
     "title": "References"

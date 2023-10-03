@@ -1,0 +1,37 @@
+---
+title: Connecting your users
+---
+
+## Connecting your users to the Beam Companion
+
+What is important to understand is that the Profiles entity within Beam is not exclusively a matter of players. Profiles could be used for various purposes, one of which is [match profiles](/service/profiles/match-profiles).
+
+However - in our opinion - it makes a ton of sense to create a Profile for each of your players as soon as you want something to happen on-chain. You can use these player profiles to manage a user their assets. On-chain they earned (or bought), NFTs they minted (or you minted on their behalf) all can be send to the player profile for each player.
+
+In order to allow players to see and manage their assets outside of your game, we offer a way to link-up their profile to an SSO authenticated user identity. While it's not required, the companion app offers an extension of the web3 experience where users are able to manage, give a way and trade assets, without you having to facilitate this.
+
+### Connection request
+
+If you want to allow players to control their assets outside of your game, providing them the web3 experience, you would need ot create a connection request for a profile.
+
+```typescript
+const request = await beam.profiles.createConnectionRequest("profile-id", {
+  callbackUrl:
+    "https://your-games-backend.your-game.com/api/incoming-webhook/:profile-id",
+});
+
+// {
+//   "id": "string",
+//   "challenge": "c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+//   "validUntil": "2023-08-30T08:35:08+00:00"
+// }
+```
+
+The `challenge` property that we send you when you created this Connection request is essentially a key meant solely for the player behind the profile you want to link up to a user within Beam.
+
+The next step is allowing the user to obtain the challenge we created within the app, as this challenge enables up to create the connection.
+
+- If your game is running on a console, PC or within a browser - we recommend you to encode the challenge in a QR code
+- If your game is running on iOS or Android, you could pass the challenge down a deeplink that opens up the Beam companion app
+
+The user will scan the QR code with the companion app, which is how we create a relationship between the user in Beam and the player profile you've registered. By providing a `callbackUrl` when creating a Connection request, we'll be able to provide you with an incoming webhook telling you that a profile was linked up to a user.

@@ -1,18 +1,3 @@
----
-title: Integrating with Beam marketplace
----
-
-import { Callout } from "nextra/components";
-
-# Marketplace
-
-In order to get a marketplace going, we offer various methods that can help you get started with listing assets.
-Keep in mind that our marketplace serves a crucial role within the asset related methods, but that the marketplace itself is a pre-release product waiting to be released in Q4.
-
-The marketplace currently only supports buying and selling using [MC tokens](/chain/get-started/gas).
-Therefore, marketplace listings need to have their asking price denominated in MC, and profiles that want to buy assets need to be funded with MC as well.
-You can [convert tokens](/service/assets/swapping-tokens) from and to MC though via the API, using the [decentralized exchange](/chain/beam-ecosystem/amm) on Beam.
-
 ## Listing an asset
 
 The first thing you probably want to do is to list an existing asset in a profile. In order to list an asset you need to pass us some information about the listing.
@@ -86,31 +71,3 @@ const profileListings = await beam.assets.getListedAssetsForProfile(
 //   }
 // }
 ```
-
-## Buying a listed item
-
-If a user shows interest in a listing for sale by another profile, it's possible to buy the listed asset with a profile by simply calling the `buyListedAsset` method. Note that in order to actually buy the asset, the buyer-profile needs to be funded with enough MC based on the listing price set by the seller profile.
-
-```typescript
-const profileListings = await beam.assets.buyListedAsset('your-buyer-id', {
-    orderId: '' // data[0].orderId from the getListedAssetsForProfile method,
-    quantity: 1 // the amount of NFTs to buy, only relevant for ERC-1155 based tokens, defaults to 1
-});
-
-// {
-//   "status": "success",
-//   "type": "custodial",
-//   "transactionHash": '0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f',
-//   "explorerUrl": "https://subnets.avax.network/beam/0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f"
-// }
-
-```
-
-### Roadmap
-
-Throughout the coming months, we'll be releasing additional features that will help you to provide a more complete marketplace experience, with features ranging from programmatic offers, auctions and extensive filtering options to allow you to create a full-fledged in-game marketplace solely by relying on the Beam marketplace.
-
-<Callout emoji="🛠️">
-  Feel like something is missing, and needs to be prioritized? Check out our
-  [2023 roadmap](/service/roadmap) or let's have a chat through build@onbeam.com
-</Callout>

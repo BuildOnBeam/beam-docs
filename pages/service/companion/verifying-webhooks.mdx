@@ -1,0 +1,37 @@
+---
+title: Verifying connections
+---
+
+# Verify user connections
+
+After the user scans the QR code and connects their user-account to the profile, you will receive an incoming webhook on the provided callbackUrl.
+
+```typescript
+const request = await beam.profiles.createConnectionRequest("profile-id", {
+  callbackUrl:
+    "https://your-games-backend.your-game.com/api/incoming-webhook/:profile-id",
+});
+```
+
+The incoming webhook doesn't tell you to which user a profile is linked to, but it does confirm to you that a link was made between the app-user and your game's profile.
+
+### Verify the incoming request
+
+When the incoming webhook arrives, there will be a `Signature` header included in it. The signature can be ignored completely, but allows you to verify whenever the incoming request we send you indeed is coming from Beam. The implementation for handling this signature are platform specific and you are required to use [Libsodium](https://doc.libsodium.org/). Below you will find an example on how to verify the signature within a Node.js based backend.
+
+```typescript
+import * as sodium from "sodium-native";
+
+export const verifySignature = (
+  incomingRequestBody: Record<string, string>, // The request body of the incoming webhook
+  incomingRequestHeaderSignature: string, // The 'signature' header of the incoming webhook
+  yourApiKey: string // The api key you've used to create the connection request
+): boolean => {
+  const payloadString = JSON.stringify(incomingRequestBody);
+  const payloadBuffer = Buffer.from(payloadString, "utf8");
+  const signature = Buffer.from(incomingRequestHeaderSignature, "hex");
+  const secretBuffer = Buffer.from(yourApiKey, "utf8");
+
+  return sodium.crypto_auth_verify(signature, payloadBuffer, secretBuffer); // will return `true` or `false`
+};
+```
