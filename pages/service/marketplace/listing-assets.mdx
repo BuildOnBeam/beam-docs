@@ -4,7 +4,7 @@ In order to list an asset on behalf of a profile you need to pass us some inform
 
 ```typescript
 const transaction = await beam.marketplace.listAsset('profile-seller-id', {
-    assetId: "73",
+    marketplaceId": "64df956525e46b4d63ae37e9,
     quantity: 1 // You can list multiple 1155 assets from the same token, defaults to 1
     price: '1000', // Listing price in Merit Circle token
     sellType: 'FixedPrice' // AscendingAuction, DescendingAuction or FixedPrice
@@ -12,10 +12,7 @@ const transaction = await beam.marketplace.listAsset('profile-seller-id', {
 });
 
 // {
-//   "status": "success",
-//   "type": "custodial",
-//   "transactionHash": '0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f',
-//   "explorerUrl": "https://subnets.avax.network/beam/0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f"
+//   "orderId": "651b0e3d01b1fcdb481dec8e",
 // }
 ```
 
@@ -37,7 +34,7 @@ const listings = await beam.marketplace.getListedAssetsForProfile(
 // {
 //   "data": [
 //     {
-//       "id": "string",
+//       "marketplaceId": "string",
 //       "price": "string",
 //       "sellType": "string",
 //       "startPrice": "string",
@@ -53,7 +50,7 @@ const listings = await beam.marketplace.getListedAssetsForProfile(
 //       "sellerAddress": "string",
 //       "contractId": "string",
 //       "nft": {
-//         "id": "string",
+//         "marketplaceId": "string",
 //         "name": "string",
 //         "imageUrl": "string",
 //         "assetType": "string",
