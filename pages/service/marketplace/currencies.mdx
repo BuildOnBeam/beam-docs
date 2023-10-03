@@ -2,11 +2,35 @@
 title: Currencies
 ---
 
-At the moment of writing the Beam marketplace supports a couple of pre-configured tokens for all markteplace interactions. For the Beam chain, these tokens are
+# Supported currencies in Beam Marketplace
+
+At the moment of writing the Beam marketplace supports a couple of pre-configured tokens for all marketplace interactions. In order to get the currencies supported for a specific chain, we've added a method. Here's how you can use it:
+
+```typescript
+const currencies = await beam.marketplace.getCurrencies({
+  chainId: 4337, // the chain ID you want to get the supported currencies for
+});
+
+// {
+//   data: [
+//     {
+//       currency: 'USDC'
+//     }
+//   ]
+// }
+```
+
+#### Testnet currencies
 
 - Merit Circle token (the native token)
-- USDC
-- USDT
+- USDC [0x007Fdc86FD12924C9116025C7F594843087397E3](https://subnets-test.avax.network/beam/token/0x007Fdc86FD12924C9116025C7F594843087397E3)
+- USDT [0x29633Cf4FF2D98347895C7327f83Ab4cd592C808](https://subnets-test.avax.network/beam/token/0x29633Cf4FF2D98347895C7327f83Ab4cd592C808)
+
+#### Mainnet currencies
+
+- Merit Circle token (the native token)
+- USDC [0x76BF5E7d2Bcb06b1444C0a2742780051D8D0E304](https://subnets.avax.network/beam/token/0x76BF5E7d2Bcb06b1444C0a2742780051D8D0E304)
+- USDT [0x999f90f25a2922ae1b21A06066F7EDEbedad42a9](https://subnets.avax.network/beam/token/0x999f90f25a2922ae1b21A06066F7EDEbedad42a9)
 
 ## Supporting in-game currencies
 

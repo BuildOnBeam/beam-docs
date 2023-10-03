@@ -3,7 +3,7 @@
 If a user shows interest in a listing for sale by another profile, it's possible to buy the listed asset with a profile by simply calling the `buyListedAsset` method. Note that in order to actually buy the asset, the buyer-profile needs to be funded with enough MC based on the listing price set by the seller profile.
 
 ```typescript
-const profileListings = await beam.assets.buyListedAsset('your-buyer-id', {
+const response = await beam.assets.buyListedAsset('buyer-profile-id', {
     orderId: '' // data[0].orderId from the getListedAssetsForProfile method,
     quantity: 1 // the amount of NFTs to buy, only relevant for ERC-1155 based tokens, defaults to 1
 });
