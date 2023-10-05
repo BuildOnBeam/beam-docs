@@ -16,8 +16,7 @@ If you want to allow players to control their assets outside of your game, provi
 
 ```typescript
 const request = await beam.profiles.createConnectionRequest('profile-id', {
-	callbackUrl: 
-    'https://your-games-backend.your-game.com/api/incoming-webhook/:profile-id',
+  callbackUrl: 'https://your-games-backend.your-game.com/api/incoming-webhook/:profile-id',
 })
 
 // {
