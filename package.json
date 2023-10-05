@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shuding/nextra-docs-template.git"
+    "url": "git+https://github.com/Merit-Circle/beam-docs.git"
   },
-  "author": "Shu Ding <g@shud.in>",
-  "license": "MIT",
+  "author": "Robby Uitbeijerse <robby@meritcircle.io>",
+  "license": "GNU",
   "bugs": {
-    "url": "https://github.com/shuding/nextra-docs-template/issues"
+    "url": "https://github.com/Merit-Circle/beam-docs/issues"
   },
-  "homepage": "https://github.com/shuding/nextra-docs-template#readme",
+  "homepage": "https://docs.onbeam.com",
   "dependencies": {
     "@biomejs/biome": "^1.2.2",
     "@vercel/analytics": "^1.0.2",
