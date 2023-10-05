@@ -16,7 +16,7 @@ If you want to allow players to control their assets outside of your game, provi
 
 ```typescript
 const request = await beam.profiles.createConnectionRequest('profile-id', {
-  callbackUrl: 'https://your-games-backend.your-game.com/api/incoming-webhook/:profile-id',
+	callbackUrl: 'https://your-games-backend.your-game.com/api/incoming-webhook/:profile-id',
 })
 
 // {
@@ -42,17 +42,13 @@ This implementation guides users who do not have the app installed to the websit
 
 #### Deeplink
 
-If your game is running on iOS or Android, you could pass the challenge down a deeplink that opens up the Beam companion app. This can be achieved in two ways:
+If your game is running on iOS or Android, you could pass the challenge down a deeplink that opens up the Beam companion app. This link is exactly the same as the one you use for the QR code:
 
-```md filename="URL SCHEME DEEPLINK"
-beam-companion-app://connection-request?challenge=c5d2...
-```
-
-```md filename="BEAM SITE DEEPLINK (RECOMMENDED)"
+```md filename="DEEPLINK"
 https://account.onbeam.com/connection-request?challenge=c5d2...
 ```
 
-We suggest going with the second option. It'll produce the same result as the QR code setup we mentioned earlier. In this case, users who don't have the companion app already installed will be directed to a website where they can easily find links to download the app on their device.
+It'll produce the same result as the QR code setup we mentioned earlier. Users who don't have the companion app already installed will be directed to a website where they can easily find links to download the app on their device. If the user already has the companion app installed, it will open the app and handle the connection request.
 
 #### Webhook
 
