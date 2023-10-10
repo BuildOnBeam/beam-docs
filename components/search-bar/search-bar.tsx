@@ -11,7 +11,6 @@ export function SearchBar() {
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    console.log(query);
     complete(query);
   };
 
