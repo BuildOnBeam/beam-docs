@@ -17,7 +17,7 @@ The incoming webhook doesn't tell you to which user a profile is linked to, but 
 
 ### Verify the incoming request
 
-When the incoming webhook arrives, there will be a `Signature` header included in it. The signature can be ignored completely, but allows you to verify whenever the incoming request we send you indeed is coming from Beam. The implementation for handling this signature are platform specific and you are required to use [Libsodium](https://doc.libsodium.org/). Below you will find an example on how to verify the signature within a Node.js based backend.
+When the incoming webhook arrives, there will be a `Signature` header included in it. The signature can be ignored completely, but allows you to verify whenever the incoming request we send you indeed is coming from Beam. The implementation for handling this signature are environment specific and you are required to use [Libsodium](https://doc.libsodium.org/). Below you will find an example on how to verify the signature within a Node.js based backend.
 
 ```typescript
 import * as sodium from "sodium-native";
