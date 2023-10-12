@@ -1,13 +1,12 @@
 ---
-description: 'Discover the role of the Merit Circle Token (MC) as the gas token for the Beam network, covering its utilization, distribution, and fee configuration.'
+description: "Discover the role of the Merit Circle Token (MC) as the gas token for the Beam network, covering its utilization, distribution, and fee configuration."
 ---
 
-import { Callout } from 'nextra/components'
+import { Callout } from "nextra/components";
 
 # Gas Token
 
 The [Merit Circle Token (MC)](https://www.coingecko.com/en/coins/merit-circle) is the native currency used within the Beam network to pay for transactions. This concerns every single transaction that may occur on the network from simply transferring funds to deploying smart contracts.
-
 
 ## How to get MC
 
@@ -15,11 +14,12 @@ The MC token originates on the [Ethereum blockchain](https://etherscan.io/token/
 It can be obtained from various centralized- and [decentralized exchanges](https://app.uniswap.org/#/swap?chain=mainnet&outputCurrency=0x949D48EcA67b17269629c7194F4b727d4Ef9E5d6),
 and can be [bridged](/chain/beam-ecosystem/bridge) from Ethereum to Beam (and back).
 
-
 ## Network Fees
 
 <Callout type="warning">
-  The following section will only be active after the developer preview mode is completed, and the network upgrade to PoS has occurred. [Learn more](/chain/nodes/validator#developer-preview-mode)
+  The following section will only be active after the developer preview mode is
+  completed, and the network upgrade to PoS has occurred. [Learn
+  more](/chain/nodes/validator#developer-preview-mode)
 </Callout>
 
 The gas paid for each transaction will then be divided in two categories:
@@ -29,7 +29,6 @@ The gas paid for each transaction will then be divided in two categories:
 **Burn**: Part of the transaction fee used as gas will be burned and therefore permanently find their way out of circulation causing a deflationary effect.
 
 The precise distribution ratio between these categories remains under consideration.
-
 
 ## Fee Configuration
 
@@ -45,5 +44,5 @@ The precise distribution ratio between these categories remains under considerat
     "blockGasCostStep": 100000
 }
 ```
-These parameters collectively regulate the gas token economics within Beam, influencing fees and transaction processing on the network. To learn more details about these settings, view https://docs.avax.network/build/subnet/upgrade/customize-a-subnet#fee-config.
 
+These parameters collectively regulate the gas token economics within Beam, influencing fees and transaction processing on the network. To learn more details about these settings, view https://docs.avax.network/build/subnet/upgrade/customize-a-subnet#fee-config.
