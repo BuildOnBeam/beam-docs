@@ -1,5 +1,5 @@
 ---
-description: 'A step-by-step guide on verifying contracts on Beam using the official subnets.avax.network explorer.'
+description: "A step-by-step guide on verifying contracts on Beam using the official subnets.avax.network explorer."
 ---
 
 # Verifying Contracts
@@ -15,13 +15,9 @@ Follow these steps for verification:
 3. **Select and upload all your contract files**.
 4. Once every file is uploaded, initiate the verification by clicking **Submit Verification**.
 
-
-
 ![Verifying Contracts Settings](/contract-verification-settings.png)
 
-
 For verifying a contract on the Beam testnet, refer to the [Verifying Contracts Tool (Testnet)](https://subnets-test.avax.network/tools/verify-contract?chainId=13337).
-
 
 ## From the command line
 
@@ -53,15 +49,13 @@ For all available options, check out the plugin's [documentation](https://github
 - To verify an existing, already deployed contract, run:
 
 ```bash
-forge verify-contract MyFirstContract \
- 0x12345... \
-  --chain-id 4337 \
-  --verifier sourcify
+forge verify-contract 0x12345... MyFirstContract --chain-id 4337 --verifier sourcify
 ```
 
 ### Truffle
 
 When deploying contracts with Truffle, you can install [truffle-plugin-verify](https://github.com/rkalis/truffle-plugin-verify) and use it like this:
+
 ```bash
 truffle run verify MyFirstContract MySecondContract --network beam
 ```
