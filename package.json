@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:ci": "pnpm generate && pnpm build",
     "postbuild": "next-sitemap",
     "start": "next start",
     "generate": "pnpm generate:embeddings",

@@ -296,7 +296,10 @@ async function generateEmbeddings() {
     ...(await walk("pages"))
       .filter(({ path }) => /\.mdx?$/.test(path))
       .filter(({ path }) => !ignoredFiles.includes(path))
-      .map((entry) => new MarkdownEmbeddingSource("guide", entry.path)),
+      .map(
+        (entry) =>
+          new MarkdownEmbeddingSource("guide", entry.path, entry.parentPath)
+      ),
   ];
 
   console.log(`Discovered ${embeddingSources.length} pages`);
@@ -325,13 +328,14 @@ async function generateEmbeddings() {
         throw fetchPageError;
       }
 
-      type Singular<T> = T extends any[] ? undefined : T;
+      type ParentPage<T> = T extends any[] ? T[number] | null : T;
 
       // We use checksum to determine if this page & its sections need to be regenerated
       if (!shouldRefresh && existingPage?.checksum === checksum) {
-        const existingParentPage = existingPage?.parentPage as Singular<
-          typeof existingPage.parentPage
-        >;
+        const existingParentPage =
+          existingPage?.parentPage as unknown as ParentPage<
+            typeof existingPage.parentPage
+          >;
 
         // If parent page changed, update it
         if (existingParentPage?.path !== parentPath) {
@@ -437,20 +441,19 @@ async function generateEmbeddings() {
 
           const [responseData] = embeddingResponse.data;
 
-          const { error: insertPageSectionError, data: pageSection } =
-            await supabaseClient
-              .from("docs_page_section")
-              .insert({
-                page_id: page.id,
-                slug,
-                heading,
-                content,
-                token_count: embeddingResponse.usage.total_tokens,
-                embedding: responseData.embedding,
-              })
-              .select()
-              .limit(1)
-              .single();
+          const { error: insertPageSectionError } = await supabaseClient
+            .from("docs_page_section")
+            .insert({
+              page_id: page.id,
+              slug,
+              heading,
+              content,
+              token_count: embeddingResponse.usage.total_tokens,
+              embedding: responseData.embedding,
+            })
+            .select()
+            .limit(1)
+            .single();
 
           if (insertPageSectionError) {
             throw insertPageSectionError;
