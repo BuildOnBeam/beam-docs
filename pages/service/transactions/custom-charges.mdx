@@ -1,0 +1,38 @@
+---
+title: Custom charges
+---
+
+### Custom charges of in-game currencies (coming soon)
+
+Another — and probably the most interesting option for most developers - is charging in-game (ERC20) tokens as a form of payment for transactions. To easily explain the flexibility this gives you, let's assume you have an in-game token called 'Diamonds'. Users obtain these diamonds either through playing your game, or by making an in-app purchase, and you would like to charge users their Diamonds when you handle a transaction for them.
+
+### Creating a custom charge policy
+
+You could charge your users an X amount of diamonds by simply creating a policy, and providing the `policyId` any transaction. When this happens, the in-game diamond(s) will be taken away from the user, while under the hood we use MC to run a transaction.
+
+### Economic viability
+
+Eventually, you as a game developer will be responsible for funding the MC for all the transactions that are ran through our service, so if you take away in-game diamonds, you have to consider if it's economically viable to make this transaction. Let's assume a single transaction on Beam costs < 0.001 MC, and a diamond costs the user $ 0.05 to obtain - this means that the transaction through the policy is now not only economically viable, it also allows you to to sponsor quite some transactions for the user as the single diamond paid for the transaction in tenfold.
+
+```typescript
+const transaction = await beam.assets.transferAsset("your-sender-id", {
+  receiverEntityId: "your-receiver-id",
+  assetAddress: "your-contract-address",
+  assetId: "73",
+  // ...
+  sponsor: false, // 👈 This handles the transaction to be self paid
+  policyId: "pol_000..", // 👈 This triggers the custom policy to be used
+});
+
+// {
+//   "status": "success",
+//   "type": "custodial",
+//   "transactionHash": '0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f',
+//   "explorerUrl": "https://subnets.avax.network/beam/0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f"
+// }
+```
+
+### Alterantive methods of handling transactionHash
+
+- [Sponsored transactions](/service/transactions/sponsored-transactions): Learn about sponsored transactions for your users
+- [Profile-paid transactions](/service/transactions/profile-paid-transactions): Learn about how to make a profile pay for it's own transactions through MC
