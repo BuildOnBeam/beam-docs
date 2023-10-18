@@ -6,6 +6,8 @@ title: Creating custom transactions
 
 Throughout our service, we've added multiple methods for you to manage assets for the Profiles you've created. However, as your game and asset contract complexity grows, a more interesting way of handling complicated transactions is by directly communicating with an asset contract.
 
+There's a limit of 9 interactions per transaction to prevent potential security vulnerabilities. Making calls to external contracts within loops can risk Denial of Service (DoS) or transaction failures if they consume more gas than a block's limit.
+
 You can simply do this by creating a transaction that interacts with one or more contracts in one go by padding an `interactions` array. This would look something like the snippet below. Keep in mind that everything you see below is completely contextual based on the contracts you're calling and the functions that are avaialble on said contract.
 
 ```typescript
