@@ -1,6 +1,6 @@
 # Treasury profiles
 
-Through minting profiles, you're able to mint on-chain assets through our sdk, and while this is flexible enough for many; some games will rely on pre-minted assets withouth on-demand minting.
+Through minting profiles, you're able to mint on-chain assets through our sdk, and while this is flexible enough for many; some games will rely on pre-minted assets without on-demand minting.
 
 If this applies to your game, and you would like to distribute these assets through the SDK, one way of handling things is to create a treasury profile.
 
@@ -23,4 +23,4 @@ The treasury profile would be a profile like any other: an account abstraction t
 
 By never creating a connection request for this profile as described in the [users and profiles](/service/profiles/users-and-profiles), you won't have a risk of anyone touching the assets within the profile except for someone authorized by the API keys.
 
-If pre-minted assets get distributed in batches, you might want to create a treasury profile per batch - or periodically send assets to the profile it's wallet address - managing these profiles is up to you. Do keep in mind that everyone who posesses or is able to get access to the read-and-write API key we provided to you, is able to move around these assets freely between profiles of your game.
+If pre-minted assets get distributed in batches, you might want to create a treasury profile per batch - or periodically send assets to the profile it's wallet address - managing these profiles is up to you. Do keep in mind that everyone who possesses or is able to get access to the read-and-write API key we provided to you, is able to move around these assets freely between profiles of your game.

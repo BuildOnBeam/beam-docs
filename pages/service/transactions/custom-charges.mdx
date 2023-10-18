@@ -21,7 +21,7 @@ const transaction = await beam.assets.transferAsset("your-sender-id", {
   assetId: "73",
   // ...
   sponsor: false, // 👈 This handles the transaction to be self paid
-  policyId: "pol_000..", // 👈 This triggers the custom policy to be used
+  policyId: "cl..", // 👈 This triggers the custom policy to be used
 });
 
 // {
@@ -32,7 +32,7 @@ const transaction = await beam.assets.transferAsset("your-sender-id", {
 // }
 ```
 
-### Alterantive methods of handling transactionHash
+### Alternative methods of handling transactionHash
 
 - [Sponsored transactions](/service/transactions/sponsored-transactions): Learn about sponsored transactions for your users
 - [Profile-paid transactions](/service/transactions/profile-paid-transactions): Learn about how to make a profile pay for it's own transactions through MC

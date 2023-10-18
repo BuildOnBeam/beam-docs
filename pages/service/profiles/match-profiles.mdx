@@ -38,7 +38,7 @@ const playerAssets = await beam.assets.getProfileAssets("your-player-a-id", {
 
 Once both player selected their asset they need to be moved to the match profile. Once the transfer is completed, the asset is outside of the players their control. Note that at the moment of writing we don't offer a way to 'listen' to on-chain events, but as per our [roadmap](/service/roadmap), we are aiming to have this ready at the end of 2023.
 
-Transfering player A their asset:
+Transferring player A their asset:
 
 ```typescript
 const transfer = await beam.assets.transfer({
@@ -76,7 +76,7 @@ const transfer = await beam.assets.transfer({
 
 You are able to validate the existence of the asset in the match-profile by simply calling the same method as you already used for the earlier step where the players had to select their assets.
 
-In this case, assuming that you are not re-using match profiles, validating the `count` property would be enough to see if the match is ready to begin, simply by chekcing the existence of two assets.
+In this case, assuming that you are not re-using match profiles, validating the `count` property would be enough to see if the match is ready to begin, simply by checking the existence of two assets.
 
 ```typescript
 const matchAssets = await beam.assets.getProfileAssets("your-match-id", {
