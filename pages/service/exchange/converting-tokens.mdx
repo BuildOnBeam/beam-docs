@@ -4,7 +4,7 @@ title: Programmatic decentralized token conversion on Beam
 
 # Converting tokens
 
-The API allows you to convert any in-game tokens or MC associated with a profile, using Beam's **decentralized exchange** [swap.onbeam.com](https://swap.onbeam.com).
+The API allows you to convert any in-game tokens or BEAM associated with a profile, using Beam's **decentralized exchange** [swap.onbeam.com](https://swap.onbeam.com).
 Conversion rates are determined via an _Automated Market Maker_ mechanism, and depend on supply and demand of the respective tokens.
 You can learn more about setting up a _liquidity pool_ for your own tokens [here](http://localhost:3000/chain/beam-ecosystem/amm#how-do-i-provide-liquidity), in order to enable trading.
 
@@ -16,7 +16,7 @@ This two-step process serves as an important safeguard against overpaying, as ex
 To obtain prices, you'd pass in to the API
 
 - the contract addresses of the desired _input_ and _output_ tokens
-  - the _zero address_ (`0x0000000000000000000000000000000000000000`) can be used to refer to MC tokens
+  - the _zero address_ (`0x0000000000000000000000000000000000000000`) can be used to refer to BEAM tokens
 - an amount to swap, either a desired _input_ and _output_ token amount
 
 Depending on the "direction" of the conversion, there are two different use cases, which are covered with examples below too.
@@ -31,13 +31,13 @@ Let's assume we have two tokens _IN_ and _OUT_:
 
 ## Converting with an exact input amount
 
-We assume our player owns 1000 in-game tokens, and wants to convert them on the spot to MC tokens.
-We first need to get a quote and see how much MC we'd get by calling `getQuoteForOutput`, and passing in our _input_ amount of 1000.
+We assume our player owns 1000 in-game tokens, and wants to convert them on the spot to BEAM tokens.
+We first need to get a quote and see how much BEAM we'd get by calling `getQuoteForOutput`, and passing in our _input_ amount of 1000.
 
 ```typescript
 const quoteOutput = await beam.exchange.getQuoteForOutput(
   "0x008518e76FAD03f592Bbb7E394C762d5FD54cb97", // input token address
-  "0x0000000000000000000000000000000000000000", // output token address, 0x0... refers to native MC (gas token)
+  "0x0000000000000000000000000000000000000000", // output token address, 0x0... refers to native BEAM (gas token)
   "1000" // input token amount to swap
 );
 
@@ -49,9 +49,9 @@ const quoteOutput = await beam.exchange.getQuoteForOutput(
 // }
 ```
 
-In this case we can expect to get 10.1 MC for 1000 of our tokens.
+In this case we can expect to get 10.1 BEAM for 1000 of our tokens.
 If the player is happy with the result, we execute the swap by simply passing in the result of the previous
-call to `convertInputs`, which makes sure we spend _exactly_ 1000 in-game tokens, and receive _at least_ 10.1 MC.
+call to `convertInputs`, which makes sure we spend _exactly_ 1000 in-game tokens, and receive _at least_ 10.1 BEAM.
 
 ```typescript
 const swapTransaction = await beam.exchange.convertInput(

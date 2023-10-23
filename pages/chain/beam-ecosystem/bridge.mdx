@@ -1,10 +1,9 @@
 ---
-description: 'A comprehensive guide on using the Bridge for Beam, covering steps to access the bridge, fees involved and FAQs.'
+description: "A comprehensive guide on using the Bridge for Beam, covering steps to access the bridge, fees involved and FAQs."
 ---
 
-import { Callout } from 'nextra/components'
-import { Steps } from 'nextra-theme-docs'
-
+import { Callout } from "nextra/components";
+import { Steps } from "nextra-theme-docs";
 
 # Bridge
 
@@ -14,7 +13,9 @@ To learn more about it and how to use it in your own project, visit our [Omnicha
 ## LayerZero Bridge Guide
 
 <Callout type="warning" emoji="⚠️">
-  Ensure you understand the risks and technical details of the LayerZero Bridge process before proceeding. It is crucial to double-check all transaction details and addresses.
+  Ensure you understand the risks and technical details of the LayerZero Bridge
+  process before proceeding. It is crucial to double-check all transaction
+  details and addresses.
 </Callout>
 
 <Steps>
@@ -38,8 +39,8 @@ To access the LayerZero Bridge, navigate to [bridge.onbeam.com](https://bridge.o
 ### (optional) Gas on Destination
 
 1. When bridging non-native assets you might want to add a small amount of gas on the destination chain.
-2. Click on "Add" next to "Gas on destination" which is located right below the source and destination tokens. 
-3. Select the amount of gas you want to add to your bridged assets. For Beam, the max is 0.05 MC, which will be enough for several transactions.  
+2. Click on "Add" next to "Gas on destination" which is located right below the source and destination tokens.
+3. Select the amount of gas you want to add to your bridged assets. For Beam, the max is 0.05 BEAM, which will be enough for several transactions.
 
 ### Confirm and Send
 
@@ -71,16 +72,18 @@ The LayerZero Bridge is built on top of the robust and secure LayerZero framewor
 
 ### How to test the Beam Bridge?
 
-Test token contracts have been deployed to Goerli and Fuji for bridging purposes. 
+Test token contracts have been deployed to Goerli and Fuji for bridging purposes.
 
 On the _Goerli_ testnet, you can obtain USDC and USDT tokens from our test contracts in the following ways:
 
 **Etherscan**: go to the contract tab, connect your wallet and call the **claim** function to get 100 tokens (every 24h).
-  - [USDC on Etherscan](https://goerli.etherscan.io/token/0x2724A590fe9cC7c66A83204aa11D6ec7Aa8e7C58#writeContract)
-  - [USDT on Etherscan](https://goerli.etherscan.io/token/0x908C7A34a87FD8e207BC4585707E484Ed2c9E8aE#writeContract)
+
+- [USDC on Etherscan](https://goerli.etherscan.io/token/0x2724A590fe9cC7c66A83204aa11D6ec7Aa8e7C58#writeContract)
+- [USDT on Etherscan](https://goerli.etherscan.io/token/0x908C7A34a87FD8e207BC4585707E484Ed2c9E8aE#writeContract)
 
 **Uniswap**: swap some GoerliETH to get tokens.
-  - [USDC on Uniswap](https://app.uniswap.org/swap?chain=goerli&inputCurrency=ETH&outputCurrency=0x2724A590fe9cC7c66A83204aa11D6ec7Aa8e7C58)
-  - [USDT on Uniswap](https://app.uniswap.org/swap?chain=goerli&inputCurrency=ETH&outputCurrency=0x908C7A34a87FD8e207BC4585707E484Ed2c9E8aE)
+
+- [USDC on Uniswap](https://app.uniswap.org/swap?chain=goerli&inputCurrency=ETH&outputCurrency=0x2724A590fe9cC7c66A83204aa11D6ec7Aa8e7C58)
+- [USDT on Uniswap](https://app.uniswap.org/swap?chain=goerli&inputCurrency=ETH&outputCurrency=0x908C7A34a87FD8e207BC4585707E484Ed2c9E8aE)
 
 On _Fuji_, you can bridge the native AVAX token. Obtain these from the [official faucet](https://core.app/tools/testnet-faucet). Once you've acquired the tokens, utilize [bridge.onbeam.com](https://bridge.onbeam.com) as you normally would to transfer them to the Beam Testnet.
