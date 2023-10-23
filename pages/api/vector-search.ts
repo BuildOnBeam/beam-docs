@@ -1,16 +1,16 @@
-import type { NextRequest } from "next/server";
-import { createClient } from "@supabase/supabase-js";
-import { codeBlock, oneLine } from "common-tags";
-import GPT3Tokenizer from "gpt3-tokenizer";
+import { createClient } from '@supabase/supabase-js';
+import { OpenAIStream, StreamingTextResponse } from 'ai';
+import { codeBlock, oneLine } from 'common-tags';
+import GPT3Tokenizer from 'gpt3-tokenizer';
+import type { NextRequest } from 'next/server';
 import {
-  Configuration,
-  OpenAIApi,
-  CreateModerationResponse,
-  CreateEmbeddingResponse,
   ChatCompletionRequestMessage,
-} from "openai-edge";
-import { OpenAIStream, StreamingTextResponse } from "ai";
-import { ApplicationError, UserError } from "../../lib/errors";
+  Configuration,
+  CreateEmbeddingResponse,
+  CreateModerationResponse,
+  OpenAIApi,
+} from 'openai-edge';
+import { ApplicationError, UserError } from '../../lib/errors';
 
 const openAiKey = process.env.OPENAI_KEY;
 const supabaseUrl = process.env.SUPABASE_URL;
@@ -21,34 +21,34 @@ const config = new Configuration({
 });
 const openai = new OpenAIApi(config);
 
-export const runtime = "edge";
+export const runtime = 'edge';
 
 export default async function handler(req: NextRequest) {
   try {
     if (!openAiKey) {
-      throw new ApplicationError("Missing environment variable OPENAI_KEY");
+      throw new ApplicationError('Missing environment variable OPENAI_KEY');
     }
 
     if (!supabaseUrl) {
-      throw new ApplicationError("Missing environment variable SUPABASE_URL");
+      throw new ApplicationError('Missing environment variable SUPABASE_URL');
     }
 
     if (!supabaseServiceKey) {
       throw new ApplicationError(
-        "Missing environment variable SUPABASE_SERVICE_ROLE_KEY"
+        'Missing environment variable SUPABASE_SERVICE_ROLE_KEY',
       );
     }
 
     const requestData = await req.json();
 
     if (!requestData) {
-      throw new UserError("Missing request data");
+      throw new UserError('Missing request data');
     }
 
     const { prompt: query } = requestData;
 
     if (!query) {
-      throw new UserError("Missing query in request data");
+      throw new UserError('Missing query in request data');
     }
 
     const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
@@ -62,7 +62,7 @@ export default async function handler(req: NextRequest) {
     const [results] = moderationResponse.results;
 
     if (results.flagged) {
-      throw new UserError("Flagged content", {
+      throw new UserError('Flagged content', {
         flagged: true,
         categories: results.categories,
       });
@@ -70,14 +70,14 @@ export default async function handler(req: NextRequest) {
 
     // Create embedding from query
     const embeddingResponse = await openai.createEmbedding({
-      model: "text-embedding-ada-002",
-      input: sanitizedQuery.replaceAll("\n", " "),
+      model: 'text-embedding-ada-002',
+      input: sanitizedQuery.replaceAll('\n', ' '),
     });
 
     if (embeddingResponse.status !== 200) {
       throw new ApplicationError(
-        "Failed to create embedding for question",
-        embeddingResponse
+        'Failed to create embedding for question',
+        embeddingResponse,
       );
     }
 
@@ -86,22 +86,22 @@ export default async function handler(req: NextRequest) {
     }: CreateEmbeddingResponse = await embeddingResponse.json();
 
     const { error: matchError, data: pageSections } = await supabaseClient.rpc(
-      "match_page_sections",
+      'match_page_sections',
       {
         embedding,
         match_threshold: 0.78,
         match_count: 10,
         min_content_length: 50,
-      }
+      },
     );
 
     if (matchError) {
-      throw new ApplicationError("Failed to match page sections", matchError);
+      throw new ApplicationError('Failed to match page sections', matchError);
     }
 
-    const tokenizer = new GPT3Tokenizer({ type: "gpt3" });
+    const tokenizer = new GPT3Tokenizer({ type: 'gpt3' });
     let tokenCount = 0;
-    let contextText = "";
+    let contextText = '';
 
     for (let i = 0; i < pageSections.length; i++) {
       const pageSection = pageSections[i];
@@ -137,12 +137,12 @@ export default async function handler(req: NextRequest) {
     `;
 
     const chatMessage: ChatCompletionRequestMessage = {
-      role: "user",
+      role: 'user',
       content: prompt,
     };
 
     const response = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
+      model: 'gpt-3.5-turbo',
       messages: [chatMessage],
       max_tokens: 512,
       temperature: 0,
@@ -151,7 +151,7 @@ export default async function handler(req: NextRequest) {
 
     if (!response.ok) {
       const error = await response.json();
-      throw new ApplicationError("Failed to generate completion", error);
+      throw new ApplicationError('Failed to generate completion', error);
     }
 
     // Transform the response into a readable stream
@@ -168,8 +168,8 @@ export default async function handler(req: NextRequest) {
         }),
         {
           status: 400,
-          headers: { "Content-Type": "application/json" },
-        }
+          headers: { 'Content-Type': 'application/json' },
+        },
       );
     } else if (err instanceof ApplicationError) {
       // Print out application errors with their additional data
@@ -182,12 +182,12 @@ export default async function handler(req: NextRequest) {
     // TODO: include more response info in debug environments
     return new Response(
       JSON.stringify({
-        error: "There was an error processing your request",
+        error: 'There was an error processing your request',
       }),
       {
         status: 500,
-        headers: { "Content-Type": "application/json" },
-      }
+        headers: { 'Content-Type': 'application/json' },
+      },
     );
   }
 }
