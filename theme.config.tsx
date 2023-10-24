@@ -1,21 +1,21 @@
-import { DocsThemeConfig } from 'nextra-theme-docs';
-import React from 'react';
-import { BeamIcon } from './components/beam-icons';
+import { DocsThemeConfig } from "nextra-theme-docs";
+import React from "react";
+import { BeamIcon } from "./components/beam-icons";
 
 const config: DocsThemeConfig = {
   logo: BeamIcon,
   project: {
-    link: 'https://github.com/Merit-Circle/beam-docs',
+    link: "https://github.com/Merit-Circle/beam-docs",
   },
-  docsRepositoryBase: 'https://github.com/Merit-Circle/beam-docs/tree/main',
+  docsRepositoryBase: "https://github.com/Merit-Circle/beam-docs/tree/main",
   useNextSeoProps: () => ({
-    titleTemplate: '%s | Beam documentation',
+    titleTemplate: "%s | Beam documentation",
   }),
   head: () => {
-    const ogTitle = 'Hello Beam! | Beam documentation';
+    const ogTitle = "Hello Beam! | Beam documentation";
     const ogDescription =
-      'Beam is a sovereign network focused on gaming brought to you by the Merit Circle DAO.';
-    const ogImage = 'https://docs.onbeam.com/beam-development-docs.png';
+      "Beam is a sovereign network focused on gaming brought to you by the Merit Circle DAO.";
+    const ogImage = "https://docs.onbeam.com/beam-development-docs.png";
 
     return (
       <>
@@ -59,7 +59,7 @@ const config: DocsThemeConfig = {
     );
   },
   footer: {
-    text: '© 2023 Merit Circle',
+    text: "© 2023 Merit Circle",
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,
@@ -71,7 +71,7 @@ const config: DocsThemeConfig = {
   },
   darkMode: false,
   nextThemes: {
-    defaultTheme: 'dark',
+    defaultTheme: "dark",
   },
 };
 

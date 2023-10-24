@@ -4,6 +4,11 @@
     "type": "page",
     "display": "hidden"
   },
+  "terms-of-service": {
+    "title": "Termms of Service",
+    "type": "page",
+    "display": "hidden"
+  },
   "chain": {
     "title": "Chain",
     "type": "page"
