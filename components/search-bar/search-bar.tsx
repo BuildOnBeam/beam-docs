@@ -1,12 +1,12 @@
-import { useCompletion } from "ai/react";
-import { useState } from "react";
-import ReactMarkdown from "react-markdown";
+import { useCompletion } from 'ai/react';
+import { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 export function SearchBar() {
-  const [query, setQuery] = useState<string>("");
+  const [query, setQuery] = useState<string>('');
 
   const { complete, completion, isLoading, error } = useCompletion({
-    api: "/api/vector-search",
+    api: '/api/vector-search',
   });
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
@@ -63,7 +63,7 @@ export function SearchBar() {
               {completion}
             </ReactMarkdown>
           </div>
-        ) : null}{" "}
+        ) : null}{' '}
       </div>
     </div>
   );
