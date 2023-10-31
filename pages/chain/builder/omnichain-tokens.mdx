@@ -1,11 +1,15 @@
+---
+description: "Learn how to create token- and NFT bridges, and connect your project to other blockchains"
+---
+
 # Beam Omnichain Tokens
 
 [LayerZero](https://layerzero.gitbook.io/docs/) is an omnichain interoperability protocol that connects Beam to other networks.
-It enables everyone to build **Omnichain tokens and NFTs** on Beam that can be transferred cross-chain, and bridge existing assets from other networks.
+It enables everyone to build **Omnichain tokens and NFTs on Beam** that can be transferred cross-chain, and bridge existing assets from other networks.
 
 Merit Circle's [LayerZero contracts repository](https://github.com/Merit-Circle/layerzero-contracts) is forked from
-LayerZero Labs' [example contracts](https://github.com/LayerZero-Labs/solidity-examples) and additionally includes all the
-necessary setup to get started with Beam, as well as more improvements like contract verification and better configuration options under the hood.
+LayerZero Labs' [example contracts](https://github.com/LayerZero-Labs/solidity-examples) and additionally includes all the necessary setup to get
+started with Beam, as well as more improvements like upgradeable smart contracts, contract verification and better configuration options under the hood.
 
 ## Contract types
 
@@ -150,7 +154,7 @@ All done, let's test our bridge by transferring 20 USDC from Ethereum to Beam:
 # grant token allowance to proxy contract
 npx hardhat --network ethereum approveERC20 --contract MyUsdcProxyOFT
 # bridge 20 USDC from Ethereum to Beam
-npx hardhat --network ethereum oftv2Send --target-network beam --qty 20 --local-contract MyUsdcProxyOFT --remote-contract MyUsdcOFT
+npx hardhat --network ethereum sendOFT --target-network beam --qty 20 --local-contract MyUsdcProxyOFT --remote-contract MyUsdcOFT
 ```
 
 ### Bridge an existing ERC721 NFT from Avalanche Fuji to Beam Testnet
@@ -221,14 +225,14 @@ npx hardhat --network beam-testnet deploy --tags MyONFT
 npx hardhat --network fuji deploy --tags MyONFTProxy
 
 # setup
-npx hardhat --network beam-testnet setupONFT --target-network fuji --local-contract MyONFT --remote-contract MyONFTProxy
-npx hardhat --network fuji setupONFT --target-network beam-testnet --local-contract MyONFTProxy --remote-contract MyONFT
+npx hardhat --network beam-testnet setupONFT721 --target-network fuji --local-contract MyONFT --remote-contract MyONFTProxy
+npx hardhat --network fuji setupONFT721 --target-network beam-testnet --local-contract MyONFTProxy --remote-contract MyONFT
 
 # grant NFT allowance to proxy contract
 npx hardhat --network fuji approveNFT --contract MyONFTProxy
 
 # send NFT #1 from Fuji to Beam Testnet
-npx hardhat --network fuji onftSend --target-network beam-testnet --token-id 1 --contract MyONFTProxy
+npx hardhat --network fuji sendONFT721 --target-network beam-testnet --token-id 1 --contract MyONFTProxy
 ```
 
 <br />
