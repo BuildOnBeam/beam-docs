@@ -14,7 +14,7 @@ const NETWORK_PARAMS = {
   },
   4337: {
     chainId: "0x10f1",
-    chainName: "Beam Mainnet",
+    chainName: "Beam",
     nativeCurrency: {
       name: "Beam",
       symbol: "BEAM",
