@@ -1,11 +1,13 @@
-import { Callout, Cards, Card } from 'nextra/components'
+import { Callout, Cards, Card } from "nextra/components";
 
 # SDK
 
 The recommended way to interact with the Beam API is by using one of our official SDKs. All of the provided SDKs are meant to be used **server side**, as it's crucial to not expose any of the api keys we provided publicly.
 
 <Callout emoji="⚠️">
-  It's of the utmost importants that your api key never gets exposed. If your api key is / has been at risk of being exposed, please contact build@onbeam.com.
+  It's of the utmost importants that your api key never gets exposed. If your
+  api key is / has been at risk of being exposed, please contact
+  build@onbeam.com.
 </Callout>
 
 ### Beam SDKs
@@ -16,16 +18,17 @@ In order to get started, we currently provide the following SDKs. Note that if t
   <Card
     icon="✅ "
     title="Node.js (Typescript)"
-    href="https://github.com/Merit-Circle/beam-node"
+    href="https://www.npmjs.com/package/@onbeam/node"
   />
   <Card
     icon="✅ "
-    title="C# (Restsharp)"
-    href="https://github.com/Merit-Circle/beam-csharp"
+    title="C# (NuGet)"
+    href="https://www.nuget.org/packages/Beam"
   />
 </Cards>
 
 ### Beam OpenAPI Specification
+
 Beam OpenAPI specification empowers you with a broad set of developer tooling, starting with Postman collections and generating your own SDK.
 
 [Beam OpenAPI Specification](https://api.testnet.onbeam.com/api/game-json)
