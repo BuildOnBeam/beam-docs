@@ -1,27 +1,27 @@
-import { Button } from "nextra/components";
+import { Button } from 'nextra/components';
 
 const NETWORK_PARAMS = {
   13337: {
-    chainId: "0x3419",
-    chainName: "Beam Testnet",
+    chainId: '0x3419',
+    chainName: 'Beam Testnet',
     nativeCurrency: {
-      name: "Beam,",
-      symbol: "BEAM",
+      name: 'Beam,',
+      symbol: 'BEAM',
       decimals: 18,
     },
-    rpcUrls: ["https://subnets.avax.network/beam/testnet/rpc"],
-    blockExplorerUrls: ["https://subnets-test.avax.network/beam"],
+    rpcUrls: ['https://subnets.avax.network/beam/testnet/rpc'],
+    blockExplorerUrls: ['https://subnets-test.avax.network/beam'],
   },
   4337: {
-    chainId: "0x10f1",
-    chainName: "Beam",
+    chainId: '0x10f1',
+    chainName: 'Beam',
     nativeCurrency: {
-      name: "Beam",
-      symbol: "BEAM",
+      name: 'Beam',
+      symbol: 'BEAM',
       decimals: 18,
     },
-    rpcUrls: ["https://subnets.avax.network/beam/mainnet/rpc"],
-    blockExplorerUrls: ["https://subnets.avax.network/beam"],
+    rpcUrls: ['https://subnets.avax.network/beam/mainnet/rpc'],
+    blockExplorerUrls: ['https://subnets.avax.network/beam'],
   },
 };
 
@@ -34,7 +34,7 @@ function NetworkButton({ chainId, label }) {
       try {
         // switch network
         await ethereum.request({
-          method: "wallet_switchEthereumChain",
+          method: 'wallet_switchEthereumChain',
           params: [
             {
               chainId: NETWORK_PARAMS[chainId].chainId,
@@ -46,18 +46,18 @@ function NetworkButton({ chainId, label }) {
           // add network
           try {
             await ethereum.request({
-              method: "wallet_addEthereumChain",
+              method: 'wallet_addEthereumChain',
               params: [NETWORK_PARAMS[chainId]],
             });
           } catch (addError) {
-            console.error("Error adding wallet network", addError);
+            console.error('Error adding wallet network', addError);
           }
         } else {
-          console.error("Error switching wallet network", switchError);
+          console.error('Error switching wallet network', switchError);
         }
       }
     } else {
-      console.error("No injected wallet provider detected");
+      console.error('No injected wallet provider detected');
     }
   }
 
