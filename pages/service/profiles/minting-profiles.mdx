@@ -1,6 +1,6 @@
 # Minting profiles
 
-Another use case for profiles could be minting-profiles. You might have asset contracts deployed on beam which need to mint on-demand - but you don't want everyone to be able mint whenever they want, so the contract has a pre-defined allowlist of addresses that are able to mint assets for the contract.
+Another use case for profiles could be minting-profiles. You might have asset contracts deployed on beam which need to be minted on-demand - but you don't want everyone to be able mint whenever they want, so the contract has a pre-defined allowlist of addresses that are able to mint assets for the contract.
 
 If your contracts support extending this list of addresses, you could simply create a profile and add the address of the profile to the allowlist once.
 
@@ -21,7 +21,7 @@ const minter = await beam.profiles.createProfile("your-minter-id");
 
 Take the wallet address of the profile you just created, and add it to the allowlist of the contract on-chain. This gives you the possibility to use the minting profile through our SDK to mint assets on demand.
 
-After the address is whitelisted, minting an asset is as simple as creating a new transaction on behalf of the minter profile. As the minter-profile is whitelisted, you're (through the api key) are in full control of minting assets. If you would like to mint an asset to a player's profile, it would be as simple as doing the following:
+After the address is whitelisted, minting an asset is as simple as creating a new transaction on behalf of the minter profile. As the minter-profile is whitelisted, you (through the api key) are in full control of minting assets. If you would like to mint an asset to a player's profile, it would be as simple as doing the following:
 
 ```typescript
 const player = await beam.profiles.getProfile("your-player-id");
