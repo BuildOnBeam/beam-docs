@@ -12,7 +12,7 @@ Note that depending on the role of our companion app within your game, [users th
 
 ### Currency transfers (ERC20)
 
-If we registered an ERC20 contract for your game, you are able to manage the ERC20 assets in all the profiles that you created. Sending around these tokens is easy. We simply expect you to know the ID of the sender, as well as the ID of the receiver, both of which you should have created a Profile for.
+If we registered an ERC20 contract for your game, you are able to manage the ERC20 assets in all the profiles that you created. Sending these tokens around is easy. We simply expect you to know the ID of the sender, as well as the ID of the receiver, both of which you should have created a Profile for.
 
 Initiating a token transfer would look something like this. In the example below, we are not considering more complicated features like sponsoring transactions just yet - the transaction will be paid for by you - the game developer.
 
@@ -51,12 +51,12 @@ const transaction = await beam.assets.transferAsset("your-sender-id", {
 // }
 ```
 
-### Native transfers (Merit Circle)
+### Native transfers (BEAM)
 
-Lastly - we offer you the possibility to transfer our native token: Merit Circle. Depending on the context of your game, you might want to be able to transfer our native token around between profiles.
+Lastly - we offer you the possibility to transfer our native token: BEAM. Depending on the context of your game, you might want to be able to transfer our native token around between profiles.
 
 ```typescript
-const transaction = await beam.assets.transferAsset("your-sender-id", {
+const transaction = await beam.assets.transferNativeToken("your-sender-id", {
   receiverEntityId: "your-receiver-id",
   amountToTransfer: "10", // 10 means 10 - we don't expect you to consider any other format like gwei
 });
