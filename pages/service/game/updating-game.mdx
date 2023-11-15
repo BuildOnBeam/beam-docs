@@ -1,0 +1,28 @@
+## Updating your game
+
+Some of the fields for your game's registration are being used in the Beam companion app. You can update through the `updateGame` method that's available on any of our [SDK's](/service/sdk) or by directly communicating with our [RESTful API](/service/full-api-reference)
+
+---
+
+### Companion app
+
+If you're using the [Beam Companion](/service/companion/introduction) app, it might be good to know that as soon as you change the name or visuals of your game, all connected users to profiles of your game are able to see these changes in the [Beam Companion](/service/companion/introduction) app.
+
+---
+
+### Updating your game
+
+Updating your game is as simple as calling the `updateGame` method.
+
+```typescript
+import { Beam } from "@onbeam/node";
+
+const beam = new Beam("x-api-key");
+
+await beam.game.updateGame({
+  name: "Your game's name",
+  description: "Lorem ipsum dolor...",
+  coverImageUrl: "ipfs://..",
+  logoImageUrl: "ipfs://..",
+});
+```

@@ -1,0 +1,44 @@
+# Game
+
+Your game registration within Beam consists of information that is managed by Beam, and information manageable by you. When we register your api key, we'll also be in touch about the assets you want to register in your game. We can either provide contract templates for generic in-game currencies, but are also happy to help you with bridging over assets from one chain to another - be in touch!
+
+Here are some of the key pieces of info you'll need to get started with implementing with Beam:
+
+- [API keys](/service/game/api-keys): API keys and how to invalidate them
+
+- [Managing contracts](/service/game/managing-contracts): Add and remove asset contracts to your game
+
+- [Updating your game](/service/game-updating-game): Update information (name, visuals) of your game in the Beam Companion app
+
+---
+
+## Retrieving your game
+
+If you're just interested in the currently resgistered information of your game in the Beam accounts API, simply call the `getGame` method. You'll find an example on how to do this below.
+
+**Note:** we don't expose your API keys in this request, as we don't want people to accidentally expose them in application logs.
+
+```typescript
+import { Beam } from "@onbeam/node";
+
+const beam = new Beam("x-api-key");
+
+const game = await beam.game.getGame();
+
+// {
+//   "id": "string",
+//   "name": "string",
+//   "contracts": [
+//     {
+//       "type": "ERC20",
+//      ...
+//     }
+//   ],
+//   "policies": [
+//     {
+//       "id": "string",
+//       ...
+//     }
+//   ]
+// }
+```
