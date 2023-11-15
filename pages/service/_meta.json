@@ -25,6 +25,9 @@
   "companion": {
     "title": "Companion"
   },
+  "reporting": {
+    "title": "Reporting"
+  },
   "--- References": {
     "type": "separator",
     "title": "References"
