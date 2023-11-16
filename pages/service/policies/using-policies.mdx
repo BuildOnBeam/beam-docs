@@ -1,6 +1,6 @@
 # Using policies
 
-Once created, policies will only be used if you explicitly pass the Policy ID when running a transaction. The general rule of thumb is that the `policyId` property will be available on every method in our SDK if the method itself triggers an on-chain transcation.
+Once created, policies will only be used if you explicitly pass the Policy ID when running a transaction. The general rule of thumb is that the `policyId` property will be available on every method in our SDK if the method itself triggers an on-chain transaction.
 
 ```typescript
 const transaction = await beam.assets.transferAsset("your-sender-id", {
