@@ -4,18 +4,18 @@ title: Profile-paid transactions
 
 # Profile-paid transactions
 
-An alternative to the default of sponsoring transactions, is to make the Profile pay for a transaction. This requires the profile to have enough BEAM in its possession to pay for the gas fees needed to handle the network transaction. This generally comes down to a very small sum of BEAM, but if you never distributed any BEAM to the Profiles that you've created, there's a big chance that none of the profiles actually have the required BEAM in place.
+An alternative to the default of sponsoring transactions, is to make the Profile pay for a transaction. This requires the profile to have enough $Beam in its possession to pay for the gas fees needed to handle the network transaction. This generally comes down to a very small sum of $Beam, but if you never distributed any $Beam to the Profiles that you've created, there's a big chance that none of the profiles actually have the required $Beam in place.
 
 In order to mitigate that, you could go different directions. Which is viable to you and your userbase completely depends on your context.
 
-1. You could tell your users to increase their in-game account BEAM funding by asking them to send BEAM to it (which we do not consider a good experience for the user)
-2. You could buy BEAM and distribute it to your in-game profiles through a treasury profile
+1. You could tell your users to increase their in-game account $Beam funding by asking them to send $Beam to it (which we do not consider a good experience for the user)
+2. You could buy $Beam and distribute it to your in-game profiles through a treasury profile
 
 ### How to make the profile pay for its transaction?
 
 In order to make a profile pay for its own transaction, the only thing you need to do is provide a `sponsor: false` option when running a transaction. The `sponsor` option is something we've built into every method that triggers an on-chain transaction.
 
-Take into account that if the Profile doesn't actually have the necessary BEAM funded, the sdk method will throw.
+Take into account that if the Profile doesn't actually have the necessary $Beam funded, the sdk method will throw.
 
 Below you will find an example how this would look like when managing assets in a Profile
 

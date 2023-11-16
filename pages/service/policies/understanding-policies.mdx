@@ -1,0 +1,44 @@
+# Understanding policies
+
+When you're ready to get started with defining policies it's important to understand a few key things
+
+- Policies are a way to make Profiles pay for a transaction by spending an in-game ERC20 token
+- You need to pass the specific id for the policy you created to charge your users
+- Underneath, the native token will always be used
+
+In both of the scenario's defined below, it's important to have start with a mental model: you're a game developer that supports NFT trading, and have an ERC20 in-game token (Gold) that your users need to earn before they can make transactions.
+
+---
+
+#### Fixed charge policies
+
+The first option that you have is to create a policy which charges the Profile a fixed amount of $Gold to run the transaction. Let's assume you want some transactions to cost 2 $Gold, and some of the more expensive on-chain actions (like minting) should cost 10 $Gold.
+
+In this scenario you will need to create two policies
+
+1. A policy which charges an **amount of 2** , with a **rateType set to Fixed** for the **token address of $Gold**
+2. A policy which charges an **amount of 10** , with a **rateType set to Fixed** for the **token address of $Gold**
+
+Each of the policies you create will return an id, and you can use said ID to pass to a transaction.
+
+If you go the route of fixed charges, it might be good to consider the economic viability of this choice. Underneath on the blockchain, we'll use $Beam to actually run the transaction, which will be something you as a game developer will need to eventually provide yoursef.
+
+---
+
+#### Dynamic charge policies
+
+The second option that you have revolves around dynamic prices. The dynamic aspect of it resvolves around the network congestion on the chain. You will need to define an exchange rate of $Gold-to-wei, and the user will be charged in $Gold based on the amount of wei a transaction costs.
+
+**Note:** We only recommend you going this route, if you have a **very good understanding of wei, network congestion and running on-chain transactions.**
+
+- Let's say that you'll assume an average transaction costs **250,000 wei**
+- You want the user to spend an average of 2 $Gold for their transaction, that means that 1 $Gold would be equal to 125,000 wei.
+
+For this to happen, you need to create a policy with charges **an amount of 125,000**, with a **rateType set to Dyanmic** for the **token address of $Gold**
+
+Once created, you can apply the policy ID to every transaction you make through our SDK, and we will charge the user in $Gold based on the $Gold-to-wei exchange rate.
+
+1. If the transaction cost jump to 500,000 wei, the user will be charged 4 $Gold
+2. If the transaction cost fall to 125,000 wei, the user will be charged 1 $Gold
+
+While this scenario has some specific use cases, but won't be ideal for the majority of users. Most consumsers don't have the technical knowledge of gas, and we feel like the risk of prices going up and down should be managed at the game development side.

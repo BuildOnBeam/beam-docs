@@ -1,0 +1,52 @@
+# Creating policies
+
+Creating a policy is as simple as calling the `CreatePolicy` method. We highly recommend getting a good understanding about policies first by reading the [Understanding policies](/service/policies/understanding-policies) section.
+
+```typescript
+const profile = await beam.policies.createPolicy({
+  tokenAddress: "0x0...", // ERC20 token address (contract must be added to your game)
+  amount: 1, // the fixed charge or the exchnage rate to wei
+  rateType: "Fixed", // 'Fixed' (recommended) or 'Dynamic'
+  chainId: 13337, // 13337 for Beam testnet, 4337 for mainnet
+});
+
+// {
+//   "id": "string",
+//   "chainId": 13337,
+//   "token": "string",
+//   "amount": "string",
+//   "rateType": "Fixed"
+// }
+```
+
+#### Retrieving all policies
+
+If you want to return a list of all active policies in your application use the `GetPolicies` method.
+
+```typescript
+const profile = await beam.policies.getPolicies();
+
+// {
+//   "data": [
+//     {
+//      "id": "string",
+//      "chainId": 13337,
+//      "token": "string",
+//      "amount": "string",
+//      "rateType": "Fixed"
+//     }
+//   ]
+// }
+```
+
+#### Deleting policies
+
+If you want to clean up old policies, simply call the `DeletePolicy` method and pass the Policy ID.
+
+```typescript
+const profile = await beam.policies.deletePolicy("policy-id");
+
+// {
+//   "success": true,
+// }
+```
