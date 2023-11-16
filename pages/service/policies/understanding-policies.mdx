@@ -31,14 +31,14 @@ The second option that you have revolves around dynamic prices. The dynamic aspe
 
 **Note:** We only recommend you going this route, if you have a **very good understanding of wei, network congestion and running on-chain transactions.**
 
-- Let's say that you'll assume an average transaction costs **250,000 wei**
-- You want the user to spend an average of 2 $Gold for their transaction, that means that 1 $Gold would be equal to 125,000 wei.
+- Let's say that you'll assume an average transaction costs **15_000_000_000 wei**
+- You want the user to spend an average of 2 $Gold for their transaction, that means that 1 $Gold would be equal to 7_500_000_00 wei.
 
-For this to happen, you need to create a policy with charges **an amount of 125,000**, with a **rateType set to Dyanmic** for the **token address of $Gold**
+For this to happen, you need to create a policy with charges **an amount of 750000000**, with a **rateType set to Dyanmic** for the **token address of $Gold**
 
 Once created, you can apply the policy ID to every transaction you make through our SDK, and we will charge the user in $Gold based on the $Gold-to-wei exchange rate.
 
-1. If the transaction cost jump to 500,000 wei, the user will be charged 4 $Gold
-2. If the transaction cost fall to 125,000 wei, the user will be charged 1 $Gold
+1. If the transaction cost jump to 30_000_000_000 wei, the user will be charged 4 $Gold
+2. If the transaction cost fall to 7_500_000_00 wei, the user will be charged 1 $Gold
 
 While this scenario has some specific use cases, but won't be ideal for the majority of users. Most consumsers don't have the technical knowledge of gas, and we feel like the risk of prices going up and down should be managed at the game development side.
