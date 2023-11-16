@@ -7,14 +7,14 @@
   "game": {
     "title": "Your game"
   },
-  "assets": {
-    "title": "Assets"
+  "profiles": {
+    "title": "Profiles"
   },
   "transactions": {
     "title": "Transactions"
   },
-  "policies": {
-    "title": "Policies"
+  "assets": {
+    "title": "Assets"
   },
   "marketplace": {
     "title": "Marketplace"
