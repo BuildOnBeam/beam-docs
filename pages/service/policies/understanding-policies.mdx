@@ -5,7 +5,6 @@
 - **Gas Payment in Native Currency**: Each blockchain has its own native currency for gas payments. Examples include:
 - Beam: Paid in Beam.
 - Ethereum: Paid in Ether.
-- Binance Smart Chain: Paid in BNB.
 - Polygon: Paid in MATIC.
 
 ### Challenge: Users Lacking Native Currency
@@ -14,23 +13,22 @@ In scenarios where users need to transact but lack the native currency for gas, 
 ### Types of Policies for Transactions
 
 #### 1. Fixed Charge Policies
-- **Fixed Rate**: A constant amount of the ERC20 token is charged per transaction, regardless of the gas cost.
-- **Economics**: This approach prioritizes simplicity and user-friendliness. It's ideal for scenarios where user experience is paramount. However, developers should be aware of the potential for under-recovery of gas costs in times of high network congestion and may need to monitor rates to mitigate this risk.
-- **Example**: A transfer transaction might be set 1 $Gold, while a minting transaction costs 10 $Gold. They will always cost the same, regardless of the gas price.
-
+**A set amount of the ERC20 token is charged per transaction, regardless of the gas cost.**
+- **Economics**: While offering stable and predictable costs for users, this model can be financially risky for developers during high gas prices.
+- **User**: Users benefit from a straightforward and predictable cost structure, making budgeting for transactions easier and transparent.
+- **Example**: A transfer transaction might be set at 1 $Gold, while a minting transaction costs 10 $Gold. They will always cost the same, regardless of the gas price.
 
 #### 2. Dynamic Charge Policies
-- **Variable Rate**: Charges in ERC20 tokens are calculated based on the current gas cost in wei.
-- **Economics**: This approach aligns charges with actual transaction costs in wei, offering a fair cost distribution between users and developers. However, the variability in gas prices can lead to a less intuitive user experience, as most users may not fully understand gas price dynamics.
-- **Setting Exchange Rate**: Developers need to set and adjust an exchange rate between the ERC20 token and wei. This rate determines the amount of ERC20 tokens equivalent to the gas cost in wei for each transaction.
+**Charges in ERC20 tokens are calculated based on the current gas cost, the developer needs to set and exchange rate of ERC20 to wei in native currency.**
+- **Economics**: Aligns transaction costs with real-time gas market prices, introducing variability in costs for the user.
+- **User**: Users face fluctuating transaction costs, which can be challenging to predict and may require an understanding of gas market dynamics.
 - **Example**:
-- If the gas price is 20 wei:
-- Mint transaction: 100 gas units * 20 wei = 2,000 wei (equivalent to 20,000 $Gold at an exchange rate of 10 $Gold per wei).
-- Transfer transaction: 50 gas units * 20 wei = 1,000 wei (equivalent to 10,000 $Gold).
+- If the gas price is 20 gwei:
+- Mint transaction: 100 gas units * 20 gwei = 2,000 wei (equivalent to 20,000 $Gold at an exchange rate of 10 $Gold per wei).
+- Transfer transaction: 50 gas units * 20 gwei = 1,000 wei (equivalent to 10,000 $Gold).
 - If the gas price is 10 gwei:
-- Mint transaction: 100 gas units * 10 wei = 1,000 wei (equivalent to 10,000 $Gold).
-- Transfer transaction: 50 gas units * 10 wei = 500 wei (equivalent to 5,000 $Gold).
-
+- Mint transaction: 100 gas units * 10 gwei = 1,000 wei (equivalent to 10,000 $Gold).
+- Transfer transaction: 50 gas units * 10 gwei = 500 wei (equivalent to 5,000 $Gold).
 - **Note**: Example calculations are for illustrative purposes and should be adapted for production use.
 
 ### Choosing Between Fixed and Dynamic Policies
