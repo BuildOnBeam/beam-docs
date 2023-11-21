@@ -19,6 +19,9 @@
   "assets": {
     "title": "Assets"
   },
+  "trading": {
+    "title": "Trading"
+  },
   "marketplace": {
     "title": "Marketplace"
   },
