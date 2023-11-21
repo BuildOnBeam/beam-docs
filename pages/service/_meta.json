@@ -13,6 +13,9 @@
   "transactions": {
     "title": "Transactions"
   },
+  "policies": {
+    "title": "Policies"
+  },
   "assets": {
     "title": "Assets"
   },
