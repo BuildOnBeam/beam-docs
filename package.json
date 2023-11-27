@@ -2,20 +2,6 @@
   "name": "beam-docs",
   "version": "0.0.1",
   "description": "Beam chain & accounts API documentation",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "build:ci": "pnpm generate && pnpm build",
-    "postbuild": "next-sitemap",
-    "start": "next start",
-    "generate": "pnpm generate:embeddings",
-    "generate:embeddings": "tsx lib/generate-embeddings.ts",
-    "validate:format": "biome format .",
-    "validate:format:fix": "pnpm validate:format --write",
-    "validate:lint": "biome check .",
-    "validate:lint:fix": "pnpm validate:lint --apply-unsafe",
-    "validate:ci": "biome ci ."
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Merit-Circle/beam-docs.git"
@@ -26,6 +12,23 @@
     "url": "https://github.com/Merit-Circle/beam-docs/issues"
   },
   "homepage": "https://docs.onbeam.com",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:ci": "pnpm generate && pnpm build",
+    "postbuild": "next-sitemap",
+    "start": "next start",
+    "generate": "pnpm generate:embeddings",
+    "generate:embeddings": "tsx lib/generate-embeddings.ts",
+    "validate:format": "biome format .",
+    "validate:format:fix": "pnpm validate:format --write",
+    "validate:lint": "biome lint .",
+    "validate:lint:fix": "pnpm validate:lint --apply-unsafe",
+    "validate:ci": "biome ci ."
+  },
+  "lint-staged": {
+    "*": ["biome format --write", "biome lint --apply-unsafe"]
+  },
   "dependencies": {
     "@supabase/supabase-js": "^2.38.0",
     "@vercel/analytics": "^1.0.2",
@@ -51,6 +54,8 @@
     "autoprefixer": "^10.4.14",
     "dotenv": "^16.3.1",
     "github-slugger": "^2.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.1.0",
     "mdast": "^2.3.2",
     "mdast-util-from-markdown": "^2.0.0",
     "mdast-util-frontmatter": "^2.0.1",
