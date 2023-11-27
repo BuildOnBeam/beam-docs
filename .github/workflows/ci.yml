@@ -13,14 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js 18
+      - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
 
       - name: 📥 dependency installation
         uses: ./.github/actions/pnpm-install
-      
+
       # Runs the build script for each workspace
       - name: Build
         run: pnpm build

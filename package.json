@@ -1,7 +1,7 @@
 {
-  "name": "nextra-docs-template",
+  "name": "beam-docs",
   "version": "0.0.1",
-  "description": "Nextra docs template",
+  "description": "Beam chain & accounts API documentation",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Merit-Circle/beam-docs.git"
@@ -20,7 +20,6 @@
     "start": "next start",
     "generate": "pnpm generate:embeddings",
     "generate:embeddings": "tsx lib/generate-embeddings.ts",
-    "prepare": "husky install",
     "validate:format": "biome format .",
     "validate:format:fix": "pnpm validate:format --write",
     "validate:lint": "biome lint .",
@@ -28,21 +27,17 @@
     "validate:ci": "biome ci ."
   },
   "lint-staged": {
-    "*": [
-      "biome format --write",
-      "biome lint --apply-unsafe"
-    ]
+    "*": ["biome format --write", "biome lint --apply-unsafe"]
   },
   "dependencies": {
-    "@biomejs/biome": "^1.3.3",
     "@supabase/supabase-js": "^2.38.0",
     "@vercel/analytics": "^1.0.2",
     "ai": "^2.2.14",
     "common-tags": "^1.8.2",
     "gpt3-tokenizer": "^1.1.5",
-    "next": "^13.4.13",
-    "nextra": "^2.10.0",
-    "nextra-theme-docs": "^2.10.0",
+    "next": "^14.0.3",
+    "nextra": "^2.13.2",
+    "nextra-theme-docs": "^2.13.2",
     "openai": "^4.11.1",
     "openai-edge": "^1.2.2",
     "react": "^18.2.0",
@@ -51,6 +46,7 @@
     "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.3.3",
     "@types/minimist": "^1.2.3",
     "@types/node": "20.4.9",
     "@types/uuid": "^9.0.4",
@@ -80,5 +76,9 @@
     "uuid": "^9.0.1",
     "yargs": "^17.7.2"
   },
-  "packageManager": "pnpm@8.7.0"
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=8"
+  },
+  "packageManager": "pnpm@8.10.2"
 }
