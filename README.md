@@ -4,7 +4,7 @@ Beam is a sovereign network focused on gaming brought to you by the Merit Circle
 
 ## Contributions
 
-Beam is currently in a developer preview, and both the service and the documentation are work in progress. If you would like to contribute to the documentation, please open a pull request.
+If you would like to contribute to the documentation, please open a pull request.
 
 ### TL;DR
 
