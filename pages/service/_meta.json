@@ -1,11 +1,11 @@
 {
-  "index": "Introduction",
+  "index": "Getting started",
   "--- Guides": {
     "type": "separator",
     "title": "Guides"
   },
   "game": {
-    "title": "Game"
+    "title": "Managing your game"
   },
   "profiles": {
     "title": "Profiles"
