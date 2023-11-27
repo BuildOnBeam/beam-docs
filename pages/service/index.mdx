@@ -12,17 +12,25 @@ The first step to get started the Beam integration in your game, is to have your
 
 If you would like advice or need help finding a strategy that suits your needs, please contact us at build@onbeam.com - we can provide help with bridging existing assets through [LayerZero](https://layerzero.network/) or providing you with complete and audited contracts to get your in-game assets going.
 
+---
+
 ### Step 2 - Provide us with the asset contract details
 
 Once the asset contracts are deployed, we're able to index them from Beam and exposing them through this API.
+
+---
 
 ### Step 3 - Obtain your API key
 
 Obtain your API key. If you haven't received any API key yet, please contact build@onbeam.com.
 
+---
+
 ### Step 4 - Pick an implementation strategy
 
 Pick an implementation strategy. You can either connect to the HTTP API directly, or use one of our provided SDKs. We currently provide a [Node.js (Typescript)](https://github.com/Merit-Circle/beam-node), and [C#](https://github.com/Merit-Circle/beam-csharp) SDK, but are happy to provide you with a client based on whatever language you need to support
+
+---
 
 ### Step 5 - Implement Beam
 
@@ -34,39 +42,3 @@ Implement Beam in your backend. Get started with one of our guides or choose a s
 </Callout>
 
 </Steps>
-
-## Overview
-
-```typescript
-import { Beam } from "@onbeam/node";
-
-const beam = new Beam("x-api-key");
-
-const profile = await beam.profiles.createProfile("profileID");
-
-const profiles = await beam.profiles.getAllProfiles({
-  offset: 0,
-  limit: 10,
-});
-```
-
-In this example, we initialize an instance of Beam by passing your API key. We then proceed to create a Profile. A Profile is the Beam entity you'll be mostly interacting with.
-
-Each profile automatically gets assigned a wallet on the Beam blockchain.
-
-### Managing assets
-
-Profiles are managed by you, and through your api key you are able to transfer / trade and manage assets of the profiles of your users. Take into account that if you implement the [Beam Companion](/service/companion) app, that besides you as the developer - the user linked to the profile is also able to manage the assets through the app.
-
-```typescript
-import { Beam } from "@onbeam/node";
-
-const beam = new Beam("x-api-key");
-
-const transfer = await beam.assets.transfer({
-  sender: "ProfileID-A",
-  receiver: "ProfileID-B",
-  assetAddress: "0x0",
-  tokenId: 23,
-});
-```
