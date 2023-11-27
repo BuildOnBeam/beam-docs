@@ -236,7 +236,10 @@ class MarkdownEmbeddingSource extends BaseEmbeddingSource {
   async load() {
     const contents = await readFile(this.filePath, 'utf8');
 
-    const slug = this.filePath.split('/').at(-1).replace(/\.mdx?$/, '');
+    const slug = this.filePath
+      .split('/')
+      .at(-1)
+      .replace(/\.mdx?$/, '');
 
     const metaPath = this.filePath.replace(/[^/]+$/, '_meta.json');
     const metaJson = await readFile(metaPath, 'utf8');
