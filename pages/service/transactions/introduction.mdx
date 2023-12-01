@@ -12,6 +12,8 @@ Within the context of our sdk, a transaction is a transfer of assets of one prof
 
 Generally speaking, for every transaction that you make on Beam, a very tiny amount of BEAM is being used to handle that transaction. This also means that every transaction you make through our sdk will cost a fraction of BEAM - it's up to you to decide whenever that BEAM will be sponsored by you, by the Profile for which you make the transaction - or through creating a custom charge policy that charges the user an in-game token to handle the transaction. What is best for you and your users completely depends on what type of game you're making. Below you will find a couple of options we provide through the sdk for you to chose from - and you can go a different direction with every transaction you make as you please.
 
+It's worth noting, that Profile creation does not cost any gas initially. The on-chain account abstraction will actually be deployed during first transaction for that profile. This will cause the initial transaction expenditure to be double the amount of a 'normal' transaction.
+
 ### Getting started with transactions
 
 - [Sponsored transactions](/service/transactions/sponsored-transactions): Learn about sponsored transactions for your users
