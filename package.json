@@ -27,7 +27,10 @@
     "validate:ci": "biome ci ."
   },
   "lint-staged": {
-    "*": ["biome format --write", "biome lint --apply-unsafe"]
+    "*": [
+      "biome format --write",
+      "biome lint --apply-unsafe"
+    ]
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.38.0",
