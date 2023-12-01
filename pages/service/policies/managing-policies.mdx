@@ -5,7 +5,7 @@ Creating a policy is as simple as calling the `CreatePolicy` method. We highly r
 ```typescript
 const profile = await beam.policies.createPolicy({
   tokenAddress: "0x0...", // ERC20 token address (contract must be added to your game)
-  amount: 1, // the fixed charge or the exchnage rate to wei
+  amount: 1, // the fixed charge or the exchange rate to wei
   rateType: "Fixed", // 'Fixed' (recommended) or 'Dynamic'
   chainId: 13337, // 13337 for Beam testnet, 4337 for mainnet
 });
