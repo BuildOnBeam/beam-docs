@@ -9,7 +9,7 @@ const NETWORK_PARAMS = {
       symbol: 'BEAM',
       decimals: 18,
     },
-    rpcUrls: ['https://subnets.avax.network/beam/testnet/rpc'],
+    rpcUrls: ['https://build.onbeam.com/testnet/rpc'],
     blockExplorerUrls: ['https://subnets-test.avax.network/beam'],
   },
   4337: {
@@ -20,7 +20,7 @@ const NETWORK_PARAMS = {
       symbol: 'BEAM',
       decimals: 18,
     },
-    rpcUrls: ['https://subnets.avax.network/beam/mainnet/rpc'],
+    rpcUrls: ['https://build.onbeam.com/rpc'],
     blockExplorerUrls: ['https://subnets.avax.network/beam'],
   },
 };
