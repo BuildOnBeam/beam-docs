@@ -41,6 +41,9 @@
   "sdk": {
     "title": "SDKs"
   },
+  "errors": {
+    "title": "Errors"
+  },
   "environments": "",
   "full-api-reference": "",
   "--- More": {
