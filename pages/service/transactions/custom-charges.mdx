@@ -15,10 +15,13 @@ You could charge your users an X amount of Gold by simply creating a policy, and
 Eventually, you as a game developer will be responsible for funding the BEAM for all the transactions that are ran through our service, so if you take away in-game Gold, you have to consider if it is economically viable to make this transaction. Let's assume a single transaction on Beam costs < 0.001 BEAM, and a Gold costs the user $ 0.05 to obtain - this means that the transaction through the policy is now not only economically viable, it also allows you to to sponsor quite some transactions for the user as the single Gold paid for the transaction in tenfold.
 
 ```typescript
-const transaction = await beam.assets.transferAsset("your-sender-id", {
-  receiverEntityId: "your-receiver-id",
-  assetAddress: "your-contract-address",
-  assetId: "73",
+const transaction = await beam.assetsV2.transferAssetV2("your-sender-id", {
+  assets: [
+    receiverEntityId: "your-receiver-id",
+    assetAddress: "your-contract-address",
+    assetId: "73",
+    amountToTransfer: 1,
+  ]
   // ...
   sponsor: false, // 👈 This handles the transaction to be self paid
   policyId: "cl..", // 👈 This triggers the custom policy to be used

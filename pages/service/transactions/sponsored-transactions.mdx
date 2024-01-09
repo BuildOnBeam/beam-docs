@@ -13,10 +13,13 @@ We think this default is sensible, as it's you as the game developer are in cont
 To paint a clearer picture on how this looks like, below you'll find a transaction which is sponsored
 
 ```typescript
-const transaction = await beam.assets.transferAsset("your-sender-id", {
-  receiverEntityId: "your-receiver-id",
-  assetAddress: "your-contract-address",
-  assetId: "73",
+const transaction = await beam.assetsV2.transferAssetV2("your-sender-id", {
+  assets: [
+    receiverEntityId: "your-receiver-id",
+    assetAddress: "your-contract-address",
+    assetId: "73",
+    amountToTransfer: 1,
+  ]
   // ...
   sponsor: true, // 👈 true is also the default.
 });
