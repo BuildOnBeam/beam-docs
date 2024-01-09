@@ -20,10 +20,13 @@ Take into account that if the Profile doesn't actually have the necessary BEAM f
 Below you will find an example how this would look like when managing assets in a Profile
 
 ```typescript
-const transaction = await beam.assets.transferAsset("your-sender-id", {
-  receiverEntityId: "your-receiver-id",
-  assetAddress: "your-contract-address",
-  assetId: "73",
+const transaction = await beam.assetsV2.transferAssetV2("your-sender-id", {
+  assets: [
+    receiverEntityId: "your-receiver-id",
+    assetAddress: "your-contract-address",
+    assetId: "73",
+    amountToTransfer: 1,
+  ]
   // ...
   sponsor: false, // 👈 This handles the transaction to be self paid
 });
