@@ -1,10 +1,9 @@
 import { useData } from 'nextra/data'
-import { errors } from '@onbeam/errors'
 
 
 export const ErrorMapping = () => {
   const { mapping } = useData()
-  return Object.entries(mapping).map(([key, value]) => <li>[<a href={`/service/errors/${key}`}>{key}</a>] - {value}</li>)
+  return Object.entries(mapping).map(([key, value]) => <li>[<b>{key}</b>] - {value}</li>)
 }
  
 # Error codes
@@ -19,7 +18,14 @@ Some errors will return with an error code - a short string with a brief explana
   <ErrorMapping/>
 </ul>
 
-export const getStaticProps = () => {
+export const getStaticProps = async () => {
+  const errors = await fetch("https://api.testnet.onbeam.com/v1/documentation/error-codes", {
+    method: 'GET',
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
   return {
       props: {
         ssg: {
