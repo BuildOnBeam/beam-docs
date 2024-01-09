@@ -3,7 +3,6 @@ import { errors } from '@onbeam/errors'
 
 
 export const ErrorMapping = () => {
-  // Get the data from SSG, and render it as a component.
   const { mapping } = useData()
   return Object.entries(mapping).map(([key, value]) => <li>[<a href={`/service/errors/${key}`}>{key}</a>] - {value}</li>)
 }
@@ -23,13 +22,9 @@ Some errors will return with an error code - a short string with a brief explana
 export const getStaticProps = () => {
   return {
       props: {
-        // We add an `ssg` field to the page props,
-        // which will be provided to the Nextra `useData` hook.
         ssg: {
           mapping: errors
         }
       },
-      // The page will be considered as stale and regenerated every 60 seconds.
-      revalidate: 60
   }
 }

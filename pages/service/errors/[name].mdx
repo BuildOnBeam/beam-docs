@@ -2,18 +2,14 @@ import { useData } from 'nextra/data'
 import { errors } from '@onbeam/errors'
 
 export const ErrorName = () => {
-  // Get the data from SSG, and render it as a component.
   const { error } = useData()
   return error
 }
 
-
 export const ErrorDescription = () => {
-  // Get the data from SSG, and render it as a component.
   const { description } = useData()
   return description
 }
-
 
 # <ErrorName />
 
@@ -22,15 +18,11 @@ export const ErrorDescription = () => {
 export const getStaticProps = ({ params }) => {
   return {
       props: {
-        // We add an `ssg` field to the page props,
-        // which will be provided to the Nextra `useData` hook.
         ssg: {
           error: params.name,
           description: errors[params.name]
         }
       },
-      // The page will be considered as stale and regenerated every 60 seconds.
-      revalidate: 60
   }
 }
 
@@ -42,8 +34,8 @@ export const getStaticPaths = (async () => {
         params: {
           name: 'generic',
         },
-      }, // See the "paths" section below
+      },
     ],
-    fallback: true, // false or "blocking"
+    fallback: true,
   }
 }) 
