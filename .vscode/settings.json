@@ -4,7 +4,7 @@
   "editor.tabSize": 2,
   "json.format.enable": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports.biome": true
+    "source.organizeImports.biome": "explicit"
   },
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
