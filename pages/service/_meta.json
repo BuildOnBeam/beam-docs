@@ -65,5 +65,10 @@
     "title": "About Merit Circle ↗",
     "href": "https://meritcircle.io/",
     "newWindow": true
+  },
+  "support": {
+    "title": "Support",
+    "href": "https://support.onbeam.com/hc/en-us",
+    "newWindow": true
   }
 }
