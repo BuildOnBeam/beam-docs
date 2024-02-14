@@ -18,5 +18,10 @@
     "title": "About Merit Circle ↗",
     "href": "https://meritcircle.io/",
     "newWindow": true
+  },
+  "support": {
+    "title": "Get support ↗",
+    "href": "https://support.onbeam.com/hc/en-us/categories/14560219450013-Beam-Network",
+    "newWindow": true
   }
 }

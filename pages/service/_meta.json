@@ -31,6 +31,9 @@
   "companion": {
     "title": "Companion"
   },
+  "sphere": {
+    "title": "Sphere"
+  },
   "reporting": {
     "title": "Reporting"
   },
@@ -61,6 +64,11 @@
   "about-merit-circle": {
     "title": "About Merit Circle ↗",
     "href": "https://meritcircle.io/",
+    "newWindow": true
+  },
+  "support": {
+    "title": "Get support ↗",
+    "href": "https://support.onbeam.com/hc/en-us",
     "newWindow": true
   }
 }
