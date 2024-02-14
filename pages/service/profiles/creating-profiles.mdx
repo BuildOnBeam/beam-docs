@@ -3,7 +3,7 @@
 Creating a profile is as simple as calling the `CreateProfile` method. The only thing we require you to send us, is an string that uniquely represents the player on your end. We call this your `EntityID`, and you decide what this ID is.
 
 ```typescript
-const profile = await beam.profiles.createProfile("some-string-unique-to-you");
+const profile = await beam.profiles.createProfile({ entityId: "some-string-unique-to-you", chainId: 4337 });
 ```
 
 A couple of examples what this ID could contain:

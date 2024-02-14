@@ -5,7 +5,7 @@ Another use case for profiles could be minting-profiles. You might have asset co
 If your contracts support extending this list of addresses, you could simply create a profile and add the address of the profile to the allowlist once.
 
 ```typescript
-const minter = await beam.profiles.createProfile("your-minter-id");
+const minter = await beam.profiles.createProfile({ entityId: "your-minter-id", chainId: 4337 });
 
 // {
 //   "id": "string",

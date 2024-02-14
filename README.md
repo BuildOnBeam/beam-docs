@@ -17,7 +17,7 @@ import { Beam } from "@onbeam/node";
 
 const beam = new Beam("x-api-key");
 
-const profile = await beam.profiles.createProfile("profileID");
+const profile = await beam.profiles.createProfile({ entityId: "profileID", chainId: 4337 });
 // {
 //   "id": "string",
 //   "gameId": "string",

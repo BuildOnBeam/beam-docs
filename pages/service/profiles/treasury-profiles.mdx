@@ -5,7 +5,7 @@ Through minting profiles, you're able to mint on-chain assets through our sdk, a
 If this applies to your game, and you would like to distribute these assets through the SDK, one way of handling things is to create a treasury profile.
 
 ```typescript
-const treasury = await beam.profiles.createProfile("your-treasury-id");
+const treasury = await beam.profiles.createProfile({ entityId: "your-treasury-id", chainId: 4337 });
 
 // {
 //   "id": "string",
