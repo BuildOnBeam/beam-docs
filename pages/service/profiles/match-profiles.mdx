@@ -9,7 +9,7 @@ Let's go through the steps you would need to take in order to properly set this 
 The first step you as the game developer would need to take is to create a match profile. Please note that since the match is a new profile, it's important to track which player (in our case: player A) initiated the match, and to store the matchID somewhere with the playerID.
 
 ```typescript
-const match = await beam.profiles.createProfile("your-match-id");
+const match = await beam.profiles.createProfile({ entityId: "your-match-id", chainId: 4337 });
 
 // {
 //   "id": "string",
