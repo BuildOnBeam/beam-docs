@@ -1,5 +1,6 @@
 {
-  "introduction": "Introduction",
-  "publish-collections": "Publish collections",
-  "remove-collections": "Remove collections"
+	"introduction": "Introduction",
+	"publish-collections": "Publish collections",
+	"editor-sections": "Editor sections",
+	"remove-collections": "Remove collections"
 }
