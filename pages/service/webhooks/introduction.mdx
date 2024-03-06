@@ -1,0 +1,65 @@
+---
+title: Introduction to Webhooks
+---
+
+import { Callout } from "nextra/components";
+
+# Introduction to Webhooks
+
+If you want to be aware of all asset transfers, even outside our API, you can utilize Webhooks.
+
+### Testing locally
+We highly recommend to test your Webhook locally first. To do that, you can use a tool like https://ngrok.com to quickly expose your application to the outside world.
+After running ngrok simply take the url it generates for you, it should have a following format: `https://2be4-(...)-75.ngrok-free.app` and use it as your Webhook's `url`.
+
+### Registering Webhooks
+To learn how to listen to specific events, visit one of the pages:
+- [Token Transfers](/service/webhooks/token-transfers): Listen to token transfers
+
+<Callout emoji="🛠️">
+    For now we only support Token transfer related events. We plan on exposing more events in the near future like marketplace Listings, Offers etc.
+</Callout>
+
+### Delivery
+Each request will be a `POST` with an array of events like this:
+```json
+[
+   {
+      "contractFunction":"TransferSingle",
+      "contractAddress":"0xd71(...)272e",
+      "from":{
+         "address":"0x607(...)468",
+         "externalEntityId":"SomeEntityId" // 👈 only added if this address is owned by one of your players
+      },
+      "to":{
+         "address":"0x9b5(...)7D2",
+         "externalEntityId":"SomeOtherEntityId" // 👈 only added if this address is owned by one of your players
+      },
+      "transfers":[
+         {
+            "tokenId":"123",
+            "amount":"2"
+         }
+      ],
+      "blockNumber":"967046",
+      "transactionHash":"0xa707(...)b04"
+   },
+  (...)
+]
+```
+Our implementation expects any 2xx code in response and will retry if that's not the case.
+We will try to deliver each request `three times` in 10, 20 then 30 second intervals.
+
+### Verifying signatures
+When you create a Webhook, in the response you will receive a parameter called `signature`. It's important to store it somewhere, so you can later find out whether data came from Beam, as each event sent will contain a `X-Webhook-Signature` header, that will contain the `signature`.
+All sent events will also contain a `transactionHash` so you can find and verify them on the chain if needed.
+
+### Others
+You can list all your registered Webhooks and remove any of them via the API or SDK:
+```typescript
+// list
+const webhooks = await beam.webhooks.getWebhooksForGame();
+
+// delete
+await beam.webhooks.deleteWebhook(webhookId);
+```

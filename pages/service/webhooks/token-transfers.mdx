@@ -1,0 +1,62 @@
+# Listen to token transfers
+
+To listen to events, simply use the `createWebhook` method with the `url` you want us to call and a `TokenTransfers` event type:
+
+```typescript
+const webhook = await beam.webhooks.createWebhook({
+  url: "string",
+  contract: "string",
+  events: [
+    "TokenTransfers"
+  ],
+  chainId: 13337
+});
+
+// {
+//   "id": "string",
+//   "url": "string",
+//   "createdAt": "2024-03-06T08:04:08.865Z",
+//   "events": [
+//     "TokenTransfers"
+//   ],
+//   "contract": "string",
+//   "signature": "string", // 👈 you can use it to verify that data comes from us later on
+//   "chainId": 13337
+// }
+```
+
+You can listen to only one contract address with each Webhook. If you want to listen to events across all of your contracts(collections), simply register the same `url` multiple times.
+From the moment you register your Webhook, if someone transfers asset from a collection you listen to, you will be notified via POST request to given url with following content:
+```json
+[
+   {
+      "contractFunction":"TransferSingle",
+      "contractAddress":"0xd71(...)272e",
+      "from":{
+         "address":"0x607(...)468",
+         "externalEntityId":"SomeEntityId" // 👈 only added if this address is owned by one of your players
+      },
+      "to":{
+         "address":"0x9b5(...)7D2",
+         "externalEntityId":"SomeOtherEntityId" // 👈 only added if this address is owned by one of your players
+      },
+      "transfers":[
+         {
+            "tokenId":"123",
+            "amount":"2"
+         }
+      ],
+      "blockNumber":"967046",
+      "transactionHash":"0xa707(...)b04"
+   }
+]
+```
+
+We do not return a 'timestamp' for transactions due to the nature of the blockchain. You can order transactions using `blockNumber`.
+
+When it comes to `TokenTransfers` following contract methods are being forwarded:
+- ERC1155: [`TransferSingle`, `TransferBatch`]
+- ERC721: [`Transfer`];
+
+If your contract contains custom methods, those will not be handled at this point in time but please let us know, so we can figure out a better solution.
+

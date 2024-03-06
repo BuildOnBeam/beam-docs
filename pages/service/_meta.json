@@ -37,6 +37,9 @@
   "reporting": {
     "title": "Reporting"
   },
+  "webhooks": {
+    "title": "Webhooks"
+  },
   "--- References": {
     "type": "separator",
     "title": "References"
