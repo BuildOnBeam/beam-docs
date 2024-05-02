@@ -3,8 +3,9 @@
 In order to list an asset on behalf of a profile you need to give us some information about the listing.
 
 ```typescript
-const transaction = await beam.marketplace.listAsset('profile-seller-id', {
-    marketplaceId": "64df956525e46b4d63ae37e9,
+const transaction = await beam.marketplaceV2.listAssetV2('profile-seller-id', {
+    assetAddress: '0x...',
+    assetId: '1',
     quantity: 1 // You can list multiple 1155 assets from the same token, defaults to 1
     price: '1000', // Listing price in BEAM token
     sellType: 'FixedPrice' // AscendingAuction, DescendingAuction or FixedPrice

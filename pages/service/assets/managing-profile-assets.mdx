@@ -17,7 +17,7 @@ If we registered an ERC20 contract for your game, you are able to manage the ERC
 Initiating a token transfer would look something like this. In the example below, we are not considering more complicated features like sponsoring transactions just yet - the transaction will be paid for by you - the game developer.
 
 ```typescript
-const transaction = await beam.assets.transferToken("your-sender-id", {
+const transaction = await beam.assetsV2.transferTokenV2("your-sender-id", {
   receiverEntityId: "your-receiver-id",
   assetAddress: "your-contract-address",
   amountToTransfer: "10", // 10 means 10 - we don't expect you to consider any other format like gwei
@@ -36,11 +36,11 @@ const transaction = await beam.assets.transferToken("your-sender-id", {
 Asset transfers work in a similar fashion as ERC20 token transfers, but instead of calling the `transferToken`, you will need to call the `transferAsset` method and pass an `assetId` property for the asset you want to move around.
 
 ```typescript
-const transaction = await beam.assets.transferAsset("your-sender-id", {
+const transaction = await beam.assetsV2.transferAssetV2("your-sender-id", {
   receiverEntityId: "your-receiver-id",
   assetAddress: "your-contract-address",
   assetId: "73",
-  amountToTransfer: "1", // amountToTransfer is related to 1155, defaults to 1 and doesn't have to be passed for ERC721 contracts.
+  amountToTransfer: 1, // amountToTransfer is related to 1155, defaults to 1 and doesn't have to be passed for ERC721 contracts.
 });
 
 // {
@@ -56,7 +56,7 @@ const transaction = await beam.assets.transferAsset("your-sender-id", {
 Lastly - we offer you the possibility to transfer our native token: BEAM. Depending on the context of your game, you might want to be able to transfer our native token around between profiles.
 
 ```typescript
-const transaction = await beam.assets.transferNativeToken("your-sender-id", {
+const transaction = await beam.assetsV2.transferNativeTokenV2("your-sender-id", {
   receiverEntityId: "your-receiver-id",
   amountToTransfer: "10", // 10 means 10 - we don't expect you to consider any other format like gwei
 });
