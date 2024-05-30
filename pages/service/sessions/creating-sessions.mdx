@@ -1,0 +1,30 @@
+---
+title: Creating sessions
+---
+
+# Creating sessions
+
+In order to get started a Session going, you will need to call the following method on our C# sdk in the client.
+
+**Disclaimer:** Sessions should only be created and initialised on the client side.
+
+
+```csharp
+StartCoroutine(beamClient.CreateSession("user-entity-id", result =>
+    {
+        // handle the result here
+    },
+    chainId: 13337, // defaults to 13337
+    secondsTimeout: 240 // timeout in seconds for getting a result of Session signing from the browser
+));
+```
+
+
+The method handles a couple of things:
+
+1. It generates a private key in the game client of the user
+2. It opens a webview with a constructed url that guides the user through an authentication and authorization flow
+3. If the user approves the session creation, the session gets authorized to sign for transactions on your users behalf
+
+
+Once handled, the session (private key) is able to sign transaction on behalf of the user. Note that, the session key is limited to run transactions for contracts that were added to your game in the first place.

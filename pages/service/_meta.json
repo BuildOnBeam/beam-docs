@@ -1,5 +1,18 @@
 {
   "index": "Getting started",
+  "--- Self-custody (Beta)": {
+    "type": "separator",
+    "title": "Self-custody (beta)"
+  },
+  "self-custody": {
+    "title": "Getting started"
+  },
+  "operations": {
+    "title": "Operations (beta)"
+  },
+  "sessions": {
+    "title": "Sessions (beta)"
+  },
   "--- Guides": {
     "type": "separator",
     "title": "Guides"
