@@ -1,8 +1,8 @@
 import { Callout, Cards, Card } from "nextra/components";
 
-# Beam Accounts SDK
+# Beam SDKs
 
-The recommended way to interact with the Beam API is by using one of our official SDKs. All of the provided SDKs are meant to be used **server side**, as it's crucial to not expose any of the api keys we provided publicly.
+The recommended way to interact with the Beam API is by using one of our official SDKs.
 
 At the time of writing, the SDKs we're shipping are all automatically generated after every service release. We're currently using [OpenAPI generator](https://openapi-generator.tech/) and [OpenAPI Typescript Codegen](https://www.npmjs.com/package/openapi-typescript-codegen).
 
@@ -15,9 +15,14 @@ At the time of writing, the SDKs we're shipping are all automatically generated 
 
 ---
 
-### Beam SDKs
+### SDKs
 
 In order to get started, we currently provide the following SDKs. Note that if there's no available SDK available for your preferred language, there's always the possibility of directly connecting to the RESTful endpoints by passing your API key in the `x-api-key` header.
+
+
+#### Custodial SDKs
+
+All of the custodial SDKs are meant to be used **server side**, as it's crucial to not expose any of the api keys we provided publicly.
 
 <Cards>
   <Card
@@ -29,6 +34,23 @@ In order to get started, we currently provide the following SDKs. Note that if t
     icon="✅ "
     title="C# (RestSharp)"
     href="https://www.nuget.org/packages/Beam"
+  />
+</Cards>
+
+#### Self-custody SDKs
+
+The self-custody SDKs can be used in the client, as the API that is required to interact with the self-custody services can be exposed without risk. 
+
+<Cards>
+  <Card
+    icon="✅ "
+    title="Typescript (browser & server)"
+    href="https://www.npmjs.com/package/@onbeam/self-custody"
+  />
+  <Card
+    icon="✅ "
+    title="C# (RestSharp)"
+    href="https://www.nuget.org/packages/BeamSelfCustody"
   />
 </Cards>
 
@@ -50,8 +72,9 @@ In the future, we hope to automatically assess major, minor and patch versions, 
 
 ---
 
-### Beam OpenAPI Specification
+### Beam OpenAPI specification
 
 Beam OpenAPI specification empowers you with a broad set of developer tooling, starting with Postman collections and generating your own SDK. It also serves as the basis for our generated release changelogs and SDKs.
 
-[Beam OpenAPI Specification](https://api.testnet.onbeam.com/api/game-json)
+- [Beam custdoial OpenAPI specification](https://api.testnet.onbeam.com/api/game-json)
+- [Beam self-custody OpenAPI specification](https://api.testnet.onbeam.com/api/self-custody-json)

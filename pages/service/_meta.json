@@ -1,11 +1,30 @@
 {
+  "--- Beam": {
+    "type": "separator",
+    "title": "Beam"
+  },
   "index": "Getting started",
+  "game": {
+    "title": "Your game"
+  },
+  "sphere": {
+    "title": "Sphere"
+  },
+  "companion": {
+    "title": "Companion"
+  },
+  "reporting": {
+    "title": "Reporting"
+  },
   "--- Self-custody (Beta)": {
     "type": "separator",
     "title": "Self-custody (beta)"
   },
-  "self-custody": {
-    "title": "Getting started"
+  "introduction-self-custody": {
+    "title": "Introduction"
+  },
+  "implement-self-custody": {
+    "title": "Implementation"
   },
   "operations": {
     "title": "Operations (beta)"
@@ -13,12 +32,9 @@
   "sessions": {
     "title": "Sessions (beta)"
   },
-  "--- Guides": {
+  "--- Custodial": {
     "type": "separator",
-    "title": "Guides"
-  },
-  "game": {
-    "title": "Managing your game"
+    "title": "Custodial"
   },
   "profiles": {
     "title": "Profiles"
@@ -41,15 +57,6 @@
   "exchange": {
     "title": "Exchange"
   },
-  "companion": {
-    "title": "Companion"
-  },
-  "sphere": {
-    "title": "Sphere"
-  },
-  "reporting": {
-    "title": "Reporting"
-  },
   "--- References": {
     "type": "separator",
     "title": "References"
@@ -62,9 +69,6 @@
   "--- More": {
     "type": "separator",
     "title": "More"
-  },
-  "roadmap": {
-    "title": "Roadmap"
   },
   "terms-of-service": {
     "title": "Terms of Service"

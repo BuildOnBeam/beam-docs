@@ -1,0 +1,47 @@
+---
+title: Implementation
+---
+
+import { Cards, Card } from "nextra-theme-docs";
+
+# Implementing Beam
+
+The implementation of our new self-custodial service consists of two components
+
+- The Beam platform client. We currently solely provide a **C# sdk** meant to be implemented in the **Unity**. In the future, we will be releasing more implementations for various platforms.
+- The self-custody client. We currently provide a **C# and Typescript** client.
+
+In the near future, we expect to expand the platfom clients with all the self-custody client methods, giving you more flexibility on how you want to implement Beam in your game.
+
+
+### Initialize the platform client
+
+In order to interact with these clients, you will need a new type of API key - the `Publishable` API key. You will be able to find this API key by regenerating your API keys through the existing API. You can do so programmatically, or by interacting with the method in the [OpenAPI / Swagger UI](https://api.testnet.onbeam.com/api/game#/Game/regenerateApiKeys) interface.
+
+
+```csharp
+
+var beamClient = gameObject.AddComponent<BeamClient>()
+  .SetBeamApiGame("your-game-id", "your-publishable-api-key")
+  .SetEnvironment(BeamEnvironment.Testnet);
+```
+
+
+### The self-custody client
+
+The self-custody client is a new client which can be used to generate [Operations](/service/operations/introduction). Both the self-custody clients we offer for the new self-custodial services, are structured in similar fashion to the existing SDKs that offer custodial [Profiles](/service/profiles/introduction).
+
+Keep in mind that we expect you to also use the `Publishable` API key in these clients.
+
+<Cards>
+  <Card
+    icon="✅ "
+    title="Typescript"
+    href="https://www.npmjs.com/package/@onbeam/self-custody"
+  />
+  <Card
+    icon="✅ "
+    title="C# (RestSharp)"
+    href="https://www.nuget.org/packages/BeamSelfCustody"
+  />
+</Cards>
