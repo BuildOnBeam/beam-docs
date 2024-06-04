@@ -4,17 +4,11 @@
     "title": "Beam"
   },
   "index": "Getting started",
+  "managed-or-self-custody": {
+    "title": "Self-custody or managed"
+  },
   "game": {
-    "title": "Your game"
-  },
-  "sphere": {
-    "title": "Sphere"
-  },
-  "companion": {
-    "title": "Companion"
-  },
-  "reporting": {
-    "title": "Reporting"
+    "title": "Managing your game"
   },
   "--- Self-custody (Beta)": {
     "type": "separator",
@@ -32,30 +26,36 @@
   "sessions": {
     "title": "Sessions (beta)"
   },
-  "--- Custodial": {
-    "type": "separator",
-    "title": "Custodial"
-  },
-  "profiles": {
-    "title": "Profiles"
-  },
   "transactions": {
     "title": "Transactions"
   },
-  "policies": {
-    "title": "Policies"
-  },
   "assets": {
     "title": "Assets"
-  },
-  "trading": {
-    "title": "Trading"
   },
   "marketplace": {
     "title": "Marketplace"
   },
   "exchange": {
     "title": "Exchange"
+  },
+  "--- Managed": {
+    "type": "separator",
+    "title": "Managed"
+  },
+  "introduction-managed": {
+    "title": "Introduction"
+  },
+  "profiles": {
+    "title": "Profiles"
+  },
+  "policies": {
+    "title": "Policies"
+  },
+  "trading": {
+    "title": "Trading"
+  },
+  "reporting": {
+    "title": "Reporting"
   },
   "--- References": {
     "type": "separator",
@@ -66,6 +66,16 @@
   },
   "environments": "",
   "full-api-reference": "",
+  "--- Ecosystem": {
+    "type": "separator",
+    "title": "Ecosystem"
+  },
+  "sphere": {
+    "title": "Sphere"
+  },
+  "companion": {
+    "title": "Companion"
+  },
   "--- More": {
     "type": "separator",
     "title": "More"

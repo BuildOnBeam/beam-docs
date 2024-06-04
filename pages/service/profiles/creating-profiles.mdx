@@ -8,13 +8,12 @@ const profile = await beam.profiles.createProfile({ entityId: "some-string-uniqu
 
 A couple of examples what this ID could contain:
 
-- A hashed string representing the in-game ID you use on the application
-- An account ID by your SSO provider
-- An e-mail address (not recommended for privacy reasons)
+- An ID representing an entity in your own service (for example: a match ID)
+- A pre-defined constant, eg; 'Minter'
 
-It's up to you! But consider this carefully: in case of an application emergency on your end, you will want to be able to restore which player in your game owns which profile(s), hence our recommendation using an identifier which you already have for each player, preventing from having to store it.
+It's up to you! But consider this carefully: in case of an application emergency on your end, you will want to be able to restore a mapping to the correct Profiles, hence our recommendation using an identifier which you already have, preventing from having to store it.
 
-The `EntityID` you provide to us, is included in most Profile related responses as the `externalEntityId`, should you ever need to refer to it.
+The `entityId` you provide to us, is included in most Profile related responses as the `externalEntityId`, should you ever need to refer to it.
 
 ## Profiles on chain
 

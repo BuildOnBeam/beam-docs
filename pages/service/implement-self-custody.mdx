@@ -13,8 +13,21 @@ The implementation of our new self-custodial service consists of two components
 
 In the near future, we expect to expand the platfom clients with all the self-custody client methods, giving you more flexibility on how you want to implement Beam in your game.
 
+---
 
-### Initialize the platform client
+### The platform client (Unity)
+
+The platform client contains helpers to get users started with Beam within your game.
+
+<Cards>
+  <Card
+    icon="✅ "
+    title="Unity"
+    href="https://github.com/Merit-Circle/beam-client-unity"
+  />
+</Cards>
+
+#### Initialize the platform client
 
 In order to interact with these clients, you will need a new type of API key - the `Publishable` API key. You will be able to find this API key by regenerating your API keys through the existing API. You can do so programmatically, or by interacting with the method in the [OpenAPI / Swagger UI](https://api.testnet.onbeam.com/api/game#/Game/regenerateApiKeys) interface.
 
@@ -26,6 +39,7 @@ var beamClient = gameObject.AddComponent<BeamClient>()
   .SetEnvironment(BeamEnvironment.Testnet);
 ```
 
+---
 
 ### The self-custody client
 
