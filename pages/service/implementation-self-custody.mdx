@@ -9,9 +9,9 @@ import { Cards, Card } from "nextra-theme-docs";
 The implementation of our new self-custodial service consists of two components
 
 - The Beam game-platform client. We currently solely provide a **C# sdk** meant to be implemented in the **Unity**. In the future, we will be releasing more implementations for various platforms.
-- The request client. We currently provide a **C# and Typescript** client.
+- The server client. We currently provide a **C# and Typescript** clients.
 
-In the near future, we expect to expand the platfom clients with all the self-custody client methods, giving you more flexibility on how you want to implement Beam in your game.
+In the near future, we expect to expand the platform clients with all the self-custody client methods, giving you more flexibility on how you want to implement Beam in your game.
 
 ---
 
@@ -33,17 +33,18 @@ In order to interact with these clients, you will need a new type of API key - t
 
 
 ```csharp
-
 var beamClient = gameObject.AddComponent<BeamClient>()
-  .SetBeamApiGame("your-game-id", "your-publishable-api-key")
-  .SetEnvironment(BeamEnvironment.Testnet);
+                .SetBeamApiKey("your-publishable-api-key") // set your Publishable(!) API key
+                .SetEnvironment(BeamEnvironment.Testnet) // defaults to Testnet
+                .SetDebugLogging(true) // optional, defaults to false
+                .SetStorage(yourCustomStorageImplementation); // optional, defaults to PlayerPrefs storage;
 ```
 
 ---
 
 ### The request client
 
-The request client is a new client which can be used to generate [Operations](/service/operations/introduction). Both the request clients we offer for the new self-custodial services, are structured in similar fashion to the existing SDKs that offer custodial [Profiles](/service/profiles/introduction).
+The request client is a new client which can be used to generate [Operations](/service/operations/introduction). Both the request clients we offer for the self-custodial services, are structured in similar fashion to the existing SDKs that offer custodial [Profiles](/service/profiles/introduction).
 
 Keep in mind that we expect you to also use the `Publishable` API key in these clients.
 
