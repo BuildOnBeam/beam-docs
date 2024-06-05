@@ -4,7 +4,7 @@
     "title": "Beam"
   },
   "index": "Getting started",
-  "managed-or-self-custody": {
+  "player-or-automation-api": {
     "title": "Player or Automation API"
   },
   "game": {
@@ -14,10 +14,10 @@
     "type": "separator",
     "title": "Player API (beta)"
   },
-  "introduction-self-custody": {
+  "introduction-player-api": {
     "title": "Introduction"
   },
-  "implementation-self-custody": {
+  "implementation-player-api": {
     "title": "Implementation"
   },
   "operations": {
@@ -42,7 +42,7 @@
     "type": "separator",
     "title": "Automation API"
   },
-  "introduction-managed": {
+  "introduction-automation-api": {
     "title": "Introduction"
   },
   "profiles": {
