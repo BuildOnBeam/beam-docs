@@ -5,14 +5,14 @@
   },
   "index": "Getting started",
   "managed-or-self-custody": {
-    "title": "Self-custody or managed"
+    "title": "Player or Automation API"
   },
   "game": {
     "title": "Managing your game"
   },
-  "--- Self-custody (Beta)": {
+  "--- Player API (Beta)": {
     "type": "separator",
-    "title": "Self-custody (beta)"
+    "title": "Player API (beta)"
   },
   "introduction-self-custody": {
     "title": "Introduction"
@@ -38,9 +38,9 @@
   "exchange": {
     "title": "Exchange"
   },
-  "--- Managed": {
+  "--- Automation API": {
     "type": "separator",
-    "title": "Managed"
+    "title": "Automation API"
   },
   "introduction-managed": {
     "title": "Introduction"
