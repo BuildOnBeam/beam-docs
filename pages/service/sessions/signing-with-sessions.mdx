@@ -11,7 +11,7 @@ If a session is active for the user, the session key is still available in the l
 
 
 ```csharp
-StartCoroutine(m_BeamClient.SignOperation(
+StartCoroutine(beamClient.SignOperation(
                 "entityIdOfYourUser",
                 operationId,    // operationId from Beam API
                 actionResult =>
