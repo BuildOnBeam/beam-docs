@@ -13,7 +13,7 @@ If you would like to get your hands dirty without reading our documentation, we 
 ## Getting started
 
 ```typescript
-import { Beam } from "@onbeam/node";
+import { Beam } from "@onbeam/automation-api-client";
 
 const beam = new Beam("x-api-key");
 
@@ -50,7 +50,7 @@ In this example, we initialize an instance of Beam by passing your api key. We t
 Profiles are managed by you, and through your api key you are able to transfer / trade and manage assets of the profiles of your users
 
 ```typescript
-import { Beam } from "@onbeam/node";
+import { Beam } from "@onbeam/automation-api-client";
 
 const beam = new Beam("x-api-key");
 
