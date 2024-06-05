@@ -4,27 +4,57 @@ title: Creating sessions
 
 # Creating sessions
 
-In order to get started a Session going, you will need to call the following method on our C# sdk in the client.
+In order to get started a Session going, you will need to call the following method on our C# SDK in the game client.
 
 **Disclaimer:** Sessions should only be created and initialised on the client side.
 
 
 ```csharp
-StartCoroutine(beamClient.CreateSession("user-entity-id", result =>
-    {
-        // handle the result here
-    },
-    chainId: 13337, // defaults to 13337
-    secondsTimeout: 240 // timeout in seconds for getting a result of Session signing from the browser
-));
+StartCoroutine(beamClient.CreateSession(
+                "entityIdOfYourUser",
+                actionResult =>
+                {
+                    if (actionResult.Status == BeamResultType.Success)
+                    {
+                        var session = actionResult.Result;
+                        // you now have an active session that can sign operations
+                    }
+                },
+                chainId: 13337, // optional chainId, defaults to 13337
+                secondsTimeout: 240 // timeout in seconds for getting a result of Session signing from the browser
+            ));
 ```
 
 
 The method handles a couple of things:
 
-1. It generates a private key in the game client of the user
+1. It generates a private key in the game client of the user and stores it locally.*
 2. It opens a webview with a constructed url that guides the user through an authentication and authorization flow
 3. If the user approves the session creation, the session gets authorized to sign for transactions on your users behalf
 
+* NOTE: You can customize storage of Unity SDK using `beamClient.SetStorage()` method with your implementation of `IStorage`. It's important to keep the data on client side.
 
-Once handled, the session (private key) is able to sign transaction on behalf of the user. Note that, the session key is limited to run transactions for contracts that were added to your game in the first place.
+Once handled, the session (private key) is able to sign transaction on behalf of the user. Note that, the session key is limited to run transactions for contracts that were added to your game in the first place. If a new contract was added to your game, calling `beamClient.GetActiveSession()` will no longer return that session as valid.
+
+## Retrieving an active Session
+
+You can retrieve current valid and active Session for your user. If local storage was cleared out, your game contracts changed, or the session simply expired - we will not return an active session.
+
+``` csharp
+StartCoroutine(beamClient.GetActiveSession(
+                "entityIdOfYourUser",
+                actionResult =>
+                {
+                    if (actionResult.Status == BeamResultType.Success)
+                    {
+                        var session = actionResult.Result;
+                        // you have an active session that can sign operations
+                    }
+                    else
+                    {
+                        // you need to create a session using CreateSession(), or User will sign operations using browser
+                    }
+                },
+                chainId: 13337 // optional chainId, defaults to 13337
+            ));
+```
