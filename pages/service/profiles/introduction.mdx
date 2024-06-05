@@ -6,18 +6,11 @@ title: Introduction to Profiles
 
 As you are implementing Beam into your product, the first interaction you will most likely have with our SDK are with Profiles. Profiles can have different purposes and meaning depending on your games.
 
-The most obvious purpose for Profiles is to serve as an on-chain inventory for your player, but they are able to serve other purposes. Profiles within Beam are on-chain [account abstractions](https://ethereum.org/en/roadmap/account-abstraction/) that possibly will, or possibly will not contain assets - controlled by the api key we provided you.
-
-Note that there is no relationship between an actual player within your game and a profile - unless you purposefully create the relationship. You could allow users to obtain control over a profile by [allowing them to link up to it](/service/profiles/users-and-profiles), or you could make profiles serve as a [match escrow wallet](/service/profiles/match-profiles). Another use case would be [minting profiles](/service/profiles/minting-profiles), allowing you to mint-on demand through the SDK.
+Profiles are on-chain [account abstractions](https://ethereum.org/en/roadmap/account-abstraction) that possibly will, or possibly will not contain assets - controlled by the `Secret` API key we provided you. Please note that - while technically possible - Profiles **are not meant to contain any user assets**. If you're looking for a solution to manage user asserts, please look into our [self-custody](/service/introduction-self-custody) solution.
 
 In order to full understand Profiles it is important to understand all of the possibilities that you have, here are some articles to get you started:
 
 - [Creating profiles](/service/profiles/creating-profiles): Creating profiles based on an identifier
-
-- [Users and profiles](/service/profiles/users-and-profiles): Connect your users to their Profile
-
 - [Match profiles](/service/profiles/match-profiles): Match profiles (escrow-style games)
-
 - [Minting profiles](/service/profiles/minting-profiles): For minting assets on demand
-
 - [Treasury profiles](/service/profiles/treasury-profiles): For distributing pre-minted assets

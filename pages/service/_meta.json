@@ -1,11 +1,24 @@
 {
-  "index": "Getting started",
-  "--- Self-custody (Beta)": {
+  "--- Beam": {
     "type": "separator",
-    "title": "Self-custody (beta)"
+    "title": "Beam"
   },
-  "self-custody": {
-    "title": "Getting started"
+  "index": "Getting started",
+  "managed-or-self-custody": {
+    "title": "Player or Automation API"
+  },
+  "game": {
+    "title": "Managing your game"
+  },
+  "--- Player API (Beta)": {
+    "type": "separator",
+    "title": "Player API (beta)"
+  },
+  "introduction-self-custody": {
+    "title": "Introduction"
+  },
+  "implementation-self-custody": {
+    "title": "Implementation"
   },
   "operations": {
     "title": "Operations (beta)"
@@ -13,27 +26,11 @@
   "sessions": {
     "title": "Sessions (beta)"
   },
-  "--- Guides": {
-    "type": "separator",
-    "title": "Guides"
-  },
-  "game": {
-    "title": "Managing your game"
-  },
-  "profiles": {
-    "title": "Profiles"
-  },
   "transactions": {
     "title": "Transactions"
   },
-  "policies": {
-    "title": "Policies"
-  },
   "assets": {
     "title": "Assets"
-  },
-  "trading": {
-    "title": "Trading"
   },
   "marketplace": {
     "title": "Marketplace"
@@ -41,11 +38,21 @@
   "exchange": {
     "title": "Exchange"
   },
-  "companion": {
-    "title": "Companion"
+  "--- Automation API": {
+    "type": "separator",
+    "title": "Automation API"
   },
-  "sphere": {
-    "title": "Sphere"
+  "introduction-managed": {
+    "title": "Introduction"
+  },
+  "profiles": {
+    "title": "Profiles"
+  },
+  "policies": {
+    "title": "Policies"
+  },
+  "trading": {
+    "title": "Trading"
   },
   "reporting": {
     "title": "Reporting"
@@ -59,12 +66,19 @@
   },
   "environments": "",
   "full-api-reference": "",
+  "--- Ecosystem": {
+    "type": "separator",
+    "title": "Ecosystem"
+  },
+  "sphere": {
+    "title": "Sphere"
+  },
+  "companion": {
+    "title": "Companion"
+  },
   "--- More": {
     "type": "separator",
     "title": "More"
-  },
-  "roadmap": {
-    "title": "Roadmap"
   },
   "terms-of-service": {
     "title": "Terms of Service"

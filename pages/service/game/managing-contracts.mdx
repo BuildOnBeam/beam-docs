@@ -2,7 +2,7 @@
 
 If you want to run transactions for profiles that interact with specific contracts, the contract address will need to be registered for your game.
 
-We provide a method for you to add any contract to your game, as long as you can provide us with the ABI and contract address. As adding a contract address to your game is probably a one time action that you won't repeat (a lot) over time, we can also recommend simply interacting with the hosted [Swagger UI](https://api.testnet.onbeam.com/api/game) to simply add the necessary contracts to your game.
+We provide a method for you to add any contract to your game, as long as you can provide us with the ABI and contract address. As adding a contract address to your game is probably a one time action that you won't repeat (a lot) over time, we can also recommend simply interacting with the hosted [Swagger UI](https://api.testnet.onbeam.com/api/automation) to simply add the necessary contracts to your game.
 
 ---
 
@@ -17,7 +17,7 @@ If you're using the [Beam Companion](/service/companion/introduction) app, it mi
 Adding a contract is as simple as calling the `addContractToGame` method.
 
 ```typescript
-import { Beam } from "@onbeam/node";
+import { Beam } from "@onbeam/automation-api-client";
 
 const beam = new Beam("x-api-key");
 
@@ -69,7 +69,7 @@ const contract = beam.game.addContractToGame({
 Removing a contract from your game is just as simple, simply use the `removeContractFromGame` method to remove it.
 
 ```typescript
-import { Beam } from "@onbeam/node";
+import { Beam } from "@onbeam/automation-api-client";
 
 const beam = new Beam("x-api-key");
 

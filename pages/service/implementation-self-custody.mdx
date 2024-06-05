@@ -1,0 +1,62 @@
+---
+title: Implementation
+---
+
+import { Cards, Card } from "nextra-theme-docs";
+
+# Implementing Beam
+
+The implementation of our new self-custodial service consists of two components
+
+- The Beam game-platform client. We currently solely provide a **C# sdk** meant to be implemented in the **Unity**. In the future, we will be releasing more implementations for various platforms.
+- The server client. We currently provide a **C# and Typescript** clients.
+
+In the near future, we expect to expand the platform clients with all the self-custody client methods, giving you more flexibility on how you want to implement Beam in your game.
+
+---
+
+### The platform client (Unity)
+
+The platform client contains helpers to get users started with Beam within your game.
+
+<Cards>
+  <Card
+    icon="✅ "
+    title="Unity"
+    href="https://github.com/Merit-Circle/beam-client-unity"
+  />
+</Cards>
+
+#### Initialize the platform client
+
+In order to interact with these clients, you will need a new type of API key - the `Publishable` API key. You will be able to find this API key by regenerating your API keys through the existing API. You can do so programmatically, or by interacting with the method in the [OpenAPI / Swagger UI](https://api.testnet.onbeam.com/api/automation#/Game/regenerateApiKeys) interface.
+
+
+```csharp
+var beamClient = gameObject.AddComponent<BeamClient>()
+                .SetBeamApiKey("your-publishable-api-key") // set your Publishable(!) API key
+                .SetEnvironment(BeamEnvironment.Testnet) // defaults to Testnet
+                .SetDebugLogging(true) // optional, defaults to false
+                .SetStorage(yourCustomStorageImplementation); // optional, defaults to PlayerPrefs storage;
+```
+
+---
+
+### The request client
+
+The request client is a new client which can be used to generate [Operations](/service/operations/introduction). Both the request clients we offer for the self-custodial services, are structured in similar fashion to the existing SDKs that offer custodial [Profiles](/service/profiles/introduction).
+
+Keep in mind that we expect you to also use the `Publishable` API key in these clients.
+
+<Cards>
+  <Card
+    icon="✅ "
+    title="Typescript"
+    href="https://www.npmjs.com/package/@onbeam/player-api-client"
+  />
+  <Card
+    icon="✅ "
+    title="C# (RestSharp)"
+    href="https://www.nuget.org/packages/BeamPlayerClient"
+  />
+</Cards>

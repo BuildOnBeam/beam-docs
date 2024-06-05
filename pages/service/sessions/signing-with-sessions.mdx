@@ -7,16 +7,25 @@ title: Signing with sessions
 
 Once the session is successfully created, it's authorized to sign [Operations](/service/operations/introduction). As the game developer, you're simply able to apply the same method as was described in [Processing Operations](/service/operations/processing-operations).
 
-If a session is active for the user, the session key is still available in the local storage of the game client and the session is authorized to sign - `beamClient.SignOperation` will automatically sign the Operation, without the user ever touching a browser.
+If a session is active for the user, the session key is still available in the local storage of the game client and the session is authorized to sign - `beamClient.SignOperation()` will automatically sign the Operation, without having the user ever seeing a browser.
 
 
 ```csharp
-StartCoroutine(beamClient.SignOperation("entity-id-of-user", "operation-id-of-api", result =>
-    {
-        // handle the result here
-    },
-    chainId: 13337, // defaults to 13337
-    secondsTimeout: 240, // timeout in seconds for getting a response in case browser flow was chosen
-    fallBackToBrowser: true // if true, opens a browser for the user to sign the operation if Session was not started
-));
+StartCoroutine(beamClient.SignOperation(
+                "entityIdOfYourUser",
+                operationId,    // operationId from Beam API
+                actionResult =>
+                {
+                    if (actionResult.Status == BeamResultType.Success)
+                    {
+                        // you can now check for actual Status of the signing f.e.:
+                        var isApproved = actionResult.Result == BeamOperationStatus.Executed;
+                        var isRejected = actionResult.Result == BeamOperationStatus.Rejected;
+                        // (...)
+                    }
+                },
+                chainId: 13337, // optional chainId, defaults to 13337
+                fallbackToBrowser: true, // if true, will automatically open browser for the user to sign the operation, if there is no valid session
+                secondsTimeout: 240 // timeout in seconds for getting a result of message signing from the browser, used if there was no valid session
+            ));
 ```

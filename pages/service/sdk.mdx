@@ -1,10 +1,10 @@
 import { Callout, Cards, Card } from "nextra/components";
 
-# Beam Accounts SDK
+# Beam API clients
 
-The recommended way to interact with the Beam API is by using one of our official SDKs. All of the provided SDKs are meant to be used **server side**, as it's crucial to not expose any of the api keys we provided publicly.
+The recommended way to interact with the Beam API is by using one of our official clients.
 
-At the time of writing, the SDKs we're shipping are all automatically generated after every service release. We're currently using [OpenAPI generator](https://openapi-generator.tech/) and [OpenAPI Typescript Codegen](https://www.npmjs.com/package/openapi-typescript-codegen).
+At the time of writing, the clients we're shipping are all automatically generated after every service release. We're currently using [OpenAPI generator](https://openapi-generator.tech/) and [OpenAPI Typescript Codegen](https://www.npmjs.com/package/openapi-typescript-codegen).
 
 <Callout emoji="⚠️">
   It's of the utmost importance that your API key never gets exposed. If your
@@ -15,43 +15,66 @@ At the time of writing, the SDKs we're shipping are all automatically generated 
 
 ---
 
-### Beam SDKs
+### API clients
 
-In order to get started, we currently provide the following SDKs. Note that if there's no available SDK available for your preferred language, there's always the possibility of directly connecting to the RESTful endpoints by passing your API key in the `x-api-key` header.
+In order to get started, we currently provide the following clients. Note that if there's no available client available for your preferred language, there's always the possibility of directly connecting to the RESTful endpoints by passing your API key in the `x-api-key` header.
+
+
+#### Automation API clients
+
+All of the Automation API clients are meant to be used **server side**, as it's crucial to not expose any of the api keys we provided publicly.
 
 <Cards>
   <Card
     icon="✅ "
     title="Node.js (Typescript)"
-    href="https://www.npmjs.com/package/@onbeam/node"
+    href="https://www.npmjs.com/package/@onbeam/automation-api-client"
   />
   <Card
     icon="✅ "
     title="C# (RestSharp)"
-    href="https://www.nuget.org/packages/Beam"
+    href="https://www.nuget.org/packages/BeamAutomationClient"
+  />
+</Cards>
+
+#### Player API clients
+
+The Player API clients can be used in the client, as the API that is required to interact with the self-custody services can be exposed without risk. 
+
+<Cards>
+  <Card
+    icon="✅ "
+    title="Typescript (browser & server)"
+    href="https://www.npmjs.com/package/@onbeam/player-api-client"
+  />
+  <Card
+    icon="✅ "
+    title="C# (RestSharp)"
+    href="https://www.nuget.org/packages/BeamPlayerClient"
   />
 </Cards>
 
 ---
 
-### Beam SDK repository
+### Beam clients repository
 
-If you're interested in how we generate the SDK, have a look at the [Github repository](https://github.com/Merit-Circle/beam-sdk). If you don't want to use our provided SDKs, it might still be of inspiration.
+If you're interested in how we generate the clients, have a look at the [Github repository](https://github.com/Merit-Circle/beam-api-clients). If you don't want to use our provided clients, it might still be of inspiration.
 
 ---
 
 ### Releases
 
-If you are interested in more granular changelogs for SDK releases, have a look at our [Github releases](https://github.com/Merit-Circle/beam-sdk/releases)
+If you are interested in more granular changelogs for SDK releases, have a look at our [Github releases](https://github.com/Merit-Circle/beam-api-clients/releases)
 
-Every deployment of the Beam API leads to a new **patch** version of the SDK being released. With every release, the release description in the Github release contains a description that explains the difference between the previous and new version based on the REStful endpoints.
+Every deployment of the Beam API leads to a new **patch** version of the clients being released. With every release, the release description in the Github release contains a description that explains the difference between the previous and new version based on the REStful endpoints.
 
 In the future, we hope to automatically assess major, minor and patch versions, but we currently rely on patch incrementals only.
 
 ---
 
-### Beam OpenAPI Specification
+### Beam OpenAPI specification
 
-Beam OpenAPI specification empowers you with a broad set of developer tooling, starting with Postman collections and generating your own SDK. It also serves as the basis for our generated release changelogs and SDKs.
+Beam OpenAPI specification empowers you with a broad set of developer tooling, starting with Postman collections and generating your own SDK. It also serves as the basis for our generated release changelogs and clients.
 
-[Beam OpenAPI Specification](https://api.testnet.onbeam.com/api/game-json)
+- [Beam Automation OpenAPI specification](https://api.testnet.onbeam.com/api/automation-json)
+- [Beam Player OpenAPI specification](https://api.testnet.onbeam.com/api/player-json)
