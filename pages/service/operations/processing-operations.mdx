@@ -13,18 +13,22 @@ When using our SDK, processing an operation is as simple as providing the user e
 
 
 ```csharp
-StartCoroutine(beamClient.CreateSession(
+StartCoroutine(m_BeamClient.SignOperation(
                 "entityIdOfYourUser",
+                operationId,    // operationId from Beam API
                 actionResult =>
                 {
                     if (actionResult.Status == BeamResultType.Success)
                     {
-                        var session = actionResult.Result;
-                        // you now have an active session that can sign operations
+                        // you can now check for actual Status of the signing f.e.:
+                        var isApproved = actionResult.Result == BeamOperationStatus.Executed;
+                        var isRejected = actionResult.Result == BeamOperationStatus.Rejected;
+                        // (...)
                     }
                 },
                 chainId: 13337, // optional chainId, defaults to 13337
-                secondsTimeout: 240 // timeout in seconds for getting a result of Session signing from the browser
+                fallbackToBrowser: true, // if true, will automatically open browser for the user to sign the operation, if there is no valid session
+                secondsTimeout: 240 // timeout in seconds for getting a result of message signing from the browser, used if there was no valid session
             ));
 ```
 
