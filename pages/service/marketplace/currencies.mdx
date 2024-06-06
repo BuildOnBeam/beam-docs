@@ -7,7 +7,7 @@ title: Currencies
 At the moment of writing the Beam marketplace supports a couple of pre-configured tokens for all marketplace interactions. In order to get the currencies supported for a specific chain, we've added a method. Here's how you can use it:
 
 ```typescript
-const currencies = await beam.marketplaceV2.getChainCurrenciesV2(4337); // the chain ID you want to get the supported currencies for
+const currencies = await beam.marketplace.getChainCurrencies(4337); // the chain ID you want to get the supported currencies for
 
 // {
 //   data: [

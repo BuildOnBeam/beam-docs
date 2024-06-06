@@ -1,10 +1,10 @@
 ---
-title: Profile assets
+title: Player assets
 ---
 
-# Reading profile assets
+# Reading Player assets
 
-Depending on your needs, we offer various ways to validate the balance of a profile - whenever that's for an ERC20, ERC721, ERC1155 or the native token on Beam.
+Depending on your needs, we offer various ways to validate the balance of a player - whenever that's for an ERC20, ERC721, ERC1155 or the native token on Beam.
 
 However, depending on the token types there are a few caveats, as we are using an indexer for the ERC721 / ERC1155 type contracts, causing there to be a small delay between on-chain events and the actual sdk method response.
 
@@ -15,7 +15,7 @@ By running the following method, you will receive all ERC721 and ERC1155 type as
 Note that at the moment of writing, we do not expose filtering options yet - but they are expected to drop soon in order for you to filter in different ways to get meaningful results.
 
 ```typescript
-const profileAssets = await beam.assetsV2.getProfileAssetsForGamePostV2("entity-id", {
+const profileAssets = await beam.assets.getProfileAssetsForGamePostV3("entity-id", {
   sortDirection: 'desc';
   sortBy: 'acquiredAt';
   contract: "0x..."; // if you want to get assets only from one collection, null/undefined otherwise
@@ -71,7 +71,7 @@ const profileTokens = await beam.assetsV2.getProfileCurrenciesV2("entity-id");
 If you are interested in validating the native currency of a profile, for example to validate whenever the profile has enough BEAM to run a self-paid transaction, you could fetch the native token balance directly by doing the following:
 
 ```typescript
-const profileTokens = await beam.assetsV2.getProfileNativeCurrencyV2("entity-id");
+const profileTokens = await beam.assets.getProfileNativeCurrencyV3("entity-id");
 
 // {
 //   "nativeTokenBalance": {

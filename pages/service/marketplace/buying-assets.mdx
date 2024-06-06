@@ -1,6 +1,6 @@
 ## Buying a listed item
 
-If a user shows interest in a listing for sale by another profile, it's possible to buy the listed asset with a profile by simply calling the `buyListedAsset` method. Note that in order to actually buy the asset, the buyer-profile needs to be funded with enough BEAM based on the listing price set by the seller profile.
+If a user shows interest in a listing for sale by another user, it's possible to buy the listed asset by simply calling the `buyListedAsset` method. Note that in order to actually buy the asset, the buyer-player account needs to be funded with enough BEAM based on the listing price set by the seller.
 
 ```typescript
 const response = await beam.marketplaceV2.buyListedAssetV2('buyer-profile-id', 'order-id-to-fulfill' {
@@ -8,9 +8,19 @@ const response = await beam.marketplaceV2.buyListedAssetV2('buyer-profile-id', '
 });
 
 // {
-//   "status": "success",
-//   "transactionHash": '0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f',
-//   "explorerUrl": "https://subnets.avax.network/beam/0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f"
+//   "status": "Pending",
+//   "id": "string",
+//   "createdAt": "2024-06-06T10:48:36.627Z",
+//   "updatedAt": "2024-06-06T10:48:36.627Z",
+//   "gameId": "string",
+//   "userId": "string",
+//   "chainId": 0,
+//   "url": "string",
+//   "transactions": [
+//     (...)
+//   ]
 // }
 
 ```
+
+Operation returned by the method needs to be signed. Learn more about Operations here: [Operations introduction](/service/operations/Introduction).
