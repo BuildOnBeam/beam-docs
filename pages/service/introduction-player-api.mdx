@@ -4,13 +4,13 @@ title: Self-custody
 
 # Introduction to the Player API (beta)
 
-Through our new Player API implementation, you are able to set up self-custodial users with Beam. The implementation is a new service that works based on self-custodial private keys, and newly deployed account abstractions. Existing [Profiles](/service/profiles/introduction) that you created, won't be available in this new service.
+Through our Player API implementation, you can set up self-custodial user accounts with Beam. The solution is based on self-custodial private keys and newly deployed account abstractions. Existing Automation [Profiles](/service/profiles/introduction), won't be available for use in self-custodial solution.
 
 ---
 
 ### What is self custody?
 
-Self-custody means that in this new implementation, a private key only controllable by the user can sign for transactions. The private key for each user is generated in the browser when they start interacting with [Sessions](/service/sessions/introduction) and [Operations](/service/operations/introduction).
+Self-custody means that a private key is only controllable by the user, who can sign transactions. The private key for each user is generated in the browser when they start interacting with [Sessions](/service/sessions/introduction) and [Operations](/service/operations/introduction).
 When they do, they will be required to authorize with a social identity, from which a private key is generated and sharded - and securely stored.
 
 ---
