@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@onbeam/errors':
+    specifier: ^1.0.1
+    version: 1.0.1
   '@supabase/supabase-js':
     specifier: ^2.38.0
     version: 2.38.0
@@ -746,6 +749,10 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
     dev: true
+
+  /@onbeam/errors@1.0.1:
+    resolution: {integrity: sha512-WvrL4S1cWKWIIAZDMitcWS69pgbWX2me/TwXJuRA2pFR5bgg4w0QbGfgXPhbzmMHlmTUUeumn0HBGJRdI8l+aQ==}
+    dev: false
 
   /@popperjs/core@2.11.8:
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
