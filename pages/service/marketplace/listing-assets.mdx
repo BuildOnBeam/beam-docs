@@ -1,9 +1,9 @@
 ## Listing an asset
 
-In order to list an asset on behalf of a profile you need to give us some information about the listing.
+In order to list an asset of a Player you need to give us some information about the listing.
 
 ```typescript
-const transaction = await beam.marketplaceV2.listAssetV2('profile-seller-id', {
+const transaction = await beam.marketplace.listAsset('profile-seller-id', {
     assetAddress: '0x...',
     assetId: '1',
     quantity: 1 // You can list multiple 1155 assets from the same token, defaults to 1
@@ -13,15 +13,28 @@ const transaction = await beam.marketplaceV2.listAssetV2('profile-seller-id', {
 });
 
 // {
-//   "orderId": "651b0e3d01b1fcdb481dec8e",
+//   "status": "Pending",
+//   "id": "string",
+//   "createdAt": "2024-06-06T10:48:36.627Z",
+//   "updatedAt": "2024-06-06T10:48:36.627Z",
+//   "gameId": "string",
+//   "userId": "string",
+//   "chainId": 0,
+//   "url": "string",
+//   "transactions": [
+//     (...)
+//   ]
 // }
+
 ```
+
+Operation returned by the method needs to be signed. Learn more about Operations here: [Operations introduction](/service/operations/introduction).
 
 Different intricacies on the different selling types will be provided at a later date. To keep things simple, we advise you to start listing with the 'FixedPrice' sell type only.
 
 ## Accessing listed items for your game
 
-At the moment, we provide a method that allows you to retrieve all the listed items of a profile. Since we just listed an item, you can now verify whenever the item is actually for sale by calling `getListedAssetsForProfile` method.
+At the moment, we provide a method that allows you to retrieve all the listed items of a Player. Since we just listed an item, you can now verify whenever the item is actually for sale by calling `getListedAssetsForProfile` method.
 
 ```typescript
 const listings = await beam.marketplace.getListedAssetsForProfile(
