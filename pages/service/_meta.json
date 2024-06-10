@@ -1,26 +1,36 @@
 {
-  "index": "Getting started",
-  "--- Guides": {
+  "--- Beam": {
     "type": "separator",
-    "title": "Guides"
+    "title": "Beam"
+  },
+  "index": "Getting started",
+  "player-or-automation-api": {
+    "title": "Player or Automation API"
   },
   "game": {
     "title": "Managing your game"
   },
-  "profiles": {
-    "title": "Profiles"
+  "--- Player API (Beta)": {
+    "type": "separator",
+    "title": "Player API (beta)"
+  },
+  "introduction-player-api": {
+    "title": "Introduction"
+  },
+  "implementation-player-api": {
+    "title": "Implementation"
+  },
+  "operations": {
+    "title": "Operations (beta)"
+  },
+  "sessions": {
+    "title": "Sessions (beta)"
   },
   "transactions": {
     "title": "Transactions"
   },
-  "policies": {
-    "title": "Policies"
-  },
   "assets": {
     "title": "Assets"
-  },
-  "trading": {
-    "title": "Trading"
   },
   "marketplace": {
     "title": "Marketplace"
@@ -28,8 +38,21 @@
   "exchange": {
     "title": "Exchange"
   },
-  "companion": {
-    "title": "Companion"
+  "--- Automation API": {
+    "type": "separator",
+    "title": "Automation API"
+  },
+  "introduction-automation-api": {
+    "title": "Introduction"
+  },
+  "profiles": {
+    "title": "Profiles"
+  },
+  "policies": {
+    "title": "Policies"
+  },
+  "trading": {
+    "title": "Trading"
   },
   "reporting": {
     "title": "Reporting"
@@ -46,12 +69,19 @@
   },
   "environments": "",
   "full-api-reference": "",
+  "--- Ecosystem": {
+    "type": "separator",
+    "title": "Ecosystem"
+  },
+  "sphere": {
+    "title": "Sphere"
+  },
+  "companion": {
+    "title": "Companion"
+  },
   "--- More": {
     "type": "separator",
     "title": "More"
-  },
-  "roadmap": {
-    "title": "Roadmap"
   },
   "terms-of-service": {
     "title": "Terms of Service"
@@ -61,9 +91,9 @@
     "href": "https://www.onbeam.com/",
     "newWindow": true
   },
-  "about-merit-circle": {
-    "title": "About Merit Circle ↗",
-    "href": "https://meritcircle.io/",
+  "support": {
+    "title": "Get support ↗",
+    "href": "https://support.onbeam.com/hc/en-us",
     "newWindow": true
   }
 }

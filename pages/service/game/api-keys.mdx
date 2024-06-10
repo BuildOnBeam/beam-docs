@@ -2,8 +2,8 @@
 
 When you've received your Beam accounts API key, you're received three different keys:
 
-- **a read-only key** - this key allows you use read-only endpoints
-- **a read & write key** - this key allows you to read and manage data
+- **a publishable key** - this key can be used in both server side as well as client environments
+- **a secret key** - this key allows you to read and manage data, please only use this in a secure environment
 - **a regenerate key** - this allows you to regenerate your api keys
 
 The **regenerate key** is reserved for one specific action - to invalidate, and re-create the API keys we provided to you. This could come in handy if you are looking to implement a rotating key solution where you would like to invalidate the API key being used in your backend every x hours/days.
@@ -13,7 +13,7 @@ Note that, as soon as you regenerate the keys, your existing keys will be invali
 Below you'll find an example on how to regenerate your API keys.
 
 ```typescript
-import { Beam } from "@onbeam/node";
+import { Beam } from "@onbeam/automation-api-client";
 
 const beam = new Beam("x-regenerate-api-key");
 
@@ -32,12 +32,12 @@ const keys = beam.game.regenerateApiKeys();
 //   ],
 //   "apiKeys": [
 //     {
-//       "type": "ReadOnly",
+//       "type": "Secret",
 //       "createdAt": "string",
 //       "apiKey": "string",
 //     },
 //     {
-//       "type": "ReadWrite",
+//       "type": "Publishable",
 //       "createdAt": "string",
 //       "apiKey": "string",
 //     }

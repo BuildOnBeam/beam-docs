@@ -5,7 +5,7 @@ Through minting profiles, you're able to mint on-chain assets through our sdk, a
 If this applies to your game, and you would like to distribute these assets through the SDK, one way of handling things is to create a treasury profile.
 
 ```typescript
-const treasury = await beam.profiles.createProfile("your-treasury-id");
+const treasury = await beam.profiles.createProfile({ entityId: "your-treasury-id", chainId: 4337 });
 
 // {
 //   "id": "string",
@@ -20,7 +20,5 @@ const treasury = await beam.profiles.createProfile("your-treasury-id");
 ```
 
 The treasury profile would be a profile like any other: an account abstraction that is within your control authorized through the API key. By us adding the contracts for your pre-minted assets to your game, and you sending the pre-minted assets to the treasury's profile wallet address, you essentially allow yourself to move these assets around from the profile to any other of your profiles through our sdk.
-
-By never creating a connection request for this profile as described in the [users and profiles](/service/profiles/users-and-profiles), you won't have a risk of anyone touching the assets within the profile except for someone authorized by the API keys.
 
 If pre-minted assets get distributed in batches, you might want to create a treasury profile per batch - or periodically send assets to the profile's wallet address - managing these profiles is up to you. Do keep in mind that everyone who possesses or is able to get access to the read-and-write API key we provided to you, is able to move around these assets freely between profiles of your game.

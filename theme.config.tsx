@@ -13,8 +13,7 @@ const config: DocsThemeConfig = {
   }),
   head: () => {
     const ogTitle = 'Hello Beam! | Beam documentation';
-    const ogDescription =
-      'Beam is a sovereign network focused on gaming brought to you by the Merit Circle DAO.';
+    const ogDescription = 'Beam is a sovereign network focused on gaming.';
     const ogImage = 'https://docs.onbeam.com/beam-development-docs.png';
 
     return (
@@ -57,9 +56,6 @@ const config: DocsThemeConfig = {
         <meta property="og:locale" content="en_US" />
       </>
     );
-  },
-  footer: {
-    text: '© 2023 Merit Circle',
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,

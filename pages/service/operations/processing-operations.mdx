@@ -1,0 +1,60 @@
+---
+title: Processing operations
+---
+
+# How to process Operations
+
+After you created an Operation, the operation needs to be signed for. You could handle this in various ways, but we do recommend using our provided SDKs.
+
+
+### Using our SDK
+
+When using our SDK, processing an operation is as simple as providing the user entity id and the operation id. The `SignOperation` method will automatically open a browser or sign it with an existing Session.
+
+
+```csharp
+StartCoroutine(m_BeamClient.SignOperation(
+                "entityIdOfYourUser",
+                operationId,    // operationId from Beam API
+                actionResult =>
+                {
+                    if (actionResult.Status == BeamResultType.Success)
+                    {
+                        // you can now check for actual Status of the signing f.e.:
+                        var isApproved = actionResult.Result == BeamOperationStatus.Executed;
+                        var isRejected = actionResult.Result == BeamOperationStatus.Rejected;
+                        // (...)
+                    }
+                },
+                chainId: 13337, // optional chainId, defaults to 13337
+                fallbackToBrowser: true, // if true, will automatically open browser for the user to sign the operation, if there is no valid session
+                secondsTimeout: 240 // timeout in seconds for getting a result of message signing from the browser, used if there was no valid session
+            ));
+```
+
+
+### Using the provided URL
+
+As you might have seen when creating an Operation, we return a `url` property in the response. The `url` is a URL to our web interface, which the user can use in order to sign for the Operation.
+
+Please note that if you use the web interface, we won't provide you with a proper callback about the status of the Operation. You will need to poll our API's [getOperation](https://api.testnet.onbeam.com/api/player#/Operation/getOperation) method periodically in order to know about status changes in the Operation based on user actions.
+
+```csharp
+//  {
+//    "status": "Pending",
+//    "id": "clwt0h7ej000c2jckyr2nh0cv",
+//    "createdAt": "2024-05-30T08:46:42.620Z",
+//    "updatedAt": null,
+//    "gameId": "cltr8rde601aeakka28hbtuim",
+//    "userId": "clwdehitt005biwog2szib1fh",
+//    "chainId": 13337,
+//    "url": "https://identity.testnet.onbeam.com/games/cltr8rde601aeakka28hbtuim/operation/clwt0h7ej000c2jckyr2nh0cv/confirm",
+//    "game": {
+//       ...
+//    },
+//    "transactions": [
+//       ...
+//    ]
+//  }
+```
+
