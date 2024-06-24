@@ -10,19 +10,12 @@ In order to get started a Session going, you will need to call the following met
 
 
 ```csharp
-StartCoroutine(beamClient.CreateSession(
-                "entityIdOfYourUser",
-                actionResult =>
-                {
-                    if (actionResult.Status == BeamResultType.Success)
-                    {
-                        var session = actionResult.Result;
-                        // you now have an active session that can sign operations
-                    }
-                },
-                chainId: 13337, // optional chainId, defaults to 13337
-                secondsTimeout: 240 // timeout in seconds for getting a result of Session signing from the browser
-            ));
+            var activeSessionResult = await m_BeamClient.CreateSessionAsync("your-entity-id");
+            if (activeSessionResult.Status == BeamResultType.Success)
+            {
+                var session = activeSessionResult.Result;
+                // you can now sign Operations without leaving the game
+            }
 ```
 
 
@@ -41,20 +34,13 @@ Once handled, the session (private key) is able to sign transaction on behalf of
 You can retrieve current valid and active Session for your user. If local storage was cleared out, your game contracts changed, or the session simply expired - we will not return an active session.
 
 ``` csharp
-StartCoroutine(beamClient.GetActiveSession(
-                "entityIdOfYourUser",
-                actionResult =>
-                {
-                    if (actionResult.Status == BeamResultType.Success)
-                    {
-                        var session = actionResult.Result;
-                        // you have an active session that can sign operations
-                    }
-                    else
-                    {
-                        // you need to create a session using CreateSession(), or User will sign operations using browser
-                    }
-                },
-                chainId: 13337 // optional chainId, defaults to 13337
-            ));
+            var activeSessionResult = await m_BeamClient.GetActiveSessionAsync("your-entity-id");
+            if (activeSessionResult.Status == BeamResultType.Success)
+            {
+                var session = activeSessionResult.Result;
+                var validUntil = session.EndTime;
+                // (...)
+            }
 ```
+
+* NOTE: You can make development and testing easier by clearing out Player Preferences. This allows you to create Sessions multiple times for the same User, as the private key owning them is lost on removal.
