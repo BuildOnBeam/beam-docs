@@ -7,7 +7,7 @@ title: Signing with sessions
 
 Once the session is successfully created, it's authorized to sign [Operations](/service/operations/introduction). As the game developer, you're simply able to apply the same method as was described in [Processing Operations](/service/operations/processing-operations).
 
-If a session is active for the user, the session key is still available in the local storage of the game client and the session is authorized to sign - `SignOperationAsync()` will automatically sign the Operation, without having the user seeing a browser.
+If a session is active for the user, the session key is still available in the local storage of the game client and the session is authorized to sign - `SignOperationAsync()` will automatically sign the Operation, without user ever seeing a browser.
 
 
 ```csharp
