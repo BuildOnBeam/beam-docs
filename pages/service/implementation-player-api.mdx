@@ -37,8 +37,8 @@ In order to interact with these clients, you will need a new type of API key - t
 
 ```csharp
 var beamClient = gameObject.AddComponent<BeamClient>()
-                .SetBeamApiKey("your-publishable-api-key") // set your Publishable(!) API key
-                .SetEnvironment(BeamEnvironment.Testnet) // defaults to Testnet
+                .SetBeamApiKey("your-publishable-api-key") // required, sets your Publishable(!) API key
+                .SetEnvironment(BeamEnvironment.Testnet) // optional, defaults to Testnet
                 .SetDebugLogging(true) // optional, defaults to false
                 .SetStorage(yourCustomStorageImplementation); // optional, defaults to PlayerPrefs storage;
 ```
