@@ -5,9 +5,9 @@ import { BeamIcon } from './components/beam-icons';
 const config: DocsThemeConfig = {
   logo: BeamIcon,
   project: {
-    link: 'https://github.com/Merit-Circle/beam-docs',
+    link: 'https://github.com/BuildOnBeam/beam-docs',
   },
-  docsRepositoryBase: 'https://github.com/Merit-Circle/beam-docs/tree/main',
+  docsRepositoryBase: 'https://github.com/BuildOnBeam/beam-docs/tree/main',
   useNextSeoProps: () => ({
     titleTemplate: '%s | Beam documentation',
   }),

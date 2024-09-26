@@ -4,12 +4,12 @@
   "description": "Beam chain & accounts API documentation",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Merit-Circle/beam-docs.git"
+    "url": "git+https://github.com/BuildOnBeam/beam-docs.git"
   },
   "author": "Robby Uitbeijerse <robby@meritcircle.io>",
   "license": "GNU",
   "bugs": {
-    "url": "https://github.com/Merit-Circle/beam-docs/issues"
+    "url": "https://github.com/BuildOnBeam/beam-docs/issues"
   },
   "homepage": "https://docs.onbeam.com",
   "scripts": {
@@ -27,10 +27,7 @@
     "validate:ci": "biome ci ."
   },
   "lint-staged": {
-    "*": [
-      "biome format --write",
-      "biome lint --apply-unsafe"
-    ]
+    "*": ["biome format --write", "biome lint --apply-unsafe"]
   },
   "dependencies": {
     "@onbeam/errors": "^1.0.1",
