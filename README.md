@@ -8,7 +8,7 @@ If you would like to contribute to the documentation, please open a pull request
 
 ### TL;DR
 
-If you would like to get your hands dirty without reading our documentation, we strongly advise you to get started with one of our implementations ready [SDKs](https://docs.onbeam.com/service/sdk). We currently provide SDKs for Node.js and C#, but are happy to facilitate more. If you are interested in an SDK for your implementation language which we don't provide yet, please open an [issue](https://github.com/BuildOnBeam/beam-api-clients/issues/new).
+If you would like to get your hands dirty without reading our documentation, we strongly advise you to get started with one of our implementations ready [SDKs](https://docs.onbeam.com/sdk/clients). We currently provide SDKs for Node.js and C#, but are happy to facilitate more. If you are interested in an SDK for your implementation language which we don't provide yet, please open an [issue](https://github.com/BuildOnBeam/beam-api-clients/issues/new).
 
 ## Getting started
 
