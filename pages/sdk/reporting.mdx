@@ -1,0 +1,132 @@
+# Reporting
+
+Throughout time you'll run transactions to move on-chain assets for the [Profiles](/sdk/profiles/creating-profiles) you create. As for all blockchains - for each transaction, gas needs to be spend in order to fulfil a transaction. In order to provide you with insights into the data, we provide a couple of simple methods that allow you to pull in this data.
+
+#### Game report
+
+A report per game will get you a complete overview for your game, for every chain you support. This could come in handy if your game is targetting two chains to reach a wider target audience.
+
+**Note:** chain information is environment specific, meaning that you won't find both testnet and mainnet information within the same response.
+
+```typescript
+const report = await beam.reporting.getTotalGameUsage();
+
+// {
+//   "chains": [
+//     {
+//       "policies": [
+//         {
+//           "totalTransactionFeeInUSD": "string",
+//           "totalTransactionFee": "string",
+//           "averageTransactionFee": "string",
+//           "transactionCount": 0,
+//           "chainId": 13337,
+//           "policy": {
+//             "id": "string",
+//             "name": "string",
+//             "model": "ContractFunctions",
+//             "chainId": 0
+//           },
+//           "periods": [
+//             {
+//               "totalTransactionFeeInUSD": "string",
+//               "totalTransactionFee": "string",
+//               "averageTransactionFee": "string",
+//               "transactionCount": 0,
+//               "start": 0,
+//               "end": 0
+//             }
+//           ]
+//         }
+//       ],
+//       "summary": {
+//         "totalTransactionFeeInUSD": "string",
+//         "totalTransactionFee": "string",
+//         "averageTransactionFee": "string",
+//         "transactionCount": 0,
+//         "chainId": 13337
+//       }
+//     }
+//   ]
+// }
+```
+
+#### Chain report
+
+For most developers, retrieving a report for the specific chain they're building on will suffice. The `getTotalGameUsageByChain` method allows you to do just that, provided that you passed a supported `chainId` to the method.
+
+If you're developing on Beam (chain), you will be able to retrieve your games gas expenses by passing the following chain id's:
+
+- **13337** - testnet
+- **4337** - mainnet
+
+```typescript
+const report = await beam.reporting.getTotalGameUsageByChain(13337);
+
+// {
+//   "policies": [
+//     {
+//       "totalTransactionFeeInUSD": "string",
+//       "totalTransactionFee": "string",
+//       "averageTransactionFee": "string",
+//       "transactionCount": 0,
+//       "chainId": 13337,
+//       "policy": {
+//         "id": "string",
+//         "name": "string",
+//         "model": "ContractFunctions",
+//         "chainId": 0
+//       },
+//       "periods": [
+//         {
+//           "totalTransactionFeeInUSD": "string",
+//           "totalTransactionFee": "string",
+//           "averageTransactionFee": "string",
+//           "transactionCount": 0,
+//           "start": 0,
+//           "end": 0
+//         }
+//       ]
+//     }
+//   ],
+//   "summary": {
+//     "totalTransactionFeeInUSD": "string",
+//     "totalTransactionFee": "string",
+//     "averageTransactionFee": "string",
+//     "transactionCount": 0,
+//     "chainId": 13337
+//   }
+// }
+```
+
+#### Policy report
+
+For more granular reporting per policy, you're able to retrieve the information for one specific policy by providing the policyId.
+
+```typescript
+const report = await beam.reporting.getPolicyUsage("clozl24n600003b6ysfapkqq1");
+
+// {
+//   "totalTransactionFeeInUSD": "string",
+//   "totalTransactionFee": "string",
+//   "averageTransactionFee": "string",
+//   "transactionCount": 0,
+//   "chainId": 13337,
+//   "policy": {
+//     "id": "string",
+//     "name": "string",
+//     "model": "ContractFunctions",
+//     "chainId": 0
+//   },
+//   "periods": [
+//     {
+//       "totalTransactionFeeInUSD": "string",
+//       "totalTransactionFee": "string",
+//       "averageTransactionFee": "string",
+//       "transactionCount": 0,
+//       "start": 0,
+//       "end": 0
+//     }
+//   ]
+// }
+```

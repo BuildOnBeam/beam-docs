@@ -1,6 +1,6 @@
 # Hello Beam
 
-Beam is a sovereign network focused on gaming brought to you by the Merit Circle DAO. Powered by the established Avalanche network, Beam operates independently to cater towards gamers and game developers.
+Beam is a sovereign network focused on gaming. Powered by the established Avalanche network, Beam operates independently to cater towards gamers and game developers.
 
 ## Contributions
 
@@ -8,16 +8,16 @@ If you would like to contribute to the documentation, please open a pull request
 
 ### TL;DR
 
-If you would like to get your hands dirty without reading our documentation, we strongly advise you to get started with one of our implementations ready [SDKs](https://docs.onbeam.com/service/sdk). We currently provide SDKs for Node.js and C#, but are happy to facilitate more. If you are interested in an SDK for your implementation language which we don't provide yet, please open an [issue](https://github.com/Merit-Circle/beam-docs/issues/new).
+If you would like to get your hands dirty without reading our documentation, we strongly advise you to get started with one of our implementations ready [SDKs](https://docs.onbeam.com/sdk/clients). We currently provide SDKs for Node.js and C#, but are happy to facilitate more. If you are interested in an SDK for your implementation language which we don't provide yet, please open an [issue](https://github.com/BuildOnBeam/beam-api-clients/issues/new).
 
 ## Getting started
 
 ```typescript
-import { Beam } from "@onbeam/node";
+import { Beam } from "@onbeam/automation-api-client";
 
 const beam = new Beam("x-api-key");
 
-const profile = await beam.profiles.createProfile("profileID");
+const profile = await beam.profiles.createProfile({ entityId: "profileID", chainId: 4337 });
 // {
 //   "id": "string",
 //   "gameId": "string",
@@ -50,7 +50,7 @@ In this example, we initialize an instance of Beam by passing your api key. We t
 Profiles are managed by you, and through your api key you are able to transfer / trade and manage assets of the profiles of your users
 
 ```typescript
-import { Beam } from "@onbeam/node";
+import { Beam } from "@onbeam/automation-api-client";
 
 const beam = new Beam("x-api-key");
 

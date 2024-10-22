@@ -5,16 +5,15 @@ import { BeamIcon } from './components/beam-icons';
 const config: DocsThemeConfig = {
   logo: BeamIcon,
   project: {
-    link: 'https://github.com/Merit-Circle/beam-docs',
+    link: 'https://github.com/BuildOnBeam/beam-docs',
   },
-  docsRepositoryBase: 'https://github.com/Merit-Circle/beam-docs/tree/main',
+  docsRepositoryBase: 'https://github.com/BuildOnBeam/beam-docs/tree/main',
   useNextSeoProps: () => ({
     titleTemplate: '%s | Beam documentation',
   }),
   head: () => {
     const ogTitle = 'Hello Beam! | Beam documentation';
-    const ogDescription =
-      'Beam is a sovereign network focused on gaming brought to you by the Merit Circle DAO.';
+    const ogDescription = 'Beam is a sovereign network focused on gaming.';
     const ogImage = 'https://docs.onbeam.com/beam-development-docs.png';
 
     return (
@@ -57,9 +56,6 @@ const config: DocsThemeConfig = {
         <meta property="og:locale" content="en_US" />
       </>
     );
-  },
-  footer: {
-    text: '© 2023 Merit Circle',
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,

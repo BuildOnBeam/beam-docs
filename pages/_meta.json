@@ -13,8 +13,8 @@
     "title": "Chain",
     "type": "page"
   },
-  "service": {
-    "title": "API",
+  "sdk": {
+    "title": "SDK",
     "type": "page"
   }
 }

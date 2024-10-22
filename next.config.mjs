@@ -15,6 +15,15 @@ const withNextra = nextra({
  */
 const nextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/service/:slug*',
+        destination: '/sdk/:slug*',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default withNextra(nextConfig);
