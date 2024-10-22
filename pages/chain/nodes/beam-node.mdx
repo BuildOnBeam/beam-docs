@@ -7,7 +7,7 @@ import { Steps } from "nextra-theme-docs";
 
 # Beam Node
 
-To run your own Beam Node, no matter if you plan to run a validator node or a non-validating node, you have to install AvalancheGo. The easiest method is using the installer which you can find [here](https://docs.avax.network/nodes/build/set-up-node-with-installer). Please note that this guide is compatible with AvalancheGo version 1.10.17.
+To run your own Beam Node, no matter if you plan to run a validator node or a non-validating node, you have to install AvalancheGo. The easiest method is using the installer which you can find [here](https://docs.avax.network/nodes/build/set-up-node-with-installer). Please note that this guide is compatible with AvalancheGo version 1.11.12.
 
 Once you have a running AvalancheGo installation, you need to add the Beam Subnet-EVM to track the Beam Subnet in your node.
 
@@ -21,8 +21,8 @@ First we have to download the Subnet-EVM binary from [Ava-Labs Github](https://g
 ```bash /kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz/
 mkdir subnetevm
 cd subnetevm
-wget https://github.com/ava-labs/subnet-evm/releases/download/v0.5.9/subnet-evm_0.5.9_linux_amd64.tar.gz
-tar -xvzf subnet-evm_0.5.9_linux_amd64.tar.gz
+wget https://github.com/ava-labs/subnet-evm/releases/download/v0.6.10/subnet-evm_0.6.10_linux_amd64.tar.gz
+tar -xvzf subnet-evm_0.6.10_linux_amd64.tar.gz
 cp subnet-evm ~/.avalanchego/plugins/kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz
 ```
 
@@ -71,7 +71,7 @@ mkdir ~/.avalanchego/configs/chains/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwo
 ```
 
 ```bash copy
-wget https://raw.githubusercontent.com/Merit-Circle/beam-subnet/main/subnets/beam-mainnet/upgrade.json
+wget https://raw.githubusercontent.com/BuildOnBeam/beam-subnet/main/subnets/beam-mainnet/upgrade.json
 ```
 
 If you haven't used the installer, your config directory may be located elsewhere. In that case, place the file in `{chain-config-dir}/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn/`, where `2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn` is the `{blockchainID}`.
@@ -159,7 +159,7 @@ To keep your node up-to-date with a network upgrade you need to keep the latest 
 
 ```bash copy
 cd ~/.avalanchego/configs/chains/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn/
-curl -o upgrade.json https://raw.githubusercontent.com/Merit-Circle/beam-subnet/main/subnets/beam-mainnet/upgrade.json
+curl -o upgrade.json https://raw.githubusercontent.com/BuildOnBeam/beam-subnet/main/subnets/beam-mainnet/upgrade.json
 ```
 
 ### Restart your Node
@@ -177,8 +177,8 @@ Here are the commands for a Beam Testnet node:
 ```bash /kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz/
 mkdir subnetevm
 cd subnetevm
-wget https://github.com/ava-labs/subnet-evm/releases/download/v0.5.9/subnet-evm_0.5.9_linux_amd64.tar.gz
-tar -xvzf subnet-evm_0.5.9_linux_amd64.tar.gz
+wget https://github.com/ava-labs/subnet-evm/releases/download/v0.6.10/subnet-evm_0.6.10_linux_amd64.tar.gz
+tar -xvzf subnet-evm_0.6.10_linux_amd64.tar.gz
 cp subnet-evm ~/.avalanchego/plugins/kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz
 ```
 
@@ -198,7 +198,7 @@ mkdir ~/.avalanchego/configs/chains/y97omoP2cSyEVfdSztQHXD9EnfnVP9YKjZwAxhUfGbLA
 ```
 
 ```bash copy
-wget https://raw.githubusercontent.com/Merit-Circle/beam-subnet/main/subnets/beam-testnet/upgrade.json
+wget https://raw.githubusercontent.com/BuildOnBeam/beam-subnet/main/subnets/beam-testnet/upgrade.json
 ```
 
 ```bash copy
@@ -220,7 +220,7 @@ curl -X POST --data '{
 
 ```bash copy
 cd ~/.avalanchego/configs/chains/y97omoP2cSyEVfdSztQHXD9EnfnVP9YKjZwAxhUfGbLAPYT9t/
-curl -o upgrade.json https://raw.githubusercontent.com/Merit-Circle/beam-subnet/main/subnets/beam-testnet/upgrade.json
+curl -o upgrade.json https://raw.githubusercontent.com/BuildOnBeam/beam-subnet/main/subnets/beam-testnet/upgrade.json
 ```
 
 ```bash copy
