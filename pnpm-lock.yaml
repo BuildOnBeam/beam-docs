@@ -65,8 +65,8 @@ dependencies:
 
 devDependencies:
   '@biomejs/biome':
-    specifier: ^1.3.3
-    version: 1.3.3
+    specifier: ^1.9.2
+    version: 1.9.4
   '@types/minimist':
     specifier: ^1.2.3
     version: 1.2.3
@@ -1583,68 +1583,88 @@ packages:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
 
-  /@biomejs/biome@1.3.3:
-    resolution: {integrity: sha512-vTJn7RBzLWIabUuUIoEopO860YyBrbPEu4Pztfd28jRU5QD074hKZ9IQs24pFO6A2R296gaeYmN62f4u7pUruQ==}
-    engines: {node: '>=14.*'}
+  /@biomejs/biome@1.9.4:
+    resolution: {integrity: sha512-1rkd7G70+o9KkTn5KLmDYXihGoTaIGO9PIIN2ZB7UJxFrWw04CZHPYiMRjYsaDvVV7hP1dYNRLxSANLaBFGpog==}
+    engines: {node: '>=14.21.3'}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      '@biomejs/cli-darwin-arm64': 1.3.3
-      '@biomejs/cli-darwin-x64': 1.3.3
-      '@biomejs/cli-linux-arm64': 1.3.3
-      '@biomejs/cli-linux-x64': 1.3.3
-      '@biomejs/cli-win32-arm64': 1.3.3
-      '@biomejs/cli-win32-x64': 1.3.3
+      '@biomejs/cli-darwin-arm64': 1.9.4
+      '@biomejs/cli-darwin-x64': 1.9.4
+      '@biomejs/cli-linux-arm64': 1.9.4
+      '@biomejs/cli-linux-arm64-musl': 1.9.4
+      '@biomejs/cli-linux-x64': 1.9.4
+      '@biomejs/cli-linux-x64-musl': 1.9.4
+      '@biomejs/cli-win32-arm64': 1.9.4
+      '@biomejs/cli-win32-x64': 1.9.4
     dev: true
 
-  /@biomejs/cli-darwin-arm64@1.3.3:
-    resolution: {integrity: sha512-2X87ZfbmWwe4NGukrUvnoYdI//muSgjNUCAHJ2DO+kS1sB7kDy1s6PN/IYyTJuqRcJtDuOnSpaUDE7KxR1YhtA==}
-    engines: {node: '>=14.*'}
+  /@biomejs/cli-darwin-arm64@1.9.4:
+    resolution: {integrity: sha512-bFBsPWrNvkdKrNCYeAp+xo2HecOGPAy9WyNyB/jKnnedgzl4W4Hb9ZMzYNbf8dMCGmUdSavlYHiR01QaYR58cw==}
+    engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@biomejs/cli-darwin-x64@1.3.3:
-    resolution: {integrity: sha512-t+7DWTCbSgHOBcPsGKuwS1qh1z9zbXFK8i8ktE18yW7iF/W0zI62k44fYqYeFJKlb0Q08aqUvez3L+AQJFsn+w==}
-    engines: {node: '>=14.*'}
+  /@biomejs/cli-darwin-x64@1.9.4:
+    resolution: {integrity: sha512-ngYBh/+bEedqkSevPVhLP4QfVPCpb+4BBe2p7Xs32dBgs7rh9nY2AIYUL6BgLw1JVXV8GlpKmb/hNiuIxfPfZg==}
+    engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@biomejs/cli-linux-arm64@1.3.3:
-    resolution: {integrity: sha512-D8CvXaB8lkXXBQ6B3n0MXSSZFiE60+aNHorBLimVTtKiMod8QvAP425oQFZFul5wMXZqPLGTKFjXbAi/rvnc1A==}
-    engines: {node: '>=14.*'}
+  /@biomejs/cli-linux-arm64-musl@1.9.4:
+    resolution: {integrity: sha512-v665Ct9WCRjGa8+kTr0CzApU0+XXtRgwmzIf1SeKSGAv+2scAlW6JR5PMFo6FzqqZ64Po79cKODKf3/AAmECqA==}
+    engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@biomejs/cli-linux-x64@1.3.3:
-    resolution: {integrity: sha512-bqB05fwJnRZwRlcm/BS/s4qPickqiXZkiU/nOYvHApfsPeqgSHgv5HWoBYuSUjgqBbX3XZJArsC5dCcVW7vAJw==}
-    engines: {node: '>=14.*'}
+  /@biomejs/cli-linux-arm64@1.9.4:
+    resolution: {integrity: sha512-fJIW0+LYujdjUgJJuwesP4EjIBl/N/TcOX3IvIHJQNsAqvV2CHIogsmA94BPG6jZATS4Hi+xv4SkBBQSt1N4/g==}
+    engines: {node: '>=14.21.3'}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@biomejs/cli-linux-x64-musl@1.9.4:
+    resolution: {integrity: sha512-gEhi/jSBhZ2m6wjV530Yy8+fNqG8PAinM3oV7CyO+6c3CEh16Eizm21uHVsyVBEB6RIM8JHIl6AGYCv6Q6Q9Tg==}
+    engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@biomejs/cli-win32-arm64@1.3.3:
-    resolution: {integrity: sha512-muFOjAv1ONMfaJDlo4Ds+Qb9lkdSLM2XaxOe3AJPejSq3Vi0aRr51ZnE02BofMnL2sVsOA9cO54wibsuTcopbw==}
-    engines: {node: '>=14.*'}
+  /@biomejs/cli-linux-x64@1.9.4:
+    resolution: {integrity: sha512-lRCJv/Vi3Vlwmbd6K+oQ0KhLHMAysN8lXoCI7XeHlxaajk06u7G+UsFSO01NAs5iYuWKmVZjmiOzJ0OJmGsMwg==}
+    engines: {node: '>=14.21.3'}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@biomejs/cli-win32-arm64@1.9.4:
+    resolution: {integrity: sha512-tlbhLk+WXZmgwoIKwHIHEBZUwxml7bRJgk0X2sPyNR3S93cdRq6XulAZRQJ17FYGGzWne0fgrXBKpl7l4M87Hg==}
+    engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@biomejs/cli-win32-x64@1.3.3:
-    resolution: {integrity: sha512-PMkMhS4smmmTMflxuZUx3REFSazEL9xsGscvZO1dKWI4ET23la+KxEM4TlSpjOyO66UerqSkuUlZecn0QhD63A==}
-    engines: {node: '>=14.*'}
+  /@biomejs/cli-win32-x64@1.9.4:
+    resolution: {integrity: sha512-8Y5wMhVIPaWe6jw2H+KlEm4wP/f7EW3810ZLmDlrEEy5KvBsb9ECEfu/kMWD484ijfQ8+nIi0giMgu9g1UAuuA==}
+    engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
@@ -3262,7 +3282,7 @@ packages:
       '@rainbow-me/rainbowkit': 2.2.0(@tanstack/react-query@5.59.20)(@types/react@18.2.18)(react-dom@18.2.0)(react@18.3.1)(viem@2.21.43)(wagmi@2.12.29)
       react: 18.3.1
       react-hook-form: 7.53.1(react@18.2.0)
-      wagmi: 2.12.29(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react@18.2.18)(react-dom@18.2.0)(react-native@0.76.1)(react@18.2.0)(typescript@5.1.6)(viem@2.21.43)
+      wagmi: 2.12.29(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react@18.2.18)(react-dom@18.2.0)(react-native@0.76.1)(react@18.3.1)(typescript@5.1.6)(viem@2.21.43)(zod@3.23.8)
       zod: 3.23.8
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -3388,7 +3408,7 @@ packages:
       react: 18.3.1
       sonner: 1.7.0(react-dom@18.2.0)(react@18.3.1)
       viem: 2.21.43(typescript@5.1.6)(zod@3.23.8)
-      wagmi: 2.12.29(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react@18.2.18)(react-dom@18.2.0)(react-native@0.76.1)(react@18.3.1)(typescript@5.1.6)(viem@2.21.43)
+      wagmi: 2.12.29(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react@18.2.18)(react-dom@18.2.0)(react-native@0.76.1)(react@18.2.0)(typescript@5.1.6)(viem@2.21.43)
       zustand: 5.0.1(@types/react@18.2.18)(react@18.3.1)
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -4289,7 +4309,7 @@ packages:
       react-remove-scroll: 2.6.0(@types/react@18.2.18)(react@18.3.1)
       ua-parser-js: 1.0.39
       viem: 2.21.43(typescript@5.1.6)(zod@3.23.8)
-      wagmi: 2.12.29(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react@18.2.18)(react-dom@18.2.0)(react-native@0.76.1)(react@18.3.1)(typescript@5.1.6)(viem@2.21.43)
+      wagmi: 2.12.29(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react@18.2.18)(react-dom@18.2.0)(react-native@0.76.1)(react@18.3.1)(typescript@5.1.6)(viem@2.21.43)(zod@3.23.8)
     transitivePeerDependencies:
       - '@types/react'
       - babel-plugin-macros
@@ -5380,11 +5400,11 @@ packages:
         optional: true
     dependencies:
       '@coinbase/wallet-sdk': 4.2.1(@types/node@20.4.9)
-      '@metamask/sdk': 0.30.1(react-dom@18.2.0)(react-native@0.76.1)(react@18.3.1)
+      '@metamask/sdk': 0.30.1(react-dom@18.2.0)(react-native@0.76.1)(react@18.2.0)
       '@safe-global/safe-apps-provider': 0.18.3(typescript@5.1.6)(zod@3.23.8)
       '@safe-global/safe-apps-sdk': 9.1.0(typescript@5.1.6)(zod@3.23.8)
-      '@wagmi/core': 2.14.4(@types/react@18.2.18)(react@18.3.1)(typescript@5.1.6)(use-sync-external-store@1.2.0)(viem@2.21.43)
-      '@walletconnect/ethereum-provider': 2.17.0(@types/react@18.2.18)(react@18.3.1)
+      '@wagmi/core': 2.14.4(@types/react@18.2.18)(react@18.2.0)(typescript@5.1.6)(use-sync-external-store@1.2.0)(viem@2.21.43)
+      '@walletconnect/ethereum-provider': 2.17.0(@types/react@18.2.18)(react@18.2.0)
       cbw-sdk: /@coinbase/wallet-sdk@3.9.3
       typescript: 5.1.6
       viem: 2.21.43(typescript@5.1.6)(zod@3.23.8)
@@ -5438,11 +5458,11 @@ packages:
         optional: true
     dependencies:
       '@coinbase/wallet-sdk': 4.2.1(@types/node@20.4.9)
-      '@metamask/sdk': 0.30.1(react-dom@18.2.0)(react-native@0.76.1)(react@18.2.0)
+      '@metamask/sdk': 0.30.1(react-dom@18.2.0)(react-native@0.76.1)(react@18.3.1)
       '@safe-global/safe-apps-provider': 0.18.3(typescript@5.1.6)(zod@3.23.8)
       '@safe-global/safe-apps-sdk': 9.1.0(typescript@5.1.6)(zod@3.23.8)
-      '@wagmi/core': 2.14.4(@types/react@18.2.18)(react@18.2.0)(typescript@5.1.6)(use-sync-external-store@1.2.0)(viem@2.21.43)
-      '@walletconnect/ethereum-provider': 2.17.0(@types/react@18.2.18)(react@18.2.0)
+      '@wagmi/core': 2.14.4(@types/react@18.2.18)(react@18.3.1)(typescript@5.1.6)(use-sync-external-store@1.2.0)(viem@2.21.43)
+      '@walletconnect/ethereum-provider': 2.17.0(@types/react@18.2.18)(react@18.3.1)
       cbw-sdk: /@coinbase/wallet-sdk@3.9.3
       typescript: 5.1.6
       viem: 2.21.43(typescript@5.1.6)(zod@3.23.8)
@@ -15343,69 +15363,11 @@ packages:
         optional: true
     dependencies:
       '@tanstack/react-query': 5.59.20(react@18.2.0)
-      '@wagmi/connectors': 5.3.7(@types/node@20.4.9)(@types/react@18.2.18)(@wagmi/core@2.14.4)(react-dom@18.2.0)(react-native@0.76.1)(react@18.3.1)(typescript@5.1.6)(viem@2.21.43)(zod@3.23.8)
+      '@wagmi/connectors': 5.3.7(@types/node@20.4.9)(@types/react@18.2.18)(@wagmi/core@2.14.4)(react-dom@18.2.0)(react-native@0.76.1)(react@18.3.1)(typescript@5.1.6)(viem@2.21.43)
       '@wagmi/core': 2.14.4(@types/react@18.2.18)(react@18.2.0)(typescript@5.1.6)(use-sync-external-store@1.2.0)(viem@2.21.43)
       react: 18.2.0
       typescript: 5.1.6
       use-sync-external-store: 1.2.0(react@18.2.0)
-      viem: 2.21.43(typescript@5.1.6)(zod@3.23.8)
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@edge-runtime/vm'
-      - '@netlify/blobs'
-      - '@planetscale/database'
-      - '@react-native-async-storage/async-storage'
-      - '@tanstack/query-core'
-      - '@types/node'
-      - '@types/react'
-      - '@upstash/redis'
-      - '@vercel/kv'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - bufferutil
-      - encoding
-      - happy-dom
-      - immer
-      - ioredis
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - react-dom
-      - react-native
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - utf-8-validate
-      - zod
-    dev: false
-
-  /wagmi@2.12.29(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react@18.2.18)(react-dom@18.2.0)(react-native@0.76.1)(react@18.3.1)(typescript@5.1.6)(viem@2.21.43):
-    resolution: {integrity: sha512-g8wf4oGTxtrwgbpi1NcRvidx7ZRsSMb2LB53Qk3I2Pr7s4m11y1fNYb15PfQpDIHdX7eaXM5OC6/NhVFB0diiQ==}
-    peerDependencies:
-      '@tanstack/react-query': '>=5.0.0'
-      react: '>=18'
-      typescript: '>=5.0.4'
-      viem: 2.x
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@tanstack/react-query': 5.59.20(react@18.2.0)
-      '@wagmi/connectors': 5.3.7(@types/node@20.4.9)(@types/react@18.2.18)(@wagmi/core@2.14.4)(react-dom@18.2.0)(react-native@0.76.1)(react@18.3.1)(typescript@5.1.6)(viem@2.21.43)
-      '@wagmi/core': 2.14.4(@types/react@18.2.18)(react@18.3.1)(typescript@5.1.6)(use-sync-external-store@1.2.0)(viem@2.21.43)
-      react: 18.3.1
-      typescript: 5.1.6
-      use-sync-external-store: 1.2.0(react@18.3.1)
       viem: 2.21.43(typescript@5.1.6)(zod@3.23.8)
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -15460,10 +15422,10 @@ packages:
     dependencies:
       '@tanstack/react-query': 5.59.20(react@18.2.0)
       '@wagmi/connectors': 5.3.7(@types/node@20.4.9)(@types/react@18.2.18)(@wagmi/core@2.14.4)(react-dom@18.2.0)(react-native@0.76.1)(react@18.3.1)(typescript@5.1.6)(viem@2.21.43)(zod@3.23.8)
-      '@wagmi/core': 2.14.4(@types/react@18.2.18)(react@18.2.0)(typescript@5.1.6)(use-sync-external-store@1.2.0)(viem@2.21.43)
+      '@wagmi/core': 2.14.4(@types/react@18.2.18)(react@18.3.1)(typescript@5.1.6)(use-sync-external-store@1.2.0)(viem@2.21.43)
       react: 18.3.1
       typescript: 5.1.6
-      use-sync-external-store: 1.2.0(react@18.2.0)
+      use-sync-external-store: 1.2.0(react@18.3.1)
       viem: 2.21.43(typescript@5.1.6)(zod@3.23.8)
     transitivePeerDependencies:
       - '@azure/app-configuration'

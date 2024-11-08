@@ -15,6 +15,7 @@ export function Author({ name, link }) {
         target="_blank"
         style={{ textUnderlinePosition: 'under' }}
         className="mx-1 text-current underline [text-underline-position:from-font] decoration-from-font"
+        rel="noreferrer"
       >
         {name}
       </a>
