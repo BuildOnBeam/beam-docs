@@ -7,6 +7,7 @@ export default defineBeamUiConfig({
     './**/*.{ts,tsx}',
     './pages/**/*.mdx',
   ],
+  preflight: false,
   layers: {
     reset: 'beam-reset',
     base: 'beam-base',

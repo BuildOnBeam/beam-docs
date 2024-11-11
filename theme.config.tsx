@@ -65,17 +65,20 @@ const config: DocsThemeConfig = {
     );
   },
   footer: {
-    content: () => {
+    component: () => {
       const open = useGTMStore((store) => store.openConsentModal);
 
       return (
-        <div
+        <footer
           className={hstack({
             align: 'center',
             gap: '4',
             px: '4',
-            pb: '4',
+            py: '4',
             color: 'mono.100',
+            bg: 'mono.650',
+            borderTop: '1px solid',
+            borderColor: 'mono.550',
           })}
         >
           <span className={text({ style: 'sm' })}>
@@ -89,7 +92,7 @@ const config: DocsThemeConfig = {
           >
             cookies
           </Link>
-        </div>
+        </footer>
       );
     },
   },

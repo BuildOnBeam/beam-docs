@@ -16,6 +16,7 @@
     "dev": "next dev",
     "build": "next build",
     "build:ci": "pnpm generate && pnpm build",
+    "postinstall": "node ./scripts/nextra-css-layer.mjs",
     "postbuild": "next-sitemap",
     "start": "next start",
     "generate": "pnpm generate:embeddings",
