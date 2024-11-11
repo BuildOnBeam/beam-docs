@@ -1,6 +1,6 @@
 {
   "name": "beam-docs",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Beam chain & accounts API documentation",
   "repository": {
     "type": "git",

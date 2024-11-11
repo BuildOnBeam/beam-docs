@@ -4,8 +4,8 @@ export default defineBeamUiConfig({
   include: [
     './node_modules/@onbeam/ui/dist/panda.buildinfo.json',
     './node_modules/@onbeam/features/dist/panda.buildinfo.json',
-    './components/**/*.{ts,tsx}',
-    './pages/**/*.{ts,tsx,mdx}',
+    './**/*.{ts,tsx}',
+    './pages/**/*.mdx',
   ],
   layers: {
     reset: 'beam-reset',

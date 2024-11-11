@@ -2,6 +2,9 @@ import { DocsThemeConfig } from 'nextra-theme-docs';
 import React from 'react';
 import { BeamIcon } from './components/beam-icons';
 import { useConfig } from 'nextra-theme-docs';
+import { useGTMStore } from '@onbeam/utils';
+import { hstack, text } from '@onbeam/styled-system/patterns';
+import { Link } from '@onbeam/ui';
 
 const config: DocsThemeConfig = {
   logo: BeamIcon,
@@ -60,6 +63,35 @@ const config: DocsThemeConfig = {
         <meta property="og:locale" content="en_US" />
       </>
     );
+  },
+  footer: {
+    content: () => {
+      const open = useGTMStore((store) => store.openConsentModal);
+
+      return (
+        <div
+          className={hstack({
+            align: 'center',
+            gap: '4',
+            px: '4',
+            pb: '4',
+            color: 'mono.100',
+          })}
+        >
+          <span className={text({ style: 'sm' })}>
+            MIT {new Date().getFullYear()} © Beam
+          </span>
+          <Link
+            as="button"
+            color="mono.100"
+            className={text({ style: 'sm', cursor: 'pointer' })}
+            onClick={open}
+          >
+            cookies
+          </Link>
+        </div>
+      );
+    },
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,
