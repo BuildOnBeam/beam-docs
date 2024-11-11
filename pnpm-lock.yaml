@@ -12,17 +12,17 @@ dependencies:
     specifier: ^1.0.1
     version: 1.0.1
   '@onbeam/features':
-    specifier: ^1.1.7
-    version: 1.1.7(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react-native@0.76.1)(typescript@5.6.3)(viem@2.21.44)
+    specifier: ^1.1.8
+    version: 1.1.8(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react-native@0.76.1)(typescript@5.6.3)(viem@2.21.44)
   '@onbeam/styled-system':
     specifier: ^2.5.5
     version: 2.5.5
   '@onbeam/ui':
-    specifier: ^2.9.18
-    version: 2.9.18(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react-native@0.76.1)(typescript@5.6.3)(zod@3.23.8)
+    specifier: ^2.9.19
+    version: 2.9.19(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react-native@0.76.1)(typescript@5.6.3)(zod@3.23.8)
   '@onbeam/utils':
-    specifier: ^1.1.14
-    version: 1.1.14(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react@18.3.12)(react-dom@18.3.1)(react-native@0.76.1)(typescript@5.6.3)(zod@3.23.8)
+    specifier: ^1.1.15
+    version: 1.1.15(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react@18.3.12)(react-dom@18.3.1)(react-native@0.76.1)(typescript@5.6.3)(zod@3.23.8)
   '@supabase/supabase-js':
     specifier: ^2.38.0
     version: 2.46.1
@@ -3307,14 +3307,14 @@ packages:
     resolution: {integrity: sha512-WvrL4S1cWKWIIAZDMitcWS69pgbWX2me/TwXJuRA2pFR5bgg4w0QbGfgXPhbzmMHlmTUUeumn0HBGJRdI8l+aQ==}
     dev: false
 
-  /@onbeam/features@1.1.7(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react-native@0.76.1)(typescript@5.6.3)(viem@2.21.44):
-    resolution: {integrity: sha512-VboaXjFhHxkZYrvuzIwWK69UahTN8oCnNuBpweWTRAKCF3pvgt6cqNryYXiFCf+BLTaOHlCrPYor2yTrUuJbTA==}
+  /@onbeam/features@1.1.8(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react-native@0.76.1)(typescript@5.6.3)(viem@2.21.44):
+    resolution: {integrity: sha512-DL9G55SXfr6gJiiJX2XVQTc7OeXfD6CqV6XvWpK6rjKUPpzWZtIWPXoJj94B6FkXXKfXsW9HjzaW3pX2VbLQJQ==}
     dependencies:
       '@hookform/resolvers': 3.9.1(react-hook-form@7.53.1)
       '@onbeam/icons': 1.2.5
       '@onbeam/styled-system': 2.5.5
-      '@onbeam/ui': 2.9.18(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react-native@0.76.1)(typescript@5.6.3)(zod@3.23.8)
-      '@onbeam/utils': 1.1.14(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react@18.3.12)(react-dom@18.3.1)(react-native@0.76.1)(typescript@5.6.3)(zod@3.23.8)
+      '@onbeam/ui': 2.9.19(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react-native@0.76.1)(typescript@5.6.3)(zod@3.23.8)
+      '@onbeam/utils': 1.1.15(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react@18.3.12)(react-dom@18.3.1)(react-native@0.76.1)(typescript@5.6.3)(zod@3.23.8)
       '@pandacss/dev': 0.46.1(typescript@5.6.3)
       '@rainbow-me/rainbowkit': 2.2.0(@tanstack/react-query@5.59.20)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)(viem@2.21.44)(wagmi@2.12.29)
       react: 18.3.1
@@ -3376,12 +3376,12 @@ packages:
     resolution: {integrity: sha512-FI/zqC2B0BoNV9+bB+90iE1wh+4oqA2Mm/mFeKEILCcrImpkZtmN61h4x5W5WFC6uPPFHH1EdduIyVN9R2ttZw==}
     dev: false
 
-  /@onbeam/ui@2.9.18(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react-native@0.76.1)(typescript@5.6.3)(zod@3.23.8):
-    resolution: {integrity: sha512-w026ljcHM/PE8G2sJJT/R2DXwL2UiwOvPc2UvRTdY1FeMsWwwk5swas5soyW6wy9hhsK6J7Uv4UDPzHKZ6jyaA==}
+  /@onbeam/ui@2.9.19(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react-native@0.76.1)(typescript@5.6.3)(zod@3.23.8):
+    resolution: {integrity: sha512-7RgG6bP5RcBEcbYKTexD9WN1HwEql/IQ4t6BpaXzve4S7X2vSQgyZvxhCkU562aiIBJo4aLCtKoEw1Js0wnX2Q==}
     dependencies:
       '@onbeam/icons': 1.2.5
       '@onbeam/styled-system': 2.5.5
-      '@onbeam/utils': 1.1.14(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react@18.3.12)(react-dom@18.3.1)(react-native@0.76.1)(typescript@5.6.3)(zod@3.23.8)
+      '@onbeam/utils': 1.1.15(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react@18.3.12)(react-dom@18.3.1)(react-native@0.76.1)(typescript@5.6.3)(zod@3.23.8)
       '@pandacss/dev': 0.46.1(typescript@5.6.3)
       '@radix-ui/react-dialog': 1.1.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
       '@radix-ui/react-popover': 1.1.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
@@ -3390,7 +3390,7 @@ packages:
       react: 18.3.1
       react-day-picker: 9.3.0(react@18.3.1)
       react-device-detect: 2.2.3(react-dom@18.3.1)(react@18.3.1)
-      react-dropzone: 14.3.5(react@18.3.1)
+      react-dropzone-esm: 15.0.1(react@18.3.1)
       react-json-tree: 0.19.0(@types/react@18.3.12)(react@18.3.1)
       sonner: 1.7.0(react-dom@18.3.1)(react@18.3.1)
     transitivePeerDependencies:
@@ -3438,8 +3438,8 @@ packages:
       - zod
     dev: false
 
-  /@onbeam/utils@1.1.14(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react@18.3.12)(react-dom@18.3.1)(react-native@0.76.1)(typescript@5.6.3)(zod@3.23.8):
-    resolution: {integrity: sha512-RM11F/qPeoDeX63A+9Dw1D4R29t+tNOp+thlMEFNN8GpauCiHYPI4xgjKVXZnJ3W8YzOPMz7cswtsSVwEiOLgw==}
+  /@onbeam/utils@1.1.15(@tanstack/react-query@5.59.20)(@types/node@20.4.9)(@types/react@18.3.12)(react-dom@18.3.1)(react-native@0.76.1)(typescript@5.6.3)(zod@3.23.8):
+    resolution: {integrity: sha512-3gVkHUmxEJ1ws7GrQfmHbzrhBurZ+5vzJyUEZ9LnI7FGEWjMsjQP3Q52kxnL1T5kVJxD6Sz3TczDoi3yG6YuCg==}
     dependencies:
       '@rainbow-me/rainbowkit': 2.2.0(@tanstack/react-query@5.59.20)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)(viem@2.21.44)(wagmi@2.12.29)
       react: 18.3.1
@@ -6647,11 +6647,6 @@ packages:
       unherit: 1.1.3
     dev: true
 
-  /attr-accept@2.2.5:
-    resolution: {integrity: sha512-0bDNnY/u6pPwHDMoF0FieU354oBi0a8rD9FcsLwzcGWbc8KS8KPIi7y+s13OlVY+gMWc/9xEMUgNE6Qm8ZllYQ==}
-    engines: {node: '>=4'}
-    dev: false
-
   /autoprefixer@10.4.20(postcss@8.4.47):
     resolution: {integrity: sha512-XY25y5xSv/wEoqzDyXXME4AFfkZI0P23z6Fs3YgymDnKJkCGOnkL0iTxCa85UTqaSgfcqyf3UA6+c7wUvx/16g==}
     engines: {node: ^10 || ^12 || >=14}
@@ -8724,13 +8719,6 @@ packages:
     resolution: {integrity: sha512-p5161BqbuCaSnB8jIbzQHOlpgsPmK5rJVDfDKO91Axs5NC1uu3HRQm6wt9cd9/+GtQQIO53JdGXXoyDpTAsgYA==}
     dependencies:
       bser: 2.1.1
-    dev: false
-
-  /file-selector@2.1.0:
-    resolution: {integrity: sha512-ZuXAqGePcSPz4JuerOY06Dzzq0hrmQ6VGoXVzGyFI1npeOfBgqGIKKpznfYWRkSLJlXutkqVC5WvGZtkFVhu9Q==}
-    engines: {node: '>= 12'}
-    dependencies:
-      tslib: 2.8.1
     dev: false
 
   /file-size@1.0.0:
@@ -13187,14 +13175,12 @@ packages:
       react: 18.3.1
       scheduler: 0.23.2
 
-  /react-dropzone@14.3.5(react@18.3.1):
-    resolution: {integrity: sha512-9nDUaEEpqZLOz5v5SUcFA0CjM4vq8YbqO0WRls+EYT7+DvxUdzDPKNCPLqGfj3YL9MsniCLCD4RFA6M95V6KMQ==}
+  /react-dropzone-esm@15.0.1(react@18.3.1):
+    resolution: {integrity: sha512-RdeGpqwHnoV/IlDFpQji7t7pTtlC2O1i/Br0LWkRZ9hYtLyce814S71h5NolnCZXsIN5wrZId6+8eQj2EBnEzg==}
     engines: {node: '>= 10.13'}
     peerDependencies:
       react: '>= 16.8 || 18.0.0'
     dependencies:
-      attr-accept: 2.2.5
-      file-selector: 2.1.0
       prop-types: 15.8.1
       react: 18.3.1
     dev: false
