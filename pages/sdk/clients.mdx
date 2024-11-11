@@ -1,4 +1,4 @@
-import { Callout, Cards, Card } from "nextra/components";
+import { Callout, Cards } from "nextra/components";
 
 # Beam API clients
 
@@ -25,12 +25,12 @@ In order to get started, we currently provide the following clients. Note that i
 All of the Automation API clients are meant to be used **server side**, as it's crucial to not expose any of the api keys we provided publicly.
 
 <Cards>
-  <Card
+  <Cards.Card
     icon="✅ "
     title="Node.js (Typescript)"
     href="https://www.npmjs.com/package/@onbeam/automation-api-client"
   />
-  <Card
+  <Cards.Card
     icon="✅ "
     title="C# (RestSharp)"
     href="https://www.nuget.org/packages/BeamAutomationClient"
@@ -42,12 +42,12 @@ All of the Automation API clients are meant to be used **server side**, as it's 
 The Player API clients can be used in the client, as the API that is required to interact with the self-custody services can be exposed without risk. 
 
 <Cards>
-  <Card
+  <Cards.Card
     icon="✅ "
     title="Typescript (browser & server)"
     href="https://www.npmjs.com/package/@onbeam/player-api-client"
   />
-  <Card
+  <Cards.Card
     icon="✅ "
     title="C# (RestSharp)"
     href="https://www.nuget.org/packages/BeamPlayerClient"

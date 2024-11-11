@@ -1,3 +1,5 @@
+@layer beam-reset, beam-base, beam-tokens, beam-recipes, beam-utilities;
+
 @tailwind utilities;
 
 html {

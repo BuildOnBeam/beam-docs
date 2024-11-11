@@ -20,37 +20,44 @@
     "start": "next start",
     "generate": "pnpm generate:embeddings",
     "generate:embeddings": "tsx lib/generate-embeddings.ts",
+    "test:types": "tsc --noEmit",
     "validate:fix:all": "biome check . --write --unsafe",
     "validate:ci": "biome ci ."
   },
   "lint-staged": {
-    "*": ["biome check . --write --unsafe"]
+    "*": [
+      "biome check . --write --unsafe"
+    ]
   },
   "dependencies": {
     "@onbeam/biome-config": "^0.0.3",
     "@onbeam/errors": "^1.0.1",
-    "@onbeam/features": "^1.1.1",
-    "@onbeam/styled-system": "^2.5.1",
-    "@onbeam/utils": "^1.1.9",
+    "@onbeam/features": "^1.1.7",
+    "@onbeam/styled-system": "^2.5.5",
+    "@onbeam/ui": "^2.9.18",
+    "@onbeam/utils": "^1.1.14",
     "@supabase/supabase-js": "^2.38.0",
     "@vercel/analytics": "^1.0.2",
     "ai": "^2.2.14",
     "common-tags": "^1.8.2",
     "gpt3-tokenizer": "^1.1.5",
-    "next": "^14.0.3",
-    "nextra": "^2.13.2",
-    "nextra-theme-docs": "^2.13.2",
+    "next": "14.2.10",
+    "nextra": "^3.2.3",
+    "nextra-theme-docs": "^3.2.3",
     "openai": "^4.11.1",
     "openai-edge": "^1.2.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-markdown": "^9.0.0",
     "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.2",
+    "@pandacss/dev": "^0.39.2",
     "@types/minimist": "^1.2.3",
     "@types/node": "20.4.9",
+    "@types/react": "^18.3.8",
+    "@types/react-dom": "^18.3.0",
     "@types/uuid": "^9.0.4",
     "@types/yargs": "^17.0.26",
     "autoprefixer": "^10.4.14",
