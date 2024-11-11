@@ -1,15 +1,15 @@
-import { createHash } from 'crypto';
-import { basename, dirname, join } from 'path';
+import { createHash } from 'node:crypto';
+import { basename, dirname, join } from 'node:path';
 import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
-import { readFile, readdir, stat } from 'fs/promises';
+import { readFile, readdir, stat } from 'node:fs/promises';
 import GithubSlugger from 'github-slugger';
 import { Content, Root } from 'mdast';
 import { fromMarkdown } from 'mdast-util-from-markdown';
 import { frontmatterFromMarkdown } from 'mdast-util-frontmatter';
 import { mdxFromMarkdown } from 'mdast-util-mdx';
 import { toMarkdown } from 'mdast-util-to-markdown';
-import { toString } from 'mdast-util-to-string';
+import { toString as toStringUtil } from 'mdast-util-to-string';
 import { frontmatter } from 'micromark-extension-frontmatter';
 import { mdxjs } from 'micromark-extension-mdxjs';
 import OpenAI from 'openai';
@@ -139,7 +139,7 @@ function processMdxForSearch(title: string, content: string): ProcessedMdx {
       const [firstNode] = tree.children;
 
       const heading =
-        firstNode.type === 'heading' ? toString(firstNode) : undefined;
+        firstNode.type === 'heading' ? toStringUtil(firstNode) : undefined;
       const slug = heading ? slugger.slug(heading) : undefined;
 
       return {
@@ -178,16 +178,16 @@ async function walk(dir: string, parentPath?: string): Promise<WalkEntry[]> {
             ? join(dirname(path), docPath)
             : parentPath,
         );
-      } else if (stats.isFile()) {
+      }
+      if (stats.isFile()) {
         return [
           {
             path: path,
             parentPath,
           },
         ];
-      } else {
-        return [];
       }
+      return [];
     }),
   );
 
@@ -218,7 +218,7 @@ abstract class BaseEmbeddingSource {
 }
 
 class MarkdownEmbeddingSource extends BaseEmbeddingSource {
-  type: 'markdown' = 'markdown';
+  type = 'markdown' as const;
 
   constructor(
     source: string,
@@ -276,9 +276,7 @@ async function generateEmbeddings() {
     !process.env.SUPABASE_SERVICE_ROLE_KEY ||
     !process.env.OPENAI_KEY
   ) {
-    return console.log(
-      'Environment variables SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, and OPENAI_KEY are required: skipping embeddings generation',
-    );
+    return;
   }
 
   const supabaseClient = createClient(
@@ -302,12 +300,8 @@ async function generateEmbeddings() {
       ),
   ];
 
-  console.log(`Discovered ${embeddingSources.length} pages`);
-
   if (!shouldRefresh) {
-    console.log('Checking which pages are new or have changed');
   } else {
-    console.log('Refresh flag set, re-generating all pages');
   }
 
   for (const embeddingSource of embeddingSources) {
@@ -339,9 +333,6 @@ async function generateEmbeddings() {
 
         // If parent page changed, update it
         if (existingParentPage?.path !== parentPath) {
-          console.log(
-            `[${path}] Parent page has changed. Updating to '${parentPath}'...`,
-          );
           const { error: fetchParentPageError, data: parentPage } =
             await supabaseClient
               .from('docs_page')
@@ -368,13 +359,7 @@ async function generateEmbeddings() {
 
       if (existingPage) {
         if (!shouldRefresh) {
-          console.log(
-            `[${path}] Docs have changed, removing old page sections and their embeddings`,
-          );
         } else {
-          console.log(
-            `[${path}] Refresh flag set, removing old page sections and their embeddings`,
-          );
         }
 
         const { error: deletePageSectionError } = await supabaseClient
@@ -421,10 +406,6 @@ async function generateEmbeddings() {
       if (upsertPageError) {
         throw upsertPageError;
       }
-
-      console.log(
-        `[${path}] Adding ${sections.length} page sections (with embeddings)`,
-      );
       for (const { slug, heading, content } of sections) {
         // OpenAI recommends replacing newlines with spaces for best results (specific to embeddings)
         const input = content.replace(/\n/g, ' ');
@@ -487,8 +468,6 @@ async function generateEmbeddings() {
       console.error(err);
     }
   }
-
-  console.log('Embedding generation complete');
 }
 
 async function main() {

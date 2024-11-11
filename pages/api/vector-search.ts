@@ -171,7 +171,8 @@ export default async function handler(req: NextRequest) {
           headers: { 'Content-Type': 'application/json' },
         },
       );
-    } else if (err instanceof ApplicationError) {
+    }
+    if (err instanceof ApplicationError) {
       // Print out application errors with their additional data
       console.error(`${err.message}: ${JSON.stringify(err.data)}`);
     } else {
