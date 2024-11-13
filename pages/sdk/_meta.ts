@@ -83,8 +83,8 @@ export default {
     type: 'separator',
     title: 'More',
   },
-  'terms-of-service': {
-    title: 'Terms of Service',
+  terms: {
+    title: 'API Terms',
   },
   'beam-chain': {
     title: 'About Beam ↗',

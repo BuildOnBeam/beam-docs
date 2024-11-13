@@ -3,7 +3,7 @@ export default {
   'get-started': 'Get Started',
   nodes: 'Node',
   builder: 'Build on Beam',
-  'beam-ecosystem': 'Beam Ecosystem',
+  'beam-ecosystem': 'Beam ecosystem',
   resources: 'Resources',
   '--- More': {
     type: 'separator',
