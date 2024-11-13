@@ -82,7 +82,7 @@ const config: DocsThemeConfig = {
           })}
         >
           <span className={text({ style: 'sm' })}>
-            MIT {new Date().getFullYear()} © Beam
+            GPL v.3.0 {new Date().getFullYear()} © Beam
           </span>
           <Link
             as="button"

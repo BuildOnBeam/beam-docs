@@ -1,6 +1,6 @@
 export default {
   index: {
-    title: 'Introduction',
+    title: 'Overview',
     type: 'page',
     display: 'hidden',
   },
@@ -10,6 +10,14 @@ export default {
   },
   sdk: {
     title: 'SDK',
+    type: 'page',
+  },
+  token: {
+    title: 'BEAM Token',
+    type: 'page',
+  },
+  governance: {
+    title: 'Governance',
     type: 'page',
   },
 };

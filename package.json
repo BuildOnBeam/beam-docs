@@ -7,7 +7,7 @@
     "url": "git+https://github.com/BuildOnBeam/beam-docs.git"
   },
   "author": "Robby Uitbeijerse <robby@meritcircle.io>",
-  "license": "GNU",
+  "license": "GPL v.3.0",
   "bugs": {
     "url": "https://github.com/BuildOnBeam/beam-docs/issues"
   },
