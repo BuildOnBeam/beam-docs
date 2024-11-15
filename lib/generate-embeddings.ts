@@ -276,7 +276,9 @@ async function generateEmbeddings() {
     !process.env.SUPABASE_SERVICE_ROLE_KEY ||
     !process.env.OPENAI_KEY
   ) {
-    return;
+    return console.info(
+      'Environment variables SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, and OPENAI_KEY are required: skipping embeddings generation',
+    );
   }
 
   const supabaseClient = createClient(
@@ -300,9 +302,11 @@ async function generateEmbeddings() {
       ),
   ];
 
+  console.info(`Discovered ${embeddingSources.length} pages`);
+
   if (!shouldRefresh) {
-  } else {
-  }
+    console.info('Checking which pages are new or have changed');
+  } else console.info('Refresh flag set, re-generating all pages');
 
   for (const embeddingSource of embeddingSources) {
     const { type, source, path, parentPath } = embeddingSource;
@@ -333,6 +337,9 @@ async function generateEmbeddings() {
 
         // If parent page changed, update it
         if (existingParentPage?.path !== parentPath) {
+          console.info(
+            `[${path}] Parent page has changed. Updating to '${parentPath}'...`,
+          );
           const { error: fetchParentPageError, data: parentPage } =
             await supabaseClient
               .from('docs_page')
@@ -359,8 +366,13 @@ async function generateEmbeddings() {
 
       if (existingPage) {
         if (!shouldRefresh) {
-        } else {
-        }
+          console.info(
+            `[${path}] Docs have changed, removing old page sections and their embeddings`,
+          );
+        } else
+          console.info(
+            '[$path] Refresh flag set, removing old page sections and their embeddings',
+          );
 
         const { error: deletePageSectionError } = await supabaseClient
           .from('docs_page_section')
@@ -406,6 +418,10 @@ async function generateEmbeddings() {
       if (upsertPageError) {
         throw upsertPageError;
       }
+
+      console.info(
+        `[${path}] Adding ${sections.length} page sections (with embeddings)`,
+      );
       for (const { slug, heading, content } of sections) {
         // OpenAI recommends replacing newlines with spaces for best results (specific to embeddings)
         const input = content.replace(/\n/g, ' ');
@@ -468,6 +484,8 @@ async function generateEmbeddings() {
       console.error(err);
     }
   }
+
+  console.info('Embedding generation complete');
 }
 
 async function main() {
