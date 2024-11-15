@@ -1,17 +1,16 @@
-import React from 'react';
-import { Analytics } from '@vercel/analytics/react';
-import { CookieConsentModal } from '@onbeam/features';
-
-import '../styles.css';
-import { GoogleTagManager } from '../lib/GoogleTagManager';
+import { CookieConsentModal } from "@onbeam/features";
+import { Analytics } from "@vercel/analytics/react";
+import React from "react";
+import { GoogleTagManager } from "../components/google-tag-manager";
+import "../styles.css";
 
 export default function Nextra({ Component, pageProps }) {
-  return (
-    <>
-      <Component {...pageProps} />
-      <Analytics />
-      <CookieConsentModal />
-      <GoogleTagManager />
-    </>
-  );
+	return (
+		<>
+			<Component {...pageProps} />
+			<Analytics />
+			<CookieConsentModal />
+			<GoogleTagManager />
+		</>
+	);
 }
