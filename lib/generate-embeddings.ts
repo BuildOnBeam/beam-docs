@@ -1,8 +1,8 @@
 import { createHash } from 'node:crypto';
+import { readFile, readdir, stat } from 'node:fs/promises';
 import { basename, dirname, join } from 'node:path';
 import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
-import { readFile, readdir, stat } from 'node:fs/promises';
 import GithubSlugger from 'github-slugger';
 import { Content, Root } from 'mdast';
 import { fromMarkdown } from 'mdast-util-from-markdown';
@@ -66,11 +66,12 @@ function extractMetaTags(mdxTree: Root) {
  * @param slug
  * @returns
  */
+
 const parseMetaTitle = (meta: any, slug: string): string => {
   if (!meta[slug]) return slug;
 
   if (typeof meta[slug] === 'object') {
-    return `${(meta[slug] as any).title}` ?? slug;
+    return meta[slug]?.title ? `${(meta[slug] as any).title}` : slug;
   }
 
   return meta[slug] as string;
@@ -236,15 +237,20 @@ class MarkdownEmbeddingSource extends BaseEmbeddingSource {
   async load() {
     const contents = await readFile(this.filePath, 'utf8');
 
-    const slug = this.filePath
-      .split('/')
-      .at(-1)
-      .replace(/\.mdx?$/, '');
+    const slug =
+      this.filePath
+        .split('/')
+        .at(-1)
+        ?.replace(/\.mdx?$/, '') ?? '';
 
-    const metaPath = this.filePath.replace(/[^/]+$/, '_meta.json');
-    const metaJson = await readFile(metaPath, 'utf8');
+    const metaPath = join(
+      process.cwd(),
+      this.filePath.replace(/[^/]+$/, '_meta.ts'),
+    );
 
-    const title = parseMetaTitle(JSON.parse(metaJson), slug);
+    const metaFile = (await import(metaPath)).default;
+
+    const title = parseMetaTitle(metaFile, slug);
 
     const { checksum, meta, sections } = processMdxForSearch(title, contents);
 
@@ -263,6 +269,7 @@ class MarkdownEmbeddingSource extends BaseEmbeddingSource {
 type EmbeddingSource = MarkdownEmbeddingSource;
 
 async function generateEmbeddings() {
+  // @ts-ignore
   const argv = await yargs.option('refresh', {
     alias: 'r',
     description: 'Refresh data',
