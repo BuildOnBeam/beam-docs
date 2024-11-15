@@ -67,13 +67,11 @@ function extractMetaTags(mdxTree: Root) {
  * @returns
  */
 
-// biome-ignore lint/suspicious/noExplicitAny: any are you ok?
 const parseMetaTitle = (meta: any, slug: string): string => {
   if (!meta[slug]) return slug;
 
   if (typeof meta[slug] === 'object') {
-    // biome-ignore lint/suspicious/noExplicitAny: any are you ok?
-    return `${(meta[slug] as any).title}` ?? slug;
+    return meta[slug]?.title ? `${(meta[slug] as any).title}` : slug;
   }
 
   return meta[slug] as string;
@@ -335,7 +333,6 @@ async function generateEmbeddings() {
         throw fetchPageError;
       }
 
-      // biome-ignore lint/suspicious/noExplicitAny: any are you ok?
       type ParentPage<T> = T extends any[] ? T[number] | null : T;
 
       // We use checksum to determine if this page & its sections need to be regenerated
