@@ -3,8 +3,7 @@ import React from 'react';
 import { BeamIcon } from './components/beam-icons';
 import { useConfig } from 'nextra-theme-docs';
 import { useGTMStore } from '@onbeam/utils';
-import { hstack, text } from '@onbeam/styled-system/patterns';
-import { Link } from '@onbeam/ui';
+import { hstack, link, text } from '@onbeam/styled-system/patterns';
 
 const config: DocsThemeConfig = {
   logo: BeamIcon,
@@ -79,19 +78,35 @@ const config: DocsThemeConfig = {
             bg: 'mono.650',
             borderTop: '1px solid',
             borderColor: 'mono.550',
+            textStyle: 'sm',
           })}
         >
-          <span className={text({ style: 'sm' })}>
+          <span className={text()}>
             GPL v.3.0 {new Date().getFullYear()} © Beam
           </span>
-          <Link
-            as="button"
-            color="mono.100"
-            className={text({ style: 'sm', cursor: 'pointer' })}
+          <a
+            href="https://onbeam.com/terms"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={link({ color: 'mono.100' })}
+          >
+            terms of service
+          </a>
+          <a
+            href="https://onbeam.com/privacy-policy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={link({ color: 'mono.100' })}
+          >
+            privacy policy
+          </a>
+          <button
+            type="button"
+            className={link({ color: 'mono.100' })}
             onClick={open}
           >
             cookies
-          </Link>
+          </button>
         </footer>
       );
     },
