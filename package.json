@@ -31,10 +31,10 @@
   "dependencies": {
     "@onbeam/biome-config": "^0.0.3",
     "@onbeam/errors": "^1.0.1",
-    "@onbeam/features": "^1.1.12",
+    "@onbeam/features": "^1.2.1",
     "@onbeam/styled-system": "^2.6.0",
-    "@onbeam/ui": "^2.10.0",
-    "@onbeam/utils": "^1.1.18",
+    "@onbeam/ui": "^2.11.1",
+    "@onbeam/utils": "^1.1.19",
     "@supabase/supabase-js": "^2.38.0",
     "@vercel/analytics": "^1.0.2",
     "ai": "^2.2.14",
