@@ -79,6 +79,9 @@ export default {
   companion: {
     title: 'Companion',
   },
+  dashboard: {
+    title: 'Dashboard',
+  },
   '--- More': {
     type: 'separator',
     title: 'More',
