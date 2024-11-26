@@ -6,7 +6,7 @@ import { Callout, Steps } from "nextra/components";
 
 # Beam Node
 
-To run your own Beam Node, no matter if you plan to run a validator node or a non-validating node, you have to install AvalancheGo. The easiest method is using the installer which you can find [here](https://docs.avax.network/nodes/build/set-up-node-with-installer). Please note that this guide is compatible with AvalancheGo version 1.11.5.
+To run your own Beam Node, no matter if you plan to run a validator node or a non-validating node, you have to install AvalancheGo. The easiest method is using the installer which you can find [here](https://docs.avax.network/tooling/avalanche-go-installer). Please note that this guide is compatible with AvalancheGo version 1.11.5.
 
 Once you have a running AvalancheGo installation, you need to add the Beam Subnet-EVM to track the Beam Subnet in your node.
 
@@ -128,7 +128,7 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/P
 ```
 
-For an explanation of the response, check the [API docs](https://docs.avax.network/apis/avalanchego/apis/p-chain#platformgetblockchainstatus).
+For an explanation of the response, check the [API docs](https://docs.avax.network/api-reference/p-chain/api#platformgetblockchainstatus).
 
 If you want to understand your Subnet better, take a look at the blockchain log. Normally, you can find this log in `~/.avalanchego/logs/ChainID.log{:bash}`. Just replace "`ChainID`" with the real ID of your blockchain in your Subnet.
 
