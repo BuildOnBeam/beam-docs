@@ -12,17 +12,17 @@ dependencies:
     specifier: ^1.0.1
     version: 1.0.1
   '@onbeam/features':
-    specifier: ^1.2.1
-    version: 1.2.1(@hookform/resolvers@3.9.1)(@radix-ui/react-dialog@1.1.2)(@radix-ui/react-popover@1.1.2)(@radix-ui/react-tooltip@1.1.3)(@rainbow-me/rainbowkit@2.2.0)(input-otp@1.4.1)(react-day-picker@9.3.0)(react-device-detect@2.2.3)(react-dom@18.3.1)(react-dropzone-esm@15.0.1)(react-hook-form@7.53.1)(react-json-tree@0.19.0)(react@18.3.1)(sonner@1.7.0)(typescript@5.6.3)(wagmi@2.12.29)(zustand@5.0.1)
+    specifier: ^1.2.9
+    version: 1.2.9(@hookform/resolvers@3.9.1)(@radix-ui/react-dialog@1.1.2)(@radix-ui/react-popover@1.1.2)(@radix-ui/react-tooltip@1.1.3)(@rainbow-me/rainbowkit@2.2.0)(input-otp@1.4.1)(react-day-picker@9.3.0)(react-device-detect@2.2.3)(react-dom@18.3.1)(react-dropzone-esm@15.0.1)(react-hook-form@7.53.1)(react-json-tree@0.19.0)(react@18.3.1)(sonner@1.7.0)(typescript@5.6.3)(wagmi@2.12.29)(zustand@5.0.1)
   '@onbeam/styled-system':
-    specifier: ^2.6.0
-    version: 2.6.0
+    specifier: ^2.6.1
+    version: 2.6.1
   '@onbeam/ui':
-    specifier: ^2.11.1
-    version: 2.11.1(@radix-ui/react-dialog@1.1.2)(@radix-ui/react-popover@1.1.2)(@radix-ui/react-tooltip@1.1.3)(@rainbow-me/rainbowkit@2.2.0)(input-otp@1.4.1)(react-day-picker@9.3.0)(react-device-detect@2.2.3)(react-dom@18.3.1)(react-dropzone-esm@15.0.1)(react-json-tree@0.19.0)(react@18.3.1)(sonner@1.7.0)(typescript@5.6.3)(wagmi@2.12.29)(zod@3.23.8)(zustand@5.0.1)
+    specifier: ^2.11.5
+    version: 2.11.5(@radix-ui/react-dialog@1.1.2)(@radix-ui/react-popover@1.1.2)(@radix-ui/react-tooltip@1.1.3)(@rainbow-me/rainbowkit@2.2.0)(input-otp@1.4.1)(react-day-picker@9.3.0)(react-device-detect@2.2.3)(react-dom@18.3.1)(react-dropzone-esm@15.0.1)(react-json-tree@0.19.0)(react@18.3.1)(sonner@1.7.0)(typescript@5.6.3)(wagmi@2.12.29)(zod@3.23.8)(zustand@5.0.1)
   '@onbeam/utils':
-    specifier: ^1.1.19
-    version: 1.1.19(@rainbow-me/rainbowkit@2.2.0)(react-dom@18.3.1)(react@18.3.1)(typescript@5.6.3)(wagmi@2.12.29)(zod@3.23.8)(zustand@5.0.1)
+    specifier: ^1.1.23
+    version: 1.1.23(@rainbow-me/rainbowkit@2.2.0)(react-dom@18.3.1)(react@18.3.1)(typescript@5.6.3)(wagmi@2.12.29)(zod@3.23.8)(zustand@5.0.1)
   '@supabase/supabase-js':
     specifier: ^2.38.0
     version: 2.46.1
@@ -3325,8 +3325,8 @@ packages:
     resolution: {integrity: sha512-WvrL4S1cWKWIIAZDMitcWS69pgbWX2me/TwXJuRA2pFR5bgg4w0QbGfgXPhbzmMHlmTUUeumn0HBGJRdI8l+aQ==}
     dev: false
 
-  /@onbeam/features@1.2.1(@hookform/resolvers@3.9.1)(@radix-ui/react-dialog@1.1.2)(@radix-ui/react-popover@1.1.2)(@radix-ui/react-tooltip@1.1.3)(@rainbow-me/rainbowkit@2.2.0)(input-otp@1.4.1)(react-day-picker@9.3.0)(react-device-detect@2.2.3)(react-dom@18.3.1)(react-dropzone-esm@15.0.1)(react-hook-form@7.53.1)(react-json-tree@0.19.0)(react@18.3.1)(sonner@1.7.0)(typescript@5.6.3)(wagmi@2.12.29)(zustand@5.0.1):
-    resolution: {integrity: sha512-ccMmjZIxJpRjJ3zqXXi2+sTo3LB9W0aMfrtK40oxlC3p/S2YT7pTJK99DE9YK0Qwro0X4K5WbTAycRGzQRY7xA==}
+  /@onbeam/features@1.2.9(@hookform/resolvers@3.9.1)(@radix-ui/react-dialog@1.1.2)(@radix-ui/react-popover@1.1.2)(@radix-ui/react-tooltip@1.1.3)(@rainbow-me/rainbowkit@2.2.0)(input-otp@1.4.1)(react-day-picker@9.3.0)(react-device-detect@2.2.3)(react-dom@18.3.1)(react-dropzone-esm@15.0.1)(react-hook-form@7.53.1)(react-json-tree@0.19.0)(react@18.3.1)(sonner@1.7.0)(typescript@5.6.3)(wagmi@2.12.29)(zustand@5.0.1):
+    resolution: {integrity: sha512-zuKPCmDO7GzgW/2OImQ15Hn2A3BTR2/OT7XZfQ5+b5pl6sakjgU3rzw5Bz3DYkRUYcJ8SE8RrXFWR4sauASREw==}
     peerDependencies:
       '@hookform/resolvers': ^3.9.1
       '@rainbow-me/rainbowkit': ^2.1.5
@@ -3336,9 +3336,9 @@ packages:
     dependencies:
       '@hookform/resolvers': 3.9.1(react-hook-form@7.53.1)
       '@onbeam/icons': 1.2.6(react@18.3.1)
-      '@onbeam/styled-system': 2.6.0
-      '@onbeam/ui': 2.11.1(@radix-ui/react-dialog@1.1.2)(@radix-ui/react-popover@1.1.2)(@radix-ui/react-tooltip@1.1.3)(@rainbow-me/rainbowkit@2.2.0)(input-otp@1.4.1)(react-day-picker@9.3.0)(react-device-detect@2.2.3)(react-dom@18.3.1)(react-dropzone-esm@15.0.1)(react-json-tree@0.19.0)(react@18.3.1)(sonner@1.7.0)(typescript@5.6.3)(wagmi@2.12.29)(zod@3.23.8)(zustand@5.0.1)
-      '@onbeam/utils': 1.1.19(@rainbow-me/rainbowkit@2.2.0)(react-dom@18.3.1)(react@18.3.1)(typescript@5.6.3)(wagmi@2.12.29)(zod@3.23.8)(zustand@5.0.1)
+      '@onbeam/styled-system': 2.6.1
+      '@onbeam/ui': 2.11.5(@radix-ui/react-dialog@1.1.2)(@radix-ui/react-popover@1.1.2)(@radix-ui/react-tooltip@1.1.3)(@rainbow-me/rainbowkit@2.2.0)(input-otp@1.4.1)(react-day-picker@9.3.0)(react-device-detect@2.2.3)(react-dom@18.3.1)(react-dropzone-esm@15.0.1)(react-json-tree@0.19.0)(react@18.3.1)(sonner@1.7.0)(typescript@5.6.3)(wagmi@2.12.29)(zod@3.23.8)(zustand@5.0.1)
+      '@onbeam/utils': 1.1.23(@rainbow-me/rainbowkit@2.2.0)(react-dom@18.3.1)(react@18.3.1)(typescript@5.6.3)(wagmi@2.12.29)(zod@3.23.8)(zustand@5.0.1)
       '@rainbow-me/rainbowkit': 2.2.0(@tanstack/react-query@5.59.20)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)(viem@2.21.44)(wagmi@2.12.29)
       '@transak/transak-sdk': 3.1.3
       react: 18.3.1
@@ -3370,12 +3370,12 @@ packages:
       react: 18.3.1
     dev: false
 
-  /@onbeam/styled-system@2.6.0:
-    resolution: {integrity: sha512-+CMMC/37/Agf3SEBp6tMcfdBNtYK/DixWSVr7V/wYESJiWjuRElfc0+EAtCG3gxDtwTe3MaGossjkfqQXb806g==}
+  /@onbeam/styled-system@2.6.1:
+    resolution: {integrity: sha512-hDQfnoV+SXFYLCP9vxJIwcxgyILLSF+gpbD2nP78Td4NctYYOmt7bgy3nwvKyqqk5AobuL8EXmWjDsThKcc8tw==}
     dev: false
 
-  /@onbeam/ui@2.11.1(@radix-ui/react-dialog@1.1.2)(@radix-ui/react-popover@1.1.2)(@radix-ui/react-tooltip@1.1.3)(@rainbow-me/rainbowkit@2.2.0)(input-otp@1.4.1)(react-day-picker@9.3.0)(react-device-detect@2.2.3)(react-dom@18.3.1)(react-dropzone-esm@15.0.1)(react-json-tree@0.19.0)(react@18.3.1)(sonner@1.7.0)(typescript@5.6.3)(wagmi@2.12.29)(zod@3.23.8)(zustand@5.0.1):
-    resolution: {integrity: sha512-wgRgWome9eZoq6dDTHcdLLBGJh8gARzflOqUYVS5K33EpgIXPt84A82c8ClPZynhMnSMupAVw9ok1apuC0S+bA==}
+  /@onbeam/ui@2.11.5(@radix-ui/react-dialog@1.1.2)(@radix-ui/react-popover@1.1.2)(@radix-ui/react-tooltip@1.1.3)(@rainbow-me/rainbowkit@2.2.0)(input-otp@1.4.1)(react-day-picker@9.3.0)(react-device-detect@2.2.3)(react-dom@18.3.1)(react-dropzone-esm@15.0.1)(react-json-tree@0.19.0)(react@18.3.1)(sonner@1.7.0)(typescript@5.6.3)(wagmi@2.12.29)(zod@3.23.8)(zustand@5.0.1):
+    resolution: {integrity: sha512-mSCtRJhqBBdgQBVMTxywMryF37x2UpQeNJ0BzdEkb5dmQDUwTbiV0HwLOrBw9+9Iu8XhTGtfZiH8JEi6JLX7VA==}
     peerDependencies:
       '@radix-ui/react-dialog': ^1.0.5
       '@radix-ui/react-popover': ^1.0.7
@@ -3389,8 +3389,8 @@ packages:
       sonner: ^1.5.0
     dependencies:
       '@onbeam/icons': 1.2.6(react@18.3.1)
-      '@onbeam/styled-system': 2.6.0
-      '@onbeam/utils': 1.1.19(@rainbow-me/rainbowkit@2.2.0)(react-dom@18.3.1)(react@18.3.1)(typescript@5.6.3)(wagmi@2.12.29)(zod@3.23.8)(zustand@5.0.1)
+      '@onbeam/styled-system': 2.6.1
+      '@onbeam/utils': 1.1.23(@rainbow-me/rainbowkit@2.2.0)(react-dom@18.3.1)(react@18.3.1)(typescript@5.6.3)(wagmi@2.12.29)(zod@3.23.8)(zustand@5.0.1)
       '@radix-ui/react-dialog': 1.1.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
       '@radix-ui/react-popover': 1.1.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
       '@radix-ui/react-tooltip': 1.1.3(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
@@ -3412,8 +3412,8 @@ packages:
       - zustand
     dev: false
 
-  /@onbeam/utils@1.1.19(@rainbow-me/rainbowkit@2.2.0)(react-dom@18.3.1)(react@18.3.1)(typescript@5.6.3)(wagmi@2.12.29)(zod@3.23.8)(zustand@5.0.1):
-    resolution: {integrity: sha512-OWGc5gcFDXtqTnVcguPZKxvcvxii+HbGOg2GWldvwmRZEXUAY5MSpYZxWAc/lFWpGXTvv6hAdbf1lMP37whIAw==}
+  /@onbeam/utils@1.1.23(@rainbow-me/rainbowkit@2.2.0)(react-dom@18.3.1)(react@18.3.1)(typescript@5.6.3)(wagmi@2.12.29)(zod@3.23.8)(zustand@5.0.1):
+    resolution: {integrity: sha512-0VeJuqaWXRIHcdL99zegwg42hmidPco8MYnBE+dUboJ4m0jsvryQ5yRUBvwLAG8UdDE1PQuhvoeB5S7zlzVU0w==}
     peerDependencies:
       '@rainbow-me/rainbowkit': ^2.1.5
       react: '>=18'

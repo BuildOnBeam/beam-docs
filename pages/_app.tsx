@@ -9,7 +9,11 @@ export default function Nextra({ Component, pageProps }) {
     <>
       <Component {...pageProps} />
       <Analytics />
-      <CookieConsentModal />
+      <CookieConsentModal
+        consentDomain={
+          process.env.NODE_ENV === 'development' ? 'localhost' : '.onbeam.com'
+        }
+      />
       <GoogleTagManager />
     </>
   );

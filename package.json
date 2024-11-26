@@ -26,15 +26,17 @@
     "validate:ci": "biome ci ."
   },
   "lint-staged": {
-    "*": ["biome check . --write --unsafe"]
+    "*": [
+      "biome check . --write --unsafe"
+    ]
   },
   "dependencies": {
     "@onbeam/biome-config": "^0.0.3",
     "@onbeam/errors": "^1.0.1",
-    "@onbeam/features": "^1.2.1",
-    "@onbeam/styled-system": "^2.6.0",
-    "@onbeam/ui": "^2.11.1",
-    "@onbeam/utils": "^1.1.19",
+    "@onbeam/features": "^1.2.9",
+    "@onbeam/styled-system": "^2.6.1",
+    "@onbeam/ui": "^2.11.5",
+    "@onbeam/utils": "^1.1.23",
     "@supabase/supabase-js": "^2.38.0",
     "@vercel/analytics": "^1.0.2",
     "ai": "^2.2.14",
