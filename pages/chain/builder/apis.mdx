@@ -13,16 +13,16 @@ To learn more about the Beam API, please see the dedicated [Beam SDK docs](/sdk)
 
 ## Beam Subnet-EVM API
 
-The Subnet-EVM APIs mirror the [Coreth](https://github.com/ava-labs/coreth) APIs with one exception - Avalanche Specific APIs, identifiable by the '`avax.`' prefix. In addition, Subnet-EVM supports standard Ethereum APIs, increasing its applicability. For in-depth information about Coreth APIs, please refer [here](https://docs.avax.network/apis/avalanchego/apis/c-chain).
+The Subnet-EVM APIs mirror the [Coreth](https://github.com/ava-labs/coreth) APIs with one exception - Avalanche Specific APIs, identifiable by the '`avax.`' prefix. In addition, Subnet-EVM supports standard Ethereum APIs, increasing its applicability. For in-depth information about Coreth APIs, please refer [here](https://docs.avax.network/api-reference/c-chain/api).
 
 Moreover, Subnet-EVM introduces unique APIs not present in Coreth:
 
-- `eth_feeConfig`: Subnet-EVM comes with an API request for getting fee config at a specific block. You can use this API to check your activated fee config. ([Details](https://docs.avax.network/apis/avalanchego/apis/subnet-evm#eth_feeconfig))
+- `eth_feeConfig`: Subnet-EVM comes with an API request for getting fee config at a specific block. You can use this API to check your activated fee config. ([Details](https://docs.avax.network/api-reference/subnet-evm-api#eth_feeconfig))
 
-- `eth_getChainConfig`: eth_getChainConfig returns the Chain Config of the blockchain. This API is enabled by default with internal-blockchain namespace. ([Details](https://docs.avax.network/apis/avalanchego/apis/subnet-evm#eth_getchainconfig))
+- `eth_getChainConfig`: eth_getChainConfig returns the Chain Config of the blockchain. This API is enabled by default with internal-blockchain namespace. ([Details](https://docs.avax.network/api-reference/subnet-evm-api#eth_getchainconfig))
 
 
-- `eth_getActivePrecompilesAt`: eth_getActivePrecompilesAt returns activated precompiles at a specific timestamp. If no timestamp is provided it returns the latest block timestamp. This API is enabled by default with internal-blockchain namespace. ([Details](https://docs.avax.network/apis/avalanchego/apis/subnet-evm#eth_getactiveprecompilesat))
+- `eth_getActivePrecompilesAt`: eth_getActivePrecompilesAt returns activated precompiles at a specific timestamp. If no timestamp is provided it returns the latest block timestamp. This API is enabled by default with internal-blockchain namespace. ([Details](https://docs.avax.network/api-reference/subnet-evm-api#eth_getactiveprecompilesat))
 
 
 ### JSON-RPC Endpoint
@@ -58,7 +58,7 @@ Beam's API overview. Find a variety of APIs each designed for a different purpos
 | Title                                              | Description                                                                                                                                         |
 | :------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [**Beam API**](/sdk/full-api-reference)      |   Beam specific API       |  
-| [**AvalancheGo**](https://docs.avax.network/apis/avalanchego)      |     AvalancheGo APIs, Postman collection, public servers, and release notes      |  
-| [**AvalancheJS**](https://docs.avax.network/apis/avalanchejs)      | AvalancheJS APIs |
+| [**AvalancheGo**](https://docs.avax.network/api-reference/admin-api)      |     AvalancheGo APIs, Postman collection, public servers, and release notes      |  
+| [**AvalancheJS**](https://docs.avax.network/tooling/avalanche-js)      | AvalancheJS APIs |
 | [**Avalanche Metrics API**](https://metrics.avax.network/)       | Avalanche Metrics API              |
 | [**Glacier API**](https://glacier-api.avax.network/api#/)                 | High-performance API for easy access to indexed blockchain data              |
