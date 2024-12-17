@@ -26,9 +26,7 @@
     "validate:ci": "biome ci ."
   },
   "lint-staged": {
-    "*": [
-      "biome check . --write --unsafe"
-    ]
+    "*": ["biome check . --write --unsafe"]
   },
   "dependencies": {
     "@onbeam/biome-config": "^0.0.3",
