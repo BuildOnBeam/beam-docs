@@ -1,6 +1,7 @@
 export default {
-  'beam-node': 'Beam Node',
-  'requirements-validator': 'Validator Requirements',
+  introduction: 'Introduction',
+  mint: 'Minting a node',
+  requirements: 'Requirements',
   validator: 'Validator',
   delegation: 'Delegation',
   'validate-delegate': 'Validate vs. Delegate',
