@@ -22,6 +22,11 @@ const nextConfig = {
         destination: '/sdk/:slug*',
         permanent: true,
       },
+      {
+        source: '/chain/nodes/beam-node',
+        destination: '/chain/nodes/introduction',
+        permanent: true,
+      },
     ];
   },
 };
