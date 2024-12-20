@@ -6,7 +6,5 @@ export default {
   payments: 'Payments',
   distribution: 'Distribution',
   burning: 'Burning',
-  horizon: {
-    display: 'hidden',
-  },
+  horizon: 'Horizon',
 };

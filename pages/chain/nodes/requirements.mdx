@@ -1,10 +1,19 @@
 ---
-description: "Discover the hardware and stake requirements to run a validator node on the Avalanche Beam Network."
+description: "Validators play a critical role in maintaining the security and performance of the Beam Network. With the Horizon upgrade, these requirements ensure network decentralization and security."
 ---
 
-import { Callout } from "nextra/components";
-
 # Requirements to Run a Validator
+
+Validators play a critical role in maintaining the security and performance of the Beam Network. With the Horizon upgrade, these requirements ensure network decentralization and security.
+
+## Staking Requirements
+
+To operate a Beam Node as a validator, the following staking requirements must be met:
+
+- **Node Token**: Stake at least 1 Node Token (ERC-721).
+- **BEAM**: Stake a minimum of 20,000 BEAM.
+- **Maximum Stake Limits**: Each node can stake up to 50 million BEAM and 1,000 Node Tokens to prevent validator centralization.
+
 
 ## Hardware Requirements
 
@@ -18,17 +27,15 @@ Avalanche is an incredibly lightweight protocol, so nodes can run on commodity h
 
 The node should be configured to accept incoming TCP/IP connections on port `9651`.
 
-<Callout type="info">
-  Hardware requirements may scale based on the amount of BEAM staked on the node
-  and network activity. Nodes with significant stakes (500k+ BEAM) may need
-  hardware that exceeds the listed specifications and may also use more
-  bandwidth.
-</Callout>
+## Continuous Fee
 
-## Stake Requirements
+Validators must pay a continuous fee to Avalanche P-Chain validators:
 
-In addition to the hardware, running a validator on Beam requires staking a minimum amount of BEAM tokens. Specifically, you'll need at least 20000 BEAM.
+- **Fee**: Initially set at 1.33 AVAX per month.
+- **Purpose**: This fee ensures compatibility with the broader Avalanche network during the transition period.
+
+_In terms of the AVAX fee, Beam Foundation intends to, as part of a validator incentive program, grant approximately $750,000 in AVAX to subsidize the threshold of becoming a validator. Additionally, the Beam Foundation intends to participate in an upcoming Avalanche Community Proposal (ACP) to lower these costs gradually._
 
 ## Next Steps
 
-If you are sure to meet all the requirements you can now go ahead and [add your node as a validator](/chain/nodes/validator).
+If you are sure to meet all the requirements you can now go ahead and start spinning up your [validator node](/chain/nodes/introduction) for the Beam Network.
