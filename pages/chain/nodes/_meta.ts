@@ -1,8 +1,8 @@
 export default {
-  introduction: 'Introduction',
+  introduction: 'How to run a validator node',
   mint: 'Minting a node',
   requirements: 'Requirements',
-  validator: 'Validator',
+  rewards: 'Rewards',
   delegation: 'Delegation',
   'validate-delegate': 'Validate vs. Delegate',
 };

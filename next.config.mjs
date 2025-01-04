@@ -27,6 +27,11 @@ const nextConfig = {
         destination: '/chain/nodes/introduction',
         permanent: true,
       },
+      {
+        source: '/chain/nodes/validator',
+        destination: '/chain/nodes/introduction',
+        permanent: true,
+      },
     ];
   },
 };
