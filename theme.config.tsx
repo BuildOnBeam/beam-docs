@@ -1,9 +1,9 @@
+import { hstack, link, text } from '@onbeam/styled-system/patterns';
+import { useGTMStore } from '@onbeam/utils';
 import { DocsThemeConfig } from 'nextra-theme-docs';
+import { useConfig } from 'nextra-theme-docs';
 import React from 'react';
 import { BeamIcon } from './components/beam-icons';
-import { useConfig } from 'nextra-theme-docs';
-import { useGTMStore } from '@onbeam/utils';
-import { hstack, link, text } from '@onbeam/styled-system/patterns';
 
 const config: DocsThemeConfig = {
   logo: BeamIcon,
@@ -15,10 +15,12 @@ const config: DocsThemeConfig = {
     const config = useConfig();
 
     const title = config.frontMatter.title || config.title;
-    const ogTitle = `${title ? title : 'Hello Beam!'} | Beam documentation`;
+    const ogTitle = `${
+      title ? title : 'Hello Beam!'
+    } | Beam Docs: Your Gateway to Web3 Game Development`;
     const ogDescription =
       config.frontMatter.description ||
-      'Beam is a sovereign network focused on gaming.';
+      "Discover Beam's SDK and developer resources for Web3 gaming. Access API docs, tutorials, and integration guides for building with Beam.";
     const ogImage = 'https://docs.onbeam.com/beam-development-docs.png';
 
     return (
