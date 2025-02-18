@@ -4,12 +4,7 @@ export default {
     title: 'Beam',
   },
   index: 'Getting started',
-  'player-or-automation-api': {
-    title: 'Player or Automation API',
-  },
-  game: {
-    title: 'Managing your game',
-  },
+  dashboard: 'Beam Dashboard',
   '--- Player API': {
     type: 'separator',
     title: 'Player API',
@@ -78,9 +73,6 @@ export default {
   },
   companion: {
     title: 'Companion',
-  },
-  dashboard: {
-    title: 'Dashboard',
   },
   '--- More': {
     type: 'separator',
