@@ -5,6 +5,7 @@ export default {
   },
   index: 'Getting started',
   dashboard: 'Beam Dashboard',
+  services: 'Beam Services',
   '--- Player API': {
     type: 'separator',
     title: 'Player API',
