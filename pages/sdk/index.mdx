@@ -3,37 +3,34 @@ import { Steps } from "nextra/components";
 
 # Getting started
 
-To get started, obtain your API key for Beam by requesting it through build@onbeam.com. Then, read about how to make requests using our HTTP API or dedicated server side SDKs.
+Getting started with your implementation on the Beam Network is easy. To make it simple, we've created a self-service dashboard to help you get started.
+
+<Callout type="warning" emoji="⚠️">
+  If you would like advice or need help finding a strategy that suits your needs, please contact us at build@onbeam.com. We can provide help with bridging existing assets through LayerZero or provide you with complete and audited contracts to get your in-game assets going.
+</Callout>
+
+---
 
 <Steps>
-### Step 1 - Let's have a chat!
+  ### Step 1 - Registering your game
 
-The first step to get started the Beam integration in your game, is to have your existing assets bridged or your new asset contracts deployed on Beam.
+  To get started, you can obtain your API key for Beam by registering your game on the game development [dashboard](https://dashboard.testnet.onbeam.com). The API keys you're able to obtain here are valid for the testnet version of the [Beam Network](/chain/get-started/rpc). Are you looking for a mainnet implementation? You might want to jump ahead to the [mainnet dashboard](https://dashboard.onbeam.com).
 
-If you would like advice or need help finding a strategy that suits your needs, please contact us at build@onbeam.com - we can provide help with bridging existing assets through [LayerZero](https://layerzero.network/) or providing you with complete and audited contracts to get your in-game assets going.
+  You will need to authenticate with a social account and a wallet, which can be used later on to allow you to sponsor transactions for your players.
 
----
+  ---
 
-### Step 2 - Provide us with the asset contract details
+  ### Step 2 - Add your in-game contracts (optional)
 
-Once the asset contracts are deployed, we're able to index them from Beam and exposing them through this API.
+  Once you've registered your game, it's possible to add contracts for in-game items and tokens. You will need to ensure the contract is verified on our [block explorer](https://subnets-test.avax.network/beam) before you add it to your game.
 
----
+  If you don't have any contracts yet — don't worry! You're able to proceed from here but will need to add a contract later to interact with these assets in your game.
 
-### Step 3 - Obtain your API keys
+  ---
 
-Obtain your API keys. If you haven't received any API key yet, please contact build@onbeam.com.
+  ### Step 3 - Pick an implementation strategy
 
----
+  We offer various ways to integrate your game on the Beam Network but highly recommend any new developer get started with our [Player API](/sdk/introduction-player-api), a service focused on facilitating a self-custodial implementation of Web3 in your game.
 
-### Step 4 - Pick an implementation strategy
-
-Pick an implementation strategy. You can either connect to the HTTP API directly, or use [one of our provided API clients](https://github.com/BuildOnBeam/beam-api-clients). We currently provide a [Node.js (Typescript)](https://www.npmjs.com/package/@onbeam/automation-api-client) and [C# (RestSharp)](https://www.nuget.org/packages/Beam) SDK, but are happy to provide you with a client based on whatever language you need to support
-
----
-
-### Step 5 - Implement Beam
-
-Implement Beam in your game. Get started with one of our guides or choose a strategy of your own. We recommend you to get familiar with the terminology in Beam, starting with [Profiles](/sdk/profiles/introduction).
-
+  Would you like to start right away? Jump ahead to [our SDKs](/sdk/implementation-player-api) for the [Unity](https://github.com/BuildOnBeam/beam-sdk-unity) and [Unreal](https://github.com/BuildOnBeam/beam-sdk-unreal) game engines.
 </Steps>
