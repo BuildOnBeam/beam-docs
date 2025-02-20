@@ -1,4 +1,4 @@
-import { CookieConsentModal } from '@onbeam/features';
+import { CookieConsent } from '@onbeam/features';
 import { Analytics } from '@vercel/analytics/react';
 import React from 'react';
 import { GoogleTagManager } from '../components/google-tag-manager';
@@ -9,7 +9,7 @@ export default function Nextra({ Component, pageProps }) {
     <>
       <Component {...pageProps} />
       <Analytics />
-      <CookieConsentModal
+      <CookieConsent
         consentDomain={
           process.env.NODE_ENV === 'development' ? 'localhost' : '.onbeam.com'
         }
