@@ -1,5 +1,5 @@
 import { hstack, link, text } from '@onbeam/styled-system/patterns';
-import { useGTMStore } from '@onbeam/utils';
+import { useCookieConsentStore } from '@onbeam/utils';
 import { DocsThemeConfig } from 'nextra-theme-docs';
 import { useConfig } from 'nextra-theme-docs';
 import React from 'react';
@@ -67,7 +67,7 @@ const config: DocsThemeConfig = {
   },
   footer: {
     component: () => {
-      const open = useGTMStore((store) => store.openConsentModal);
+      const open = useCookieConsentStore((store) => store.openConsentModal);
 
       return (
         <footer
