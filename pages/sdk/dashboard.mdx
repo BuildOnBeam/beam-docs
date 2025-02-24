@@ -1,17 +1,50 @@
 ---
-title: Introduction to Beam Dashboard
+title: Beam Dashboard
 ---
 
-# Introduction to Beam Dasboard
+# Beam Dashboard
 
-The [Beam Dashboard](https://dashboard.onbeam.com) allows you to manage your game information, assets, API keys and network funds through a website instead of directly interacting with the API.
+To get started with your implementation on the Beam Network, we've created the [Beam Dashboard](https://dashboard.testnet.onbeam.com). The Beam Dashboard allows you to manage your game, contracts, API keys, and network funds through a web app.
 
-For information on what you can customize and what assets to provide, visit the following pages:
+Are you ready to release your game on mainnet? You'll need to register your game on the [mainnet Beam Dashboard](https://dashboard.onbeam.com).
 
-- [API keys](/sdk/game/api-keys): API keys and how to invalidate them
+---
 
-- [Managing contracts](/sdk/game/managing-contracts): Add and remove asset contracts to your game
+### Registering your game 
 
-- [Updating your game](/sdk/game/updating-game): Update information (name, visuals) of your game
+When registering your game, we will ask you for a bunch of information — don't worry, you'll be able to change the information you add here at any point in time.
 
-- [Managing imagery](/sdk/game/managing-imagery): Information on the assets you can provide for your game
+Take into account that some of the information you provide here is external-facing: various details, like the name of your game and the imagery you add, will be used in in-game flows provided through our SDKs.
+
+---
+
+### API keys
+
+After you've registered your game on the Beam Dashboard, you will be presented with two API keys:
+
+- The **Publishable key** - this key can be used in both server-side and client environments.
+- The **Secret key** - this key allows you to read and manage data; please only use it in a secure environment.
+
+These API keys will help you get started, but make sure you store the secret key well — we only show it once.
+
+---
+
+### Managing contracts
+
+Once you've registered your game, it's possible to add contracts for in-game items and tokens. You will need to ensure the contract is verified on our [block explorer](https://subnets-test.avax.network/beam) before you add it to your game.
+
+When on the dashboard, you will be able to add contracts by clicking on 'settings' proceeded by 'manage contracts'. Simply add the contract address (make sure you get the address from the corresponding chain), and it will be available to use the contract through our services through your API key.
+
+---
+
+### Imagery
+
+Throughout various interfaces, we'll want to show you a few visuals related to your game. To do this, we currently allow you to store three different images, each with its own purpose.
+
+- **Game logo (`logoImageUrl`)** (1:1 ratio, e.g., 320x320)
+  - Used on the game detail page on top of the background image and as a reference to the game in the asset overview. Since we use this layered on top of the background image, we recommend you use an image that contains the logo with a transparent background.
+  - Used on Beam Identity when signing transactions and setting the "hide popups" expiration.
+- **Game banner (`coverImageUrl`)** (recommended 16:9 ratio, e.g., 1280x720)
+  - Used on the game card in the overview interface of the companion app.
+- **Game header background (`backgroundImageUrl`)** (recommended 16:9 ratio, e.g., 1280x720)
+  - Used on the game detail page as a background image for the header. We advise you not to put text in this image.
