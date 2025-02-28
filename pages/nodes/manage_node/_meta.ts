@@ -1,5 +1,5 @@
 export default {
-  manage: 'Manage your node',
-  upgrade: 'Upgrading Beam Node software',
+  monitor: 'Monitor your node',
+  upgrade: 'Upgrade Beam Node software',
   commission: 'Change commission'
 };

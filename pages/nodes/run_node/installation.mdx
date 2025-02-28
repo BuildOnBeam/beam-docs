@@ -1,6 +1,68 @@
-{/* ---
-title: alternate title
-description: meta description
---- */}
+import { Callout, Steps } from "nextra/components";
 
-# Bridging over to Beam Network
+# Installation Methods
+
+Beam Nodes became available following the completion of the Horizon upgrade. There are various ways to install a Validator Node, of which the recommended method is covered below.
+
+## Prerequisites
+
+Before beginning the installation of the Validator Node, please ensure you have:
+
+- Sufficient storage space for blockchain data
+- Reliable internet connection
+- Basic command line knowledge
+- AvalancheGo installed
+
+## Installing AvalancheGo
+
+The first step to running a Beam Node is installing AvalancheGo, the client for the Avalanche network. The easiest method is using the installer which you can find [here](https://docs.avax.network/nodes/install/avalanchego-installer). Please note that this guide is compatible with AvalancheGo version 1.12.2.
+
+## Installing the Beam Subnet-EVM
+
+<Steps>
+### Downloading the Subnet-EVM
+
+First, download the Subnet-EVM binary from [Ava-Labs GitHub](https://github.com/ava-labs/subnet-evm) and copy it into the AvalancheGo plugin directory.
+
+```bash
+mkdir subnetevm
+cd subnetevm
+wget https://github.com/ava-labs/subnet-evm/releases/download/v0.7.1/subnet-evm_0.7.1_linux_amd64.tar.gz
+tar -xvzf subnet-evm_0.7.1_linux_amd64.tar.gz
+cp subnet-evm ~/.avalanchego/plugins/kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz
+```
+
+<Callout type="info">
+  Please ensure you have downloaded the latest [Subnet-EVM
+  release](https://github.com/ava-labs/subnet-evm/releases).
+</Callout>
+
+The long string `kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz` is the CB58 encoded VMID of the Beam Subnet-EVM. AvalancheGo will use the name of this file to determine what VMs are available to run from the plugins directory.
+
+### Tracking the Beam L1
+
+To start tracking the Beam L1, update your node config in your preferred editor.
+
+<Callout type="info">
+  The installation script creates the node configuration file at
+  `~/.avalanchego/configs/node.json`. If AvalancheGo is built from source, no
+  default file is created; you would need to create it manually if needed.
+</Callout>
+
+```bash
+nano ~/.avalanchego/configs/node.json
+```
+
+Add the `track-subnets` option to node config:
+
+```json
+{
+  "track-subnets": "eYwmVU67LmSfZb1RwqCMhBYkFyG8ftxn6jAwqzFmxC9STBWLC"
+}
+```
+
+As an alternative to the config file, you can pass the subnet ID as parameter during the node start-up:
+```bash
+--track-subnets eYwmVU67LmSfZb1RwqCMhBYkFyG8ftxn6jAwqzFmxC9STBWLC
+```
+</Steps>

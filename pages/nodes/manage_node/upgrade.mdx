@@ -2,5 +2,28 @@
 title: alternate title
 description: meta description
 --- */}
+import { Steps } from 'nextra/components'
 
 # Upgrade Beam Node software
+
+To keep your node up-to-date with network upgrades, ensure the latest `upgrade.json` in the config directory. It should be placed in `{chain-config-dir}/{blockchainID}/upgrade.json{:bash}`, when using the installer the folder for Beam is:
+
+- Mainnet `~/.avalanchego/configs/chains/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn/{:bash}`
+- Testnet `~/.avalanchego/configs/chains/y97omoP2cSyEVfdSztQHXD9EnfnVP9YKjZwAxhUfGbLAPYT9t/{:bash}`
+
+<Steps>
+
+### Download latest upgrade.json
+
+```bash copy
+cd ~/.avalanchego/configs/chains/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn/
+curl -o upgrade.json https://raw.githubusercontent.com/BuildOnBeam/beam-subnet/main/subnets/beam-mainnet/upgrade.json
+```
+
+### Restart your Node
+
+```bash copy
+sudo systemctl restart avalanchego
+```
+
+</Steps>
