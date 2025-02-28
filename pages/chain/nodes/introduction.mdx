@@ -6,7 +6,7 @@ import { Callout, Steps } from "nextra/components";
 
 # How to run a validator node
 
-Beam Nodes are set to go live by the end of Q1 2025, aligning with the Horizon upgrade completion. To run your own Beam Validator Node, you need to install AvalancheGo. The easiest method is using the installer, available [here](https://docs.avax.network/tooling/avalanche-go-installer). Please note that this guide is compatible with AvalancheGo version 1.12.2.
+Beam Nodes are set to go live by the end of Q1 2025, aligning with the Horizon upgrade completion. To run your own Beam Validator Node, you need to install AvalancheGo. The easiest method is using the installer, available [here](https://build.avax.network/docs/tooling/avalanche-go-installer). Please note that this guide is compatible with AvalancheGo version 1.12.2.
 
 Once you have a running AvalancheGo installation, you need to add the Beam Subnet-EVM to track the Beam L1 in your node.
 
@@ -144,14 +144,14 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/P
 ```
 
-Refer to the [API docs](https://docs.avax.network/api-reference/p-chain/api#platformgetblockchainstatus) for a response explanation.
+Refer to the [API docs](https://build.avax.network/docs/api-reference/p-chain/api#platformgetblockchainstatus) for a response explanation.
 
 To gain deeper insights into your L1, examine the blockchain log. Normally, you can find this log in `~/.avalanchego/logs/ChainID.log{:bash}`. Just replace `ChainID` with the real ID of your blockchain in your L1.
 
 Beam Mainnet example logfile location:
 `~/.avalanchego/logs/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn.log{:bash}`
 
-To better understand how your Node and the L1 are working, you can set up a tool called Prometheus+Grafana. This tool helps you monitor their performance and comes with easy-to-read charts for regular operations and specific L1 data. There's a [step-by-step guide](https://docs.avax.network/nodes/maintain/setting-up-node-monitoring) available to help you get it all set up.
+To better understand how your Node and the L1 are working, you can set up a tool called Prometheus+Grafana. This tool helps you monitor their performance and comes with easy-to-read charts for regular operations and specific L1 data. There's a [step-by-step guide](https://build.avax.network/docs/nodes/maintain/monitoring) available to help you get it all set up.
 
 ## Next Steps
 
@@ -159,7 +159,7 @@ Now that you've launched your Beam node, what should you do next?
 
 Your Beam node will participate in consensus independently but is not yet a network validator. As a result, the network will not query your node during consensus sampling. If you want to add your node as a validator, follow the instructions on [how to join the network as a validator](/chain/nodes/validator).
 
-Refer to the [AVAX Maintenance](https://docs.avax.network/nodes#maintain) section to understand how to maintain your node.
+Refer to the [AVAX Maintenance](https://build.avax.network/docs/nodes#maintain) section to understand how to maintain your node.
 
 ## Network Upgrades
 
