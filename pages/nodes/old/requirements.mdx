@@ -1,0 +1,41 @@
+---
+description: "Validators play a critical role in maintaining the security and performance of the Beam Network. With the Horizon upgrade, these requirements ensure network decentralization and security."
+---
+
+# Requirements to Run a Validator
+
+Validators play a critical role in maintaining the security and performance of the Beam Network. With the Horizon upgrade, these requirements ensure network decentralization and security.
+
+## Staking Requirements
+
+To operate a Beam Node as a validator, the following staking requirements must be met:
+
+- **Node Token**: Stake at least 1 Node Token (ERC-721).
+- **BEAM**: Stake a minimum of 20,000 BEAM.
+- **Maximum Stake Limits**: Each node can stake up to 50 million BEAM and 1,000 Node Tokens to prevent validator centralization.
+
+
+## Hardware Requirements
+
+Avalanche is an incredibly lightweight protocol, so nodes can run on commodity hardware with the following minimum specifications.
+
+- **CPU:** Equivalent of 8 AWS vCPU
+- **RAM:** 16 GiB
+- **Storage:** 1 TiB
+- **OS:** Ubuntu 20.04 or MacOS >= 12
+- **Network:** sustained 5Mbps up/down bandwidth
+
+The node should be configured to accept incoming TCP/IP connections on port `9651`.
+
+## Continuous Fee
+
+Validators must pay a continuous fee to Avalanche P-Chain validators:
+
+- **Fee**: Initially set at 1.33 AVAX per month.
+- **Purpose**: This fee ensures compatibility with the broader Avalanche network during the transition period.
+
+_In terms of the AVAX fee, Beam Foundation intends to, as part of a validator incentive program, grant approximately $750,000 in AVAX to subsidize the threshold of becoming a validator. Additionally, the Beam Foundation intends to participate in an upcoming Avalanche Community Proposal (ACP) to lower these costs gradually._
+
+## Next Steps
+
+If you are sure to meet all the requirements you can now go ahead and start spinning up your [validator node](/chain/nodes/introduction) for the Beam Network.
