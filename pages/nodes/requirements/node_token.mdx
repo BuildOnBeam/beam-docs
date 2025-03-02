@@ -19,13 +19,13 @@ A Beam Node Token is an ERC-721 standard token that serves as a critical compone
 
 The Node Token incorporates several economic mechanisms designed to support the Beam ecosystem:
 
-- **Minting fee:** The fee for minting Node Tokens is payable in BEAM, creating constant demand for the network's native token. Node Tokens that are minted with other currencies will be autonomously swapped into BEAM and later burned.
+- **Minting fee:** The fee for minting Node Tokens is payable in BEAM, creating constant demand for the network's native token. Node Tokens that are minted with other currencies will be automatically swapped into BEAM and later burned.
 - **Burning mechanism:** All BEAM used for minting is automatically sent to a burner contract, permanently removing these tokens from circulation and contributing to BEAM's deflationary nature.
 - **Secondary market:** When Node Tokens change hands on secondary markets, a 7.5% fee is automatically enforced by the smart contract. This fee follows the same path as the original minting fees, with proceeds used to purchase and burn BEAM tokens.
 
 ## Smart Contract Architecture
 
-The Node Token exists through an ownerless and autonomous smart contract that has been thoroughly audited for security. The smart contract handles all token operations autonomously, including:
+The Node Token exists through an ownerless smart contract that has been thoroughly audited for security. The smart contract handles all token operations autonomously, including:
 
 - Minting new tokens
 - Collecting and processing fees
