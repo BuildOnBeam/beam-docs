@@ -1,7 +1,6 @@
 export default {
   index: 'Introduction',
   'get-started': 'Get Started',
-  nodes: 'Node',
   builder: 'Build on Beam',
   'beam-ecosystem': 'Beam ecosystem',
   resources: 'Resources',

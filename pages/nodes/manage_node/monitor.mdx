@@ -1,0 +1,28 @@
+{/* ---
+title: alternate title
+description: meta description
+--- */}
+
+# Monitoring Your Node
+
+If you want to inspect the process of L1 syncing, you can use the RPC call `platform.getBlockchainStatus`:
+
+```bash /2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn/ copy
+curl -X POST --data '{
+"jsonrpc": "2.0",
+"method": "platform.getBlockchainStatus",
+"params":{
+"blockchainID":"2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn"
+},
+"id": 1
+}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/P
+```
+
+Refer to the [API docs](https://build.avax.network/docs/api-reference/p-chain/api#platformgetblockchainstatus) for a response explanation.
+
+To gain deeper insights into your L1, examine the blockchain log. Normally, you can find this log in `~/.avalanchego/logs/ChainID.log{:bash}`. Just replace `ChainID` with the real ID of your blockchain in your L1.
+
+Beam Mainnet example logfile location:
+`~/.avalanchego/logs/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn.log{:bash}`
+
+To better understand how your Node and the L1 are working, you can set up a tool called Prometheus+Grafana. This tool helps you monitor their performance and comes with easy-to-read charts for regular operations and specific L1 data. There's a [step-by-step guide](https://build.avax.network/docs/nodes/maintain/monitoring) available to help you get it all set up.
