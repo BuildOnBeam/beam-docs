@@ -7,7 +7,7 @@ description: meta description
 
 ## What is a Node Token?
 
-A Beam Node Token is an ERC-721 standard token that serves as a critical component for validation on the Beam Network. As a result of the Horizon upgrade, Node Tokens now function as the key element required for participating in the network's validation process.
+A Beam Node Token is an ERC-721 standard token that serves as a critical component for validation on the Beam Network. As a result of the Horizon upgrade, Node Tokens now function as one of the key elements required for participating in the network's validation process.
 
 ## Key Specifications
 - **Token standard:** ERC-721 non-fungible token
@@ -19,9 +19,9 @@ A Beam Node Token is an ERC-721 standard token that serves as a critical compone
 
 The Node Token incorporates several economic mechanisms designed to support the Beam ecosystem:
 
-- **Minting fee:** The fee for minting Node Tokens is payable in BEAM, creating constant demand for the network's native token. Node Tokens that are minted with other currencies will be automatically swapped into BEAM and later burned.
+- **Minting fee:** The fee for minting Node Tokens is payable in BEAM, creating constant demand for the network's native token. Node Tokens that are minted with other currencies will be autonomously swapped into BEAM and later burned.
 - **Burning mechanism:** All BEAM used for minting is automatically sent to a burner contract, permanently removing these tokens from circulation and contributing to BEAM's deflationary nature.
-- **Secondary market:** When Node Tokens change hands on secondary markets, a 7.5% fee is automatically enforced by the smart contract. This fee follows the same path as the original minting fees, with proceeds used to purchase and burn BEAM tokens.
+- **Secondary market:** When Node Tokens change hands on secondary markets, a 7.5% fee is automatically enforced by the smart contract. If the fee is paid in BEAM, then the BEAM will be burned. If the fee is paid in any other token, then such other token is autonomously swapped to BEAM, which is then burned.
 
 ## Smart Contract Architecture
 
