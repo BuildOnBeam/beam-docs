@@ -5,6 +5,5 @@ export default {
   manage_node: 'Manage a Beam node',
   delegation: 'Delegation',
   rewards: 'Rewards',
-  maintenance: 'Maintenance',
-  old: 'Original docs, just for reference'
+  maintenance: 'Maintenance'
 };
