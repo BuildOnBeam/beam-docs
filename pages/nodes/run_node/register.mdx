@@ -39,7 +39,12 @@ curl -X POST --data '{ "jsonrpc":"2.0", "id":1, "method":"info.getNodeID", "para
 
 Make note of the required parameters as you will need them all in the next step. Example:
 
-![node-info](https://github.com/BuildOnBeam/beam-docs/blob/chore/nodes-documentation/pages/nodes/run_node/node-info-console.PNG)
+<Image 
+  src="/assets/nodes/run_node/node-info-console.PNG"
+  alt="Node info" 
+  width={800} 
+  height={400}
+/>
 
 ## Finalizing the registration process in the Delegation dashboard
 
@@ -47,10 +52,20 @@ With all the requirements from the previous step ready, proceed to the [validato
 
 The final parameter is the amount of BEAM you would like to start off staking with. The minimum requirement is 20,000 BEAM.
 
-![register-validator](https://github.com/BuildOnBeam/beam-docs/blob/chore/nodes-documentation/pages/nodes/run_node/register-validator.PNG)
+<Image 
+  src="/assets/nodes/run_node/register-validator.PNG"
+  alt="Register validator" 
+  width={800} 
+  height={400}
+/>
 
 Click *"Finish Registration"* and approve the pending transaction. Once it is completed, most often within a few minutes, the Validator Manager contract will respond by adding your new validator node to the validator set and it will be visible as active in the validator list [here](https://beam-nodes-delegation-git-ui-add-chain-info-onbeam.vercel.app/delegations).
 
-![available-validators](https://github.com/BuildOnBeam/beam-docs/blob/chore/nodes-documentation/pages/nodes/run_node/available-validators.PNG)
+<Image 
+  src="/assets/nodes/run_node/available-validators.PNG"
+  alt="Available validators" 
+  width={800} 
+  height={400}
+/>
 
 </Steps>
