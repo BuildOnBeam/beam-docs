@@ -8,6 +8,10 @@ export default {
     title: 'Chain',
     type: 'page',
   },
+  nodes: {
+    title: 'Nodes',
+    type: 'page',
+  },
   sdk: {
     title: 'SDK',
     type: 'page',

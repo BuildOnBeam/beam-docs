@@ -1,0 +1,72 @@
+import { Callout, Steps } from "nextra/components";
+import Image from 'next/image';
+
+{/* ---
+title: alternate title
+description: meta description
+--- */}
+
+# Register a validator
+
+Registering a running node as a Validator consists of 2 steps:
+1. Fetching the required parameters from your node and your P-Chain address
+2. Finalizing the registration process in the Delegation dashboard
+
+<Steps>
+
+## Fetching the required parameters from your node and your P-Chain address
+
+Since we are setting up an Avalanche node there is a requirement to fill in the P-Chain address. This address won't be visible in any other wallet besides the Avalanche Core wallet. You can get it installed as a Chrome extension: [Core wallet](https://chromewebstore.google.com/detail/core-crypto-wallet-nft-ex/agoakfejjabomempkjlepdflaleeobhb?utm_source=ext_app_menu)
+
+Once your wallet is set up and restored in Core, the easiest way to find your P-Chain address is by visiting the Avalanche toolchain website and connecting with Core. Go to this page: [build.avax.network](https://build.avax.network/tools/l1-toolbox#getPChainAddress) and it will display your P-Chain address at the top. Make sure you selected *"Mainnet"* as the network.
+
+The second part of the preparation is by getting the required parameters from your running node:
+- Node ID
+- BLS Public Key
+- BLS Proof of Possession
+
+To get this information, go to the machine that is running your node and execute the following curl command:
+```bash
+curl -X POST --data '{ "jsonrpc":"2.0", "id":1, "method":"info.getNodeID", "params":{}}' -H 'content-Type:application/json' 127.0.0.1:9650/ext/info
+```
+
+If you are running the node in Docker, then the easiest approach is to exec interactively into the container and execute `curl` from there (making sure it's installed as a prerequisite). Example:
+```bash
+docker exec -it avago /bin/sh
+apt-get update
+apt-get install -y curl
+curl -X POST --data '{ "jsonrpc":"2.0", "id":1, "method":"info.getNodeID", "params":{}}' -H 'content-Type:application/json' 127.0.0.1:9650/ext/info
+```
+
+Make note of the required parameters as you will need them all in the next step. Example:
+
+<Image 
+  src="/assets/nodes/run_node/node-info-console.PNG"
+  alt="Node info" 
+  width={800} 
+  height={400}
+/>
+
+## Finalizing the registration process via the Delegation dashboard
+
+With all the requirements from the previous step ready, proceed to the [validator page](https://delegation.onbeam.com/validators) and fill them in. Select the appropriate node to which this information refers to. In case you have several nodes that you wish to set up as validators, you will need to repeat this process for each node so be mindful of which node you are filling in the parameters for.
+
+The final parameter is the amount of BEAM you would like to start off staking with. The minimum requirement is 20,000 BEAM.
+
+<Image 
+  src="/assets/nodes/run_node/register-validator.PNG"
+  alt="Register validator" 
+  width={800} 
+  height={400}
+/>
+
+Click *"Finish Registration"* and approve the pending transaction. Once it is completed, most often within a few minutes, the Validator Manager contract will respond by adding your new validator node to the validator set and it will be visible as active in the validator list [here](https://delegation.onbeam.com).
+
+<Image 
+  src="/assets/nodes/run_node/available-validators.PNG"
+  alt="Available validators" 
+  width={800} 
+  height={400}
+/>
+
+</Steps>

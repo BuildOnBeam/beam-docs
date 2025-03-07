@@ -1,0 +1,94 @@
+import { Steps } from 'nextra/components'
+import { Callout } from 'nextra/components'
+import Image from 'next/image'
+
+# Bridging Funds to Beam Network
+
+Users may bridge tokens to the Beam Network by using any bridge protocols deployed on Beam Network. 
+
+Below we have displayed a step-by-step process for bridging tokens by use of Beam Bridge. As the Beam Network is a permissionless blockchain network, note that anyone may deploy a bridge protocol on it and develop interfaces that interact with it.
+
+Follow these steps to bridge your tokens to the Beam Network using the Beam Bridge.
+
+<Steps>
+
+### Visit the Beam Bridge
+
+Navigate to the [Beam Bridge](https://bridge.onbeam.com/bridge) in your web browser.
+
+<Image 
+  src="/assets/nodes/requirements/bridging/Bridge1.png"
+  alt="Beam Bridge Homepage" 
+  width={800} 
+  height={400}
+/>
+
+### Connect Your Wallet
+
+Click the "Connect Wallet" button in the top right corner and select your wallet provider (MetaMask, WalletConnect, etc.).
+
+<Image 
+  src="/assets/nodes/requirements/bridging/Bridge2.png"
+  alt="Connect Wallet Button" 
+  width={800} 
+  height={400}
+/>
+
+### Select Source Network and Tokens
+
+Choose the network you want to bridge from in the "From" dropdown menu and select the token you want to bridge. Enter the amount you wish to bridge.
+
+<Image 
+  src="/assets/nodes/requirements/bridging/Bridge3.png"
+  alt="Network and Token Selection" 
+  width={800} 
+  height={400}
+/>
+
+### Approve Spending
+
+Before bridging, you'll need to approve the bridge contract to spend your tokens. Click "Approve" and confirm the transaction in your wallet.
+
+<Image 
+  src="/assets/nodes/requirements/bridging/Bridge4.png"
+  alt="Approve Token Spending" 
+  width={800} 
+  height={400}
+/>
+
+### Confirm Transaction
+
+Click the "Bridge" button and confirm the transaction in your wallet. 
+
+<Image 
+  src="/assets/nodes/requirements/bridging/Bridge5.png"
+  alt="Bridge Transaction Confirmation" 
+  width={800} 
+  height={400}
+/>
+
+<Callout type="info">
+  Make sure you have enough native tokens on your source chain to cover gas fees.
+</Callout>
+
+### Wait for Confirmation
+
+Wait for the bridging process to complete. This typically takes a few minutes depending on network conditions.
+
+<Image 
+  src="/assets/nodes/requirements/bridging/Bridge6.png"
+  alt="Bridge Processing" 
+  width={800} 
+  height={400}
+/>
+
+</Steps>
+
+Once the transaction is confirmed on both networks, your bridged tokens will be available in your wallet on the Beam Network.
+
+<Image 
+  src="/assets/nodes/requirements/bridging/Bridge7.png"
+  alt="Bridge Complete" 
+  width={800} 
+  height={400}
+/>

@@ -1,0 +1,32 @@
+{/* ---
+title: alternate title
+description: meta description
+--- */}
+
+# Node Token
+
+## What is a Node Token?
+
+A Beam Node Token is an ERC-721 standard token that serves as a critical component for validation on the Beam Network. As a result of the Horizon upgrade, Node Tokens now function as one of the key elements required for participating in the network's validation process.
+
+## Key Specifications
+- **Token standard:** ERC-721 non-fungible token
+- **Supply:** Unlimited with no minting deadline
+- **Requirement:** At least 1 Node Token is needed to run a Beam Node (alongside 20,000 BEAM)
+- **Staking limit:** Up to 1,000 Node Tokens can be staked per Beam Node
+
+## Node Token Economics
+
+The Node Token incorporates several economic mechanisms designed to support the Beam ecosystem:
+
+- **Minting fee:** The fee for minting Node Tokens is payable in BEAM, creating demand for the network's native token. Node Tokens that are minted with other currencies will be autonomously swapped into BEAM and later burned.
+- **Burning mechanism:** All BEAM used for minting is automatically sent to a burner contract, permanently removing these tokens from circulation and contributing to BEAM's deflationary nature.
+- **Secondary market:** When Node Tokens change hands on secondary markets, a 7.5% fee is automatically enforced by the smart contract. If the fee is paid in BEAM, then the BEAM will be burned. If the fee is paid in any other token, then such other token is autonomously swapped to BEAM, which is then burned.
+
+## Smart Contract Architecture
+
+The Node Token exists through an ownerless smart contract that has been thoroughly [audited for security](https://github.com/pashov/audits/blob/master/team/pdf/Fundraiser-security-review_2024-11-30.pdf). The smart contract handles all token operations autonomously, including:
+
+- Minting new tokens
+- Collecting and processing fees
+- Executing the BEAM burning mechanism
