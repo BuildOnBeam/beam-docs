@@ -35,7 +35,7 @@ cp subnet-evm ~/.avalanchego/plugins/kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9
 ```
 
 <Callout type="info">
-  Please ensure you have downloaded the latest [Subnet-EVM
+  Please ensure you have downloaded the latest compatible [Subnet-EVM
   release](https://github.com/ava-labs/subnet-evm/releases).
 </Callout>
 
@@ -67,6 +67,49 @@ As an alternative to the config file, you can pass the subnet ID as parameter du
 ```bash
 --track-subnets eYwmVU67LmSfZb1RwqCMhBYkFyG8ftxn6jAwqzFmxC9STBWLC
 ```
+
+### Apply Network Upgrades
+
+Download the latest `upgrade.json` file and place it in the appropriate directory.
+
+Create the config directory for Beam and download the `upgrade.json` file from GitHub:
+
+```bash copy
+mkdir ~/.avalanchego/configs/chains/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn
+cd ~/.avalanchego/configs/chains/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn
+```
+
+```bash copy
+wget https://raw.githubusercontent.com/BuildOnBeam/beam-subnet/main/subnets/beam-mainnet/upgrade.json
+```
+
+If you didn't use the installer, your config directory may be located elsewhere. In that case, place the file in `{chain-config-dir}/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn/`, where `2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn` is the `{blockchainID}`.
+
+### Configuring Partial Network Sync
+
+By default, an AvalancheGo node syncs all chains, including the C-Chain and X-Chain. To skip syncing these, update your node config and set `partial-sync-primary-network`.
+
+```bash copy
+nano ~/.avalanchego/configs/node.json
+```
+
+```json
+{
+  // .. other configuration
+  "partial-sync-primary-network": true
+}
+```
+
+This setting ensures that only the necessary network components are synchronized, reducing resource usage and improving node startup times.
+
+### Restarting the Node
+
+After updating your configuration, restart your node to begin tracking the Beam L1.
+
+```bash copy
+sudo systemctl restart avalanchego
+```
+
 </Steps>
 
 ## Method 2: Setting up an Avalanchego node via Docker
