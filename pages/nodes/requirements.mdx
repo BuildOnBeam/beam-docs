@@ -1,3 +1,5 @@
+import { Callout } from 'nextra/components'
+
 ---
 description: "Validators play a critical role in maintaining the security and performance of the Beam Network. With the Horizon upgrade, these requirements ensure network decentralization and security."
 ---
@@ -22,10 +24,14 @@ Avalanche, and therefore the Beam Network too, is an incredibly lightweight prot
 - **CPU:** Equivalent of 8 AWS vCPU
 - **RAM:** 16 GiB
 - **Storage:** 1 TiB
-- **OS:** Ubuntu 20.04 or MacOS >= 12
+- **OS:** Ubuntu 22.04 or later, or macOS 13 or later.
 - **Network:** sustained 5Mbps up/down bandwidth
 
 The node should be configured to accept incoming TCP/IP connections on port `9651`.
+
+<Callout type="info">
+  As of the time of writing, the Beam L1 consumes approximately 50GB of storage.
+</Callout>
 
 ## Continuous Fee
 
