@@ -18,6 +18,17 @@ curl -X POST --data '{
 }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/bc/P
 ```
 
+To check if your node is ready to be added as a validator, you can use the RPC call `info.isBootstrapped`:
+
+```bash /2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn/ copy
+curl -X POST --data '{ 
+  "jsonrpc":"2.0", 
+  "id":1, 
+  "method": "info.isBootstrapped", 
+  "params": {"chain":"2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn"}
+}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/info
+```
+
 Refer to the [API docs](https://build.avax.network/docs/api-reference/p-chain/api#platformgetblockchainstatus) for a response explanation.
 
 To gain deeper insights into your L1, examine the blockchain log. Normally, you can find this log in `~/.avalanchego/logs/ChainID.log{:bash}`. Just replace `ChainID` with the real ID of your blockchain in your L1.
