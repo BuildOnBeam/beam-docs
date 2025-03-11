@@ -41,7 +41,7 @@ cp subnet-evm ~/.avalanchego/plugins/kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9
 
 The long string `kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz` is the CB58 encoded VMID of the Beam Subnet-EVM. AvalancheGo will use the name of this file to determine what VMs are available to run from the plugins directory.
 
-### Tracking the Beam L1
+### Tracking the Beam L1, configuring Partial Network Sync
 
 To start tracking the Beam L1, update your node config in your preferred editor.
 
@@ -55,11 +55,12 @@ To start tracking the Beam L1, update your node config in your preferred editor.
 nano ~/.avalanchego/configs/node.json
 ```
 
-Add the `track-subnets` option to node config:
+Add the `track-subnets` option to node config and set `partial-sync-primary-network`. By default, an AvalancheGo node syncs all chains, including the C-Chain and X-Chain. This setting ensures that only the necessary network components are synchronized, reducing resource usage and improving node startup times.
 
 ```json
 {
-  "track-subnets": "eYwmVU67LmSfZb1RwqCMhBYkFyG8ftxn6jAwqzFmxC9STBWLC"
+  "track-subnets": "eYwmVU67LmSfZb1RwqCMhBYkFyG8ftxn6jAwqzFmxC9STBWLC",
+  "partial-sync-primary-network": true
 }
 ```
 
@@ -85,22 +86,6 @@ wget https://raw.githubusercontent.com/BuildOnBeam/beam-subnet/main/subnets/beam
 
 If you didn't use the installer, your config directory may be located elsewhere. In that case, place the file in `{chain-config-dir}/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn/`, where `2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn` is the `{blockchainID}`.
 
-### Configuring Partial Network Sync
-
-By default, an AvalancheGo node syncs all chains, including the C-Chain and X-Chain. To skip syncing these, update your node config and set `partial-sync-primary-network`.
-
-```bash copy
-nano ~/.avalanchego/configs/node.json
-```
-
-```json
-{
-  // .. other configuration
-  "partial-sync-primary-network": true
-}
-```
-
-This setting ensures that only the necessary network components are synchronized, reducing resource usage and improving node startup times.
 
 ### Restarting the Node
 
