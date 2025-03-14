@@ -1,1 +1,31 @@
-.
+
+## Method 2: Setting up an Avalanchego node via Docker
+
+<Steps>
+
+### Make sure you have Docker installed and running on your system
+
+### Prepare Docker image
+
+Head over to: [build.avax.network](https://build.avax.network/tools/l1-toolbox#avalanchegoDocker)
+
+This website is an app that will help you pre-configure a Docker container that runs your node against a specific network (as specified by the Blockchain ID). 
+
+Make sure to input the correct L1 Blockchain ID in the textbox: *"eYwmVU67LmSfZb1RwqCMhBYkFyG8ftxn6jAwqzFmxC9STBWLC"*. Once done, copy the code from the *"Node Command"* field and paste it into your command line terminal.
+
+Example code:
+```bash
+docker run -it -d \
+    --name avago \
+    -p 127.0.0.1:9650:9650 -p 9651:9651 \
+    -v ~/.avalanchego:/root/.avalanchego \
+    -e AVAGO_PARTIAL_SYNC_PRIMARY_NETWORK=true \
+    -e AVAGO_PUBLIC_IP_RESOLUTION_SERVICE=opendns \
+    -e AVAGO_PLUGIN_DIR=/avalanchego/build/plugins/ \
+    -e AVAGO_HTTP_HOST=0.0.0.0 \
+    -e AVAGO_TRACK_SUBNETS=eYwmVU67LmSfZb1RwqCMhBYkFyG8ftxn6jAwqzFmxC9STBWLC \
+    avaplatform/subnet-evm:v0.7.2
+```
+If the container is running successfully, it's time to move onto the next step. 
+
+</Steps>
