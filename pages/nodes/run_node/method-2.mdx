@@ -7,7 +7,22 @@ import { Callout, Steps } from "nextra/components";
 
 ### Make sure you have Docker installed and running on your system
 
-### Prepare Docker image
+### Apply Network Upgrades
+
+Download the latest `upgrade.json` file and place it in the appropriate directory.
+
+Create the config directory for Beam and download the `upgrade.json` file from GitHub:
+
+```bash copy
+mkdir ~/.avalanchego/configs/chains/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn
+cd ~/.avalanchego/configs/chains/2tmrrBo1Lgt1mzzvPSFt73kkQKFas5d1AP88tv9cicwoFp8BSn
+```
+
+```bash copy
+wget https://raw.githubusercontent.com/BuildOnBeam/beam-subnet/main/subnets/beam-mainnet/upgrade.json
+```
+
+### Prepare and run Docker image
 
 Head over to: [build.avax.network](https://build.avax.network/tools/l1-toolbox#avalanchegoDocker). This website will help you pre-configure a Docker container that runs your node against a specific network (as specified by the Subnet ID). 
 
