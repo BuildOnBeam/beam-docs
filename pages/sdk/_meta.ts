@@ -34,6 +34,9 @@ export default {
   exchange: {
     title: 'Exchange',
   },
+  'webhooks-player-api': {
+    title: 'Webhooks',
+  },
   '--- Automation API': {
     type: 'separator',
     title: 'Automation API',

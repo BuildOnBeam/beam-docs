@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git+https://github.com/BuildOnBeam/beam-docs.git"
   },
-  "author": "Robby Uitbeijerse <robby@meritcircle.io>",
+  "author": "Robby Uitbeijerse <robby@onbeam.com>",
   "license": "GPL v.3.0",
   "bugs": {
     "url": "https://github.com/BuildOnBeam/beam-docs/issues"

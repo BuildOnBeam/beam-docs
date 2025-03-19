@@ -1,0 +1,27 @@
+---
+title: Webhooks
+---
+
+import { Cards } from 'nextra/components'
+
+# Webhooks
+
+---
+
+### User Connection
+
+We support webhooks for game connection events. This allows you to be notified when a player connects to your game.
+In order to set it up, go to Dashboard -> Your game -> Edit game info -> User connection webhook URL.
+
+Setup a reachable URL to your service, which will receive a POST request with the following payload:
+
+```json
+{
+  "requestId": "cluci3tgv00005nfiyy5fc7ak",
+  "entityId": "yourEntityId",
+  "userId": "cluwlv3xv0000ue8nas5opvhr",
+  "connectedAt": "2025-03-19T11:44:33.911Z",
+}
+```
+
+We will call it once for every user that finished Game Connection flow initiated by your game. This includes connecting user to your game via first [session](/sdk/sessions/introduction) Flow.
