@@ -41,7 +41,7 @@ docker run -it -d \
     -e VM_ID=kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz \
     --entrypoint /bin/sh \
     avaplatform/subnet-evm:v0.7.2 \
-    -c "mv /avalanchego/build/plugins/* /avalanchego/build/plugins/kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz && /avalanchego/build/avalanchego"
+    -c "if ! [ -e /avalanchego/build/plugins/kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz ]; then echo 'Renamed subnet-evm to Beam mainnet' && mv /avalanchego/build/plugins/* /avalanchego/build/plugins/kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz; fi && /avalanchego/build/avalanchego"
 ```
 
 </Steps>
