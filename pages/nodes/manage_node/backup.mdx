@@ -1,1 +1,25 @@
-.
+import Image from 'next/image';
+
+{/* ---
+title: alternate title
+description: meta description
+--- */}
+
+# Node backup
+
+In this document we will outline the basics and what every node operator must know.
+
+In order to ensure you do not lose your node, it's imperative to have a good backup and restore strategy in place. Usually it's best to backup the required files to a different computer or storage location for safe keeping. Make sure you understand the implications of losing critical node files and that for some of them, there is no way to restore them once lost.
+
+Very detailed explanations and guides on backup can be found on the official Avalanche site: [Backup and Restore](https://build.avax.network/docs/nodes/maintain/backup-restore#restore)
+
+## The staking directory
+
+The `staking` directory of your node contains the three most important files
+- `signer.key` - used to sign transactions
+- `staker.crt` - used, amongst other functions, to define your NodeID
+- `staker.key` - used, amongst other functions, to define your NodeID
+
+## The db directory
+
+This directory contains all of the synced information the node carries. It is not critical as it can always be re-synced if the node is ran on a different computer. However, that could incur significant downtime of the node, so it is advisable to backup all the files in the `db` directory as well so that they are available for restoration in case of loss of a node.
