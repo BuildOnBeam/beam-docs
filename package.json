@@ -26,7 +26,9 @@
     "validate:ci": "biome ci ."
   },
   "lint-staged": {
-    "*": ["biome check . --write --unsafe"]
+    "*": [
+      "biome check . --write --unsafe"
+    ]
   },
   "dependencies": {
     "@onbeam/biome-config": "^0.0.4",
@@ -43,7 +45,7 @@
     "next": "14.2.10",
     "nextra": "^3.2.3",
     "nextra-theme-docs": "^3.2.3",
-    "openai": "^4.11.1",
+    "openai": "^4.93.0",
     "openai-edge": "^1.2.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
