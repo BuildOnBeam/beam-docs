@@ -10,12 +10,10 @@ Tested on: **Ubuntu 22.04 / 24.04 LTS**
 
 - [1. Overview](#1-overview)
 - [2. Prerequisites](#2-prerequisites)
-- [3. Step-by-Step Installation](#3-step-by-step-installation)
-  - [3.1 Install AvalancheGo](#31-install-avalanchego)
-  - [3.2 Install Beam Subnet-EVM](#32-install-beam-subnet-evm)
-  - [3.3 Configure the Node](#33-configure-the-node)
-  - [3.4 Apply Beam Network Upgrades](#34-apply-beam-network-upgrades)
-  - [3.5 Restart Node and Verify](#35-restart-node-and-verify)
+- [3. Installation](#3-step-by-step-installation)
+  - [3.1 Configure the Node](#31-configure-the-node)
+  - [3.2 Apply Beam Network Upgrades](#32-apply-beam-network-upgrades)
+  - [3.3 Restart Node and Verify](#33-restart-node-and-verify)
 - [4. Node Monitoring](#4-node-monitoring)
 - [5. Notes](#5-notes)
 
@@ -38,23 +36,26 @@ This repo provides two automated Bash scripts to:
 
 ---
 
-## 3. Step-by-Step Installation
+## 3. Installation
 
 ---
-
-### 3.1 Install AvalancheGo
 
 Run the following script to install AvalancheGo:
 
 ```bash
-bash 1-install_avalanchego.sh
+bash vps-setup-beam-validator.sh
 ```
 
 This script will:
 
+- Update system
+- Install required packages: `wget`, `tar`, `jq`
 - Prompt you to choose connection type, public IP, and RPC exposure
 - Allow you to enable **State Sync** for faster sync times
 - Install AvalancheGo as a systemd service
+- Download and install Subnet-EVM v0.7.3
+- Place it into the AvalancheGo plugin directory with the proper VMID
+- Print success confirmation and paths
 - Show your NodeID at the end
 
 Example prompts:
@@ -66,24 +67,7 @@ After install, the node will be running in the background.
 
 ---
 
-### 3.2 Install Beam Subnet-EVM
-
-Run the Beam Subnet-EVM setup script:
-
-```bash
-bash 2-install_beam_network.sh
-```
-
-This script will:
-
-- Install required packages: `wget`, `tar`, `jq`
-- Download and install Subnet-EVM v0.7.3
-- Place it into the AvalancheGo plugin directory with the proper VMID
-- Print success confirmation and paths
-
----
-
-#### 3.2.1 Configure the Node
+## 3.1 Configure the Node
 
 The script will also update your AvalancheGo config at:
 
@@ -104,7 +88,7 @@ This ensures your node tracks only the Beam subnet and performs a partial sync t
 
 ---
 
-#### 3.2.2 Apply Beam Network Upgrades
+## 3.2 Apply Beam Network Upgrades
 
 The script will create the following chain config directory:
 
@@ -122,7 +106,7 @@ This contains necessary configuration rules for proper syncing and upgrades.
 
 ---
 
-#### 3.2.3 Restart Node and Verify
+## 3.3 Restart Node and Verify
 
 The script will restart the AvalancheGo node and display its status:
 
