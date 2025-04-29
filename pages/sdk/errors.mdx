@@ -24,7 +24,7 @@ Some errors will return with an error code - a short string with a brief explana
 </ul>
 
 export const getStaticProps = async () => {
-  const errors = await fetch("https://api.testnet.onbeam.com/v1/documentation/error-codes", {
+  const errors = await fetch("https://api.beta.onbeam.com/v1/documentation/error-codes", {
     method: 'GET',
     headers: {
       "Content-Type": "application/json",

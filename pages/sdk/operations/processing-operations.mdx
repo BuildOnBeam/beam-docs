@@ -36,7 +36,7 @@ When using our SDK, processing an operation is as simple as providing the user e
 
 As you might have seen when creating an Operation, we return a `url` property in the response. The `url` is a URL to our web interface, which the user can use in order to sign for the Operation.
 
-Please note that if you use the web interface, we won't provide you with a proper callback about the status of the Operation. You will need to poll our API's [getOperation](https://api.testnet.onbeam.com/api/player#/Operation/getOperation) method periodically in order to know about status changes in the Operation based on user actions.
+Please note that if you use the web interface, we won't provide you with a proper callback about the status of the Operation. You will need to poll our API's [getOperation](https://api.beta.onbeam.com/api/player#/Operation/getOperation) method periodically in order to know about status changes in the Operation based on user actions.
 
 ```csharp
 //  {
@@ -47,7 +47,7 @@ Please note that if you use the web interface, we won't provide you with a prope
 //    "gameId": "cltr8rde601aeakka28hbtuim",
 //    "userId": "clwdehitt005biwog2szib1fh",
 //    "chainId": 13337,
-//    "url": "https://identity.testnet.onbeam.com/games/cltr8rde601aeakka28hbtuim/operation/clwt0h7ej000c2jckyr2nh0cv/confirm",
+//    "url": "https://identity.beta.onbeam.com/games/cltr8rde601aeakka28hbtuim/operation/clwt0h7ej000c2jckyr2nh0cv/confirm",
 //    "game": {
 //       ...
 //    },
