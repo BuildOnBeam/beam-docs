@@ -71,8 +71,8 @@ else
 fi
 
 until NODE_INFO=$(curl -sf -X POST --data '{"jsonrpc":"2.0","id":1,"method":"info.getNodeID"}' \
-                   -H "content-type:application/json" \
-                   http://127.0.0.1:9650/ext/info); do
+    -H "content-type:application/json" \
+    http://127.0.0.1:9650/ext/info); do
   echo "Waiting for Avalanche node..."
   sleep 5
 done
