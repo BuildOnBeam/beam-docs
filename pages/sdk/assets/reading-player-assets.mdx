@@ -6,7 +6,7 @@ title: Player assets
 
 Depending on your needs, we offer various ways to validate the balance of a player - whenever that's for an ERC20, ERC721, ERC1155 or the native token on Beam.
 
-However, depending on the token types there are a few caveats, as we are using an indexer for the ERC721 / ERC1155 type contracts, causing there to be a small delay between on-chain events and the actual sdk method response.
+However, depending on the token types there are a few caveats, as we are using an indexer for the ERC721 / ERC1155 type contracts, causing there to be a small delay between on-chain events and the actual SDK method response.
 
 ### NFTs (ERC721, ERC1155)
 
@@ -68,7 +68,7 @@ const profileTokens = await beam.assetsV2.getProfileCurrenciesV2("entity-id");
 
 ### Native token
 
-If you are interested in validating the native currency of a profile, for example to validate whenever the profile has enough BEAM to run a self-paid transaction, you could fetch the native token balance directly by doing the following:
+If you are interested in validating the native currency of a player, for example to validate whenever the player has enough BEAM to run a self-paid transaction, you could fetch the native token balance directly by doing the following:
 
 ```typescript
 const profileTokens = await beam.assets.getProfileNativeCurrencyV3("entity-id");
