@@ -1,0 +1,55 @@
+import { Callout } from "nextra/components";
+
+# Unity SDK
+
+We offer an SDK that allows you to easily integrate the Beam Network into your game. The SDK is designed to be easy to use and provides a wide range of features to help you get started quickly. It uses self-custodial Player Profiles.
+
+### Installation
+To install Beam SDK for Unity you have to add following dependencies:
+
+#### Option 1 - manifest.json
+
+Open Packages/manifest.json and add these lines:
+
+```
+"beam.sdk.client": "https://github.com/BuildOnBeam/beam-sdk-unity.git?path=/Unity",
+"com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask"
+```
+
+#### Option 2 - Package Manager Editor UI
+
+Follow these instructions:
+
+https://docs.unity3d.com/Manual/upm-ui-giturl.html
+
+And add these urls:
+```
+https://github.com/BuildOnBeam/beam-sdk-unity.git?path=/Unity
+https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask
+```
+
+---
+
+<Callout type="info" emoji="ℹ️">
+    Note: using  `https://github.com/BuildOnBeam/beam-sdk-unity.git?path=/Unity` will always default to the newest version of the main branch. You probably should lock the url to particular release to avoid potential compatibility issues.
+    To do so, add `#vX.X.X` to the url, like this: `https://github.com/BuildOnBeam/beam-sdk-unity.git?path=/Unity#v1.0.0`.
+</Callout>
+
+---
+
+For more info on how to use Unity SDK visit: [BuildOnBeam/beam-sdk-unity](https://github.com/BuildOnBeam/beam-sdk-unity).
+
+---
+
+### Example
+<br />
+<img src="/assets/platform_clients/beam-unity-demo.png" alt="Beam Unity Demo" width="150" />
+
+We have an example Unity project you can refer to when implementing Beam SDK in your own game:
+https://github.com/BuildOnBeam/beam-sdk-unity-example
+
+
+
+<Callout emoji="⚠️">
+    If you're having problems or feel like we are missing something, don't hesitate to contact us, either through build@onbeam.com or by making an Issue in the repository.
+</Callout>

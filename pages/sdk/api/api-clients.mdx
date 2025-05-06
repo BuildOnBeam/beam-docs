@@ -1,0 +1,47 @@
+import {Callout, Cards, Tabs} from "nextra/components";
+
+# API Clients
+
+We auto generate clients in few languages for our APIs to help you get started quickly.
+We have separate clients available for both Automation and Player APIs.
+
+#### Automation API clients
+
+All Automation API clients are meant to be used  on the **server side**, as it is crucial to not expose any of the api keys we provided publicly. It's meant to be used with Secret API Key.
+
+<Cards>
+    <Cards.Card
+        icon="✅ "
+        title="Node.js (Typescript)"
+        href="https://www.npmjs.com/package/@onbeam/automation-api-client"
+    />
+    <Cards.Card
+        icon="✅ "
+        title="C# (.NET 6+)"
+        href="https://www.nuget.org/packages/BeamAutomationClient"
+    />
+</Cards>
+
+#### Player API clients
+
+The Player API clients can be used in the client, as the Publishable API Key that is required to interact with the self-custody services can be exposed without risk.
+
+<Cards>
+    <Cards.Card
+        icon="✅ "
+        title="Typescript (browser & server)"
+        href="https://www.npmjs.com/package/@onbeam/player-api-client"
+    />
+    <Cards.Card
+        icon="✅ "
+        title="C# (.NET 6+)"
+        href="https://www.nuget.org/packages/BeamPlayerClient"
+    />
+</Cards>
+
+If you want to use a different language, you can always use our [API Reference](/sdk/api/api-reference) to get started. The API is RESTful and you can use any HTTP client to make requests.
+Just remember to pass your API key in the `x-api-key` header.
+
+<Callout emoji="⚠️">
+    If you encounter any bugs, issues or something is missing, let us know at build@onbeam.com or post an Issue in our [beam-api-clients](https://github.com/BuildOnBeam/beam-api-clients) Github repository.
+</Callout>
