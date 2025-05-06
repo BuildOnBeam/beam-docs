@@ -28,12 +28,22 @@ https://github.com/BuildOnBeam/beam-sdk-unity.git?path=/Unity
 https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask
 ```
 
----
-
 <Callout type="info" emoji="ℹ️">
     Note: using  `https://github.com/BuildOnBeam/beam-sdk-unity.git?path=/Unity` will always default to the newest version of the main branch. You probably should lock the url to particular release to avoid potential compatibility issues.
     To do so, add `#vX.X.X` to the url, like this: `https://github.com/BuildOnBeam/beam-sdk-unity.git?path=/Unity#v1.0.0`.
 </Callout>
+
+---
+
+### Basic usage
+You can just instantiate BeamClient from your GameObject and configure it via few methods:
+```csharp
+var beamClient = gameObject.AddComponent<BeamClient>()
+                .SetBeamApiKey("your-publishable-api-key") // set your Publishable(!) API key
+                .SetEnvironment(BeamEnvironment.Beta) // defaults to Beta
+                .SetDebugLogging(true) // optional, defaults to false
+                .SetStorage(yourCustomStorageImplementation); // optional, defaults to PlayerPrefs storage;
+```
 
 ---
 
@@ -46,6 +56,7 @@ For more info on how to use Unity SDK visit: [BuildOnBeam/beam-sdk-unity](https:
 <img src="/assets/platform_clients/beam-unity-demo.png" alt="Beam Unity Demo" width="150" />
 
 We have an example Unity project you can refer to when implementing Beam SDK in your own game:
+
 https://github.com/BuildOnBeam/beam-sdk-unity-example
 
 
