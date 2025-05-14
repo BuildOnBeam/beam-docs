@@ -1,0 +1,36 @@
+## Understanding Gas and Policies in EVM Blockchains
+
+### Overview of Gas on EVM Blockchains
+- **Gas Units**: A measure of computational effort required to execute transactions or smart contracts on the Ethereum Virtual Machine (EVM).
+- **Gas Payment in Native Currency**: Each blockchain has its own native currency for gas payments. Examples include:
+- Beam: Paid in Beam.
+- Ethereum: Paid in Ether.
+- Polygon: Paid in MATIC.
+
+### Challenge: Users Lacking Native Currency
+In scenarios where users need to transact but lack the native currency for gas, Beam 'policies' provide a solution, allowing for payments in a specific ERC20 token.
+
+### Types of Policies for Transactions
+
+#### 1. Fixed Charge Policies
+**A set amount of the ERC20 token is charged per transaction, regardless of the gas cost.**
+- **Economics**: While offering stable and predictable costs for users, this model can be financially risky for developers during high gas prices.
+- **User**: Users benefit from a straightforward and predictable cost structure, making budgeting for transactions easier and transparent.
+- **Example**: A transfer transaction might be set at 1 $Gold, while a minting transaction costs 10 $Gold. They will always cost the same, regardless of the gas price.
+
+#### 2. Dynamic Charge Policies
+**Charges in ERC20 tokens are calculated based on the current gas cost, the developer needs to set and exchange rate of ERC20 to wei in native currency.**
+- **Economics**: Aligns transaction costs with real-time gas market prices, introducing variability in costs for the user.
+- **User**: Users face fluctuating transaction costs, which can be challenging to predict and may require an understanding of gas market dynamics.
+- **Example**:
+- If the gas price is 20 gwei:
+- Mint transaction: 100 gas units * 20 gwei = 2,000 wei (equivalent to 20,000 $Gold at an exchange rate of 10 $Gold per wei).
+- Transfer transaction: 50 gas units * 20 gwei = 1,000 wei (equivalent to 10,000 $Gold).
+- If the gas price is 10 gwei:
+- Mint transaction: 100 gas units * 10 gwei = 1,000 wei (equivalent to 10,000 $Gold).
+- Transfer transaction: 50 gas units * 10 gwei = 500 wei (equivalent to 5,000 $Gold).
+- **Note**: Example calculations are for illustrative purposes and should be adapted for production use.
+
+### Choosing Between Fixed and Dynamic Policies
+Developers must weigh the benefits of simplicity (fixed policies) against the need for adaptability to market conditions (dynamic policies).
+- **User Considerations**: Given that most users lack in-depth knowledge of gas mechanics, the responsibility of managing price volatility and associated risks ideally lies with the developers.

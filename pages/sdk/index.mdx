@@ -6,10 +6,7 @@ import { Steps } from "nextra/components";
 Beam SDK is a term that wraps our entire set of tools that help you integrate the Beam Network into your game.
 Our tools allow you to introduce NFTs and Blockchain integration into your game via user-friendly [Account Abstractions](https://ethereum.org/en/roadmap/account-abstraction/). This way users can create on-chain Accounts without friction that is usually associated with storing Private Keys and security concerns. With few clicks your players can create their Beam Wallets using Social Login options like Google, Apple or Discord and then interact with Blockchain from within your game in a safe and friction-less way.
 
-Beam introduces self-custodial Player API and Policies that allow you to fund your players transactions and manage their in-game assets, taking away the headache of paying transaction fees away from your users.
-Through Sessions, you can provide a friction-less experience for your players, allowing them to interact with your game without worrying about signing on-chain transactions each time.
-
-// todo: link up sessions and policies
+Through [Sessions](/sdk/player-service/sessions/introduction) and [Policies](/sdk/automation-service/policies/introduction), you can provide a friction-less experience for your players, allowing them to interact with your game without worrying about signing on-chain transactions each time or worrying about transaction fees.
 
 Let's take look at the parts of Beam SDK ecosystem:
 
@@ -28,16 +25,14 @@ A **custodial** service to implement distribution/automation in your backend ser
 
 You can read more about differences between those in [Player or Automation Service](/sdk/beam-player-vs-automation).
 
+### Beam Platform Clients
+Set of SDKs to use within game engines like [Unreal](/sdk/platform-clients/unreal), [Unity](/sdk/platform-clients/unity) or a more generic [Web SDK](/sdk/platform-clients/web)
+
 ### Beams Dashboard
 All-in-one dashboard to manage your game and its assets. You can register your game, add contracts, manage funds and API keys.
 
-### Beam in-game SDKs
-Set of SDKs tu use within game engines like [Unreal](/sdk/ingame-sdks/unreal) or [Unity](/sdk/ingame-sdks/unity)
-
 ### Sphere
 Sphere is the marketplace for games, the backbone of game developers to launch an in-game marketplace. [Read more](/sdk/sphere/introduction).
-
-// TODO: link up all sections
 
 <Callout type="warning" emoji="⚠️">
   If you would like advice or need help finding a strategy that suits your needs, please contact us at build@onbeam.com. We can provide help with bridging existing assets through LayerZero or provide you with complete and audited contracts to get your in-game assets going.

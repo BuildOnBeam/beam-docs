@@ -6,6 +6,8 @@ export default {
   'index': 'Overview',
   'beam-getting-started': 'Getting started',
   'beam-player-vs-automation': 'Player or Automation Service',
+  'player-service': 'Player Service',
+  'automation-service': 'Automation Service',
   'beam-environments': 'Environments',
 
   '--- Ecosystem': {

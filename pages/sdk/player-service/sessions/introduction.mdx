@@ -1,0 +1,22 @@
+---
+title: Sessions
+---
+
+# Introduction to Sessions
+
+A self-custody implementation for your users means that the ownership of the account abstraction used, is **owned** by the private key in control of the user. Every time you want to interact with the blockchain on the users' behalf, you will need to ask them to sign a transaction.
+
+This experience can be obnoxious on its own - both for you as the developer and for the gamer. In order to minimize the friction involved, we offer Sessions.
+
+
+### What is a session?
+
+A session is, in essence, a **temporary authorized and limited-in-scope** private key, that can sign transactions on behalf of the self-custodial account abstraction for your users.
+
+While this sounds intimidating, we created a useful abstraction in Platform SDKs that allow you to generate a session, and ask the user to authorize those sessions through a web interface.
+
+
+### Getting started with sessions
+
+- [Creating sessions](creating-sessions): Learn how to create a session for your users
+- [Signing with sessions](signing-with-sessions): Learn how to use sessions to sign for Operations
