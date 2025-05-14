@@ -1,0 +1,28 @@
+---
+title: Signing with sessions
+---
+
+
+# How to sign with a session
+
+Once the session is successfully created, it's authorized to sign [Operations](../operations/introduction). As the game developer, you're simply able to apply the same method as was described in [Processing Operations](..operations/processing-operations).
+
+If a session is active for the user, the session key is still available in the local storage of the game client and the session is authorized to sign - `SignOperationAsync()` will automatically sign the Operation, without user ever seeing a browser.
+
+
+```csharp
+            var operationId = "clxn9u(...)0c4bz7av";
+            var operationResult = await beamClient.SignOperationAsync(
+                entityId: "your-entity-id",
+                operationId: operationId,
+                signingBy: OperationSigningBy.Auto  // accepts Auto, Browser and Session
+                );
+
+            if (operationResult.Status == BeamResultType.Success)
+            {
+                var operationStatus = operationResult.Result;
+                var isApproved = operationResult.Result == CommonOperationResponse.StatusEnum.Executed;
+                var isRejected = operationResult.Result == CommonOperationResponse.StatusEnum.Rejected;
+                // (...)
+            }
+```

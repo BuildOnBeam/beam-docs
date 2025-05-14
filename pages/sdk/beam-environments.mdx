@@ -1,0 +1,74 @@
+import { Callout, Table, Td, Th, Tr } from 'nextra/components'
+
+# Environments
+
+## Testnet and Mainnet Blockchains
+There are usually two types of Blockchain environments: **Testnet** and **Mainnet**. As the name suggests, Testnet is generally used for testing. Most of the time, you will be using Testnet for development and testing purposes. Mainnet is the live version of the Blockchain, where real assets are stored and transactions are executed.
+Most Testnet chains expose something called Faucets. These allow you to obtain Testnet currency that will fuel your Transactions on that chain. In case of Mainnet, you usually have to buy the currency from an exchange or acquire it by other means.
+
+In case of Beam Testnet, you can use the `request 5 beam` option in https://app.testnet.onbeam.com/
+
+<img src="/assets/beam_app/beam-app-faucet.png" alt="Beam App Faucet" width="500" />
+
+Beam SDK currently works with following blockchains:
+<Table>
+    <thead>
+        <Tr>
+            <Th>Name</Th>
+            <Th>Chain ID</Th>
+            <Th>Supported</Th>
+            <Th>Explorer URL</Th>
+        </Tr>
+    </thead>
+    <tbody>
+        <Tr>
+            <Td>Beam Testnet</Td>
+            <Td>13337</Td>
+            <Td>✅</Td>
+            <Td>https://subnets-test.avax.network/beam</Td>
+        </Tr>
+
+        <Tr>
+            <Td>Beam Mainnet</Td>
+            <Td>4337</Td>
+            <Td>✅</Td>
+            <Td>https://subnets.avax.network/beam</Td>
+        </Tr>
+
+        <Tr>
+            <Td>Sophon Testnet</Td>
+            <Td>531050104</Td>
+            <Td>✅</Td>
+            <Td>https://explorer.testnet.sophon.xyz</Td>
+        </Tr>
+
+        <Tr>
+            <Td>Sophon Mainnet</Td>
+            <Td>50104</Td>
+            <Td>✅</Td>
+            <Td>https://explorer.sophon.xyz</Td>
+        </Tr>
+
+    </tbody>
+</Table>
+
+## Beam API Environments
+We have two separate Beam Environments for our SDKs and APIs.
+
+During development, you can use our **Beta** environment. It uses only Testnet versions of Blockchains we support. Ideal to start your development and test your game.
+````md filename="BASE URL"
+https://api.beta.onbeam.com
+````
+
+Once you are ready to release your game, you can switch to the **Production** environment. This environment supports both Testnet and Mainnet Blockchains.
+
+````md filename="BASE URL"
+https://api.onbeam.com
+````
+
+### API keys and environments
+To get an API key, create your game in our Dashboard. You can read more about it in [Beam Dashboard](/sdk/beam-dashboard).
+
+<Callout emoji="⚠️">
+  Keep in mind that keys are not interchangeable per environment, meaning that you will need to register game on each Dashboard separately and send the correct key in the `x-api-key` header based on the Environment you use.
+</Callout>

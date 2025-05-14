@@ -1,0 +1,32 @@
+---
+title: Self-custody
+---
+
+# Introduction to the Player API
+
+Through our Player API implementation, you can set up self-custodial user accounts with Beam. The solution is based on self-custodial private keys and newly deployed account abstractions. Existing Automation [Profiles](../automation-service/profiles/introduction), won't be available for use in self-custodial Player solution.
+
+---
+
+### What is self custody?
+
+Self-custody means that a private key is only controllable by the user, who can sign transactions. The private key for each user is generated in the browser when they start interacting with [Sessions](sessions/introduction) and [Operations](operations/introduction).
+When they do, they will be required to authorize with a social identity, from which a private key is generated and sharded - and securely stored.
+
+---
+
+### Disclaimer
+
+Our self-custodial implementation is **subject to change**, while the basis of the implementation will remain more or less the same, we have different improvements in mind that will make the experience even better - for both you (the game developer) and the end user.
+
+---
+
+### Getting started with self custody
+
+- [Implementation](implementation-player-api): How to get started
+- [Operations](operations/introduction): An introduction to Operations
+- [Sessions](sessions/introduction): An introduction to Sessions
+- [Transactions](transactions/introduction): Understand how to run sponsored, self-paid and custom charge transactions.
+- [Assets](assets/introduction): Simplify in-game asset management.
+- [Marketplace](marketplace/introduction): List, buy and make offers on other peoples assets.
+- [Exchange](exchange/introduction): Convert tokens based on configured liquidity pools.

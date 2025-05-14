@@ -1,0 +1,90 @@
+---
+title: Managing player assets
+---
+
+# Managing player assets
+
+Because
+Through the API key, you are authorized to initalize Operations on Assets for all the players you created, for every contract we registered to your game. Methods described below are available, but obviously ERC20 token transfers will only be relevant to you if we added an ERC20 contract to your game within Beam.
+
+### Currency transfers (ERC20)
+
+If we registered an ERC20 contract for your game, you are able to manage the ERC20 assets in all the profiles that you created. Sending these tokens around is easy. We simply expect you to know the ID of the sender, as well as the ID of the receiver, both of which you should have created a Player for. You can also send directly to an on-chain account address.
+
+Initiating a token transfer would look something like this. In the example below, we are not considering more complicated features like sponsoring transactions just yet - the transaction will be paid for by you - the game developer.
+
+```typescript
+const transaction = await beam.assets.transferTokenV3("your-sender-id", {
+  receiverEntityId: "your-receiver-id",
+  assetAddress: "your-contract-address",
+  amountToTransfer: "10", // 10 means 10 - we don't expect you to consider any other format like gwei
+});
+
+// {
+//   "status": "Pending",
+//   "id": "string",
+//   "createdAt": "2024-06-06T10:27:00.304Z",
+//   "updatedAt": "2024-06-06T10:27:00.304Z",
+//   "gameId": "string",
+//   "userId": "string",
+//   "chainId": 0,
+//   "url": "string",
+//   "transactions": [
+//      (...)
+//   ]
+// }
+```
+
+Operation returned by the method needs to be signed. Learn more about Operations here: [Operations introduction](../operations/introduction).
+
+### NFTs transfers (ERC721, ERC1155)
+
+Asset transfers work in a similar fashion as ERC20 token transfers, but instead of calling the `transferToken`, you will need to call the `transferAsset` method and pass an `assetId` property for the asset you want to move around.
+
+```typescript
+const transaction = await beam.assets.transferAssetV3("your-sender-id", {
+  receiverEntityId: "your-receiver-id",
+  assetAddress: "your-contract-address",
+  assetId: "73",
+  amountToTransfer: 1, // amountToTransfer is related to 1155, defaults to 1 and doesn't have to be passed for ERC721 contracts.
+});
+
+// {
+//   "status": "Pending",
+//   "id": "string",
+//   "createdAt": "2024-06-06T10:27:00.304Z",
+//   "updatedAt": "2024-06-06T10:27:00.304Z",
+//   "gameId": "string",
+//   "userId": "string",
+//   "chainId": 0,
+//   "url": "string",
+//   "transactions": [
+//      (...)
+//   ]
+// }
+```
+
+### Native transfers (BEAM)
+
+Lastly - we offer you the possibility to transfer our native token: BEAM. Depending on the context of your game, you might want to be able to transfer our native token around between profiles.
+
+```typescript
+const transaction = await beam.assets.transferNativeTokenV3("your-sender-id", {
+  receiverEntityId: "your-receiver-id",
+  amountToTransfer: "10", // 10 means 10 - we don't expect you to consider any other format like gwei
+});
+
+// {
+//   "status": "Pending",
+//   "id": "string",
+//   "createdAt": "2024-06-06T10:27:00.304Z",
+//   "updatedAt": "2024-06-06T10:27:00.304Z",
+//   "gameId": "string",
+//   "userId": "string",
+//   "chainId": 0,
+//   "url": "string",
+//   "transactions": [
+//      (...)
+//   ]
+// }
+```
