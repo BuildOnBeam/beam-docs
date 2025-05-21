@@ -5,11 +5,11 @@ import { Tabs } from "nextra/components";
 In order to use the Player API, you need to connect your users to your game. This is done by creating a new user in the Player Service. The user will be created with a unique identifier, which can be used to reference the user in future API calls. Similarly to Automation Service, you will refer to this user through an `EntityId`. This can be any identifier you want, as long as it's unique within your game registration. You can assign users multiple `entityIds` and in some cases, the user will be automatically assigned an `entityId` that is his Externally Owned Account address.
 
 
-In order to connect a user to your game, you can either start the Connection flow using one of our [Platform clients](../../index) or the [Player API](../../api/api-reference) directly.
+In order to connect a user to your game, you can either start the Connection flow using one of our [Platform clients](../player-implementation) or the [Player API](../../api/api-reference) directly.
 
 ### Connecting users using the Connect To Game flow
-When using our [Platform clients](../../index) it's fairly easy to connect users.
-In case of Unity client, all you need to do is to call an awaitable method called `ConnectUserToGame`. This method will take care of opening the browser for you on most platforms. You can read more about this in [BuildOnBeam/beam-sdk-unity](https://github.com/BuildOnBeam/beam-sdk-unity).
+When using our [Platform clients](..//player-implementation) it's fairly easy to connect users.
+In case of the Unity client, all you need to do is to call an awaitable method called `ConnectUserToGame`. This method will take care of opening the browser for you on most platforms. You can read more about this in [BuildOnBeam/beam-sdk-unity](https://github.com/BuildOnBeam/beam-sdk-unity).
 
 <Tabs items={["Unity", "cURL"]}>
     <Tabs.Tab>
@@ -56,7 +56,7 @@ Afterward you can initialize Operations and send assets to your user, using his 
 
 ### Connecting users using first Session signing
 
-To make things even more friction-less for players, we also connect them to your game when you initiate [Session](../sessions/introduction) signing flow. This reduces amount of interruptions from the game to an absolute minimum.
+To make things even more frictionless for players, we also connect them to your game when you initiate [Session](../sessions/introduction) signing flow. This reduces amount of interruptions from the game to an absolute minimum.
 
 ```csharp
  var activeSessionResult = await beamClient.CreateSessionAsync(EntityId);
