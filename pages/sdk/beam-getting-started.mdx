@@ -6,7 +6,7 @@ Getting started with Beam is easy. The main requirement is to register your game
 
 <Steps>
     ## Registering your game
-    First, head to our Dashboard, you can start with Beta environment first to get a feel for the platform. Register your game and obtain your API key there.
+    First, head to our Dashboard. We recommend starting with the Beta environment first to get a feel for the platform. Register your game and obtain your API key there.
     <Tabs items={["Beta", "Production"]}>
         <Tabs.Tab>
             ```
@@ -20,18 +20,18 @@ Getting started with Beam is easy. The main requirement is to register your game
         </Tabs.Tab>
     </Tabs>
 
-    Login with your preferred social platform and proceed to register your game.
+    Login with your preferred social login option and proceed to register your game.
 
-    One of the first steps is Connecting a Wallet. We need to know which wallet, will be funding your transactions.
+    One of the first steps is Connecting a Wallet. We need to know which wallet will be funding your transactions.
     Don't worry, nothing will be charged to your wallet, you decide when to deposit BEAM to your game.
     <img src="/assets/get_started/connect-game-wallet.png" alt="Connect Game Wallet" width="600" />
 
-    Afterward, a form will pop up. We need you to fill out some basic info about your game, set some images(you can edit all of it later). Your players will see them and correlate actions they perform with your game.
+    Afterward, a form will pop up. We need you to fill out some basic info about your game and set a few images (you can edit all of it later). Your players will see them and correlate actions they perform with your game.
 
-    You can choose a chain you want your game on, for testing purposes let's select Testnet Beam. You can add another chain later on.
+    You can choose a chain you want your game on. For testing purposes let's select Testnet Beam. You can add another chain later on.
     <img src="/assets/get_started/register-a-game.png" alt="Register a Beam Game" width="400" />
 
-    After confirming, Wallet application of your choice will ask you to sign a message. This allows us to make sure that you are the owner of the game.
+    After confirming, the Wallet application of your choice will ask you to sign a message. This allows us to make sure that you are the owner of the game.
     A pop-up with your API keys will show up. Store your keys somewhere safe, you will need them to access our API.
 
 
@@ -68,13 +68,13 @@ Getting started with Beam is easy. The main requirement is to register your game
 
     We will automatically retrieve the ABI of your verified Contract.
 
-    **NOTE:** If you use a **Proxy Contract** for your main Smart Contract, select `custom ABI` switch. When adding a contract, include the ABI of your main contract in form of a JSON array. Your Proxy Contract still needs to be verified. Only use this option if you know what you are doing.
+    **NOTE:** If you use a **Proxy Contract** for your main Smart Contract, select the `custom ABI` switch. When adding a contract, include the ABI of your main contract in the form of a JSON array. Your Proxy Contract still needs to be verified. Only use this option if you know what you are doing.
 
     You can also manage your contracts through Automation API [Contract Controller](https://api.onbeam.com/api/automation#/Contract).
 
     ---
 
-    ## Interacting with Beam API
+    ## Interacting with the Beam API
     Now we need to decide on the implementation strategy. You can read more about it in [Player API vs Automation API](beam-player-vs-automation).
     Afterwards, just pick one of the generated [API Clients](api/api-clients) and start coding.
 
