@@ -2,10 +2,10 @@ import { Tabs } from "nextra/components";
 
 # Connecting users to your game
 
-In order to use the Player API, you need to connect your users to your game. This is done by creating a new user in the Player Service. The user will be created with a unique identifier, which can be used to reference the user in future API calls, similarly to Automation Service, you will refer to this user through an `EntityId`. This can be any identifier you want, as long as it's unique within your game registration. You can assign users multiple entityIds and in some cases, user will be automatically assigned an entityId that is his Externally Owned Account address.
+In order to use the Player API, you need to connect your users to your game. This is done by creating a new user in the Player Service. The user will be created with a unique identifier, which can be used to reference the user in future API calls. Similarly to Automation Service, you will refer to this user through an `EntityId`. This can be any identifier you want, as long as it's unique within your game registration. You can assign users multiple `entityIds` and in some cases, the user will be automatically assigned an `entityId` that is his Externally Owned Account address.
 
 
-In order connect a user to your game, you can either start the Connection flow using one of our [Platform clients](../../index) or the [Player API](../api/api-reference) directly.
+In order to connect a user to your game, you can either start the Connection flow using one of our [Platform clients](../../index) or the [Player API](../../api/api-reference) directly.
 
 ### Connecting users using the Connect To Game flow
 When using our [Platform clients](../../index) it's fairly easy to connect users.
