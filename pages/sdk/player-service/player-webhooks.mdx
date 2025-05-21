@@ -38,8 +38,8 @@ Setup a reachable URL to your service, which will receive a POST request with th
 }
 ```
 
-We will call it once for every user that finished Game Connection flow initiated by your game. This includes connecting user to your game via first [session](sessions/introduction) Flow.
-We expect any response code from [200, 201, 202, 204], in case of any other code or timeout, we will retry 3 times, with 30 seconds delay after each attempt.
+We will call it once for every user that finished Game Connection flow initiated by your game. This includes connecting user to your game via first [Session](sessions/introduction) Flow.
+We expect any response code from [200, 201, 202, 204]. In case of any other code or timeout, we will retry 3 times, with 30 seconds delay after each attempt.
 
-Webhook will be called for every new entityId user connects with.
+The Webhook will be called for every new `entityId` the user connects with.
 `requestId` property is optional and related to Connection Request started from SDKs. When connecting User to your game through first Session flow, this value will not be included.
