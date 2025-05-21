@@ -13,21 +13,21 @@ You can learn more about setting up a _liquidity pool_ for your own tokens [here
 In general, swapping tokens via the API always follows the same process - fetching the price for the conversion, and then executing the swap.
 This two-step process serves as an important safeguard against overpaying, as exchange prices fluctuate.
 
-To obtain prices, you'd pass in to the API
+To obtain prices, you'd pass in to the API:
 
-- the contract addresses of the desired _input_ and _output_ tokens
-  - the _zero address_ (`0x0000000000000000000000000000000000000000`) can be used to refer to BEAM tokens
-- an amount to swap, either a desired _input_ and _output_ token amount
+- The contract addresses of the desired _input_ and _output_ tokens
+  - The _zero address_ (`0x0000000000000000000000000000000000000000`) can be used to refer to BEAM tokens
+- An amount to swap, either a desired _input_ and _output_ token amount
 
 Depending on the "direction" of the conversion, there are two different use cases, which are covered with examples below too.
 Let's assume we have two tokens _IN_ and _OUT_:
 
 - The player wants to swap 100 IN to OUT
-  - we first need to get the amount of OUT we can expect to get for 100 IN
-  - then convert it with an **exact _input_ swap** to make sure we get the highest amount of OUT for our 100 IN
+  - We first need to get the amount of OUT we can expect to get for 100 IN
+  - Then convert it with an **exact _input_ swap** to make sure we get the highest amount of OUT for our 100 IN
 - The player wants to buy 10 OUT
-  - here we first fetch the required amount of IN to obtain 10 OUT
-  - then convert it with an **exact _output_ swap** to make sure get exactly 10 OUT
+  - Here we first fetch the required amount of IN to obtain 10 OUT
+  - Then convert it with an **exact _output_ swap** to make sure get exactly 10 OUT
 
 ## Converting with an exact input amount
 
