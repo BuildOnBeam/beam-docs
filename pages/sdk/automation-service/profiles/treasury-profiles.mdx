@@ -1,8 +1,8 @@
 # Treasury profiles
 
-Through minting profiles, you're able to mint on-chain assets through our sdk, and while this is flexible enough for many; some games will rely on pre-minted assets without on-demand minting.
+Through minting profiles, you're able to mint on-chain assets through our SDK, and while this is flexible enough for many, some games will rely on pre-minted assets without on-demand minting.
 
-If this applies to your game, and you would like to distribute these assets through the SDK, one way of handling things is to create a treasury profile.
+If this applies to your game, and you would like to distribute these assets through the SDK, one way of handling the process is to create a treasury profile:
 
 ```typescript
 const treasury = await beam.profiles.createProfile({ entityId: "your-treasury-id", chainId: 4337 });
@@ -19,6 +19,6 @@ const treasury = await beam.profiles.createProfile({ entityId: "your-treasury-id
 // }
 ```
 
-The treasury profile would be a profile like any other: an account abstraction that is within your control authorized through the API key. By us adding the contracts for your pre-minted assets to your game, and you sending the pre-minted assets to the treasury's profile wallet address, you essentially allow yourself to move these assets around from the profile to any other of your profiles through our sdk.
+The treasury profile would be a profile like any other: an account abstraction that is within your control authorized through the API key. By registering the contracts for your pre-minted assets for your game, and you sending the pre-minted assets to the treasury's profile wallet address, you essentially allow yourself to move these assets around from the profile to any other of your profiles through our SDK.
 
-If pre-minted assets get distributed in batches, you might want to create a treasury profile per batch - or periodically send assets to the profile's wallet address - managing these profiles is up to you. Do keep in mind that everyone who possesses or is able to get access to the read-and-write API key we provided to you, is able to move around these assets freely between profiles of your game.
+If pre-minted assets get distributed in batches, you might want to create a treasury profile per batch - or periodically send assets to the profile's wallet address. Managing these profiles is up to you. Do keep in mind that everyone who possesses or is able to get access to your read-and-write API key is able to move around these assets freely between profiles of your game.
