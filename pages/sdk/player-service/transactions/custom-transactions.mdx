@@ -4,9 +4,7 @@ title: Creating custom transactions
 
 # Creating custom transactions
 
-Throughout our service, we've added multiple methods for you to manage assets for the Profiles you've created. However, as your game and asset contract complexity grows, a more interesting way of handling complicated transactions is by directly communicating with an asset contract.
-
-There's a limit of 9 interactions per transaction to prevent potential security vulnerabilities. Making calls to external contracts within loops can risk Denial of Service (DoS) or transaction failures if they consume more gas than a block's limit.
+Throughout our service we've added multiple methods for you to manage assets for the Profiles you've created. However, as your game and asset contract complexity grows, a more interesting way of handling complicated transactions is by directly communicating with an asset contract.
 
 You can simply do this by creating a transaction that interacts with one or more contracts in one go by padding an `interactions` array. This would look something like the snippet below. Keep in mind that everything you see below is completely contextual based on the contracts you're calling and the functions that are available on said contract.
 
@@ -27,3 +25,5 @@ const transaction = await beam.transactions.createTransaction("profile-id", {
 //   "explorerUrl": "https://subnets.avax.network/beam/0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f"
 // }
 ```
+
+* NOTE: There's a limit of 9 interactions per transaction to prevent potential security vulnerabilities. Making calls to external contracts within loops can risk Denial of Service (DoS) or transaction failures if they consume more gas than a block's limit.
