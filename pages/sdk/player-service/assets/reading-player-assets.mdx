@@ -4,15 +4,15 @@ title: Player assets
 
 # Reading Player assets
 
-Depending on your needs, we offer various ways to validate the balance of a player - whenever that's for an ERC20, ERC721, ERC1155 or the native token on Beam.
+Depending on your needs, we offer various ways to validate the balance of a player - whether that's for an ERC-20, ERC-721, ERC-1155 or the native token on Beam.
 
-However, depending on the token types there are a few caveats, as we are using an indexer for the ERC721 / ERC1155 type contracts, causing there to be a small delay between on-chain events and the actual sdk method response.
+However, depending on the token types there are a few caveats, as we are using an indexer for the ERC-721 / ERC-1155 type contracts, causing there to be a small delay between on-chain events and the actual SDK method response.
 
-### NFTs (ERC721, ERC1155)
+### NFTs (ERC-721, ERC-1155)
 
-By running the following method, you will receive all ERC721 and ERC1155 type assets within a profile for all the contracts we registered for your game. As there could be quite a few assets, the response is paginated.
+By running the following method, you will receive all ERC-721 and ERC-1155 type assets within a profile for all the contracts we registered for your game. As there could be quite a few assets, the response is paginated.
 
-Note that at the moment of writing, we do not expose filtering options yet - but they are expected to drop soon in order for you to filter in different ways to get meaningful results.
+Note that at the moment of writing, we do not expose filtering options yet, but they are expected to drop soon in order for you to filter in different ways to get meaningful results.
 
 ```typescript
 const profileAssets = await beam.assets.getProfileAssetsForGamePostV3("entity-id", {
@@ -44,9 +44,9 @@ const profileAssets = await beam.assets.getProfileAssetsForGamePostV3("entity-id
 // }
 ```
 
-### Currencies (ERC20 and the native token)
+### Currencies (ERC-20 and the native token)
 
-In order to get all ERC20 token balances for a profile, you can run the `getProfileCurrencies` method. The response model for this enpdoint is not paginated, as we don't expect a single game to have more than a few on-chain currencies to support their in-game economy.
+In order to get all ERC-20 token balances for a profile, you can run the `getProfileCurrencies` method. The response model for this enpdoint is not paginated, as we don't expect a single game to have more than a few on-chain currencies to support their in-game economy.
 
 ```typescript
 const profileTokens = await beam.assetsV2.getProfileCurrenciesV2("entity-id");
@@ -68,7 +68,7 @@ const profileTokens = await beam.assetsV2.getProfileCurrenciesV2("entity-id");
 
 ### Native token
 
-If you are interested in validating the native currency of a profile, for example to validate whenever the profile has enough BEAM to run a self-paid transaction, you could fetch the native token balance directly by doing the following:
+If you are interested in validating the native currency of a profile, for example to validate whether the profile has enough BEAM to run a self-paid transaction, you could fetch the native token balance directly by doing the following:
 
 ```typescript
 const profileTokens = await beam.assets.getProfileNativeCurrencyV3("entity-id");
