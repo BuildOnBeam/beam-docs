@@ -28,13 +28,13 @@ const transaction = await beam.marketplace.listAsset('profile-seller-id', {
 
 ```
 
-Operation returned by the method needs to be signed. Learn more about Operations here: [Operations introduction](../operations/introduction).
+The Operation returned by the method needs to be signed. Learn more about Operations here: [Operations introduction](../operations/introduction).
 
-Different intricacies on the different selling types will be provided at a later date. To keep things simple, we advise you to start listing with the 'FixedPrice' sell type only.
+Different intricacies on the different selling types will be provided at a later date. To keep things simple, we advise you to start listing with the `FixedPrice` sell type only.
 
 ## Accessing listed items for your game
 
-At the moment, we provide a method that allows you to retrieve all the listed items of a Player. Since we just listed an item, you can now verify whenever the item is actually for sale by calling `getListedAssetsForProfile` method.
+At the moment, we provide a method that allows you to retrieve all the listed items of a Player. Since we just listed an item, you can now verify whenever the item is actually for sale by calling `getListedAssetsForProfile` method:
 
 ```typescript
 const listings = await beam.marketplace.getListedAssetsForProfile(
