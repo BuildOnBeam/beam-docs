@@ -4,7 +4,7 @@ title: Creating sessions
 
 # Creating sessions
 
-In order to get started a Session going, you will need to call the following method on our C# SDK in the game client.
+In order to get started with a Session, you will need to call the following method in our C# SDK in the game client.
 
 **Disclaimer:** Sessions should only be created and initialised on the client side.
 
@@ -27,11 +27,11 @@ The method handles a couple of things:
 
 * NOTE: You can customize storage of Unity SDK using `beamClient.SetStorage()` method with your implementation of `IStorage`. It's important to keep the data on client side.
 
-Once handled, the session (private key) is able to sign transaction on behalf of the user. Note that, the session key is limited to run transactions for contracts that were added to your game in the first place. If a new contract was added to your game, calling `beamClient.GetActiveSession()` will no longer return that session as valid.
+Once handled, the session (private key) is able to sign transactions on behalf of the user. Note that the session key is limited to run transactions for contracts that were added to your game in the first place. If a new contract was added to your game, calling `beamClient.GetActiveSession()` will no longer return that session as valid.
 
 ## Retrieving an active Session
 
-You can retrieve current valid and active Session for your user. If local storage was cleared out, your game contracts changed, or the session simply expired - we will not return an active session.
+You can retrieve current valid and active Sessions for your user. If local storage was cleared out, your game contracts changed, or the session simply expired - we will not return an active session.
 
 ``` csharp
             var activeSessionResult = await beamClient.GetActiveSessionAsync("your-entity-id");
