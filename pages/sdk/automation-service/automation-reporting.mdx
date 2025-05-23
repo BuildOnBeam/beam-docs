@@ -1,12 +1,12 @@
 # Reporting
 
-Throughout time you'll run transactions to move on-chain assets for the [Profiles](/sdk/profiles/creating-profiles) you create. As for all blockchains - for each transaction, gas needs to be spend in order to fulfil a transaction. In order to provide you with insights into the data, we provide a couple of simple methods that allow you to pull in this data.
+Throughout time you'll run transactions to move on-chain assets for the [Profiles](/sdk/automation-service/profiles/creating-profiles) you create. As for all blockchains - for each transaction, gas needs to be spent in order to fulfill a transaction. In order to provide you with insights into the data, we provide a couple of simple methods that allow you to pull up this data.
 
 #### Game report
 
 A report per game will get you a complete overview for your game, for every chain you support. This could come in handy if your game is targetting two chains to reach a wider target audience.
 
-**Note:** chain information is environment specific, meaning that you won't find both testnet and mainnet information within the same response.
+**Note:** chain information is environment specific, meaning that you won't find both Testnet and Mainnet information within the same response.
 
 ```typescript
 const report = await beam.reporting.getTotalGameUsage();
@@ -57,8 +57,8 @@ For most developers, retrieving a report for the specific chain they're building
 
 If you're developing on Beam (chain), you will be able to retrieve your games gas expenses by passing the following chain id's:
 
-- **13337** - testnet
-- **4337** - mainnet
+- **13337** - Testnet
+- **4337** - Mainnet
 
 ```typescript
 const report = await beam.reporting.getTotalGameUsageByChain(13337);
@@ -101,7 +101,7 @@ const report = await beam.reporting.getTotalGameUsageByChain(13337);
 
 #### Policy report
 
-For more granular reporting per policy, you're able to retrieve the information for one specific policy by providing the policyId.
+For more granular reporting per policy, you're able to retrieve the information for one specific policy by providing the `policyId`.
 
 ```typescript
 const report = await beam.reporting.getPolicyUsage("clozl24n600003b6ysfapkqq1");
