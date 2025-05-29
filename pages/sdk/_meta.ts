@@ -31,7 +31,10 @@ export default {
     type: 'separator',
     title: 'Other',
   },
-  'other-verifying-contracts': 'Verifying Smart Contracts',
+  'Verifying Smart Contracts': {
+    title: 'Verifying Smart Contracts',
+    href: '/chain/builder/verifying-contracts'
+  },
 
   '--- More': {
     type: 'separator',

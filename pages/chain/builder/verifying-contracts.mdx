@@ -6,7 +6,7 @@ description: "A step-by-step guide on verifying contracts on Beam using the offi
 
 ## On subnets.avax.network
 
-To verify a contract using the official `subnets.avax.network` explorer, utilize the [Verifying Contracts Tool](https://subnets.avax.network/tools/verify-contract) available on avax.network.
+To verify a contract using the official `subnets.avax.network` explorer, utilize the [Verifying Contracts Tool](https://subnets.avax.network/tools/manage-contracts/verify/) available on avax.network.
 
 Follow these steps for verification:
 
@@ -17,7 +17,7 @@ Follow these steps for verification:
 
 ![Verifying Contracts Settings](/contract-verification-settings.png)
 
-For verifying a contract on the Beam testnet, refer to the [Verifying Contracts Tool (Testnet)](https://subnets-test.avax.network/tools/verify-contract?chainId=13337).
+For verifying a contract on the Beam testnet, refer to the [Verifying Contracts Tool (Testnet)](https://subnets-test.avax.network/tools/manage-contracts/verify/).
 
 ## From the command line
 
@@ -29,7 +29,8 @@ For more information, see the [Sourcify documentation](https://docs.sourcify.dev
 If you're using [hardhat-deploy](https://github.com/wighawag/hardhat-deploy) to deploy your contracts, verification with Sourcify is supported natively. Simply run this command from your project directory to verify all deployed contracts:
 
 ```bash
-hardhat --network beam sourcify
+# use
+hardhat --network beam sourcify --endpoint https://sourcify.avax.network
 ```
 
 For any other Hardhat project, you could use the plugin [hardhat-sourcify](https://github.com/xtools-at/hardhat-sourcify) and verify them one by one:
