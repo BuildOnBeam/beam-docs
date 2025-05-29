@@ -1,5 +1,3 @@
-import { Callout } from 'nextra/components'
-
 # Player or Automation Service
 
 To provide game developers with an extensive toolset of options, our platform consists of two main services that create different accounts.
@@ -36,12 +34,13 @@ If you're looking to implement your game onto the Beam Network, we highly recomm
 
 While the [Player Service](player-service/player-introduction) offers everything needed to get you going, you might be interested in a programmatic solution for various back-end purposes. For example, if you're looking to create a programmatic minter that you can control through one of our clients, the Automation API is the one you're looking for.
 
+Automation Profiles are smart contract accounts that game developers can use to manage their own crypto assets in connection with their games. They’re helpful for automating certain tasks - such as sending rewards to players, without needing to do everything manually. The Automation Profiles may only be used for the game developer’s own assets and cannot be used to store or manage crypto assets that belong to others.
+
 - [Profiles](automation-service/profiles/introduction): Understanding Automation API wallets.
 - [Policies](automation-service/policies/introduction): Understand and create policies.
 - [Trading](automation-service/trading/introduction): Trade assets and tokens between two profiles securely.
 
-
 ### Misc
 
 Profiles between Automation and Player APIs are not interchangeable. If you want to transfer assets from one to another, you can do so, using their respective Account (Wallet) Addresses. Profiles are free to create, and you can make as many as you need.
-Keep in mind that actual [Account Abstraction](https://ethereum.org/en/roadmap/account-abstraction/) is deployed on the blockchain on first transaction performed by that profile. Because of this, the first transaction might be a bit slower than any subsequent action.
+Keep in mind that actual [Account Abstraction](https://ethereum.org/en/roadmap/account-abstraction/) is deployed on the blockchain on first transaction performed by that account. Because of this, the first transaction might be a bit slower than any subsequent action.
