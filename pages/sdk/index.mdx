@@ -1,36 +1,39 @@
 import { Callout } from "nextra/components";
 import { Steps } from "nextra/components";
 
-# Getting started
+# Overview
 
-Getting started with your implementation on the Beam Network is easy. To make it simple, we've created a self-service dashboard to help you get started.
+Beam SDK is a term that wraps our entire set of tools that help you integrate the Beam Network into your game.
+Our tools allow you to introduce NFTs and Blockchain integration into your game via user-friendly [Account Abstractions](https://ethereum.org/en/roadmap/account-abstraction/). This way users can create on-chain Accounts without friction that is usually associated with storing Private Keys and security concerns. With a few clicks your players can create their self-custodial Beam Wallets using Social Login options like Google, Apple or Discord.
+
+Through [Sessions](/sdk/player-service/sessions/introduction) and [Policies](/sdk/automation-service/policies/introduction), Beam SDK enables you to create a safe frictionless experience for your players, allowing them to interact with Blockchain without dealing with on-chain transactions or worrying about transaction fees.
+
+Let's take look at the parts of Beam SDK ecosystem:
+
+### Beam App
+The all-in-one application to manage your Beam Wallet. [Read more](/sdk/beam-app).
+
+### Beam API
+Set of APIs for managing different types of accounts.
+You can use the API via one of our [HTTP Clients](/sdk/api/api-clients) or directly by referring to our [OpenApi schema](/sdk/api/api-reference)
+
+##### Player API
+A **self-custodial** service to implement Beam directly into your game with our game engine SDKs.
+
+##### Automation API
+A **custodial** service to implement distribution/automation in your backend services.
+
+You can read more about differences between those in [Player or Automation Service](/sdk/beam-player-vs-automation).
+
+### Beam Platform Clients
+Set of SDKs to use within game engines like [Unreal](/sdk/platform-clients/unreal), [Unity](/sdk/platform-clients/unity) or a more generic [Web SDK](/sdk/platform-clients/web)
+
+### Beam Dashboard
+All-in-one dashboard to manage your game and its assets. You can register your game, add contracts, manage funds and API keys.
+
+### Sphere
+Sphere is the marketplace for games, the backbone of game developers to launch an in-game marketplace. [Read more](/sdk/sphere/introduction).
 
 <Callout type="warning" emoji="⚠️">
-  If you would like advice or need help finding a strategy that suits your needs, please contact us at build@onbeam.com. We can provide help with bridging existing assets through LayerZero or provide you with complete and audited contracts to get your in-game assets going.
+  If you would like advice or need help finding a strategy that suits your needs, please contact us at build@onbeam.com. We can provide help with bridging existing assets through LayerZero or provide assistance around smart contracts to get your in-game assets going.
 </Callout>
-
----
-
-<Steps>
-  ### Step 1 - Registering your game
-
-  To get started, you can obtain your API key for Beam by registering your game on the [Beam Dashboard](/sdk/dashboard). The API keys you're able to obtain here are valid for the testnet version of the [Beam Network](/chain/get-started/rpc). Are you looking for a mainnet implementation? You might want to jump ahead to the [mainnet dashboard](https://dashboard.onbeam.com).
-
-  You will need to authenticate with a social account and a wallet, which can be used later on to allow you to sponsor transactions for your players.
-
-  ---
-
-  ### Step 2 - Add your in-game contracts (optional)
-
-  Once you've registered your game, it's possible to add contracts for in-game items and tokens. You will need to ensure the contract is verified on our [block explorer](https://subnets-test.avax.network/beam) before you add it to your game.
-
-  If you don't have any contracts yet — don't worry! You're able to proceed from here but will need to add a contract later to interact with these assets in your game.
-
-  ---
-
-  ### Step 3 - Pick an implementation strategy
-
-  We offer various ways to integrate your game on the Beam Network but highly recommend any new developer get started with our [Player API](/sdk/introduction-player-api), a service focused on facilitating a self-custodial implementation of Web3 in your game.
-
-  Would you like to start right away? Jump ahead to [our SDKs](/sdk/implementation-player-api) for the [Unity](https://github.com/BuildOnBeam/beam-sdk-unity) and [Unreal](https://github.com/BuildOnBeam/beam-sdk-unreal) game engines.
-</Steps>

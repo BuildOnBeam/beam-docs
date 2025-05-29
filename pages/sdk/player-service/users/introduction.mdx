@@ -1,0 +1,11 @@
+---
+title: Users
+---
+
+# Introduction to Users in Player Service
+
+In contrast to Automation [Profiles](automation-service/profiles/introduction), Player accounts are self-custodial. This means that not only does every asset on those accounts belong to the Player, you - as a game developer, cannot freely manage them. Every destructive action will result in an [Operation](../operations/introduction) being created, that then needs to be signed for, either via web interface, or using a [Session](../sessions/introduction). Because of this, Player API is accessible by a Publishable API key that can be safely exposed to the world. But before we can create an Operation, we need to [Connect the User to your game](connecting-users).
+
+### Getting started with Player users
+
+- [Connecting users](connecting-users): Learn how to connect users to your game
