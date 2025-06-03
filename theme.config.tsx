@@ -21,7 +21,7 @@ const config: DocsThemeConfig = {
     const ogDescription =
       config.frontMatter.description ||
       "Discover Beam's SDK and developer resources for Web3 gaming. Access API docs, tutorials, and integration guides for building with Beam.";
-    const ogImage = 'https://docs.onbeam.com/beam-development-docs.png';
+    const ogImage = 'https://docs.onbeam.com/opengraph-image.png';
 
     return (
       <>
