@@ -1,0 +1,70 @@
+---
+title: Implementation
+---
+
+import { Cards } from 'nextra/components'
+
+# Implementing Beam
+
+The implementation of our Player API consists of two components
+
+- The Beam game-platform client. We currently provide a **Unreal (C++), Unity (C#) and Web (TypeScript)** SDK.
+- The request client. We currently provide a **C# and TypeScript** clients.
+
+---
+
+### The platform clients
+
+The platform clients contains helpers to get users started with Beam within your game.
+
+<Cards>
+  <Cards.Card
+    icon="✅ "
+    title="Unreal (C++)"
+    href="https://github.com/BuildOnBeam/beam-sdk-unreal"
+  />
+  <Cards.Card
+    icon="✅ "
+    title="Unity (C#)"
+    href="https://github.com/BuildOnBeam/beam-sdk-unity"
+  />
+  <Cards.Card
+    icon="✅ "
+    title="Web (TypeScript)"
+    href="https://www.npmjs.com/package/@onbeam/sdk"
+  />
+</Cards>
+
+#### Initialize the platform client
+
+In order to interact with these clients, you will need a new type of API key - the `Publishable` API key. You will be able to find this API key by regenerating your API keys through the existing API. You can do so programmatically, or by interacting with the method in the [OpenAPI / Swagger UI](https://api.beta.onbeam.com/api/automation#/Game/regenerateApiKeys) interface.
+
+
+```csharp
+var beamClient = gameObject.AddComponent<BeamClient>()
+                .SetBeamApiKey("your-publishable-api-key") // required, sets your Publishable(!) API key
+                .SetEnvironment(BeamEnvironment.Testnet) // optional, defaults to Testnet
+                .SetDebugLogging(true) // optional, defaults to false
+                .SetStorage(yourCustomStorageImplementation); // optional, defaults to PlayerPrefs storage;
+```
+
+---
+
+### The request client
+
+The request client is a new client which can be used to generate [Operations](operations/introduction). Both the request clients we offer for the self-custodial services, are structured in similar fashion to the existing SDKs that offer custodial [Profiles](automation-service/profiles/introduction).
+
+Keep in mind that we expect you to also use the `Publishable` API key in these clients.
+
+<Cards>
+  <Cards.Card
+    icon="✅ "
+    title="TypeScript"
+    href="https://www.npmjs.com/package/@onbeam/player-api-client"
+  />
+  <Cards.Card
+    icon="✅ "
+    title="C# (RestSharp)"
+    href="https://www.nuget.org/packages/BeamPlayerClient"
+  />
+</Cards>
