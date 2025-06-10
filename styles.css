@@ -21,4 +21,5 @@ html {
 body {
   /* Reset body width in order to support radix modal's scroll-lock */
   width: unset !important;
+  background-color: '#111'
 }

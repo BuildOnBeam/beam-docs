@@ -10,10 +10,6 @@ const config: DocsThemeConfig = {
   project: {
     link: 'https://github.com/BuildOnBeam/beam-docs',
   },
-  backgroundColor: {
-    light: '#111',
-    dark: '#111',
-  },
   docsRepositoryBase: 'https://github.com/BuildOnBeam/beam-docs/tree/main',
   head: () => {
     const config = useConfig();
