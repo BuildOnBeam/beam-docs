@@ -54,10 +54,10 @@ export const ImageCard = ({
       />
     </div>
     <div
-      className={center({
+      className={flex({
         p: '6',
-        flexGrow: 1,
         textAlign: 'center',
+        justify: 'center',
       })}
     >
       {title}
