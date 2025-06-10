@@ -8,45 +8,35 @@ This documentation provides a comprehensive overview of the Beam Network. Discov
 
 
 import { Cards } from 'nextra/components'
+import { ImageCard } from '../../components/ImageCard'
 
 
 <Cards num={5}>
-
-	<Cards.Card href="/chain/get-started" title="Get Started" arrow>
-  		<img src="/beam-icon-get-started.png" alt="Get Started" />
-  		<div style={{padding: '0 16px'}}>
-  			<p>Start off with the basics</p>
-  		</div>
-	</Cards.Card>
-
-	<Cards.Card href="/nodes" title="Node" arrow>
-  		<img src="/beam-icon-node.png" alt="Build on Beam" />
-  		<div style={{padding: '0 16px'}}>
-  			<p>Learn how to become a validator</p>
-  		</div>
-	</Cards.Card>
-
-  	<Cards.Card href="/chain/builder" title="Builder" arrow>
-  		<img src="/beam-icon-builder.png" alt="Build on Beam" />
-  		<div style={{padding: '0 16px'}}>
-  			<p>Start building on Beam</p>
-  		</div>
-	</Cards.Card>
-
-	<Cards.Card href="/chain/beam-ecosystem" title="Beam ecosystem" arrow>
-  		<img src="/beam-icon-ecosystem.png" alt="Build on Beam" />
-  		<div style={{padding: '0 16px'}}>
-  			<p>Explore the Beam ecosystem</p>
-  		</div>
-	</Cards.Card>
-
-	<Cards.Card href="/chain/resources" title="Resources" arrow>
-  		<img src="/beam-icon-resources.png" alt="Build on Beam" />
-  		<div style={{padding: '0 16px'}}>
-  			<p>Additional resources and tools</p>
-  		</div>
-	</Cards.Card>
-
+	<ImageCard
+		href="/chain/get-started"
+		title="Start off with the basics"
+		img="/beam-icon-get-started.png"
+	/>
+	<ImageCard
+		href="/nodes"
+		title="Learn how to become a validator"
+		img="/beam-icon-node.png"
+	/>
+	<ImageCard
+		href="/chain/builder"
+		title="Start building on Beam"
+		img="/beam-icon-builder.png"
+	/>
+	<ImageCard
+		href="/chain/beam-ecosystem"
+		title="Explore the Beam ecosystemBeam"
+		img="/beam-icon-ecosystem.png"
+	/>
+	<ImageCard
+		href="/chain/resources"
+		title="Additional resources and tools"
+		img="/beam-icon-resources.png"
+	/>
 </Cards>
 
 

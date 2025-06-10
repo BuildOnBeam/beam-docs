@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@onbeam/biome-config": "^0.0.4",
+    "@onbeam/business-ui": "^1.2.4",
     "@onbeam/errors": "^1.0.1",
     "@onbeam/features": "^1.7.8",
     "@onbeam/styled-system": "^2.8.8",
