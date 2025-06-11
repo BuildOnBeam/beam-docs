@@ -86,8 +86,8 @@
     "yargs": "^17.7.2"
   },
   "engines": {
-    "node": ">=20",
-    "pnpm": ">=8"
+    "node": ">=22",
+    "pnpm": ">=10"
   },
-  "packageManager": "pnpm@8.10.2"
+  "packageManager": "pnpm@10.12.1"
 }
