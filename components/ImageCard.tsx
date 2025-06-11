@@ -1,5 +1,5 @@
 import { css, cx } from '@onbeam/styled-system/css';
-import { center, flex } from '@onbeam/styled-system/patterns';
+import { flex } from '@onbeam/styled-system/patterns';
 import Image from 'next/image';
 import NextLink from 'next/link';
 
@@ -20,7 +20,6 @@ export const ImageCard = ({
         border: '1px solid',
         borderColor: 'mono.0/25',
         shadow: 'md',
-        textStyle: 'md',
       }),
     )}
   >
