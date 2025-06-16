@@ -20,9 +20,9 @@ Take into account that if the Profile doesn't actually have the necessary BEAM f
 Below you will find an example how this would look like when managing assets in a Profile:
 
 ```typescript
-const transaction = await beam.assetsV2.transferAssetV2("your-sender-id", {
+const transaction = await beam.assetsV2.transferAssetV2("sending-user-entity-id", {
   assets: [
-    receiverEntityId: "your-receiver-id",
+    receiverEntityId: "receiving-user-entity-id",
     assetAddress: "your-contract-address",
     assetId: "73",
     amountToTransfer: 1,
