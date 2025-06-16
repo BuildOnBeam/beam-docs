@@ -1,0 +1,41 @@
+---
+title: Custom charges
+---
+
+### Custom charges of in-game currencies (coming soon)
+
+Another — and probably the most interesting option for most developers - is charging in-game (ERC-20) tokens as a form of payment for transactions. To easily explain the flexibility this gives you, let's assume you have an in-game token called 'Gold'. Users obtain Gold either through playing your game, or by making an in-app purchase, and you would like to charge users their Gold when you handle a transaction for them.
+
+### Creating a custom charge policy
+
+You could charge your users an X amount of Gold by simply creating a policy and providing the `policyId` in any transaction. When this happens, the in-game Gold will be taken away from the user, while under the hood we use BEAM to run a transaction.
+
+### Economic viability
+
+Eventually, you as a game developer will be responsible for funding the BEAM for all the transactions that are ran through our service, so if you take away in-game Gold, you have to consider if it is economically viable to make this transaction. Let's assume a single transaction on Beam costs < 0.001 BEAM, and a single Gold (coin) costs the user $0.05 to obtain - this means that the transaction through the policy is not only economically viable but it also allows you to to sponsor quite a few transactions for the user as the single Gold paid for the transaction tenfold.
+
+```typescript
+const transaction = await beam.assetsV2.transferAssetV2("your-sender-id", {
+  assets: [
+    receiverEntityId: "your-receiver-id",
+    assetAddress: "your-contract-address",
+    assetId: "73",
+    amountToTransfer: 1,
+  ]
+  // ...
+  sponsor: false, // 👈 This handles the transaction to be self paid
+  policyId: "cl..", // 👈 This triggers the custom policy to be used
+});
+
+// {
+//   "status": "success",
+//   "type": "custodial",
+//   "transactionHash": '0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f',
+//   "explorerUrl": "https://subnets.avax.network/beam/0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f"
+// }
+```
+
+### Alternative methods of handling transactions
+
+- [Sponsored transactions](sponsored-transactions): Learn about sponsored transactions for your users
+- [Profile-paid transactions](profile-paid-transactions): Learn about how to make a profile pay for it's own transactions through BEAM

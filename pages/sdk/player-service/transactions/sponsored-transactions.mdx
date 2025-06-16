@@ -1,0 +1,38 @@
+---
+title: Sponsoring transactions
+---
+
+# Sponsoring transactions
+
+By default, all transactions are **sponsored by you**. Sponsoring transactions means that the in-game accounts don't need to have any BEAM registered in their wallet in order for you to move funds from A-to-B.
+
+### Why are transactions sponsored by default?
+
+We think this default is sensible, as it's you as the game developer who is in control of when a transaction happens. We consider it your responsibility as a game developer to create a viable economic model where sponsored and self-paid transactions (through BEAM or custom charges) go hand in hand to create the best experience for the gamer.
+
+To paint a better picture on how this looks like, below you'll find a transaction which is sponsored:
+
+```typescript
+const transaction = await beam.assetsV2.transferAssetV2("your-sender-id", {
+  assets: [
+    receiverEntityId: "your-receiver-id",
+    assetAddress: "your-contract-address",
+    assetId: "73",
+    amountToTransfer: 1,
+  ]
+  // ...
+  sponsor: true, // 👈 true is also the default.
+});
+
+// {
+//   "status": "success",
+//   "type": "custodial",
+//   "transactionHash": '0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f',
+//   "explorerUrl": "https://subnets.avax.network/beam/0x71f3f259568e9875c41a4350a3912a3a7650d9321ccd1d57641241128b4e504f"
+// }
+```
+
+### Alternative methods of handling transactions
+
+- [Profile-paid transactions](profile-paid-transactions): Learn about how to make a profile pay for it's own transactions through BEAM
+- [Custom charges](custom-charges): A guide to managing and updating your game's assets and details within Beam
