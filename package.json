@@ -30,11 +30,12 @@
   },
   "dependencies": {
     "@onbeam/biome-config": "^0.0.4",
+    "@onbeam/business-ui": "^1.2.4",
     "@onbeam/errors": "^1.0.1",
-    "@onbeam/features": "^1.6.2",
-    "@onbeam/styled-system": "^2.8.1",
-    "@onbeam/ui": "^2.14.13",
-    "@onbeam/utils": "^1.8.2",
+    "@onbeam/features": "^1.7.8",
+    "@onbeam/styled-system": "^2.8.8",
+    "@onbeam/ui": "^2.15.7",
+    "@onbeam/utils": "^1.9.4",
     "@supabase/supabase-js": "^2.38.0",
     "@vercel/analytics": "^1.0.2",
     "ai": "^2.2.14",
@@ -43,7 +44,7 @@
     "next": "14.2.10",
     "nextra": "^3.2.3",
     "nextra-theme-docs": "^3.2.3",
-    "openai": "^4.11.1",
+    "openai": "^4.93.0",
     "openai-edge": "^1.2.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -85,8 +86,8 @@
     "yargs": "^17.7.2"
   },
   "engines": {
-    "node": ">=20",
-    "pnpm": ">=8"
+    "node": ">=22",
+    "pnpm": ">=10"
   },
-  "packageManager": "pnpm@8.10.2"
+  "packageManager": "pnpm@10.12.1"
 }

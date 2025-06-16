@@ -1,0 +1,45 @@
+---
+title: Webhooks
+---
+
+import { Cards } from 'nextra/components'
+
+# Webhooks
+
+---
+
+### User Connection
+
+We support webhooks for game connection events. This allows you to be notified when a player connects to your game.
+In order to set it up, go to Dashboard -> Your game -> Edit game info -> User connection webhook URL.
+
+Setup a reachable URL to your service, which will receive a POST request with the following payload:
+
+```json
+{
+    "gameId": "cltr7dre601ahakla28hbtuim",
+    "requestId": "cm8pw6v2i013ow203htb794ic", // optional when coming from Session flow
+    "entityId": "yourPlayerEntityId",
+    "authProvider": "Google", // any of ["Any", "Google", "Apple", "Discord"]
+    "user": {
+        "id": "cm0y2wsnk01il820ubo0qo8lb",
+        "wallets": [
+            {
+                "chainId": 13337,
+                "address": "0x5fDf55d9b88e0d52bD710aA2CB76434e0d6A20c7"
+            },
+            {
+                "chainId": 531050104,
+                "address": "0x956e21658e3B356C8F88aE3D5163cBb5Bc3Eef3a"
+            }
+        ]
+    },
+    "connectedAt": "2025-03-26T12:19:51.116Z"
+}
+```
+
+We will call it once for every user that finished Game Connection flow initiated by your game. This includes connecting user to your game via first [Session](sessions/introduction) Flow.
+We expect any response code from [200, 201, 202, 204]. In case of any other code or timeout, we will retry 3 times, with 30 seconds delay after each attempt.
+
+The Webhook will be called for every new `entityId` the user connects with.
+`requestId` property is optional and related to Connection Request started from SDKs. When connecting User to your game through first Session flow, this value will not be included.

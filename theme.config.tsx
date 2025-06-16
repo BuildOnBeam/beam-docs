@@ -1,4 +1,4 @@
-import { hstack, link, text } from '@onbeam/styled-system/patterns';
+import { hstack, link } from '@onbeam/styled-system/patterns';
 import { useCookieConsentStore } from '@onbeam/utils';
 import { DocsThemeConfig } from 'nextra-theme-docs';
 import { useConfig } from 'nextra-theme-docs';
@@ -21,7 +21,7 @@ const config: DocsThemeConfig = {
     const ogDescription =
       config.frontMatter.description ||
       "Discover Beam's SDK and developer resources for Web3 gaming. Access API docs, tutorials, and integration guides for building with Beam.";
-    const ogImage = 'https://docs.onbeam.com/beam-development-docs.png';
+    const ogImage = 'https://docs.onbeam.com/opengraph-image.png';
 
     return (
       <>
@@ -80,12 +80,10 @@ const config: DocsThemeConfig = {
             bg: 'mono.650',
             borderTop: '1px solid',
             borderColor: 'mono.550',
-            textStyle: 'sm',
+            fontSize: '[0.75rem]',
           })}
         >
-          <span className={text()}>
-            GPL v.3.0 {new Date().getFullYear()} © Beam
-          </span>
+          <span>GPL v.3.0 {new Date().getFullYear()} © Beam</span>
           <a
             href="https://onbeam.com/terms"
             target="_blank"

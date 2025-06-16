@@ -7,4 +7,56 @@ description: meta description
 
 The Beam Network is a vital part of the Beam ecosystem which stretches far and wide throughout the gaming industry with a suite of smart contracts, decentralized applications, games and other activities. Those that empower and secure the Beam Network, and thereby contribute to a decentralized gaming future, may receive a wide variety of network rewards in return.
 
-These rewards can be divided into [primary](/nodes/rewards/primary) and [secondary](/nodes/rewards/secondary) rewards. It's important to note that the exact calculations of the rewards will constantly change, and are, among other things, dependent on the total number of active validators, Node Tokens staked and BEAM staked.
+These rewards can be divided into [primary](/nodes/rewards/primary) and [secondary](/nodes/rewards/secondary) rewards.
+
+
+## Epochs
+
+Rewards on the Beam network will be distributed in epochs. Each epochs duration is exactly `2629746` seconds, which translates to `30.436875` days. This duration is specific to make the epochs better align with each month start and end. The first epoch starts on `Tuesday, 1 April 2025 GMT+00`. The second epoch starts immediately upon the end of the first one, and so forth. 
+
+The following table represents the epochs and their duration for the year 2025:
+
+
+| Epoch	| Start Date & Time (GMT) |	End Date & Time (GMT) |
+| --- | --- | --- | 
+| 1	|	2025-04-01 00:00:00	|	2025-05-01 10:29:05 |
+| 2	|	2025-05-01 10:29:06	|	2025-05-31 20:58:11 |
+| 3	|	2025-05-31 20:58:12	|	2025-07-01 07:27:17 |
+| 4	|	2025-07-01 07:27:18	|	2025-07-31 17:56:27 |
+| 5	|	2025-07-31 17:56:24	|	2025-08-31 04:25:29 |
+| 6	|	2025-08-31 04:25:30	|	2025-09-30 14:54:35 |
+| 7	|	2025-09-30 14:54:36	|	2025-10-31 01:23:41 |
+| 8	|	2025-10-31 01:23:42	|	2025-11-30 11:52:47 |
+| 9	|	2025-11-30 11:52:48	|	2025-12-30 22:21:53 |
+| 10	|	2025-12-30 22:21:54	|	2026-01-30 08:50:59 |
+
+At the end of each epoch there is a period of 7 days during which several processes need to finalize:
+- Uptime proof submission
+- Rewards calculation
+- Rewards distribution
+
+After the 7 days have passed, rewards become claimable via the [Delegation dashboard](https://nodes.onbeam.com/delegations)
+
+## Rewards calculation and distribution process
+
+To better understand how the rewards calculation and distribution works, here are the steps of the process for Primary rewards:
+1. Collect all gas fees into the Rewards contract
+	- Query all active validators for their uptime and request quroum from the nodes
+	- Once uptime is agreed upon by the quorum (67%+ of nodes), the nodes that have 80%+ uptime are marked to receive full rewards, and those with less than 80% have a linear drop off in the rewards they get
+2. Depending on all combined stake weight in the validator set, define reward amounts for each node based on that individual nodes stake weight
+	- A node stake weight is the combined stake weight of the validator operator and all delegators of that node
+3. Rewards are then distributed as follows, per each validator node:
+	- Validator node gets their respective amount of rewards based on the commission percentage
+	- Each delegator in turn gets their respective amount based on their stake weight within that node
+
+### Notes for Secondary rewards
+
+The process for Secondary rewards is largely the same, with slight changes to a few of the steps:
+
+The rewards pool is not based on network gas fees, rather it's a broader ecosystem rewards pool. For exact details see under [secondary rewards](/nodes/rewards/secondary).
+
+For each delegator, the ratio of rewards is as follows: 
+- 80% is based on the weight of the staked Node Tokens 
+- 20% is based on the weight of staked BEAM
+
+This is different to how Primary rewards are calculated - there is no ratio, just the stake weight BEAM.

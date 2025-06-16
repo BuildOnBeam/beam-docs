@@ -1,0 +1,16 @@
+---
+title: Operations
+---
+
+# Introduction to Operations
+
+Operations are the cornerstone of the self-custodial Player service in Beam. They facilitate the interaction between you and the end-user, who needs to sign certain transactions.
+
+Everything you do in the new self-custodial service that requires a signature, will return an Operation to be handled.
+
+An Operation can consist out of a **single** or **multiple** transactions. Depending on the actions you would like to initiate - a user would sometimes need to provide multiple signatures. A good example of this situation would be interacting with the Marketplace: an Operation might consist out of a transaction to approve the Seaport contract required to interact with the marketplace, as well as the actual Seaport Order to be signed by the user in order to get processed by the Marketplace.
+
+### Getting started with operations
+
+- [Creating operations](creating-operations): Learn about how to create operations for your users
+- [Operation processing](processing-operations): Learn how users can interact with Operations

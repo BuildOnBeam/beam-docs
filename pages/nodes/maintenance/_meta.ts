@@ -1,3 +1,3 @@
 export default {
-  slashing: 'Slashing'
+  slashing: 'Slashing',
 };
