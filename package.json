@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@onbeam/biome-config": "^0.0.4",
+    "@onbeam/business-ui": "^1.2.4",
     "@onbeam/errors": "^1.0.1",
     "@onbeam/features": "^1.7.8",
     "@onbeam/styled-system": "^2.8.8",
@@ -85,8 +86,8 @@
     "yargs": "^17.7.2"
   },
   "engines": {
-    "node": ">=20",
-    "pnpm": ">=9"
+    "node": ">=22",
+    "pnpm": ">=10"
   },
-  "packageManager": "pnpm@9.14.4"
+  "packageManager": "pnpm@10.12.1"
 }
