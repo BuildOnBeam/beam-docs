@@ -119,7 +119,7 @@ const config: DocsThemeConfig = {
             rel="noopener noreferrer"
             className={linkStyle}
           >
-            terms of service
+            Terms of Use
           </a>
           <a
             href="https://onbeam.com/privacy-policy"
@@ -127,10 +127,10 @@ const config: DocsThemeConfig = {
             rel="noopener noreferrer"
             className={linkStyle}
           >
-            privacy policy
+            Privacy Policy
           </a>
           <button type="button" className={linkStyle} onClick={open}>
-            cookies
+            Cookies
           </button>
         </footer>
       );
