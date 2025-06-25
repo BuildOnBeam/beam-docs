@@ -1,5 +1,5 @@
-import { css, cx } from '@onbeam/styled-system/css';
-import { flex } from '@onbeam/styled-system/patterns';
+import { css, cx } from '@onbeam/business-styled-system/css';
+import { flex } from '@onbeam/business-styled-system/patterns';
 import Image from 'next/image';
 import NextLink from 'next/link';
 
@@ -15,10 +15,11 @@ export const ImageCard = ({
       flex({
         direction: 'column',
         rounded: 'md',
-        bg: 'mono.750',
-        color: 'mono.0',
+        bg: 'mono.primaryFg',
+        textStyle: 'body-md',
+        color: 'mono.primaryBg',
         border: '1px solid',
-        borderColor: 'mono.0/25',
+        borderColor: 'opacity.lg',
         shadow: 'md',
       }),
     )}

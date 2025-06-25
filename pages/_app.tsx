@@ -1,5 +1,5 @@
-import { CookieConsent } from '@onbeam/features';
-import { cx } from '@onbeam/styled-system/css';
+import { CookieConsent } from '@onbeam/business-features';
+import { cx } from '@onbeam/business-styled-system/css';
 import { Analytics } from '@vercel/analytics/react';
 import React from 'react';
 import { GoogleTagManager } from '../components/google-tag-manager';

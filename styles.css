@@ -21,5 +21,8 @@ html {
 body {
   /* Reset body width in order to support radix modal's scroll-lock */
   width: unset !important;
-  background-color: '#111'
+}
+
+.nextra-content {
+  color: var(--beam-business-colors-mono-primary-bg);
 }

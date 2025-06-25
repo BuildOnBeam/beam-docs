@@ -3,7 +3,7 @@ export default {
     type: 'separator',
     title: 'Beam',
   },
-  'index': 'Overview',
+  index: 'Overview',
   'beam-getting-started': 'Getting started',
   'beam-player-vs-automation': 'Player or Automation Service',
   'player-service': 'Player Service',
@@ -16,14 +16,14 @@ export default {
   },
 
   'beam-dashboard': 'Beam Dashboard',
-  'api': {
+  api: {
     title: 'Beam API',
   },
   'platform-clients': {
-    title: 'Platform clients'
+    title: 'Platform clients',
   },
   'beam-app': 'Beam App',
-  'sphere': {
+  sphere: {
     title: 'Sphere',
   },
 
@@ -33,7 +33,7 @@ export default {
   },
   'Verifying Smart Contracts': {
     title: 'Verifying Smart Contracts',
-    href: '/chain/builder/verifying-contracts'
+    href: '/chain/builder/verifying-contracts',
   },
 
   '--- More': {
@@ -45,7 +45,7 @@ export default {
     href: 'https://www.onbeam.com/',
     newWindow: true,
   },
-  'support': {
+  support: {
     title: 'Get support ↗',
     href: 'https://support.onbeam.com/hc/en-us',
     newWindow: true,

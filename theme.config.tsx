@@ -1,9 +1,41 @@
-import { hstack, link } from '@onbeam/styled-system/patterns';
+import { flex, hstack } from '@onbeam/business-styled-system/patterns';
 import { useCookieConsentStore } from '@onbeam/utils';
 import { DocsThemeConfig } from 'nextra-theme-docs';
 import { useConfig } from 'nextra-theme-docs';
-import React from 'react';
 import { BeamIcon } from './components/beam-icons';
+import { token } from '@onbeam/business-styled-system/tokens';
+
+const linkStyle = flex({
+  position: 'relative',
+  align: 'center',
+  truncate: true,
+
+  _before: {
+    content: '""',
+    position: 'absolute',
+    bottom: '[3px]',
+    left: '0',
+    w: '[0]',
+    h: '[1px]',
+    bgColor: '[currentColor]',
+    transitionProperty: 'width',
+    transitionDuration: '[250ms]',
+    transitionTimingFunction: 'ease',
+  },
+
+  _supportsHover: {
+    _hover: {
+      _before: {
+        w: 'full',
+      },
+    },
+  },
+  _focusActive: {
+    _before: {
+      w: 'full',
+    },
+  },
+});
 
 const config: DocsThemeConfig = {
   logo: BeamIcon,
@@ -76,11 +108,8 @@ const config: DocsThemeConfig = {
             gap: '4',
             px: '4',
             py: '4',
-            color: 'mono.100',
-            bg: 'mono.650',
-            borderTop: '1px solid',
-            borderColor: 'mono.550',
-            fontSize: '[0.75rem]',
+            textStyle: 'body-sm',
+            color: 'mono.tertiary',
           })}
         >
           <span>GPL v.3.0 {new Date().getFullYear()} © Beam</span>
@@ -88,7 +117,7 @@ const config: DocsThemeConfig = {
             href="https://onbeam.com/terms"
             target="_blank"
             rel="noopener noreferrer"
-            className={link({ color: 'mono.100' })}
+            className={linkStyle}
           >
             terms of service
           </a>
@@ -96,15 +125,11 @@ const config: DocsThemeConfig = {
             href="https://onbeam.com/privacy-policy"
             target="_blank"
             rel="noopener noreferrer"
-            className={link({ color: 'mono.100' })}
+            className={linkStyle}
           >
             privacy policy
           </a>
-          <button
-            type="button"
-            className={link({ color: 'mono.100' })}
-            onClick={open}
-          >
+          <button type="button" className={linkStyle} onClick={open}>
             cookies
           </button>
         </footer>
@@ -115,14 +140,22 @@ const config: DocsThemeConfig = {
     defaultMenuCollapseLevel: 1,
   },
   color: {
-    hue: { dark: 33, light: 33 },
+    hue: 0,
+    saturation: 0,
+    lightness: {
+      light: 50,
+      dark: 100,
+    },
+  },
+  backgroundColor: {
+    light: token('colors.mono.primaryFg'),
+    dark: token('colors.mono.primaryFg'),
   },
   feedback: {
     content: null,
   },
-  darkMode: false,
   nextThemes: {
-    defaultTheme: 'dark',
+    defaultTheme: 'light',
   },
 };
 
