@@ -973,12 +973,6 @@ packages:
   '@onbeam/business-ui@1.4.0':
     resolution: {integrity: sha512-vCKPa5u9cBl568V+CTCcOSgyHv1482zeU/o/FR0bJ0HdM0tiRfUA1xvz9gmwoRhJE0G+qBfe6Nusqbf4XMDruQ==}
 
-  '@onbeam/business-styled-system@1.4.0':
-    resolution: {integrity: sha512-dfd3lR3JaNuIkHsZtSuctlmdgfrkBjK2hD7J1+cPsgqt2Ufe92+YYB3JdyOEcA7f8Fv3ZQFYVag36OOYNkIlWw==}
-
-  '@onbeam/business-ui@1.3.0':
-    resolution: {integrity: sha512-e4dcaJFFUE1YMlTVdmmXV9ZijJZOZeVssVYiKPzRJ0+JSCIHIApQthMhPBgXHUyIb3oSGxLMc4h9z6y8McZI2w==}
-
   '@onbeam/errors@1.0.1':
     resolution: {integrity: sha512-WvrL4S1cWKWIIAZDMitcWS69pgbWX2me/TwXJuRA2pFR5bgg4w0QbGfgXPhbzmMHlmTUUeumn0HBGJRdI8l+aQ==}
 
@@ -4991,10 +4985,6 @@ packages:
     resolution: {integrity: sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==}
     engines: {node: '>=0.10.0'}
 
-  react@19.1.0:
-    resolution: {integrity: sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==}
-    engines: {node: '>=0.10.0'}
-
   read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
 
@@ -6871,13 +6861,6 @@ snapshots:
   '@onbeam/business-ui@1.4.0':
     dependencies:
       '@onbeam/business-styled-system': 1.5.0
-      react: 19.1.0
-
-  '@onbeam/business-styled-system@1.4.0': {}
-
-  '@onbeam/business-ui@1.3.0':
-    dependencies:
-      '@onbeam/business-styled-system': 1.4.0
       react: 19.1.0
 
   '@onbeam/errors@1.0.1': {}
@@ -9110,8 +9093,6 @@ snapshots:
     dependencies:
       mathjax-full: 3.2.2
       react: 19.1.0
-
-  big.js@6.2.2: {}
 
   big.js@6.2.2: {}
 
@@ -12517,8 +12498,6 @@ snapshots:
       prismjs: 1.30.0
       react: 19.1.0
       refractor: 3.6.0
-
-  react@19.1.0: {}
 
   react@19.1.0: {}
 
