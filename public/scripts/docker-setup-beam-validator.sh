@@ -11,8 +11,12 @@ DOCKER_COMPOSE_FILE="docker-compose.yml"
 VM_ID="kLPs8zGsTVZ28DhP1VefPCFbCgS7o5bDNez8JUxPVw9E6Ubbz"
 ALIAS_TARGET="srEXiWaHuhNyGwPUi444Tu47ZEDwxTWrbQiuD7FmgSAQ6X7Dy"
 SUBNET_ID="eYwmVU67LmSfZb1RwqCMhBYkFyG8ftxn6jAwqzFmxC9STBWLC"
-IMAGE_TAG="v0.7.3"
 NODE_INFO_FILE="node-info.json"
+
+SUBNET_EVM_VERSION="v0.7.4"
+AVALANCHEGO_VERSION="v1.13.1"
+IMAGE_TAG="${SUBNET_EVM_VERSION}_${AVALANCHEGO_VERSION}"
+IMAGE_NAME="avaplatform/subnet-evm_avalanchego:$IMAGE_TAG"
 
 # === Start ===
 echo "==> Preparing Beam Validator setup..."
@@ -44,7 +48,7 @@ if [ ! -f "$DOCKER_COMPOSE_FILE" ] || ! grep -q "$IMAGE_TAG" "$DOCKER_COMPOSE_FI
   cat > "$DOCKER_COMPOSE_FILE" <<EOF
 services:
   avago:
-    image: avaplatform/subnet-evm:$IMAGE_TAG
+    image: $IMAGE_NAME
     container_name: avago
     restart: unless-stopped
     ports:
@@ -61,13 +65,22 @@ services:
 EOF
 fi
 
-CURRENT_IMAGE=$(docker ps --filter "name=avago" --format '{{.Image}}' || true)
+EXISTING_ID=$(docker ps -a --filter "name=^/avago$" --format '{{.ID}}' || true)
+EXISTING_IMAGE=$(docker inspect --format '{{.Config.Image}}' "$EXISTING_ID" 2>/dev/null || echo "")
 
-if [ "$CURRENT_IMAGE" != "avaplatform/subnet-evm:$IMAGE_TAG" ]; then
-  docker pull avaplatform/subnet-evm:$IMAGE_TAG
+if [ "$EXISTING_IMAGE" != "$IMAGE_NAME" ]; then
+  echo "==> Updating container to image $IMAGE_NAME..."
+  [ -n "$EXISTING_ID" ] && docker rm -f "$EXISTING_ID"
+  docker pull "$IMAGE_NAME"
   docker compose up -d
 else
-  echo "==> Container already running with the correct image. Skipping restart."
+  IS_RUNNING=$(docker inspect --format '{{.State.Running}}' "$EXISTING_ID" 2>/dev/null || echo "false")
+  if [ "$IS_RUNNING" != "true" ]; then
+    echo "==> Starting existing container..."
+    docker start avago
+  else
+    echo "==> Container already running with correct image. Skipping restart."
+  fi
 fi
 
 until NODE_INFO=$(curl -sf -X POST --data '{"jsonrpc":"2.0","id":1,"method":"info.getNodeID"}' \

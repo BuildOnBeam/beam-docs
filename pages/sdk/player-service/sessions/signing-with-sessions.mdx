@@ -13,7 +13,7 @@ If a session is active for the user, the session key is still available in the l
 ```csharp
             var operationId = "clxn9u(...)0c4bz7av";
             var operationResult = await beamClient.SignOperationAsync(
-                entityId: "your-entity-id",
+                entityId: "entity-id-of-user",
                 operationId: operationId,
                 signingBy: OperationSigningBy.Auto  // accepts Auto, Browser and Session
                 );

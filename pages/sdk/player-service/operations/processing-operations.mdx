@@ -17,7 +17,7 @@ When using our SDK, processing an operation is as simple as providing the user `
 ```csharp
             var operationId = "clxn9u(...)0c4bz7av";
             var operationResult = await beamClient.SignOperationAsync(
-                entityId: "your-entity-id",
+                entityId: "entity-id-of-user",
                 operationId: operationId,
                 signingBy: OperationSigningBy.Auto  // accepts Auto, Browser and Session
                 );

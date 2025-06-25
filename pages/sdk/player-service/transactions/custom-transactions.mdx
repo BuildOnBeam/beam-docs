@@ -9,7 +9,7 @@ Throughout our service we've added multiple methods for you to manage assets for
 You can simply do this by creating a transaction that interacts with one or more contracts in one go by padding an `interactions` array. This would look something like the snippet below. Keep in mind that everything you see below is completely contextual based on the contracts you're calling and the functions that are available on said contract.
 
 ```typescript
-const transaction = await beam.transactions.createTransaction("profile-id", {
+const transaction = await beam.transactions.createTransaction("entity-id-of-user", {
   interactions: [
     {
       contract: "0x9eeaecbe2884aa7e82f450e3fc174f30fc2a8de3", // 👈 the asset contract you're calling

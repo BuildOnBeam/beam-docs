@@ -10,7 +10,7 @@ In order to get started with a Session, you will need to call the following meth
 
 
 ```csharp
-            var activeSessionResult = await beamClient.CreateSessionAsync("your-entity-id");
+            var activeSessionResult = await beamClient.CreateSessionAsync("entity-id-of-user");
             if (activeSessionResult.Status == BeamResultType.Success)
             {
                 var session = activeSessionResult.Result;
@@ -34,7 +34,7 @@ Once handled, the session (private key) is able to sign transactions on behalf o
 You can retrieve current valid and active Sessions for your user. If local storage was cleared out, your game contracts changed, or the session simply expired - we will not return an active session.
 
 ``` csharp
-            var activeSessionResult = await beamClient.GetActiveSessionAsync("your-entity-id");
+            var activeSessionResult = await beamClient.GetActiveSessionAsync("entity-id-of-user");
             if (activeSessionResult.Status == BeamResultType.Success)
             {
                 var session = activeSessionResult.Result;
