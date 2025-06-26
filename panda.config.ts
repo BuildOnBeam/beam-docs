@@ -1,9 +1,9 @@
-import { defineBeamUiConfig } from '@onbeam/styled-system/config';
+import { defineBeamUiConfig } from '@onbeam/business-styled-system/config';
 
 export default defineBeamUiConfig({
   include: [
-    './node_modules/@onbeam/ui/dist/panda.buildinfo.json',
-    './node_modules/@onbeam/features/dist/panda.buildinfo.json',
+    './node_modules/@onbeam/business-ui/dist/panda.buildinfo.json',
+    './node_modules/@onbeam/business-features/dist/panda.buildinfo.json',
     './**/*.{ts,tsx}',
     './pages/**/*.mdx',
   ],

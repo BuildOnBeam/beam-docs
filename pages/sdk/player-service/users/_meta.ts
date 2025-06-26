@@ -1,4 +1,4 @@
 export default {
-  'introduction': 'Introduction',
-  'connecting-users': 'Connecting users'
+  introduction: 'Introduction',
+  'connecting-users': 'Connecting users',
 };

@@ -21,5 +21,21 @@ html {
 body {
   /* Reset body width in order to support radix modal's scroll-lock */
   width: unset !important;
-  background-color: '#111'
+}
+
+.nextra-content {
+  color: var(--beam-business-colors-mono-primary-bg);
+}
+
+a._underline {
+  color: var(--beam-business-colors-blue-primary);
+  text-decoration: underline;
+  text-underline-offset: 1px;
+  text-decoration-color: var(--beam-business-colors-blue-qauartnery);
+}
+
+a._underline:hover, a._underline:focus-visible, a._underline:active {
+  color: var(--beam-business-colors-blue-tertiary);
+  text-decoration: underline;
+  text-decoration-color: var(--beam-business-colors-blue-qauartnery);
 }
