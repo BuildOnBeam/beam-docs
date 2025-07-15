@@ -39,3 +39,10 @@ a._underline:hover, a._underline:focus-visible, a._underline:active {
   text-decoration: underline;
   text-decoration-color: var(--beam-business-colors-blue-qauartnery);
 }
+
+/* Overwrite Nextra's default `rgb(var(--nextra-bg))` because that could never work when passing a hex value */
+@media not all and (min-width: 768px) {
+  .nextra-sidebar-container {
+    background-color: var(--nextra-bg);
+  }
+}
