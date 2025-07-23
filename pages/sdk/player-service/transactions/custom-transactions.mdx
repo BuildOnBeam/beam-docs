@@ -27,3 +27,29 @@ const transaction = await beam.transactions.createTransaction("entity-id-of-user
 ```
 
 * NOTE: There's a limit of 9 interactions per transaction to prevent potential security vulnerabilities. Making calls to external contracts within loops can risk Denial of Service (DoS) or transaction failures if they consume more gas than a block's limit.
+
+## Passing structs as function arguments
+If your smart contract function accepts a struct as an argument:
+```
+struct MyStruct {
+    uint256 intProp;
+    string stringProp;
+    bool boolProp;
+}
+
+function testNonPure(uint256 _arg1, MyStruct memory _arg2) public returns (string memory) {
+    ...
+}
+```
+You can pass it using an array like this:
+```typescript
+const transaction = await beam.transactions.createTransaction("entity-id-of-user", {
+  interactions: [
+    {
+      contract: "0x89fFf7409b261d19edad2c0852Baa005a1330c4C",
+      functionName: "testNonPure",
+      functionArgs: [123, [1, [2,"somestring",true]] // 👈 pass each struct field as an array element, order and type matters!
+    },
+  ],
+});
+```
