@@ -25,7 +25,7 @@ export function Features() {
 
   return (
     <div className="mx-auto max-w-full w-[880px] text-center px-4 mb-10">
-      <p className="text-lg mb-2 md:!text-2xl">The Gaming Ecosystem</p>
+      <p className="text-lg mb-2 md:!text-2xl">The Frontier Technology Network</p>
       <div className={styles.features}>
         {FEATURES_LIST.map(({ label }) => (
           <Feature label={label} key={id + label} />
