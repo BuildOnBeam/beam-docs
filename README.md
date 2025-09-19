@@ -1,6 +1,6 @@
 # Hello Beam
 
-Beam is a sovereign network focused on gaming. Powered by the established Avalanche network, Beam operates independently to cater towards gamers and game developers.
+Beam is a sovereign Frontier Technology Network. Powered by the established Avalanche network, Beam operates independently to cater towards web3 developers.
 
 ## Contributions
 
