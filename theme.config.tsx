@@ -49,10 +49,10 @@ const config: DocsThemeConfig = {
     const title = config.frontMatter.title || config.title;
     const ogTitle = `${
       title ? title : 'Hello Beam!'
-    } | Beam Docs: Your Gateway to Web3 Game Development`;
+    } | Beam Docs: Your Gateway to Web3 Frontier Tech Development`;
     const ogDescription =
       config.frontMatter.description ||
-      "Discover Beam's SDK and developer resources for Web3 gaming. Access API docs, tutorials, and integration guides for building with Beam.";
+      "Discover Beam's SDK and developer resources for Web3. Access API docs, tutorials, and integration guides for building with Beam.";
     const ogImage = 'https://docs.onbeam.com/opengraph-image.png';
 
     return (
