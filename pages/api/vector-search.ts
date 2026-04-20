@@ -60,7 +60,7 @@ export default async function handler(req: NextRequest) {
     const [{ embedding }] = embeddingResponse.data;
 
     const { error: matchError, data: pageSections } = await supabaseClient.rpc(
-      'match_page_sections',
+      'match_docs_page_sections',
       {
         embedding,
         match_threshold: 0.78,
