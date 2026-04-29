@@ -14,9 +14,9 @@ SUBNET_ID="eYwmVU67LmSfZb1RwqCMhBYkFyG8ftxn6jAwqzFmxC9STBWLC"
 NODE_INFO_FILE="node-info.json"
 
 SUBNET_EVM_VERSION="v0.8.0"
-AVALANCHEGO_VERSION="v1.14.0"
+AVALANCHEGO_VERSION="v1.14.2"
 IMAGE_TAG="${SUBNET_EVM_VERSION}_${AVALANCHEGO_VERSION}"
-IMAGE_NAME="avaplatform/subnet-evm_avalanchego:$IMAGE_TAG"
+IMAGE_NAME="avaplatform/subnet-evm:$AVALANCHEGO_VERSION"
 
 # === Start ===
 echo "==> Preparing Beam Validator setup..."
