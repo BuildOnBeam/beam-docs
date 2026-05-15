@@ -1,42 +1,25 @@
 import { createClient } from '@supabase/supabase-js';
-import { OpenAIStream, StreamingTextResponse } from 'ai';
 import { codeBlock, oneLine } from 'common-tags';
-import GPT3Tokenizer from 'gpt3-tokenizer';
 import type { NextRequest } from 'next/server';
-import {
-  ChatCompletionRequestMessage,
-  Configuration,
-  CreateEmbeddingResponse,
-  CreateModerationResponse,
-  OpenAIApi,
-} from 'openai-edge';
+import OpenAI from 'openai';
 import { ApplicationError, UserError } from '../../lib/errors';
-
-const openAiKey = process.env.OPENAI_KEY;
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-const config = new Configuration({
-  apiKey: openAiKey,
-});
-const openai = new OpenAIApi(config);
 
 export const runtime = 'edge';
 
 export default async function handler(req: NextRequest) {
   try {
+    const openAiKey = process.env.OPENAI_KEY;
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
     if (!openAiKey) {
       throw new ApplicationError('Missing environment variable OPENAI_KEY');
     }
-
     if (!supabaseUrl) {
       throw new ApplicationError('Missing environment variable SUPABASE_URL');
     }
-
     if (!supabaseServiceKey) {
-      throw new ApplicationError(
-        'Missing environment variable SUPABASE_SERVICE_ROLE_KEY',
-      );
+      throw new ApplicationError('Missing environment variable SUPABASE_SERVICE_ROLE_KEY');
     }
 
     const requestData = await req.json();
@@ -51,42 +34,33 @@ export default async function handler(req: NextRequest) {
       throw new UserError('Missing query in request data');
     }
 
+    const openai = new OpenAI({ apiKey: openAiKey });
     const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
 
-    // Moderate the content to comply with OpenAI T&C
     const sanitizedQuery = query.trim();
-    const moderationResponse: CreateModerationResponse = await openai
-      .createModeration({ input: sanitizedQuery })
-      .then((res) => res.json());
 
-    const [results] = moderationResponse.results;
+    // Moderate the content to comply with OpenAI T&C
+    const moderation = await openai.moderations.create({ input: sanitizedQuery });
+    const [moderationResult] = moderation.results;
 
-    if (results.flagged) {
+    if (moderationResult.flagged) {
       throw new UserError('Flagged content', {
         flagged: true,
-        categories: results.categories,
+        categories: moderationResult.categories,
       });
     }
 
-    // Create embedding from query
-    const embeddingResponse = await openai.createEmbedding({
-      model: 'text-embedding-ada-002',
+    // Create embedding from query.
+    // Must use the same model as generate-embeddings.ts (text-embedding-3-small).
+    const embeddingResponse = await openai.embeddings.create({
+      model: 'text-embedding-3-small',
       input: sanitizedQuery.replaceAll('\n', ' '),
     });
 
-    if (embeddingResponse.status !== 200) {
-      throw new ApplicationError(
-        'Failed to create embedding for question',
-        embeddingResponse,
-      );
-    }
-
-    const {
-      data: [{ embedding }],
-    }: CreateEmbeddingResponse = await embeddingResponse.json();
+    const [{ embedding }] = embeddingResponse.data;
 
     const { error: matchError, data: pageSections } = await supabaseClient.rpc(
-      'match_page_sections',
+      'match_docs_page_sections',
       {
         embedding,
         match_threshold: 0.78,
@@ -99,21 +73,12 @@ export default async function handler(req: NextRequest) {
       throw new ApplicationError('Failed to match page sections', matchError);
     }
 
-    const tokenizer = new GPT3Tokenizer({ type: 'gpt3' });
-    let tokenCount = 0;
+    // Build context string, capped at ~6 000 chars (≈1 500 tokens).
+    // Avoids a tokenizer package that would exceed the edge function bundle limit.
     let contextText = '';
-
-    for (let i = 0; i < pageSections.length; i++) {
-      const pageSection = pageSections[i];
-      const content = pageSection.content;
-      const encoded = tokenizer.encode(content);
-      tokenCount += encoded.text.length;
-
-      if (tokenCount >= 1500) {
-        break;
-      }
-
-      contextText += `${content.trim()}\n---\n`;
+    for (const section of pageSections) {
+      if (contextText.length + section.content.length > 6000) break;
+      contextText += `${section.content.trim()}\n---\n`;
     }
 
     const prompt = codeBlock`
@@ -136,59 +101,44 @@ export default async function handler(req: NextRequest) {
       Answer as markdown (including related code snippets if available):
     `;
 
-    const chatMessage: ChatCompletionRequestMessage = {
-      role: 'user',
-      content: prompt,
-    };
-
-    const response = await openai.createChatCompletion({
+    const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
-      messages: [chatMessage],
+      messages: [{ role: 'user', content: prompt }],
       max_tokens: 512,
       temperature: 0,
       stream: true,
     });
 
-    if (!response.ok) {
-      const error = await response.json();
-      throw new ApplicationError('Failed to generate completion', error);
-    }
+    // Stream plain text back. Compatible with useCompletion from the ai package.
+    const encoder = new TextEncoder();
+    const stream = new ReadableStream({
+      async start(controller) {
+        for await (const chunk of completion) {
+          const text = chunk.choices[0]?.delta?.content ?? '';
+          if (text) controller.enqueue(encoder.encode(text));
+        }
+        controller.close();
+      },
+    });
 
-    // Transform the response into a readable stream
-    const stream = OpenAIStream(response);
-
-    // Return a StreamingTextResponse, which can be consumed by the client
-    return new StreamingTextResponse(stream);
+    return new Response(stream, {
+      headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+    });
   } catch (err: unknown) {
     if (err instanceof UserError) {
       return new Response(
-        JSON.stringify({
-          error: err.message,
-          data: err.data,
-        }),
-        {
-          status: 400,
-          headers: { 'Content-Type': 'application/json' },
-        },
+        JSON.stringify({ error: err.message, data: err.data }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } },
       );
     }
     if (err instanceof ApplicationError) {
-      // Print out application errors with their additional data
       console.error(`${err.message}: ${JSON.stringify(err.data)}`);
     } else {
-      // Print out unexpected errors as is to help with debugging
       console.error(err);
     }
-
-    // TODO: include more response info in debug environments
     return new Response(
-      JSON.stringify({
-        error: 'There was an error processing your request',
-      }),
-      {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' },
-      },
+      JSON.stringify({ error: 'There was an error processing your request' }),
+      { status: 500, headers: { 'Content-Type': 'application/json' } },
     );
   }
 }
